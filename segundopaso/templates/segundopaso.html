@@ -1,0 +1,75 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mis talentos seccion 1</title>
+    <link rel="stylesheet" href="{% static 'css/segundo_paso.css' %}">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <img src="{% static 'images/LOGOS.png' %}" alt="Logo" class="logo">
+        <nav>
+            <ul>
+                <li><a href="/homeuser">Inicio</a></li>
+                <li><a href="#">Conoce los temas</a></li>
+                <li><a href="#">Acerca del programa</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Imagen con el titulo -->
+    <section class="info-section">
+        <div class="container">
+            <div class="main-content">
+                <img src="{% static 'images/Talentos.png'%}" alt="Imagen con fines ilustrativos">
+                <h2>Mis talentos</h2>
+                <p>Texto ilustrativo con fines gráficos para el estilo y/o diseño de la página.</p>
+            </div>
+
+            <div class="sidebar">
+                <h2>Inventario de perfiles profesionales</h2>
+
+                <a href="/frase-segundo-paso" class="progress-item-link">
+                    <div class="progress-item">
+                        <img src="{% static 'images/IMAGEN.png'%}" alt="Imagen ilustrativa" class="progress-img">
+                        <div class="progress-info">
+                            <p>Frase motivacional</p>
+                            <div class="progress-bar">
+                                <div class="progress" style="width: 85%;"></div>
+                            </div>
+                            <span>85% completado</span>
+                            <div class="bookmark"></div>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="/presentacion-segundo-paso" class="progress-item-link">
+                    <div class="progress-item">
+                        <img src="{% static 'images/IMAGEN.png'%}" alt="Imagen ilustrativa" class="progress-img">
+                        <div class="progress-info">
+                            <p>Presentación</p>
+                            <div class="progress-bar">
+                                <div class="progress" style="width: 45%;"></div>
+                            </div>
+                            <span>45% completado</span>
+                        </div>
+                    </div>
+                </a>
+                
+            </div>
+        </div>
+    </section>
+
+    <div class="navigation-buttons">
+        <a href="/mis-intereses-s2">
+            <img src="{% static 'images/Regresar.png'%}" alt="Boton-regresar" class="back-button">
+        </a>
+        <a href="/mis-talentos-s2">
+            <img src="{% static 'images/Continuar.png'%}" alt="Boton-continuar" class="continue-button">
+        </a>
+    </div>
+</body>
+</html>

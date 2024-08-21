@@ -1,0 +1,43 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infografía</title>
+    <link rel="stylesheet" href="{% static 'css/infografia_paso5.css' %}">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <img src="{% static 'images/LOGOS.png' %}" alt="Logo" class="logo">
+        <nav>
+            <ul>
+                <li><a href="/homeuser">Inicio</a></li>
+                <li><a href="/Home/index.html">Conoce los temas</a></li>
+                <li><a href="/Home/index.html">Acerca del programa</a></li>
+            </ul>
+        </nav>
+        <a href="/mis-apoyos-s3">
+            <img src="{% static 'images/Salir.png'%}" alt="Boton-salir" class="cancel-btn">
+        </a>
+    </header>
+
+    <!-- Contenedor de la infografía -->
+    <div class="content">
+        <div class="infografia-container">
+            <h2 class="infografia-title">Infografía</h2>
+            <img src="ruta/a/tu/infografia.png" alt="Infografía ilustrativa" class="infografia-img">
+        </div>
+    </div>
+
+    <div class="navigation-buttons">
+        <a href="/mis-apoyos-s3">
+            <img src="{% static 'images/Regresar.png'%}" alt="Boton-regresar" class="back-button">
+        </a>
+        <a href="/sextopaso">
+            <img src="{% static 'images/Continuar.png'%}" alt="Boton-continuar" class="continue-button">
+        </a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,39 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instrucciones del Test de Intereses Profesionales</title>
+    <link rel="stylesheet" href="{% static 'css/instrucciones_paso1.css'%}">
+</head>
+<body>
+    <header>
+        <img src="{% static 'images/LOGOS.png' %}" alt="Logo" class="logo">
+        <nav>
+            <ul>
+                <li><a href="/homeuser">Inicio</a></li>
+                <li><a href="/Home/index.html">Conoce los temas</a></li>
+                <li><a href="/Home/index.html">Acerca del programa</a></li>
+            </ul>
+        </nav>
+        <a href="/mis-intereses-s2">
+            <img src="{% static 'images/Salir.png'%}" alt="Boton-salir" class="cancel-btn">
+        </a>
+    </header>
+    
+    <div class="content">
+        <div class="instructions-container">
+            <h2>Instrucciones del Test de Intereses Profesionales</h2>
+            <p>Bienvenido al Test de Intereses Profesionales. A continuación se te presentarán una serie de preguntas que nos ayudarán a identificar tus áreas de interés profesional. Por favor, responde con sinceridad y sin prisas. El objetivo es que podamos sugerirte las áreas profesionales que más se alineen con tus intereses.</p>
+            <ol>
+                <li>Lee cada pregunta cuidadosamente.</li>
+                <li>Selecciona la respuesta que mejor describa tu experiencia o sentimiento.</li>
+                <li>No hay respuestas correctas o incorrectas, solo tus intereses personales.</li>
+                <li>Una vez completado el test, haz clic en "Ver Resultados" para ver tu área profesional recomendada.</li>
+            </ol>
+            <button onclick="window.location.href='/test-primer-paso'" class="continue-button">Comenzar el Test</button>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,121 @@
+/* resultados.css */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #4996C6;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    overflow: hidden; /* Oculta las barras de desplazamiento */
+}
+
+/* Estilos del header */
+header {
+    background-color: #242B57;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    padding: 20px 25px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+header .logo {
+    width: 350px;
+    margin-left: 30px;
+}
+
+header nav {
+    margin-left: auto;
+}
+
+header nav ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+header nav ul li {
+    margin-right: 50px;
+}
+
+header nav ul li:hover {
+    transition: transform 0.3s;
+    transform: scale(1.05);
+    color: azure;
+}
+
+header nav ul li a {
+    text-decoration: none;
+    color: #ffffff;
+}
+
+.cancel-btn {
+    cursor: pointer;
+    width: 150px;
+    margin-right: 70px;
+}
+
+.cancel-btn:hover {
+    transform: scale(1.05);
+    transition: transform 0.3s;
+}
+
+.content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.instructions-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #ffffff;
+    padding: 40px;
+    padding-top: 30px;
+    border-radius: 12px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    width: 80%;
+    max-width: 800px;
+    margin-top: 50px;
+    margin-bottom: 30px;
+}
+
+.instructions-container h2 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.instructions-container p, ol {
+    font-size: 16px;
+    text-align: left;
+    width: 100%;
+}
+
+.instructions-container button {
+    padding: 10px 20px;
+    background-color: #023f81; /* Color de fondo del botón */
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 22px;
+    margin-top: 20px;
+    font-size: 16px;
+    box-shadow: 0px 2px 6px rgba(3,3,3,0.1);
+    font-family: "Roboto";
+    font-weight: 700;
+}
+
+.instructions-container button:hover {
+    background-color: #30445a; /* Color de fondo del botón al pasar el ratón por encima */
+    transform: scale(1.05);
+    transition: transform 0.3s;
+}

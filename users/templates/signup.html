@@ -1,0 +1,101 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Registro</title>
+    <link rel="stylesheet" href="{% static 'css/signup.css' %}">
+</head>
+<body>
+    <header>
+        <img src="{% static 'images/LOGOS.png' %}" alt="Logo" class="logo">
+        <nav>
+            <ul>
+                <li><a href="#home">Carrera universitaria</a></li>
+                <li><a href="#services">Conoce los temas</a></li>
+                <li><a href="#contact">Acerca del programa</a></li>
+            </ul>
+        </nav>
+        <a href="/signin">
+            <button class="cancel-btn">Cancelar</button>
+        </a>
+    </header>
+
+    <main>
+        <div class="container-content">
+            <h1>Formulario de Registro</h1>
+            <form action="{% url 'signup' %}" method="POST">
+                {% csrf_token %}
+                <label for="apellidoPaterno">Apellido Paterno:</label>
+                <input type="text" id="apellidoPaterno" name="apellidoPaterno" required>
+
+                <label for="apellidoMaterno">Apellido Materno:</label>
+                <input type="text" id="apellidoMaterno" name="apellidoMaterno" required>
+
+                <label for="nombres">Nombre(s):</label>
+                <input type="text" id="nombres" name="nombres" required>
+
+                <label for="fechaNacimiento">Fecha de Nacimiento:</label>
+                <input type="date" id="fechaNacimiento" name="fechaNacimiento" required>
+
+                <label for="lugarNacimiento">Lugar de Nacimiento:</label>
+                <select id="lugarNacimiento" name="lugarNacimiento" required>
+                    <option value="">Seleccione un lugar</option>
+                    <option value="lugar1">Lugar 1</option>
+                    <option value="lugar2">Lugar 2</option>
+                    <option value="lugar3">Lugar 3</option>
+                </select>
+
+                <label for="curp">CURP:</label>
+                <input type="text" id="curp" name="curp" required>
+
+                <label for="municipio">Municipio donde vives:</label>
+                <select id="municipio" name="municipio" required>
+                    <option value="">Seleccione un municipio</option>
+                    <option value="municipio1">Municipio 1</option>
+                    <option value="municipio2">Municipio 2</option>
+                    <option value="municipio3">Municipio 3</option>
+                </select>
+
+                <label for="localidad">Localidad:</label>
+                <select id="localidad" name="localidad" required>
+                    <option value="">Seleccione una localidad</option>
+                    <option value="localidad1">Localidad 1</option>
+                    <option value="localidad2">Localidad 2</option>
+                    <option value="localidad3">Localidad 3</option>
+                </select>
+
+                <label for="telefono">Teléfono de Contacto:</label>
+                <input type="tel" id="telefono" name="telefono" required>
+
+                <label for="bachillerato">Bachillerato:</label>
+                <select id="bachillerato" name="bachillerato" required>
+                    <option value="">Seleccione un bachillerato</option>
+                    <option value="bachillerato1">Bachillerato 1</option>
+                    <option value="bachillerato2">Bachillerato 2</option>
+                    <option value="bachillerato3">Bachillerato 3</option>
+                </select>
+
+                <label for="matricula">Matrícula:</label>
+                <input type="text" id="matricula" name="matricula" required>
+
+                <label for="email">Correo Electrónico:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="password1">Contraseña:</label>
+                <input type="password" id="password1" name="password1" required>
+
+                <label for="password2">Confirmar Contraseña:</label>
+                <input type="password" id="password2" name="password2" required>
+                
+                {% if error %}
+                    <p style="color: red;">{{ error }}</p>
+                {% endif %}
+                
+                <button type="submit">Registrarse</button>
+            </form>
+        </div>
+    </main>
+</body>
+</html>

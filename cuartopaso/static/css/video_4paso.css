@@ -1,0 +1,148 @@
+html, body {
+    width: 100%;
+    overflow-x: hidden; /* Hides horizontal overflow */
+}
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #4996C6;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Estilos del header */
+header {
+    background-color: #242B57;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    padding: 20px 25px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+header .logo {
+    width: 350px;
+    margin-left: 30px;
+}
+
+header nav {
+    margin-left: auto;
+}
+
+header nav ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+header nav ul li {
+    margin-right: 50px;
+}
+
+header nav ul li:hover {
+    transition: transform 0.3s;
+    transform: scale(1.05);
+    color: azure;
+}
+
+header nav ul li a {
+    text-decoration: none;
+    color: #ffffff;
+}
+
+.cancel-btn {
+    cursor: pointer;
+    width: 150px;
+    margin-right: 70px;
+}
+
+.cancel-btn:hover {
+    transform: scale(1.05);
+    transition: transform 0.3s;
+}
+
+.content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.video-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #ffffff;
+    padding: 80px;
+    padding-top: 30px;
+    border-radius: 12px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    margin-top: 50px;
+    margin-bottom: 30px;
+}
+
+.video-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.nav-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    outline: none;
+}
+
+.nav-button img {
+    width: 50px;
+    height: 50px;
+}
+
+video {
+    width: 900px;
+    height: auto;
+    margin: 0 20px;
+    border-radius: 12px;
+}
+
+.controls-container button:hover {
+    background-color: #021f40;
+}
+
+/* Botones de navegación */
+.navigation-buttons {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+.back-button, .continue-button {
+    cursor: pointer;
+    width: 180px;
+    padding: 10px 20px;
+}
+
+.back-button {
+    margin-right: 20px; /* Añadir espacio entre los botones */
+}
+
+.back-button:hover {
+    transition: transform 0.3s;
+    transform: scale(1.05);
+}
+
+.continue-button {
+    color: #ffffff;
+}
+
+.continue-button:hover {
+    transition: transform 0.3s;
+    transform: scale(1.05);
+}

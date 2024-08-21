@@ -1,0 +1,45 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frase Motivacional</title>
+    <link rel="stylesheet" href="{% static 'css/frase_paso2.css' %}">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <img src="{% static 'images/LOGOS.png' %}" alt="Logo" class="logo">
+        <nav>
+            <ul>
+                <li><a href="/homeuser">Inicio</a></li>
+                <li><a href="/Home/index.html">Conoce los temas</a></li>
+                <li><a href="/Home/index.html">Acerca del programa</a></li>
+            </ul>
+        </nav>
+        <a href="/segundopaso">
+            <img src="{% static 'images/Salir.png'%}" alt="Boton-salir" class="cancel-btn">
+        </a>
+    </header>
+    <!-- Contenido principal -->
+    <div class="content">
+        <div class="motivational-container">
+            <h2 class="motivational-title">Frase Motivacional</h2>
+            <div class="image-container">
+                <img src="{% static 'images/Motivacion.png'%}" alt="Imagen Motivacional">
+                <p class="quote">"El único modo de hacer un gran trabajo es amar lo que haces." - Steve Jobs</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="navigation-buttons">
+        <a href="/segundopaso">
+            <img src="{% static 'images/Regresar.png'%}" alt="Boton-regresar" class="back-button">
+        </a>
+        <a href="/presentacion-segundo-paso">
+            <img src="{% static 'images/Continuar.png'%}" alt="Boton-continuar" class="continue-button">
+        </a>
+    </div>
+</body>
+</html>

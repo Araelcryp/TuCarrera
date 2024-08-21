@@ -1,0 +1,49 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tablero interactivo</title>
+    <link rel="stylesheet" href="{% static 'css/tablero_4paso.css' %}">
+</head>
+<body>
+    <header>
+        <img src="{% static 'images/LOGOS.png' %}" alt="Logo" class="logo">
+        <nav>
+            <ul>
+                <li><a href="/homeuser">Inicio</a></li>
+                <li><a href="/Home/index.html">Conoce los temas</a></li>
+                <li><a href="/Home/index.html">Acerca del programa</a></li>
+            </ul>
+        </nav>
+        <a href="/cuartopaso">
+            <img src="{% static 'images/Salir.png'%}" alt="Boton-salir" class="cancel-btn">
+        </a>
+    </header>
+
+    <div class="content">
+        <div class="board">
+            <!-- Ejemplo de celdas interactivas -->
+            <div class="cell">A</div>
+            <div class="cell">B</div>
+            <div class="cell">C</div>
+            <div class="cell">D</div>
+            <div class="cell">E</div>
+            <div class="cell">F</div>
+            <div class="cell">G</div>
+            <div class="cell">H</div>
+            <div class="cell">I</div>
+        </div>
+    </div>
+
+    <div class="navigation-buttons">
+        <a href="/cuartopaso">
+            <img src="{% static 'images/Regresar.png'%}" alt="Boton-regresar" class="btn back-button">
+        </a>
+        <a href="/mi-universidad-s2">
+            <img src="{% static 'images/Continuar.png'%}" alt="Boton-continuar" class="btn continue-button">
+        </a>
+    </div>
+</body>
+</html>

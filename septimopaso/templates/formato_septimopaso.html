@@ -1,0 +1,42 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Descargar Formato</title>
+    <link rel="stylesheet" href="{% static 'css/formato_7paso.css' %}">
+</head>
+<body>
+    <header>
+        <img src="{% static 'images/LOGOS.png' %}" alt="Logo" class="logo">
+        <nav>
+            <ul>
+                <li><a href="/homeuser">Inicio</a></li>
+                <li><a href="/Home/index.html">Conoce los temas</a></li>
+                <li><a href="/Home/index.html">Acerca del programa</a></li>
+            </ul>
+        </nav>
+        <a href="/mi-plan-s2">
+            <img src="{% static 'images/Salir.png' %}" alt="Boton-salir" class="cancel-btn">
+        </a>
+    </header>
+
+    <div class="content">
+        <div class="download-container">
+            <h2 class="download-title">Descarga el Formato</h2>
+            <p>Haz clic en el botón de abajo para descargar el formato:</p>
+            <a href="{% static 'images/.pdf' %}" class="btn download-button" download>Descargar Formato</a>
+        </div>
+    </div>
+
+    <div class="navigation-buttons">
+        <a href="/imagen2-septimo-paso">
+            <img src="{% static 'images/Regresar.png' %}" alt="Boton-regresar" class="back-button">
+        </a>
+        <a href="/final">
+            <img src="{% static 'images/Continuar.png' %}" alt="Boton-continuar" class="continue-button">
+        </a>
+    </div>
+</body>
+</html>

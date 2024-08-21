@@ -1,0 +1,43 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Presentación</title>
+    <link rel="stylesheet" href="{% static 'css/presentacion_paso1.css'%}">
+</head>
+<body>
+    <header>
+        <img src="{% static 'images/LOGOS.png' %}" alt="Logo" class="logo">
+        <nav>
+            <ul>
+                <li><a href="#home">Inicio</a></li>
+                <li><a href="#services">Conoce los temas</a></li>
+                <li><a href="#contact">Acerca del programa</a></li>
+            </ul>
+        </nav>
+        <a href="/primerpaso">
+            <img src="{% static 'images/Salir.png'%}" alt="Boton-salir" class="cancel-btn">
+        </a>
+    </header>
+
+    <div class="content">
+        <div class="presentation-container">
+            <h2 class="presentation-title">Título de la Presentación</h2>
+            <iframe src="" width="900" height="600"></iframe>
+        </div>
+        <div class="controls-container">
+        </div>
+    </div>
+
+    <div class="navigation-buttons">
+        <a href="/imagen-primer-paso">
+            <img src="{% static 'images/Regresar.png'%}" alt="Boton-regresar" class="btn back-button">
+        </a>
+        <a href="/video-primer-paso">
+            <img src="{% static 'images/Continuar.png'%}" alt="Boton-continuar" class="btn continue-button">
+        </a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,155 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9;
+    color: #333;
+    line-height: 1.6;
+}
+
+header {
+    background-color: #242B57;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    padding: 40px 25px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+header .logo {
+    width: 350px;
+}
+
+header nav {
+    margin-left: auto;
+}
+
+header nav ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+header nav ul li {
+    margin-right: 20px;
+}
+
+header nav ul li:hover {
+    transition: transform 0.3s;
+    transform: scale(1.05);
+    color: azure;
+}
+
+header nav ul li a {
+    text-decoration: none;
+    color: #ffffff;
+}
+
+header .login-btn {
+    width: 200px;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.login-btn:hover {
+    transform: scale(1.05);
+    transition: transform 0.3s;
+}
+
+.division {
+    background-color: deeppink;
+    height: 30px;
+    background-size: cover;
+}
+
+.info-section {
+    position: relative;
+    text-align: center;
+    color: white;
+    background-color: #4996C6;
+}
+
+.info-image {
+    width: 50%;
+    height: auto;
+    justify-content: center;
+}
+
+.carrera-title {
+    background-color: #242B57;
+    padding: 10px 0;
+}
+
+.carrera-title h1 {
+    color: white;
+    text-align: center;
+}
+
+.carrera-imagen {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: 0;
+    padding: 0;
+}
+
+main {
+    padding: 0;
+    margin: 0;
+}
+
+.topics {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+    background-color: #4996C6;
+    text-align: center;
+}
+
+.topic-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.topic {
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    padding: 20px;
+    text-align: center;
+    color: #333;
+    max-width: 200px;
+}
+
+.topic img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+
+.topic img:hover {
+    transform: scale(1.05);
+    transition: transform 0.3s;
+}
+
+footer {
+    background-color: #333c45;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    width: 100%;
+    bottom: 0;
+    margin-top: 50px;
+}
+
+footer p {
+    margin: 0;
+}

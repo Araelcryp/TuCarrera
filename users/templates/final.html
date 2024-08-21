@@ -1,0 +1,40 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finalización del Test</title>
+    <link rel="stylesheet" href="{% static 'css/imagen2_7paso.css' %}">
+</head>
+<body>
+    <header>
+        <img src="{% static 'images/LOGOS.png' %}" alt="Logo" class="logo">
+        <nav>
+            <ul>
+                <li><a href="/homeuser">Inicio</a></li>
+                <li><a href="/Home/index.html">Conoce los temas</a></li>
+                <li><a href="/Home/index.html">Acerca del programa</a></li>
+            </ul>
+        </nav>
+        <a href="/homeuser">
+            <img src="{% static 'images/Salir.png' %}" alt="Boton-salir" class="cancel-btn">
+        </a>
+    </header>
+
+    <div class="content">
+        <div class="completion-container">
+            <img src="{% static 'images/.png' %}" alt="Graduation Hat" class="graduation-hat">
+            <h2>¡Felicitaciones por completar el test!</h2>
+            <p>Esté atento a emocionantes oportunidades y perspectivas. Contáctenos para cualquier consulta o preocupación de privacidad.</p>
+            <button id="exploreButton" class="btn explore-button">Terminar</button>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById("exploreButton").addEventListener("click", function() {
+            window.location.href = "/homeuser";
+        });
+    </script>
+</body>
+</html>

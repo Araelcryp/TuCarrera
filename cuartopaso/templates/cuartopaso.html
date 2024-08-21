@@ -1,0 +1,62 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi universidad seccion 1</title>
+    <link rel="stylesheet" href="{% static 'css/cuartopaso.css' %}">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <img src="{% static 'images/LOGOS.png' %}" alt="Logo" class="logo">
+        <nav>
+            <ul>
+                <li><a href="/homeuser">Inicio</a></li>
+                <li><a href="/Home/index.html">Conoce los temas</a></li>
+                <li><a href="/Home/index.html">Acerca del programa</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Imagen con el titulo -->
+    <section class="info-section">
+        <div class="container">
+            <div class="main-content">
+                <img src="{% static 'images/Universidad.png'%}" alt="Imagen con fines ilustrativos">
+                <h2>Mi universidad</h2>
+                <p>Texto ilustrativo con fines gráficos para el estilo y/o diseño de la página.</p>
+            </div>
+
+            <div class="sidebar">
+                <h2>Directorio de universidades</h2>
+
+                <a href="/tablero-cuarto-paso" class="progress-item-link">
+                    <div class="progress-item">
+                        <img src="{% static 'images/IMAGEN.png'%}" alt="Imagen ilustrativa" class="progress-img">
+                        <div class="progress-info">
+                            <p>Tablero</p>
+                            <div class="progress-bar">
+                                <div class="progress" style="width: 85%;"></div>
+                            </div>
+                            <span>85% completado</span>
+                            <div class="bookmark"></div>
+                        </div>
+                    </div>
+                </a>
+
+            </div>
+        </div>
+    </section>
+
+    <div class="navigation-buttons">
+        <a href="/mi-entorno-s3">
+            <img src="{% static 'images/Regresar.png'%}" alt="Boton-regresar" class="btn back-button">
+        </a>
+        <a href="/mi-universidad-s2">
+            <img src="{% static 'images/Continuar.png'%}" alt="Boton-continuar" class="btn continue-button">
+        </a>
+    </div>
+</body>
+</html>

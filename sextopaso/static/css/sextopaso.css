@@ -1,0 +1,237 @@
+/* CSS general */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #4996C6; /* Fondo gris */
+    color: #333;
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    overflow-x: hidden; /* Oculta cualquier desbordamiento horizontal */
+}
+
+/* Estilos del header */
+header {
+    background-color: #242B57;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    padding: 20px 25px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%; /* Asegúrate de que el header no exceda el ancho de la página */
+}
+
+header .logo {
+    width: 350px;
+    margin-left: 30px;
+}
+
+header nav {
+    margin-left: auto;
+}
+
+header nav ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+header nav ul li {
+    margin-right: 50px;
+}
+
+header nav ul li:hover {
+    transition: transform 0.3s;
+    transform: scale(1.05);
+    color: azure;
+}
+
+header nav ul li a {
+    text-decoration: none;
+    color: #ffffff;
+}
+
+/* División decorativa */
+.division {
+    background-color: #3164f4;
+    height: 10px;
+}
+
+.division-logo {
+    position: relative;
+    text-align: center;
+    color: white;
+    background-color: #ffffff;
+}
+
+.division-logo img {
+    width: 20%;
+    height: auto;
+    justify-content: center;
+}
+
+/* Sección de información */
+.info-section {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    background-color: transparent; /* Fondo transparente para que se vea el gris */
+    flex: 1;
+    width: 100%; /* Asegúrate de que la sección no exceda el ancho de la página */
+    box-sizing: border-box; /* Incluye padding y border en el ancho total */
+}
+
+.container {
+    display: flex;
+    width: 100%; /* Ajusta el contenedor para que no exceda el ancho de la página */
+    max-width: 1200px; /* O cualquier valor que funcione para tu diseño */
+    gap: 30px; /* Añadir espacio entre las columnas */
+    border-radius: 12px; /* Bordes redondeados */
+    overflow: hidden; /* Evita que los elementos hijos sobresalgan del contenedor */
+    background-color: #ffffff; /* Contenedor blanco */
+    padding: 40px; /* Aumentar el padding para mayor espacio alrededor de las columnas */
+    box-shadow: 0px 2px 8px rgba(0,0,0,0.1);
+    box-sizing: border-box; /* Incluye padding y border en el ancho total */
+}
+
+.sidebar {
+    width: 40%;
+    padding: 20px;
+    background-color: #ffffff;
+    box-shadow: 0px 2px 8px rgba(0,0,0,0.1);
+    border-top-right-radius: 12px;
+    border-bottom-right-radius: 12px;
+    box-sizing: border-box; /* Incluye padding y border en el ancho total */
+}
+
+.main-content {
+    width: 60%;
+    padding: 20px;
+    background-color: #ffffff;
+    border-top-left-radius: 12px;
+    border-bottom-left-radius: 12px;
+    box-shadow: 0px 2px 8px rgba(0,0,0,0.1);
+    box-sizing: border-box; /* Incluye padding y border en el ancho total */
+}
+
+.sidebar h2 {
+    text-align: left;
+    color: rgb(0, 0, 0);
+    margin-bottom: 10px;
+}
+
+.progress-item-link {
+    text-decoration: none;
+    color: inherit;
+}
+
+.progress-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    background-color: #ffffff;
+    padding: 10px;
+    border-radius: 12px;
+    box-shadow: 0px 2px 8px rgba(0,0,0,0.16);
+    box-sizing: border-box; /* Incluye padding y border en el ancho total */
+    cursor: pointer;
+}
+
+.progress-item:hover {
+    transition: transform 0.3s;
+    background-color: #f9f9f9;
+    transform: scale(1.05);
+}
+
+.progress-img {
+    width: 100px;
+    height: 90px;
+    border-radius: 5px;
+    margin-right: 20px;
+}
+
+.progress-info {
+    flex: 1;
+    color: rgb(0, 0, 0);
+}
+
+.progress-bar {
+    background-color: rgba(118, 118, 118, 0.545);
+    border-radius: 5px;
+    overflow: hidden;
+    margin: 5px 0;
+}
+
+.progress {
+    background-color: #6f6f6f;
+    height: 10px;
+    border-radius: 5px;
+}
+
+.main-content {
+    width: 60%;
+    padding: 20px;
+    background-color: #ffffff;
+    border-right: 1px solid #e0e0e0; /* Línea divisoria entre columnas */
+    border-top-left-radius: 12px;
+    border-bottom-left-radius: 12px;
+}
+
+.main-content img {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    margin-bottom: 10px;
+}
+
+/* Botones de navegación */
+.navigation-buttons {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    width: 100%;
+    box-sizing: border-box; /* Incluye padding y border en el ancho total */
+    position: relative; /* Cambiado a relative para mantener los botones dentro del flujo del documento */
+    bottom: 0;
+}
+
+.back-button, .continue-button {
+    cursor: pointer;
+    width: 180px;
+    padding: 10px 20px;
+}
+
+.back-button {
+    margin-right: 20px; /* Añadir espacio entre los botones */
+}
+
+.back-button:hover {
+    transition: transform 0.3s;
+    transform: scale(1.05);
+}
+
+.continue-button {
+    color: #ffffff;
+}
+
+.continue-button:hover {
+    transition: transform 0.3s;
+    transform: scale(1.05);
+}
+
+/* Asegura que el footer se mantenga en la parte inferior */
+html, body {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+.info-section {
+    flex: 1;
+}

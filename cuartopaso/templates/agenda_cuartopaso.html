@@ -1,0 +1,44 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendario de Eventos</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/5.10.1/main.min.css" integrity="sha512-BkTLZ0weMgxQwixBZVcXgPHAGbZcCIPfx5L8lJwZRntcyV6YX08V9kVRt6D0fGvL2GcAlw5Aogw+2uR/nX1osg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="{% static 'css/agenda_4paso.css' %}">
+</head>
+<body>
+    <header>
+        <img src="{% static 'images/LOGOS.png' %}" alt="Logo" class="logo">
+        <nav>
+            <ul>
+                <li><a href="/homeuser">Inicio</a></li>
+                <li><a href="/Home/index.html">Conoce los temas</a></li>
+                <li><a href="/Home/index.html">Acerca del programa</a></li>
+            </ul>
+        </nav>
+        <a href="/mi-universidad-s3">
+            <img src="{% static 'images/Salir.png'%}" alt="Boton-salir" class="cancel-btn">
+        </a>
+    </header>
+
+    <div class="content">
+        <div id="calendar"></div>
+    </div>
+
+    <div class="navigation-buttons">
+        <a href="/mi-universidad-s3">
+            <img src="{% static 'images/Regresar.png'%}" alt="Boton-regresar" class="btn back-button">
+        </a>
+        <a href="#">
+            <img src="{% static 'images/Continuar.png'%}" alt="Boton-continuar" class="btn continue-button">
+        </a>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/5.10.1/main.min.js" integrity="sha512-JA5EsTXbiu8egrMZ5ChFgUMKFPKD4A8Pfyx27GltB+oh/RbLsHa1g9CuBzGoXOkFZCIQ1+ryCEIo5ShDkZWURw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="{% static 'js/agenda_4paso.js'%}"></script>
+</body>
+</html>
+
+    <!-- PARA EL CALENDARIO PODEMOS USAR https://fullcalendar.io/ AUN NO LO AGREGO PERO YA ESTA EL ESPACIO Y AGREGARLO CON LA DOC DE FULLCALENDAR-->

@@ -1,0 +1,43 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infografía</title>
+    <link rel="stylesheet" href="{% static 'css/infografia_3paso.css' %}">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <img src="{% static 'images/LOGOS.png' %}" alt="Logo" class="logo">
+        <nav>
+            <ul>
+                <li><a href="/homeuser">Inicio</a></li>
+                <li><a href="/Home/index.html">Conoce los temas</a></li>
+                <li><a href="/Home/index.html">Acerca del programa</a></li>
+            </ul>
+        </nav>
+        <a href="/tercerpaso">
+            <img src="{% static 'images/Salir.png' %}" alt="Boton-salir" class="cancel-btn">
+        </a>
+    </header>
+
+    <!-- Contenedor de la infografía -->
+    <div class="content">
+        <div class="infografia-container">
+            <h2 class="infografia-title">Infografía</h2>
+            <div class="infografia-img" style="width: 100%;"><div style="position: relative; padding-bottom: 56.25%; padding-top: 0; height: 0;"><iframe title="Competencias del siglo XXI" frameborder="0" width="1200px" height="675px" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://view.genially.com/6601a4df2fe2ea0014457aa4" type="text/html" allowscriptaccess="always" allowfullscreen="true" scrolling="yes" allownetworking="all"></iframe> </div> </div>
+        </div>
+    </div>
+
+    <div class="navigation-buttons">
+        <a href="/tercerpaso">
+            <img src="{% static 'images/Regresar.png' %}" alt="Boton-regresar" class="back-button">
+        </a>
+        <a href="/mi-entorno-s2">
+            <img src="{% static 'images/Continuar.png' %}" alt="Boton-continuar" class="continue-button">
+        </a>
+    </div>
+</body>
+</html>
