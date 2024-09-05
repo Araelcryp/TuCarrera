@@ -31,3 +31,11 @@ def mi_entorno_s3(request):
 @login_required
 def video_consejo_tercerpaso(request):
     return render (request,'video_consejo_tercerpaso.html')
+
+@login_required
+def mi_entorno_s4(request):
+    return render (request,'mi_entorno_s4.html')
+
+@login_required
+def presentacion_tercerpaso(request):
+    return render(request,'presentacion_tercerpaso.html')

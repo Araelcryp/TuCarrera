@@ -85,6 +85,7 @@ header nav ul li a {
     max-width: 800px;
     margin-top: 50px;
     margin-bottom: 30px;
+    text-align: justify;
 }
 
 .result-container h2 {

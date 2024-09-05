@@ -1,0 +1,61 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/presentacion_interactiva1.css'%}">
+</head>
+<body>
+    <div class="main-container" id="mainContainer">
+        <svg width="900px" height="700px" xmlns="http://www.w3.org/2000/svg" id="backgroundImage">
+
+        <!-- Titulo-->
+            <text x="450" y="50" text-anchor="middle" font-family="Arial" font-size="32px" fill="#1E3A8A">¿Quién soy?</text>
+            <text x="450" y="90" text-anchor="middle" font-family="Arial" font-size="24px" fill="black">Elementos de la personalidad</text>
+
+            <!-- Imagen de fondo -->
+            <image href="{% static 'images/presentacion_interactiva/icons/PERSONAJES.png'%}" x="250" y="150" width="450px" height="400px"  />
+
+            <!-- Icono Pensamientos -->
+            <a  class="icon" href="#" onclick="mostrarImagen(event,'{% static 'images/presentacion_interactiva/Ventanas/Pensamientos.png' %}')">
+                <image href="{% static 'images/presentacion_interactiva/icons/PENSAMIENTOS.png'%}" x="125" y="75" width="130px" height="130px" />
+            </a>
+
+            <!-- Icono Valores -->
+            <a class="icon"href="#" onclick="mostrarImagen(event,'{% static 'images/presentacion_interactiva/Ventanas/Valores.png' %}')">
+                <image href="{% static 'images/presentacion_interactiva/icons/VALORES.png'%}" x="45" y="275" width="130px" height="130px" />
+            </a>
+
+            <!-- Icono Caracter -->
+            <a class="icon" href="#" onclick="mostrarImagen(event,'{% static 'images/presentacion_interactiva/Ventanas/Caracter.png' %}')">
+                <image href="{% static 'images/presentacion_interactiva/icons/CARACTER.png'%}" x="200" y="400" width="130px" height="130px" />
+            </a>
+
+            <!-- Icono Experiencias -->
+            <a class="icon" href="#" onclick="mostrarImagen(event,'{% static 'images/presentacion_interactiva/Ventanas/Experiencia.png' %}')">
+                <image href="{% static 'images/presentacion_interactiva/icons/EXPERIENCIAS.png'%}" x="645" y="75" width="130px" height="130px" />
+            </a>
+
+            <!-- Icono Habitos -->
+            <a class="icon" href="#" onclick="mostrarImagen(event,'{% static 'images/presentacion_interactiva/Ventanas/Habitos.png' %}')">
+                <image href="{% static 'images/presentacion_interactiva/icons/HABITOS.png'%}" x="725" y="275" width="130px" height="130px" />
+            </a>
+
+            <!-- Icono Emociones -->
+            <a class="icon" href="#" onclick="mostrarImagen(event,'{% static 'images/presentacion_interactiva/Ventanas/Emociones.png' %}')">
+                <image href="{% static 'images/presentacion_interactiva/icons/EMOCIONES.png'%}" x="580" y="400" width="130px" height="130px" />
+            </a>
+
+            <!--PLECA-->
+            <image href="{% static 'images/presentacion_interactiva/icons/PLECA.png'%}" x="0" y="550" width="900px" height="100px"/>
+        </svg>
+
+        <!-- Muestra área para la imagen seleccionada  -->
+        <img id="displayedImage" class="hidden">
+    </div>
+
+    <script src="{% static 'js/presentacion_interactiva.js' %}"></script>
+</body>
+</html>

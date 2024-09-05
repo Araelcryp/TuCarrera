@@ -1,0 +1,56 @@
+body {
+    font-family: Arial, sans-serif;
+}
+.hidden {
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.5s ease;
+}
+.visible {
+    opacity: 1;
+    pointer-events: all;
+    transition: opacity 0.5s ease;
+}
+.displayed {
+    display: block;
+    width: 100%;
+    height: auto;
+    opacity: 1;
+    transition: opacity 0.5s ease;
+}
+.fading {
+    opacity: 0;
+}
+.main-container {
+    position: relative;
+    width: 900px;
+    height: 600px;
+    margin: 0 auto;
+}
+.icon {
+    cursor: pointer;
+    position: absolute;
+}
+.icon:hover {
+    opacity: 0.8;
+    transform: scale(1.05);
+    transition: transform 0.3s;
+    transform-origin: center;
+}
+#displayedImage {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 890px;
+    height: 500px;
+    object-fit: contain;
+    z-index: 1;
+    transition: opacity 0.5s ease;
+    border: 1px solid black;
+}
+#backgroundImage {
+    transition: opacity 0.5s ease;
+}
+.background-opaque {
+    opacity: 0.3; /* Adjust the opacity as needed */
+}

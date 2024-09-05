@@ -119,6 +119,11 @@ header nav ul li a {
     border-radius: 12px;
 }
 
+.footer {
+    padding: 20px;
+    text-align: center;
+}
+
 /* Botones de navegación */
 .navigation-buttons {
     display: flex;

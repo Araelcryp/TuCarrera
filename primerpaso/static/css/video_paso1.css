@@ -92,6 +92,13 @@ header nav ul li a {
     font-weight: bold;
     margin-bottom: 20px;
 }
+.paragraph-of-instructions {
+    font-size: 15px;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 15px;
+    width: 800px;
+}
 
 .nav-button {
     background: none;

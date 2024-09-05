@@ -6,10 +6,6 @@ def segundopaso(request):
     return render (request,'segundopaso.html')
 
 @login_required
-def segundopaso2(request):
-    return render (request,'mis_talentos_s2.html')
-
-@login_required
 def frase_segundopaso(request):
     return render (request,'frase_segundopaso.html')
 

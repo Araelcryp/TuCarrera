@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Presentación</title>
+    <title>Áreas profesionales</title>
     <link rel="stylesheet" href="{% static 'css/presentacion_paso2.css' %}">
 </head>
 <body>
@@ -24,8 +24,33 @@
 
     <div class="content">
         <div class="presentation-container">
-            <h2 class="presentation-title">Título de la Presentación</h2>
-            <iframe src="" style="height: 600px;"></iframe>
+            <h2 class="presentation-title">Áreas profesionales</h2>
+            <p class="presentation-description">
+                En esta presentación descubrirás las diferentes áreas profesionales y 
+                las principales carreras que las integran.<br>
+                Pulsa los diferentes elementos de la presentación para explorar la información.
+                Utiliza las flechas laterales<br>para navegar en las diferentes páginas.
+            </p>
+                
+            <!-- Genially -->
+            <div style="width: 700px;">
+                <div style="position: relative; padding-bottom: 56.25%; padding-top: 0; height: 0;">
+                    <iframe 
+                        title="Áreas profesionales" 
+                        frameborder="0" 
+                        width="1200" 
+                        height="675" 
+                        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" 
+                        src="https://view.genially.com/667301d19df9dd0014418104" 
+                        type="text/html" 
+                        allowscriptaccess="always" 
+                        allowfullscreen="true" 
+                        scrolling="yes" 
+                        allownetworking="all">
+                    </iframe>
+                </div>
+            </div>
+            
         </div>
         <div class="controls-container">
             <!-- Additional controls for the presentation can be added here -->
@@ -36,7 +61,7 @@
         <a href="/frase-segundo-paso">
             <img src="{% static 'images/Regresar.png'%}" alt="Boton-regresar" class="back-button">
         </a>
-        <a href="/mis-talentos-s2">
+        <a href="/instrucciones-segundo-paso">
             <img src="{% static 'images/Continuar.png'%}" alt="Boton-continuar" class="continue-button">
         </a>
     </div>

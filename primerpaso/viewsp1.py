@@ -42,3 +42,7 @@ def test_primerpaso(request):
 @login_required
 def resultados_primerpaso(request):
     return render(request,'resultados_primerpaso.html')
+
+@login_required
+def presentacion_interactiva(request):
+    return render(request, 'presentacion_interactiva.html')

@@ -93,6 +93,14 @@ header nav ul li a {
     margin-bottom: 20px;
 }
 
+.infografia-description {
+    font-size: 15px;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 15px;
+    width: 800px;
+}
+
 .infografia-img {
     max-width: 100%;
     border-radius: 12px;

@@ -50,9 +50,9 @@ urlpatterns = [
     path('instrucciones-primer-paso/',viewsp1.instrucciones_primerpaso, name='instrucciones-primer-paso'),
     path('test-primer-paso/',viewsp1.test_primerpaso, name='test-primer-paso'),
     path('resultados-primer-paso/',viewsp1.resultados_primerpaso, name='resultados-primer-paso'),
+    path('interactiva/', viewsp1.presentacion_interactiva, name='presentacion-interactiva'),
 
     path('segundopaso/',viewsp2.segundopaso,name='segundopaso'),
-    path('mis-talentos-s2/',viewsp2.segundopaso2,name='mis-talentos-s2'),
     path('frase-segundo-paso/',viewsp2.frase_segundopaso,name='frase-segundo-paso'),
     path('presentacion-segundo-paso/',viewsp2.presentacion_segundopaso,name='presentacion-segundo-paso'),
     path('instrucciones-segundo-paso/',viewsp2.instrucciones_segundopaso, name='instrucciones-segundo-paso'),
@@ -66,6 +66,8 @@ urlpatterns = [
     path('video-tercer-paso/',viewsp3.video_tercerpaso, name='video-tercer-paso'),
     path('mi-entorno-s3/',viewsp3.mi_entorno_s3, name='mi-entorno-s3'),
     path('video-consejo-tercer-paso/',viewsp3.video_consejo_tercerpaso, name='video-consejo-tercer-paso'),
+    path('mi-entorno-s4/',viewsp3.mi_entorno_s4, name='mi-entorno-s4'),
+    path('presentacion-tercerpaso/', viewsp3.presentacion_tercerpaso, name='presentacion-interactiva-tercer-paso'),
 
     path('cuartopaso/',viewsp4.cuartopaso, name='cuartopaso'),
     path('mi-universidad-s2/',viewsp4.mi_universidad_s2, name='mi-universidad-s2'),

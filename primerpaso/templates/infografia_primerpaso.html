@@ -1,43 +1,77 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Infografía</title>
-    <link rel="stylesheet" href="{% static 'css/infografia_paso1.css' %}">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Inteligencias múltiples</title>
+    <link rel="stylesheet" href="{% static 'css/infografia_paso1.css' %}" />
+  </head>
+  <body>
     <!-- Header -->
     <header>
-        <img src="{% static 'images/LOGOS.png' %}" alt="Logo" class="logo">
-        <nav>
-            <ul>
-                <li><a href="#home">Inicio</a></li>
-                <li><a href="#services">Conoce los temas</a></li>
-                <li><a href="#contact">Acerca del programa</a></li>
-            </ul>
-        </nav>
-        <a href="/mis-intereses-s2">
-            <img src="{% static 'images/Salir.png'%}" alt="Boton-salir" class="cancel-btn">
-        </a>
+      <img src="{% static 'images/LOGOS.png' %}" alt="Logo" class="logo" />
+      <nav>
+        <ul>
+          <li><a href="/homeuser">Inicio</a></li>
+          <li><a href="#services">Conoce los temas</a></li>
+          <li><a href="#contact">Acerca del programa</a></li>
+        </ul>
+      </nav>
+      <a href="/mis-intereses-s2">
+        <img
+          src="{% static 'images/Salir.png'%}"
+          alt="Boton-salir"
+          class="cancel-btn"
+        />
+      </a>
     </header>
 
     <!-- Contenedor de la infografía -->
     <div class="content">
-        <div class="infografia-container">
-            <h2 class="infografia-title">Infografía</h2>
-        </div>
+      <div class="infografia-container">
+        <h2 class="infografia-title">Inteligencias múltiples</h2>
+        <p class="infografia-description"> La inteligencia se expresa de muchas maneras.<br>
+          ¿Sabes cuales son? <br>
+          Explora la siguiente imagen  y descúbrelo.<br>
+          Pulsa los elementos de la imagen para descubrir su contenido.
+        </p>
+        <div style="width: 700px;">
+          <div style="position: relative; padding-bottom: 56.25%; padding-top: 0; height: 0;">
+              <iframe 
+                  title="Int. Múltiples2" 
+                  frameborder="0" 
+                  width="1200" 
+                  height="675" 
+                  style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" 
+                  src="https://view.genially.com/6671b7a76c07a4001570e11b" 
+                  type="text/html" 
+                  allowscriptaccess="always" 
+                  allowfullscreen="true" 
+                  scrolling="yes" 
+                  allownetworking="all">
+              </iframe>
+          </div>
+      </div>
+      
+      </div>
     </div>
 
     <div class="navigation-buttons">
-        <a href="/mis-intereses-s2">
-            <img src="{% static 'images/Regresar.png'%}" alt="Boton-regresar" class="btn back-button">
-        </a>
-        <a href="/test-primer-paso">
-            <img src="{% static 'images/Continuar.png'%}" alt="Boton-continuar" class="btn continue-button">
-        </a>
+      <a href="/mis-intereses-s2">
+        <img
+          src="{% static 'images/Regresar.png'%}"
+          alt="Boton-regresar"
+          class="btn back-button"
+        />
+      </a>
+      <a href="/instrucciones-primer-paso">
+        <img
+          src="{% static 'images/Continuar.png'%}"
+          alt="Boton-continuar"
+          class="btn continue-button"
+        />
+      </a>
     </div>
-
-</body>
+  </body>
 </html>

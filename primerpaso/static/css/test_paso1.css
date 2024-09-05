@@ -103,6 +103,14 @@ header nav ul li a {
     display: none; /* Ocultar todas las preguntas por defecto */
 }
 
+.test-intructions {
+    font-size: 15px;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 15px;
+
+}
+
 .question.active {
     display: block; /* Mostrar solo la pregunta activa */
 }
