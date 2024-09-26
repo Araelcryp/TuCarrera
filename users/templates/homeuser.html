@@ -36,12 +36,48 @@
         <h1>Tu Carrera Universitaria</h1>
     </div>
 
-    <!-- Imagen interactiva -->
+    <!-- Imagen interactiva carrera -->
     <main>
-        <section>
-            <img class="carrera-imagen" src="{% static 'images/MAPA.png'%}" alt="Imagen de la carrera">
-        </section>
-    </main>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 600">
+
+            <!-- Background -->
+            <image xlink:href="{% static 'images/Background.png' %}" x="0" y="0" width="1000" height="600" />
+            
+            <!-- Icono 1: Mis Intereses -->
+            <a href="/primerpaso">
+              <image xlink:href="{% static 'images/Mis_intereses.png' %}" x="135" y="388" width="100" height="100" />
+            </a>
+          
+            <!-- Icono 2: Mis Talentos -->
+            <a href="/segundopaso">
+              <image xlink:href="{% static 'images/Mis_talentos.png' %}" x="286" y="216" width="100" height="100" />
+            </a>
+          
+            <!-- Icono 3: Mi Entorno -->
+            <a href="/tercerpaso">
+              <image xlink:href="{% static 'images/Mi_entorno.png' %}" x="470" y="138" width="100" height="100" />
+            </a>
+          
+            <a href="/cuartopaso">
+              <image xlink:href="{% static 'images/Mi_universidad.png' %}" x="447" y="365" width="110" height="110" />
+            </a>
+          
+            <!-- Icono 5: Mis Apoyos -->
+            <a href="/quintopaso">
+              <image xlink:href="{% static 'images/Mis_apoyos.png' %}" x="572" y="246" width="100" height="100" />
+            </a>
+          
+            <!-- Icono 6: ¡Quiero Más! -->
+            <a href="/sextopaso">
+              <image xlink:href="{% static 'images/Quiero_mas.png' %}" x="651" y="116" width="100" height="100" />
+            </a>
+          
+            <!-- Icono 7: Mi Plan de Carrera -->
+            <a href="/septimopaso">
+              <image xlink:href="{% static 'images/Mi_plan_de_carrera.png' %}" x="659" y="238" width="140" height="140" />
+            </a>
+          </svg>   
+</main>
 
     <div class="carrera-title">
         <h1>Conoce los temas</h1>

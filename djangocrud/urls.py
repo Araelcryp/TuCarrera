@@ -51,7 +51,8 @@ urlpatterns = [
     path('test-primer-paso/',viewsp1.test_primerpaso, name='test-primer-paso'),
     path('resultados-primer-paso/',viewsp1.resultados_primerpaso, name='resultados-primer-paso'),
     path('interactiva/', viewsp1.presentacion_interactiva, name='presentacion-interactiva'),
-
+    path('update-progress/', viewsp1.update_progress, name='update-progress'),
+    
     path('segundopaso/',viewsp2.segundopaso,name='segundopaso'),
     path('frase-segundo-paso/',viewsp2.frase_segundopaso,name='frase-segundo-paso'),
     path('presentacion-segundo-paso/',viewsp2.presentacion_segundopaso,name='presentacion-segundo-paso'),

@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
-
+from django.http import JsonResponse
 # Create your views here.
 
 @login_required
@@ -46,3 +46,23 @@ def resultados_primerpaso(request):
 @login_required
 def presentacion_interactiva(request):
     return render(request, 'presentacion_interactiva.html')
+
+@login_required
+def update_progress(request):
+    if request.method == 'POST':
+        clicks = int(request.POST.get('clicks', 0))
+        user_profile = request.user.profile
+        
+        # Verificar si el progreso ya es 100%
+        if user_profile.progreso >= 100:
+            return JsonResponse({'progress': user_profile.progreso, 'message': 'Progreso completo, no se puede modificar más.'})
+        
+        # Solo actualizar si el progreso es menor a 100%
+        if clicks <= 6:
+            progress_percentage = (clicks / 6) * 100
+            if progress_percentage > 100:
+                progress_percentage = 100
+            user_profile.progreso = progress_percentage
+            user_profile.save()
+            return JsonResponse({'progress': progress_percentage})
+    return JsonResponse({'error': 'Invalid request'}, status=400)

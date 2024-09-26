@@ -6,7 +6,6 @@ body {
     color: #333;
     line-height: 1.6;
 }
-
 header {
     background-color: #242B57;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
@@ -70,7 +69,7 @@ header .login-btn {
     position: relative;
     text-align: center;
     color: white;
-    background-color: #4996C6;
+    background-color: #0097C9;
 }
 
 .info-image {
@@ -98,6 +97,15 @@ header .login-btn {
 }
 
 main {
+    display: flex;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+    height: 600px;
+    background-color: #0097C9;
+}
+svg {
+    width: 100%;
     padding: 0;
     margin: 0;
 }
@@ -108,7 +116,7 @@ main {
     align-items: center;
     gap: 20px;
     padding: 20px;
-    background-color: #4996C6;
+    background-color: #0097C9;
     text-align: center;
 }
 

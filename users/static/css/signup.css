@@ -121,6 +121,10 @@ main {
     box-sizing: border-box;
 }
 
+.container-content input[type="radio"] {
+    margin: 10px 5px;
+}
+
 .container-content button[type="submit"] {
     background-color: #242B57;
     color: #ffffff;
@@ -137,4 +141,21 @@ main {
     background-color: #1e244e;
     transform: scale(1.05);
     transition: transform 0.3s;
+}
+
+/* Transiciones para mostrar/ocultar formularios adicionales */
+
+/* Contenedores ocultos al inicio */
+#form-si, #form-no {
+    opacity: 0;
+    height: 0;
+    overflow: hidden;
+    transition: opacity 0.5s ease, height 0.5s ease;
+}
+
+/* Cuando los formularios están visibles */
+#form-si.active, #form-no.active {
+    opacity: 1;
+    height: auto;
+    transition: opacity 0.5s ease, height 0.5s ease;
 }

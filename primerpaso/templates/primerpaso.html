@@ -25,7 +25,7 @@
       <div class="container">
         <div class="main-content">
           <img
-            src="{% static 'images/MIS_INTERESES.png'%}"
+            src="{% static 'images/MIS_INTERESESFT.png'%}"
             alt="Imagen con fines ilustrativos"
           />
           <h2>Paso 1 Mis intereses</h2>
@@ -56,9 +56,9 @@
               <div class="progress-info">
                 <p>Elementos de la personalidad</p>
                 <div class="progress-bar">
-                  <div class="progress" style="width: 85%"></div>
+                  <div class="progress" style="width: {{ request.user.profile.progreso }}%"></div>
                 </div>
-                <span>85% completado</span>
+                <span>{{ request.user.profile.progreso }}% completado</span>
                 <div class="bookmark"></div>
               </div>
             </div>

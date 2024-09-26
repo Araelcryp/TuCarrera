@@ -30,13 +30,15 @@ def signup(request):
                     apellido_materno=request.POST['apellidoMaterno'],
                     nombres=request.POST['nombres'],
                     fecha_nacimiento=request.POST['fechaNacimiento'],
-                    lugar_nacimiento=request.POST['lugarNacimiento'],
                     curp=request.POST['curp'],
-                    municipio=request.POST['municipio'],
-                    localidad=request.POST['localidad'],
-                    telefono=request.POST['telefono'],
-                    bachillerato=request.POST['bachillerato'],
-                    matricula=request.POST['matricula']
+                    procedencia=request.POST['procedencia'],  # 'si' o 'no'
+                    estado=request.POST.get('estado', None),  # Solo si la preparatoria es fuera de Querétaro
+                    institucion=request.POST.get('institucion', None),  # Solo si la preparatoria es fuera de Querétaro
+                    municipio=request.POST.get('municipio', None),  # Si la preparatoria es en Querétaro
+                    bachillerato=request.POST.get('bachillerato', None),  # Incluir opción de "otro"
+                    otro_bachillerato=request.POST.get('otro_bachillerato', None),  # Campo opcional si elige "otro"
+                    matricula=request.POST['matricula'],
+                    telefono=request.POST['telefono']
                 )
                 profile.save()
                 login(request, user)

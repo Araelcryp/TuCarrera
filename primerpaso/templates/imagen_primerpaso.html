@@ -57,5 +57,44 @@
         />
       </a>
     </div>
+
+    <script>
+      let clicks = 0;
+      let progress = {{ request.user.profile.progreso }}; // Obtener el progreso inicial del servidor
+  
+      // Escuchar mensajes provenientes del iframe
+      window.addEventListener('message', function(event) {
+          if (event.data && event.data.event === 'click' && progress < 100) {
+              clicks += 1;
+              if (clicks <= 6) {
+                  fetch("{% url 'update-progress' %}", {
+                      method: 'POST',
+                      headers: {
+                          'Content-Type': 'application/x-www-form-urlencoded',
+                          'X-CSRFToken': '{{ csrf_token }}',
+                      },
+                      body: new URLSearchParams({ 'clicks': clicks })
+                  })
+                  .then(response => response.json())
+                  .then(data => {
+                      if (data.progress) {
+                          progress = data.progress; // Actualizar el progreso en el frontend
+                          document.querySelector('.progress-bar .progress').style.width = progress + '%';
+                          document.querySelector('.progress-info span').innerText = progress + '% completado';
+  
+                          // Si el progreso es 100%, deshabilitar más clics
+                          if (progress >= 100) {
+                              alert('Progreso completo. No se puede modificar más.');
+                          }
+                      }
+                  });
+              }
+          }
+      });
+  </script>
+  
+  
+
+
   </body>
 </html>
