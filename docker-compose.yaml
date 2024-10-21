@@ -1,0 +1,16 @@
+version: "3"
+services:
+  api:
+    build:
+      context: ./
+      dockerfile: dockerfile
+    container_name: tucarrera
+    ports:
+      - 9574:8000
+    restart: always
+    volumes:
+      - sqlite-container:/app/db
+
+volumes:
+  sqlite-container:
+    driver: local
