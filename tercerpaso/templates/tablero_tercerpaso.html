@@ -23,27 +23,252 @@
     </header>
 
     <div class="content">
-        <div class="board">
-            <!-- Ejemplo de celdas interactivas -->
-            <div class="cell">A</div>
-            <div class="cell">B</div>
-            <div class="cell">C</div>
-            <div class="cell">D</div>
-            <div class="cell">E</div>
-            <div class="cell">F</div>
-            <div class="cell">G</div>
-            <div class="cell">H</div>
-            <div class="cell">I</div>
+        <h1 class="title">Explora las áreas profesionales</h1>
+
+        <!-- Dropdown buttons -->
+        <div class="dropdown-container">
+            <div class="dropdown">
+                <button class="dropdown-btn" onclick="toggleDropdown('dropdown1')">🚀 Ciencias físicas y matemáticas</button>
+                <div id="dropdown1" class="dropdown-content">
+                    <input class="dropdown-search" type="text" id="searchInput1" onkeyup="filterDropdown('dropdown1', 'searchInput1')" placeholder="Buscar carrera...">
+                    <a href="#" onclick="selectItem(this), showInfo('Universidades disponibles: Universidad Tecnológica de San Juan del Río, Universidad Tecnológica de Querétaro, Universidad Aeronáutica en Querétaro.')">TÉCNICO SUPERIOR UNIVERSITARIO EN MANTENIMIENTO ÁREA INDUSTRIAL</a>
+                    <a href="#" onclick="selectItem(this), showInfo('Universidades disponibles: Universidad Tecnológica de San Juan del Río')">TÉCNICO SUPERIOR UNIVERSITARIO EN CONSTRUCCIÓN</a>
+                    <a href="#" onclick="selectItem(this), showInfo('Universidades disponibles: Universidad Tecnológica de Querétaro')">TÉCNICO SUPERIOR UNIVERSITARIO EN MECATRÓNICA, ÁREA AUTOMATIZACIÓN</a>
+                    <a href="#" onclick="selectItem(this), showInfo('Universidades disponibles: Universidad Tecnológica de Querétaro')">TÉCNICO SUPERIOR UNIVERSITARIO EN LOGÍSTICA ÁREA CADENA DE SUMINISTROS</a>
+                    <a href="#" onclick="selectItem(this), showInfo('Universidades disponibles: Universidad Tecnológica de Querétaro, Universidad Tecnológica de San Juan del Río')">TÉCNICO SUPERIOR UNIVERSITARIO EN ENERGÍAS RENOVABLES ÁREA ENERGÍA SOLAR</a>
+                    <a href="#" onclick="selectItem(this), showInfo('Universidades disponibles: Universidad Tecnológica de Querétaro')">TÉCNICO SUPERIOR UNIVERSITARIO EN MECÁNICA ÁREA AUTOMOTRIZ</a>
+                    <a href="#" onclick="selectItem(this), showInfo('Universidades disponibles: Universidad Tecnológica de Querétaro, Universidad Tecnológica de San Juan del Río')">TÉCNICO SUPERIOR UNIVERSITARIO EN PROCESOS INDUSTRIALES ÁREA MANUFACTURA</a>
+                    <a href="#" onclick="selectItem(this), showInfo('Universidades disponibles: UNIVERSIDAD AUTONOMA DE QUERETARO')">TÉCNICO SUPERIOR UNIVERSITARIO EN CONSTRUCCIÓN SOSTENIBLE  </a>
+                    <a href="#" onclick="selectItem(this), showInfo('Universidades disponibles: Universidad Tecnológica de San Juan del Río')">TÉCNICO SUPERIOR UNIVERSITARIO EN PROCESOS INDUSTRIALES ÁREA SISTEMAS DE GESTIÓN DE LA CALIDAD</a>
+                    <a href="#" onclick="selectItem(this), showInfo('Universidades disponibles: Universidad Tecnológica de Querétaro')">TÉCNICO SUPERIOR UNIVERSITARIO EN NANOTECNOLOGÍA ÁREA MATERIALES</a>
+                    <a href="#" onclick="selectItem(this), showInfo('Universidades disponibles: Universidad Tecnológica de San Juan del Río')">TÉCNICO SUPERIOR UNIVERSITARIO EN MECATRÓNICA ÁREA AUTOMATIZACIÓN</a>
+                    <a href="#" onclick="selectItem(this), showInfo('Universidades disponibles: UNIVERSIDAD POLITECNICA DE SANTA ROSA JAUREGUI')">INGENIERÍA EN ANIMACIÓN Y EFECTOS VISUALES</a>
+                    <a href="#" onclick="selectItem(this), showInfo('Universidades disponibles: Universidad Tecnológica de Querétaro, Universidad Tecnológica de San Juan del Río')">TÉCNICO SUPERIOR UNIVERSITARIO EN TECNOLOGÍAS DE LA INFORMACIÓN ÁREA DESARROLLO DE SOFTWARE MULTIPLATAFORMA</a>
+                    <a href="#" onclick="selectItem(this), showInfo('Universidades disponibles: Universidad Tecnológica de Querétaro')">TÉCNICO SUPERIOR UNIVERSITARIO EN MECÁNICA ÁREA MOLDES Y TROQUELES</a>
+                    <a href="#" onclick="selectItem(this), showInfo('Universidades disponibles: UNIVERSIDAD TECNOLOGICA DE CORREGIDORA')">TÉCNICO SUPERIOR UNIVERSITARIO EN MECATRÓNICA ÁREA SISTEMAS DE MANUFACTURA FLEXIBLE</a>
+                    <a href="#" onclick="selectItem(this), showInfo('Universidades disponibles: UNIVERSIDAD TECNOLOGICA DE CORREGIDORA')">TÉCNICO SUPERIOR UNIVERSITARIO EN TECNOLOGÍAS DE LA INFORMACIÓN ÁREA ENTORNOS VIRTUALES Y NEGOCIOS DIGITALES</a>
+                    <a href="#" onclick="selectItem(this), showInfo('Universidades disponibles: Universidad Tecnológica de Querétaro')">TÉCNICO SUPERIOR UNIVERSITARIO EN TECNOLOGÍAS DE LA INFORMACIÓN ÁREA INFRAESTRUCTURA DE REDES DIGITALES</a>
+                    <a href="#" onclick="selectItem(this), showInfo('Universidades disponibles: Universidad Tecnológica de San Juan del Río, Universidad Tecnológica de Querétaro')">TÉCNICO SUPERIOR UNIVERSITARIO EN PROCESOS INDUSTRIALES ÁREA PLÁSTICOS</a>
+                    <a href="#" onclick="selectItem(this), showInfo('Universidades disponibles: INSTITUTO TECNOLOGICO DE SAN JUAN DEL RIO, ')">INGENIERÍA EN TECNOLOGÍAS DE LA INFORMACIÓN Y COMUNICACIÓN</a>
+                    <a href="#" onclick="selectItem(this), showInfo('Universidades disponibles: UNIVERSIDAD POLITECNICA DE QUERETARO, ')">INGENIERÍA EN REDES Y TELECOMUNICACIONES</a>
+                    <a href="#" onclick="selectItem(this), showInfo('Universidades disponibles: UNIVERSIDAD AUTONOMA DE QUERETARO')">INGENIERÍA EN TELECOMUNICACIONES Y REDES</a>
+                    <a href="#" onclick="selectItem(this), showInfo('Universidades disponibles: UNIVERSIDAD AUTONOMA DE QUERETARO')">LICENCIATURA EN MATEMÁTICAS APLICADAS</a>
+                    <a href="#" onclick="selectItem(this), showInfo('Universidades disponibles: Universidad Tecnológica de Querétaro, Universidad Tecnológica de San Juan del Río')">INGENIERÍA EN MANTENIMIENTO INDUSTRIAL</a>
+                    <a href="#" onclick="selectItem(this), showInfo('Universidades disponibles: Universidad Tecnológica de Querétaro')">INGENIERÍA EN TECNOLOGÍAS DE AUTOMATIZACIÓN</a>
+                    <a href="#" onclick="selectItem(this), showInfo('Universidades disponibles: UNIVERSIDAD AUTONOMA DE QUERETARO')">LICENCIATURA EN INFORMÁTICA</a>
+                    <a href="#" onclick="selectItem(this), showInfo('Universidades disponibles: UNIVERSIDAD AUTONOMA DE QUERETARO')">LICENCIATURA EN ACTUARÍA</a>
+                    <a href="#" onclick="selectItem(this), showInfo('Universidades disponibles: UNIVERSIDAD AUTONOMA DE QUERETARO, UNIVERSIDAD POLITECNICA DE SANTA ROSA JAUREGUI')">INGENIERÍA DE SOFTWARE</a>
+                    <a href="#" onclick="selectItem(this), showInfo('Universidades disponibles: UNIVERSIDAD NACIONAL AUTÓNOMA DE MÉXICO')">LICENCIATURA EN TECNOLOGÍA</a>
+                    <a href="#" onclick="selectItem(this), showInfo('Universidades disponibles: UNIVERSIDAD AUTONOMA DE QUERETARO')">INGENIERÍA FÍSICA</a>
+                    <a href="#" onclick="selectItem(this), showInfo('Universidades disponibles: UNIVERSIDAD POLITECNICA DE SANTA ROSA JAUREGUI')">INGENIERÍA EN METROLOGÍA INDUSTRIAL</a>
+                    <a href="#" onclick="selectItem(this), showInfo('Universidades disponibles: Universidad Tecnológica de Querétaro')">INGENIERÍA EN METAL MECÁNICA</a>
+                    <a href="#" onclick="selectItem(this), showInfo('Universidades disponibles: Universidad Tecnológica de Querétaro, Universidad Tecnológica de San Juan del Río')">INGENIERÍA EN ENERGÍAS RENOVABLES</a>
+                    <a href="#" onclick="selectItem(this), showInfo('Universidades disponibles: TECNOLÓGICO NACIONAL DE MÉXICO, CAMPUS QUERÉTARO')">INGENIERÍA MECÁNICA</a>
+                    <a href="#" onclick="selectItem(this), showInfo('Universidades disponibles: TECNOLÓGICO NACIONAL DE MÉXICO, CAMPUS QUERÉTARO')">INGENIERÍA EN LOGÍSTICA</a>
+                    <a href="#" onclick="selectItem(this), showInfo('Universidades disponibles: UNIVERSIDAD AUTONOMA DE QUERETARO, UNIVERSIDAD TECNOLOGICA DE CORREGIDORA')">INGENIERÍA EN BIOTECNOLOGÍA</a>
+                    <a href="#" onclick="selectItem(this), showInfo('Universidades disponibles: UNIVERSIDAD AUTONOMA DE QUERETARO')">INGENIERÍA EN COMPUTACIÓN</a>
+                    <a href="#" onclick="selectItem(this), showInfo('Universidades disponibles: UNIVERSIDAD POLITECNICA DE QUERETARO')">INGENIERÍA EN TELEMÁTICA</a>
+                    <a href="#" onclick="selectItem(this), showInfo('Universidades disponibles: Universidad Tecnológica de Querétaro, TECNOLÓGICO NACIONAL DE MÉXICO, CAMPUS QUERÉTARO, INSTITUTO TECNOLOGICO DE SAN JUAN DEL RIO')">INGENIERÍA INDUSTRIAL</a>
+                    <a href="#" onclick="selectItem(this), showInfo('Universidades disponibles: Universidad Tecnológica de Querétaro, UNIVERSIDAD AUTONOMA DE QUERETARO')">INGENIERÍA EN NANOTECNOLOGÍA</a>
+                    <a href="#" onclick="selectItem(this), showInfo('Universidades disponibles: UNIVERSIDAD AUTONOMA DE QUERETARO')">INGENIERÍA QUÍMICO EN MATERIALES</a>
+                    <a href="#" onclick="selectItem(this), showInfo('Universidades disponibles: UNIVERSIDAD TECNOLOGICA DE QUERETARO')">LICENCIATURA EN DISEÑO Y GESTIÓN DE REDES LOGÍSTICAS  </a>
+                    <a href="#" onclick="selectItem(this), showInfo('Universidades disponibles: TECNOLÓGICO NACIONAL DE MÉXICO, CAMPUS QUERÉTARO')">INGENIERÍA EN MATERIALES</a>
+                    <a href="#" onclick="selectItem(this), showInfo('Universidades disponibles: TECNOLÓGICO NACIONAL DE MÉXICO, CAMPUS QUERÉTARO,UNIVERSIDAD POLITECNICA DE QUERETARO')">INGENIERÍA MECATRÓNICA</a>
+                    <a href="#" onclick="selectItem(this), showInfo('Universidades disponibles: UNIVERSIDAD AERONAUTICA EN QUERETARO')">INGENIERÍA EN ELECTRÓNICA Y CONTROL DE SISTEMAS DE AERONAVES</a>
+                    <a href="#" onclick="selectItem(this), showInfo('Universidades disponibles: UNIVERSIDAD TECNOLOGICA DE QUERETARO')">INGENIERÍA EN PROCESOS Y OPERACIONES INDUSTRIALES</a>
+                    <a href="#" onclick="selectItem(this), showInfo('Universidades disponibles: UNIVERSIDAD AUTONOMA DE QUERETARO, INSTITUTO TECNOLOGICO DE SAN JUAN DEL RIO')">INGENIERÍA ELECTROMECÁNICA</a>
+                    <a href="#" onclick="selectItem(this), showInfo('Universidades disponibles: UNIVERSIDAD AERONAUTICA EN QUERETARO')">INGENIERÍA AERONÁUTICA EN MANUFACTURA</a>
+                    <a href="#" onclick="selectItem(this), showInfo('Universidades disponibles: UNIVERSIDAD AUTONOMA DE QUERETARO')">INGENIERO AGROINDUSTRIAL</a>
+                    <a href="#" onclick="selectItem(this), showInfo('Universidades disponibles: UNIVERSIDAD POLITECNICA DE QUERETARO')">INGENIERÍA EN TECNOLOGÍAS DE MANUFACTURA</a>
+                    <a href="#" onclick="selectItem(this), showInfo('Universidades disponibles: UNIVERSIDAD NACIONAL AUTÓNOMA DE MÉXICO')">LICENCIATURA EN INGENIERÍA EN ENERGÍAS RENOVABLES</a>
+                    <a href="#" onclick="selectItem(this), showInfo('Universidades disponibles: UNIVERSIDAD AERONAUTICA EN QUERETARO')">INGENIERÍA EN DISEÑO MECÁNICO AERONAÚTICO</a>
+                    <a href="#" onclick="selectItem(this), showInfo('Universidades disponibles: UNIVERSIDAD POLITECNICA DE QUERETARO')">INGENIERIA EN TECNOLOGIA AUTOMOTRIZ</a>
+                    <a href="#" onclick="selectItem(this), showInfo('Universidades disponibles: UNIVERSIDAD AUTONOMA DE QUERETARO')">LICENCIATURA EN ARQUITECTURA</a>
+                    <a href="#" onclick="selectItem(this), showInfo('Universidades disponibles: UNIVERSIDAD TECNOLOGICA DE QUERETARO')">INGENIERÍA EN REDES INTELIGENTES Y CIBERSEGURIDAD </a>
+                    <a href="#" onclick="selectItem(this), showInfo('Universidades disponibles: UNIVERSIDAD POLITECNICA DE SANTA ROSA JAUREGUI')">INGENIERÍA EN ROBÓTICA COMPUTACIONAL</a>
+                    <a href="#" onclick="selectItem(this), showInfo('Universidades disponibles: UNIVERSIDAD AUTONOMA DE QUERETARO')">INGENIERÍA INDUSTRIAL Y  MANUFACTURA</a>
+                    <a href="#" onclick="selectItem(this), showInfo('Universidades disponibles: TECNOLÓGICO NACIONAL DE MÉXICO, CAMPUS QUERÉTARO')">ARQUITECTURA</a>
+                    <a href="#" onclick="selectItem(this), showInfo('Universidades disponibles: UNIVERSIDAD TECNOLOGICA DE CORREGIDORA')">INGENIERÍA EN ARQUITECTURA DE SOFTWARE</a>
+                    <a href="#" onclick="selectItem(this), showInfo('Universidades disponibles: UNIVERSIDAD POLITECNICA DE SANTA ROSA JAUREGUI')">INGENIERÍA EN SISTEMAS AUTOMOTRICES</a>
+                    <a href="#" onclick="selectItem(this), showInfo('Universidades disponibles: TECNOLÓGICO NACIONAL DE MÉXICO, CAMPUS QUERÉTARO, UNIVERSIDAD POLITECNICA DE QUERETARO')">INGENIERÍA EN SISTEMAS COMPUTACIONALES</a>
+                    <a href="#" onclick="selectItem(this), showInfo('Universidades disponibles: Universidad Tecnológica de San Juan del Río')">INGENIERÍA  EN DESARROLLO Y GESTIÓN DE SOFTWARE  </a>
+                    <a href="#" onclick="selectItem(this), showInfo('Universidades disponibles: UNIVERSIDAD AUTONOMA DE QUERETARO')">INGENIERÍA MECÁNICA Y AUTOMOTRIZ</a>
+                    <a href="#" onclick="selectItem(this), showInfo('Universidades disponibles: Universidad Tecnológica de San Juan del Río, UNIVERSIDAD TECNOLOGICA DE QUERETARO')">TÉCNICO SUPERIOR UNIVERSITARIO EN ENERGÍAS RENOVABLES ÁREA CALIDAD Y AHORRO DE ENERGÍA</a>
+                    <a href="#" onclick="selectItem(this), showInfo('Universidades disponibles: UNIVERSIDAD AERONAUTICA EN QUERETARO')">TÉCNICO SUPERIOR UNIVERSITARIO EN MANTENIMIENTO AERONÁUTICO ÁREA PLANEADOR Y MOTOR</a>
+                    <a href="#" onclick="selectItem(this), showInfo('Universidades disponibles: UNIVERSIDAD TECNOLOGICA DE QUERETARO')">INGENIERÍA AMBIENTAL</a>
+                    <a href="#" onclick="selectItem(this), showInfo('Universidades disponibles: UNIVERSIDAD TECNOLOGICA DE QUERETARO')">INGENIERÍA EN TECNOLOGÍAS DE LA INFORMACIÓN Y COMUNICACIONES</a>
+                    <a href="#" onclick="selectItem(this), showInfo('Universidades disponibles: TECNOLÓGICO NACIONAL DE MÉXICO, CAMPUS QUERÉTARO')">INGENIERÍA ELÉCTRICA</a>
+                    <a href="#" onclick="selectItem(this), showInfo('Universidades disponibles: Universidad Tecnológica de San Juan del Río')">INGENIERÍA EN SISTEMAS PRODUCTIVOS</a>
+                    <a href="#" onclick="selectItem(this), showInfo('Universidades disponibles: Universidad Tecnológica de San Juan del Río, UNIVERSIDAD AUTONOMA DE QUERETARO')">INGENIERÍA CIVIL</a>
+                    <a href="#" onclick="selectItem(this), showInfo('Universidades disponibles: UNIVERSIDAD AUTONOMA DE QUERETARO')">LICENCIATURA EN CIENCIAS DE LA SEGURIDAD</a>
+                    <a href="#" onclick="selectItem(this), showInfo('Universidades disponibles: UNIVERSIDAD TECNOLOGICA DE CORREGIDORA')">TÉCNICO SUPERIOR UNIVERSITARIO EN MANTENIMIENTO ÁREA INSTALACIONES</a>
+                    <a href="#" onclick="selectItem(this), showInfo('Universidades disponibles: UNIVERSIDAD AERONAUTICA EN QUERETARO')">TÉCNICO SUPERIOR UNIVERSITARIO EN MANTENIMIENTO AERONAÚTICO, ÁREA AVIONICA</a>
+                    <a href="#" onclick="selectItem(this), showInfo('Universidades disponibles: TECNOLÓGICO NACIONAL DE MÉXICO, CAMPUS QUERÉTARO')">INGENIERÍA EN ELECTRÓNICA</a>
+                    <a href="#" onclick="selectItem(this), showInfo('Universidades disponibles: UNIVERSIDAD AERONAUTICA EN QUERETARO')">INGENIERÍA EN DISEÑO MECÁNICO AERONAÚTICO</a>
+                    <a href="#" onclick="selectItem(this), showInfo('Universidades disponibles: UNIVERSIDAD AERONAUTICA EN QUERETARO')">INGENIERÍA EN ELECTRÓNICA Y CONTROL DE SISTEMAS DE AERONAVES</a>
+                    <a href="#" onclick="selectItem(this), showInfo('Universidades disponibles: UNIVERSIDAD AUTONOMA DE QUERETARO')">INGENIERÍA EN CIENCIA Y ANALÍTICA DE DATOS</a>
+
+                </div>
+            </div>
+
+            <div class="dropdown">
+                <button class="dropdown-btn" onclick="toggleDropdown('dropdown2')">🧪 Ciencias biológicas, químicas 
+                    y de la salud</button>
+                <div id="dropdown2" class="dropdown-content">
+                    <input class="dropdown-search" type="text" id="searchInput2" onkeyup="filterDropdown('dropdown2', 'searchInput2')" placeholder="Buscar carrera...">
+                    <a href="#" onclick="selectItem(this), showInfo('Universidades disponibles: UNIVERSIDAD AUTONOMA DE QUERETARO')">TÉCNICO SUPERIOR UNIVERSITARIO EN PRÓTESIS DENTAL</a>
+                    <a href="#" onclick="selectItem(this), showInfo('Universidades disponibles: Universidad Tecnológica de San Juan del Río')">TÉCNICO SUPERIOR UNIVERSITARIO EN QUÍMICA ÁREA INDUSTRIAL</a>
+                    <a href="#" onclick="selectItem(this), showInfo('Universidades disponibles: UNIVERSIDAD TECNOLOGICA DE QUERETARO')">TÉCNICO SUPERIOR UNIVERSITARIO EN QUÍMICA ÁREA TECNOLOGÍA AMBIENTAL</a>
+                    <a href="#" onclick="selectItem(this), showInfo('Universidades disponibles: UNIVERSIDAD TECNOLOGICA DE CORREGIDORA')">TÉCNICO SUPERIOR UNIVERSITARIO EN QUÍMICA ÁREA BIOTECNOLOGÍA</a>
+                    <a href="#" onclick="selectItem(this), showInfo('Universidades disponibles: Universidad Tecnológica de San Juan del Río')">TÉCNICO SUPERIOR UNIVERSITARIO EN QUÍMICA ÁREA TECNOLOGÍA FARMACEÚTICA</a>
+                    <a href="#" onclick="selectItem(this), showInfo('Universidades disponibles: UNIVERSIDAD AUTONOMA DE QUERETARO')">LICENCIATURA EN MICROBIOLOGÍA</a>
+                    <a href="#" onclick="selectItem(this), showInfo('Universidades disponibles: UNIVERSIDAD NACIONAL AUTÓNOMA DE MÉXICO')">LICENCIATURA EN CIENCIAS DE LA TIERRA</a>
+                    <a href="#" onclick="selectItem(this), showInfo('Universidades disponibles: Universidad Tecnológica de San Juan del Río')">INGENIERÍA EN QUÍMICA FARMACÉUTICA</a>
+                    <a href="#" onclick="selectItem(this), showInfo('Universidades disponibles: UNIVERSIDAD NACIONAL AUTÓNOMA DE MÉXICO')">LICENCIATURA EN CIENCIAS GENÓMICAS</a>
+                    <a href="#" onclick="selectItem(this), showInfo('Universidades disponibles: UNIVERSIDAD AUTONOMA DE QUERETARO')">LICENCIATURA EN BIOLOGÍA</a>
+                    <a href="#" onclick="selectItem(this), showInfo('Universidades disponibles: UNIVERSIDAD AUTONOMA DE QUERETARO')">LICENCIATURA EN GEOGRAFÍA AMBIENTAL</a>
+                    <a href="#" onclick="selectItem(this), showInfo('Universidades disponibles: UNIVERSIDAD AUTONOMA DE QUERETARO')">INGENIERÍA AGROQUÍMICA</a>
+                    <a href="#" onclick="selectItem(this), showInfo('Universidades disponibles: UNIVERSIDAD NACIONAL AUTÓNOMA DE MÉXICO')">LICENCIATURA EN ÓRTESIS Y PRÓTESIS</a>
+                    <a href="#" onclick="selectItem(this), showInfo('Universidades disponibles: UNIVERSIDAD AUTONOMA DE QUERETARO')">LICENCIATURA EN ENFERMERÍA</a>
+                    <a href="#" onclick="selectItem(this), showInfo('Universidades disponibles: UNIVERSIDAD AUTONOMA DE QUERETARO')">LICENCIATURA EN PRODUCCIÓN AGROPECUARIA SUSTENTABLE</a>
+                    <a href="#" onclick="selectItem(this), showInfo('Universidades disponibles: UNIVERSIDAD AUTONOMA DE QUERETARO')">INGENIERÍA BIOMÉDICA</a>
+                    <a href="#" onclick="selectItem(this), showInfo('Universidades disponibles: UNIVERSIDAD AUTONOMA DE QUERETARO')">LICENCIATURA EN HORTICULTURA AMBIENTAL</a>
+                    <a href="#" onclick="selectItem(this), showInfo('Universidades disponibles: UNIVERSIDAD AUTONOMA DE QUERETARO')">LICENCIATURA EN OPTOMETRÍA</a>
+                    <a href="#" onclick="selectItem(this), showInfo('Universidades disponibles: UNIVERSIDAD NACIONAL AUTÓNOMA DE MÉXICO')">LICENCIATURA EN NEUROCIENCIAS</a>
+                    <a href="#" onclick="selectItem(this), showInfo('Universidades disponibles: UNIVERSIDAD AUTONOMA DE QUERETARO')">INGENIERÍA QUÍMICO EN ALIMENTOS</a>
+                    <a href="#" onclick="selectItem(this), showInfo('Universidades disponibles: UNIVERSIDAD POLITECNICA DE SANTA ROSA JAUREGUI')">LICENCIATURA EN TERAPIA FÍSICA</a>
+                    <a href="#" onclick="selectItem(this), showInfo('Universidades disponibles: UNIVERSIDAD AUTONOMA DE QUERETARO')">LICENCIATURA EN NUTRICIÓN</a>
+                    <a href="#" onclick="selectItem(this), showInfo('Universidades disponibles: UNIVERSIDAD AUTONOMA DE QUERETARO')">MÉDICO GENERAL</a>
+                    <a href="#" onclick="selectItem(this), showInfo('Universidades disponibles: UNIVERSIDAD TECNOLOGICA DE SAN JUAN DEL RIO, UNIVERSIDAD AUTONOMA DE QUERETARO')">INGENIERÍA QUÍMICA</a>
+                    <a href="#" onclick="selectItem(this), showInfo('Universidades disponibles: UNIVERSIDAD AUTONOMA DE QUERETARO')">INGENIERÍA QUÍMICO AMBIENTAL</a>
+                    <a href="#" onclick="selectItem(this), showInfo('Universidades disponibles: UNIVERSIDAD AUTONOMA DE QUERETARO')">QUÍMICO FARMACÉUTICO BIÓLOGO</a>
+                    <a href="#" onclick="selectItem(this), showInfo('Universidades disponibles: UNIVERSIDAD AUTONOMA DE QUERETARO')">MÉDICO VETERINARIO ZOOTECNISTA</a>
+                    <a href="#" onclick="selectItem(this), showInfo('Universidades disponibles: UNIVERSIDAD AUTONOMA DE QUERETARO')">INGENIERÍA AGROINDUSTRIAL</a>
+                    <a href="#" onclick="selectItem(this), showInfo('Universidades disponibles: UNIVERSIDAD AUTONOMA DE QUERETARO')">LICENCIATURA EN ODONTOLOGÍA</a>
+                    <a href="#" onclick="selectItem(this), showInfo('Universidades disponibles: UNIVERSIDAD AUTONOMA DE QUERETARO')">TÉCNICO SUPERIOR UNIVERSITARIO EN MEDICINA PREHOSPITALARIA INTEGRAL</a>
+                    <a onclick="selectItem(this), showInfo('Universidades disponibles: UNIVERSIDAD AUTONOMA DE QUERETARO')">LICENCIATURA EN ENFERMERÍA POR NIVELACIÓN</a>
+                    
+                </div>
+            </div>
+
+            <div class="dropdown">
+                <button class="dropdown-btn" onclick="toggleDropdown('dropdown3')">🗳️ Ciencias sociales</button>
+                <div id="dropdown3" class="dropdown-content">
+                    <input class="dropdown-search" type="text" id="searchInput3" onkeyup="filterDropdown('dropdown3', 'searchInput3')" placeholder="Buscar carrera...">
+                    <a onclick="selectItem(this), showInfo('Universidades disponibles: UNIVERSIDAD TECNOLOGICA DE CORREGIDORA')">TÉCNICO SUPERIOR UNIVERSITARIO EN TURISMO ÁREA DESARROLLO DE PRODUCTOS ALTERNATIVOS</a>
+                    <a onclick="selectItem(this), showInfo('Universidades disponibles: UNIVERSIDAD TECNOLOGICA DE QUERETARO')">TÉCNICO SUPERIOR UNIVERSITARIO EN ADMINISTRACIÓN ÁREA CAPITAL HUMANO</a>
+                    <a onclick="selectItem(this), showInfo('Universidades disponibles: UNIVERSIDAD TECNOLOGICA DE QUERETARO')">TÉCNICO SUPERIOR UNIVERSITARIO EN DESARROLLO DE NEGOCIOS ÁREA SERVICIOS POSVENTA AUTOMOTRIZ</a>
+                    <a onclick="selectItem(this), showInfo('Universidades disponibles: UNIVERSIDAD TECNOLOGICA DE SAN JUAN DEL RIO')">TÉCNICO SUPERIOR UNIVERSITARIO EN ASESOR FINANCIERO COOPERATIVO</a>
+                    <a onclick="selectItem(this), showInfo('Universidades disponibles: UNIVERSIDAD TECNOLOGICA DE SAN JUAN DEL RIO, UNIVERSIDAD TECNOLOGICA DE QUERETARO')">TÉCNICO SUPERIOR UNIVERSITARIO EN DESARROLLO DE NEGOCIOS ÁREA MERCADOTECNIA</a>
+                    <a onclick="selectItem(this), showInfo('Universidades disponibles: INSTITUTO DEL SERVICIO PROFESIONAL DE CARRERA')">TÉCNICO SUPERIOR UNIVERSITARIO COMO POLICÍA INVESTIGADOR</a>
+                    <a onclick="selectItem(this), showInfo('Universidades disponibles: UNIVERSIDAD AUTONOMA DE QUERETARO')">LICENCIATURA EN RELACIONES INTERNACIONALES</a>
+                    <a onclick="selectItem(this), showInfo('Universidades disponibles: UNIVERSIDAD AUTONOMA DE QUERETARO')">LICENCIATURA EN ADMINISTRACIÓN</a>
+                    <a onclick="selectItem(this), showInfo('Universidades disponibles: UNIVERSIDAD AUTONOMA DE QUERETARO')">LICENCIATURA EN FILOSOFÍA</a>
+                    <a onclick="selectItem(this), showInfo('Universidades disponibles: UNIVERSIDAD AUTONOMA DE QUERETARO')">LICENCIATURA EN DESARROLLO HUMANO PARA LA SUSTENTABILIDAD</a>
+                    <a onclick="selectItem(this), showInfo('Universidades disponibles: UNIVERSIDAD AUTONOMA DE QUERETARO')">LICENCIATURA EN DESARROLLO LOCAL</a>
+                    <a onclick="selectItem(this), showInfo('Universidades disponibles: UNIVERSIDAD AUTONOMA DE QUERETARO')">LICENCIATURA EN ECONOMÍA EMPRESARIAL</a>
+                    <a onclick="selectItem(this), showInfo('Universidades disponibles: UNIVERSIDAD AUTONOMA DE QUERETARO')">LICENCIATURA EN LENGUAS MODERNAS EN FRANCÉS</a>
+                    <a onclick="selectItem(this), showInfo('Universidades disponibles: UNIVERSIDAD AUTONOMA DE QUERETARO')">LICENCIATURA EN ANTROPOLOGÍA</a>
+                    <a onclick="selectItem(this), showInfo('Universidades disponibles: UNIVERSIDAD AUTONOMA DE QUERETARO')">LICENCIATURA EN ADMINISTRACIÓN DE TECNOLOGÍAS DE INFORMACIÓN</a>
+                    <a onclick="selectItem(this), showInfo('Universidades disponibles: UNIVERSIDAD AUTONOMA DE QUERETARO')">LICENCIATURA EN COMUNICACIÓN Y PERIODISMO</a>
+                    <a onclick="selectItem(this), showInfo('Universidades disponibles: UNIVERSIDAD AUTONOMA DE QUERETARO')">LICENCIATURA EN GESTIÓN DEL TURISMO CULTURAL Y NATURAL</a>
+                    <a onclick="selectItem(this), showInfo('Universidades disponibles: UNIVERSIDAD AUTONOMA DE QUERETARO')">CONTADOR PÚBLICO</a>
+                    <a onclick="selectItem(this), showInfo('Universidades disponibles: UNIVERSIDAD AUTONOMA DE QUERETARO')">LICENCIATURA EN CRIMINOLOGÍA</a>
+                    <a onclick="selectItem(this), showInfo('Universidades disponibles: UNIVERSIDAD AUTONOMA DE QUERETARO')">LICENCIATURA EN NEGOCIOS Y COMERCIO INTERNACIONAL</a>
+                    <a onclick="selectItem(this), showInfo('Universidades disponibles: UNIVERSIDAD POLITECNICA DE QUERETARO, UNIVERSIDAD NACIONAL AUTÓNOMA DE MÉXICO')">LICENCIATURA EN NEGOCIOS INTERNACIONALES</a>
+                    <a onclick="selectItem(this), showInfo('Universidades disponibles: UNIVERSIDAD AUTONOMA DE QUERETARO')">LICENCIATURA EN CIENCIAS POLÍTICAS Y ADMINISTRACIÓN PÚBLICA</a>
+                    <a onclick="selectItem(this), showInfo('Universidades disponibles: UNIVERSIDAD AUTONOMA DE QUERETARO')">LICENCIATURA EN DERECHO</a>
+                    <a onclick="selectItem(this), showInfo('Universidades disponibles: UNIVERSIDAD AUTONOMA DE QUERETARO')">LICENCIATURA EN LENGUAS MODERNAS EN INGLÉS</a>
+                    <a onclick="selectItem(this), showInfo('Universidades disponibles: UNIVERSIDAD AUTONOMA DE QUERETARO')">LICENCIATURA EN NEGOCIOS TURÍSTICOS</a>
+                    <a onclick="selectItem(this), showInfo('Universidades disponibles: TECNOLÓGICO NACIONAL DE MÉXICO, CAMPUS QUERÉTARO')">INGENIERÍA EN GESTIÓN EMPRESARIAL</a>
+                    <a onclick="selectItem(this), showInfo('Universidades disponibles: TECNOLÓGICO NACIONAL DE MÉXICO, CAMPUS QUERÉTARO, UNIVERSIDAD AUTONOMA DE QUERETARO')">LICENCIATURA EN ADMINISTRACIÓN</a>
+                    <a onclick="selectItem(this), showInfo('Universidades disponibles: UNIVERSIDAD AUTONOMA DE QUERETARO')">LICENCIATURA EN GESTIÓN Y DESARROLLO DE EMPRESAS SOCIALES</a>
+                    <a onclick="selectItem(this), showInfo('Universidades disponibles: UNIVERSIDAD POLITECNICA DE QUERETARO')">LICENCIATURA EN ADMINISTRACIÓN Y GESTIÓN EMPRESARIAL</a>
+                    <a onclick="selectItem(this), showInfo('Universidades disponibles: UNIVERSIDAD POLITECNICA DE QUERETARO')">LICENCIATURA EN GESTIÓN DE PEQUEÑAS Y MEDIANAS EMPRESAS</a>
+                    <a onclick="selectItem(this), showInfo('Universidades disponibles: UNIVERSIDAD TECNOLOGICA DE SAN JUAN DEL RIO')">LICENCIATURA EN INNOVACIÓN DE NEGOCIOS Y MERCADOTECNIA  </a>
+                    <a onclick="selectItem(this), showInfo('Universidades disponibles: UNIVERSIDAD AUTONOMA DE QUERETARO')">LICENCIATURA EN GASTRONOMÍA</a>
+                    <a onclick="selectItem(this), showInfo('Universidades disponibles: UNIVERSIDAD TECNOLOGICA DE QUERETARO')">LICENCIATURA EN GESTIÓN DEL CAPITAL HUMANO</a>
+                    <a onclick="selectItem(this), showInfo('Universidades disponibles: UNIVERSIDAD TECNOLOGICA DE QUERETARO')">LICENCIATURA EN INNOVACIÓN DE NEGOCIOS Y MERCADOTECNIA  </a>
+                    <a onclick="selectItem(this), showInfo('Universidades disponibles: UNIVERSIDAD AUTONOMA DE QUERETARO')">LICENCIATURA EN ADMINISTRACIÓN FINANCIERA</a>
+                    <a onclick="selectItem(this), showInfo('Universidades disponibles: UNIVERSIDAD AUTONOMA DE QUERETARO')">LICENCIATURA EN PSICOLOGÍA</a>
+                    <a onclick="selectItem(this), showInfo('Universidades disponibles: UNIVERSIDAD AUTONOMA DE QUERETARO')">LICENCIADO EN GESTIÓN PÚBLICA Y GOBIERNO</a>
+                    <a onclick="selectItem(this), showInfo('Universidades disponibles: UNIVERSIDAD AUTONOMA DE QUERETARO')">LICENCIATURA EN ESTUDIOS SOCIOTERRITORIALES</a>
+                    
+                </div>
+            </div>
+
+            <div class="dropdown">
+                <button class="dropdown-btn" onclick="toggleDropdown('dropdown4')">🎭 Humanidades y artes</button>
+                <div id="dropdown4" class="dropdown-content">
+                    <input class="dropdown-search" type="text" id="searchInput4" onkeyup="filterDropdown('dropdown4', 'searchInput4')" placeholder="Buscar carrera...">
+                    <a onclick="selectItem(this), showInfo('Universidades disponibles: UNIVERSIDAD PEDAGOGICA NACIONAL')">LICENCIATURA EN EDUCACIÓN PREESCOLAR INDÍGENA</a>
+                    <a onclick="selectItem(this), showInfo('Universidades disponibles: CENTENARIA Y BENEMERITA ESCUELA NORMAL DEL ESTADO DE QUERETARO ANDRES BALVANERA')">LICENCIATURA EN ENSEÑANZA Y APRENDIZAJE DE LAS MATEMÁTICAS EN EDUCACIÓN SECUNDARIA</a>
+                    <a onclick="selectItem(this), showInfo('Universidades disponibles: UNIVERSIDAD AUTONOMA DE QUERETARO')">PROFESIONAL ASOCIADO EN ENSEÑANZA DE LA LENGUA</a>
+                    <a onclick="selectItem(this), showInfo('Universidades disponibles: CENTENARIA Y BENEMERITA ESCUELA NORMAL DEL ESTADO DE QUERETARO ANDRES BALVANERA')">LICENCIATURA EN EDUCACIÓN PREESCOLAR</a>
+                    <a onclick="selectItem(this), showInfo('Universidades disponibles: UNIVERSIDAD PEDAGOGICA NACIONAL')">LICENCIATURA EN INTERVENCIÓN EDUCATIVA</a>
+                    <a onclick="selectItem(this), showInfo('Universidades disponibles: CENTENARIA Y BENEMERITA ESCUELA NORMAL DEL ESTADO DE QUERETARO ANDRES BALVANERA')">LICENCIATURA EN INCLUSIÓN EDUCATIVA</a>
+                    <a onclick="selectItem(this), showInfo('Universidades disponibles: UNIVERSIDAD AUTONOMA DE QUERETARO')">LICENCIATURA EN ANIMACIÓN DIGITAL Y MEDIOS INTERACTIVOS   </a>
+                    <a onclick="selectItem(this), showInfo('Universidades disponibles: UNIVERSIDAD AUTONOMA DE QUERETARO')">LICENCIATURA EN RESTAURACIÓN DE BIENES MUEBLES</a>
+                    <a onclick="selectItem(this), showInfo('Universidades disponibles: UNIVERSIDAD AUTONOMA DE QUERETARO')">LICENCIATURA EN DISEÑO Y COMUNICACIÓN VISUAL</a>
+                    <a onclick="selectItem(this), showInfo('Universidades disponibles: UNIVERSIDAD AUTONOMA DE QUERETARO')">LICENCIATURA EN INNOVACIÓN Y GESTIÓN EDUCATIVA</a>
+                    <a onclick="selectItem(this), showInfo('Universidades disponibles: UNIVERSIDAD AUTONOMA DE QUERETARO')">LICENCIATURA EN LENGUAS MODERNAS EN ESPAÑOL</a>
+                    <a onclick="selectItem(this), showInfo('Universidades disponibles: UNIVERSIDAD PEDAGOGICA NACIONAL')">LICENCIATURA EN EDUCACIÓN</a>
+                    <a onclick="selectItem(this), showInfo('Universidades disponibles: CENTENARIA Y BENEMERITA ESCUELA NORMAL DEL ESTADO DE QUERETARO ANDRES BALVANERA')">LICENCIATURA EN ENSEÑANZA Y APRENDIZAJE DE LA BIOLOGÍA EN EDUCACIÓN SECUNDARIA</a>
+                    <a onclick="selectItem(this), showInfo('Universidades disponibles: CENTENARIA Y BENEMERITA ESCUELA NORMAL DEL ESTADO DE QUERETARO ANDRES BALVANERA')">LICENCIATURA EN ENSEÑANZA Y APRENDIZAJE DE LA GEOGRAFÍA EN EDUCACIÓN SECUNDARIA</a>
+                    <a onclick="selectItem(this), showInfo('Universidades disponibles: UNIVERSIDAD AUTONOMA DE QUERETARO')">LICENCIATURA EN DOCENCIA DEL ARTE</a>
+                    <a onclick="selectItem(this), showInfo('Universidades disponibles: UNIVERSIDAD AUTONOMA DE QUERETARO')">LICENCIATURA EN ARTES VISUALES</a>
+                    <a onclick="selectItem(this), showInfo('Universidades disponibles: CENTENARIA Y BENEMERITA ESCUELA NORMAL DEL ESTADO DE QUERETARO ANDRES BALVANERA')">LICENCIATURA EN EDUCACIÓN FÍSICA</a>
+                    <a onclick="selectItem(this), showInfo('Universidades disponibles: CENTENARIA Y BENEMERITA ESCUELA NORMAL DEL ESTADO DE QUERETARO ANDRES BALVANERA')">LICENCIATURA EN ENSEÑANZA Y APRENDIZAJE DEL ESPAÑOL EN EDUCACIÓN SECUNDARIA</a>
+                    <a onclick="selectItem(this), showInfo('Universidades disponibles: CENTENARIA Y BENEMERITA ESCUELA NORMAL DEL ESTADO DE QUERETARO ANDRES BALVANERA')">LICENCIATURA EN EDUCACIÓN PRIMARIA</a>
+                    <a onclick="selectItem(this), showInfo('Universidades disponibles: UNIVERSIDAD TECNOLOGICA DE QUERETARO')">TÉCNICO SUPERIOR UNIVERSITARIO EN LENGUA INGLESA</a>
+                    <a onclick="selectItem(this), showInfo('Universidades disponibles: UNIVERSIDAD PEDAGOGICA NACIONAL')">LICENCIATURA EN EDUCACIÓN PRIMARIA INDÍGENA</a>
+                    <a onclick="selectItem(this), showInfo('Universidades disponibles: CENTENARIA Y BENEMERITA ESCUELA NORMAL DEL ESTADO DE QUERETARO ANDRES BALVANERA')">LICENCIATURA EN ENSEÑANZA Y APRENDIZAJE DEL INGLÉS EN EDUCACIÓN SECUNDARIA</a>
+                    <a onclick="selectItem(this), showInfo('Universidades disponibles: UNIVERSIDAD AUTONOMA DE QUERETARO')">LICENCIATURA EN HUMANIDADES Y PRODUCCIÓN DE IMÁGENES </a>
+                    <a onclick="selectItem(this), showInfo('Universidades disponibles: UNIVERSIDAD AUTONOMA DE QUERETARO')">LICENCIATURA EN HISTORIA</a>
+                    <a onclick="selectItem(this), showInfo('Universidades disponibles: UNIVERSIDAD AUTONOMA DE QUERETARO')">LICENCIATURA EN DANZA FOLKLÓRICA MEXICANA</a>
+                    <a onclick="selectItem(this), showInfo('Universidades disponibles: ESCUELA DE LAUDERIA')">LICENCIATURA EN LAUDERÍA</a>
+                    <a onclick="selectItem(this), showInfo('Universidades disponibles: UNIVERSIDAD AUTONOMA DE QUERETARO')">LICENCIATURA EN ACTUACIÓN</a>
+                    <a onclick="selectItem(this), showInfo('Universidades disponibles: ESCUELA NORMAL SUPERIOR DE QUERÉTARO, CENTENARIA Y BENEMERITA ESCUELA NORMAL DEL ESTADO DE QUERETARO ANDRES BALVANERA')">LICENCIATURA EN ENSEÑANZA Y APRENDIZAJE DE LA HISTORIA EN EDUCACIÓN SECUNDARIA</a>
+                    <a onclick="selectItem(this), showInfo('Universidades disponibles: UNIVERSIDAD AUTONOMA DE QUERETARO')">LICENCIATURA EN ARTE DANZARIO</a>
+                    <a onclick="selectItem(this), showInfo('Universidades disponibles: UNIVERSIDAD AUTONOMA DE QUERETARO')">LICENCIATURA EN ESTUDIOS LITERARIOS</a>
+                    <a onclick="selectItem(this), showInfo('Universidades disponibles: UNIVERSIDAD AUTONOMA DE QUERETARO')">LICENCIATURA EN DISEÑO INDUSTRIAL</a>
+                    <a onclick="selectItem(this), showInfo('Universidades disponibles: UNIVERSIDAD TECNOLOGICA DE QUERETARO')">LICENCIATURA EN GESTIÓN INSTITUCIONAL EDUCATIVA Y CURRICULAR</a>
+                    <a onclick="selectItem(this), showInfo('Universidades disponibles: UNIVERSIDAD AUTONOMA DE QUERETARO')">LICENCIATURA EN EDUCACIÓN FÍSICA Y CIENCIAS DEL DEPORTE</a>
+                    <a onclick="selectItem(this), showInfo('Universidades disponibles: UNIVERSIDAD AUTONOMA DE QUERETARO')">LICENCIATURA EN MÚSICA</a>
+                    <a onclick="selectItem(this), showInfo('Universidades disponibles: UNIVERSIDAD AUTONOMA DE QUERETARO')">LICENCIATURA EN MUSICA POPULAR CONTEMPORANEA</a>
+                    <a onclick="selectItem(this), showInfo('Universidades disponibles: UNIVERSIDAD AUTONOMA DE QUERETARO')">LICENCIATURA EN EDUCACIÓN Y MEDIACIÓN INTERCULTURAL   </a>
+                    <a onclick="selectItem(this), showInfo('Universidades disponibles: CENTENARIA Y BENEMERITA ESCUELA NORMAL DEL ESTADO DE QUERETARO ANDRES BALVANERA, ESCUELA NORMAL SUPERIOR DE QUERÉTARO')">LICENCIATURA EN ENSEÑANZA Y APRENDIZAJE EN TELESECUNDARIA</a>
+                    <a onclick="selectItem(this), showInfo('Universidades disponibles: COLEGIO NACIONAL DE DANZA CONTEMPORANEA')">LICENCIATURA EN DANZA CONTEMPORÁNEA</a>
+                    <a onclick="selectItem(this), showInfo('Universidades disponibles: UNIVERSIDAD AUTONOMA DE QUERETARO')">LICENCIATURA EN COMPOSICIÓN MUSICAL PARA MEDIOS AUDIOVISUALES Y ESCÉNICOS   </a>
+                    <a onclick="selectItem(this), showInfo('Universidades disponibles: ESCUELA NORMAL SUPERIOR DE QUERÉTARO, CENTENARIA Y BENEMERITA ESCUELA NORMAL DEL ESTADO DE QUERETARO ANDRES BALVANERA')">LICENCIATURA EN ENSEÑANZA Y APRENDIZAJE DEL ESPAÑOL</a>
+                    <a onclick="selectItem(this), showInfo('Universidades disponibles: CENTENARIA Y BENEMERITA ESCUELA NORMAL DEL ESTADO DE QUERETARO ANDRES BALVANERA')">LICENCIATURA EN EDUCACIÓN FÍSICA</a>
+                    <a onclick="selectItem(this), showInfo('Universidades disponibles: CENTENARIA Y BENEMERITA ESCUELA NORMAL DEL ESTADO DE QUERETARO ANDRES BALVANERA')">LICENCIATURA EN INCLUSIÓN EDUCATIVA</a>
+                    <a onclick="selectItem(this), showInfo('Universidades disponibles: CENTENARIA Y BENEMERITA ESCUELA NORMAL DEL ESTADO DE QUERETARO ANDRES BALVANERA')">LICENCIATURA EN EDUCACIÓN PREESCOLAR</a>
+                    <a onclick="selectItem(this), showInfo('Universidades disponibles: CENTENARIA Y BENEMERITA ESCUELA NORMAL DEL ESTADO DE QUERETARO ANDRES BALVANERA')">LICENCIATURA EN ENSEÑANZA Y APRENDIZAJE DE LAS MATEMÁTICAS</a>
+                    <a onclick="selectItem(this), showInfo('Universidades disponibles: CENTENARIA Y BENEMERITA ESCUELA NORMAL DEL ESTADO DE QUERETARO ANDRES BALVANERA')">LICENCIATURA EN EDUCACIÓN PRIMARIA</a>
+                    <a onclick="selectItem(this), showInfo('Universidades disponibles: CENTENARIA Y BENEMERITA ESCUELA NORMAL DEL ESTADO DE QUERETARO ANDRES BALVANERA')">LICENCIATURA EN EDUCACIÓN PREESCOLAR</a>
+                    <a onclick="selectItem(this), showInfo('Universidades disponibles: CENTENARIA Y BENEMERITA ESCUELA NORMAL DEL ESTADO DE QUERETARO ANDRES BALVANERA')">LICENCIATURA EN EDUCACIÓN INICIAL</a>
+                    
+                </div>
+            </div>
+
         </div>
+
+        <!-- Display event information here -->
+        <div id="info-text" class="info-box">Selecciona una carrera para ver más detalles.</div>
+        
     </div>
 
     <div class="navigation-buttons">
         <a href="/mi-entorno-s2">
             <img src="{% static 'images/Regresar.png'%}" alt="Boton-regresar" class="back-button">
         </a>
-        <a href="/video-tercer-paso">
+        <a href="/video-consejo-tercer-paso">
             <img src="{% static 'images/Continuar.png'%}" alt="Boton-continuar" class="continue-button">
         </a>
     </div>
+    
+    <script src="{% static 'js/tablero_4paso.js'%}"></script>
+    
 </body>
 </html>
