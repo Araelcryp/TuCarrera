@@ -85,6 +85,7 @@
     <main>
         <div class="container-content">
             <h1>Formulario de Registro</h1>
+            <div style="color: red; font-weight: bold;"> {{ error }} </div>
             <form action="{% url 'signup' %}" method="POST">
                 {% csrf_token %}
 
@@ -206,7 +207,6 @@
                     <label for="matricula">Matrícula:</label>
                     <input type="text" id="matricula" name="matricula">
                 </div>
-
                     <input type="submit" value="Registrar">
             </form>
         </div>
