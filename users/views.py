@@ -21,7 +21,7 @@ def validate_password_strength(password):
         raise ValidationError('La contraseña debe contener al menos una letra minúscula.')
     if not re.search(r'[0-9]', password):
         raise ValidationError('La contraseña debe contener al menos un número.')
-    if not re.search(r'[@$!%*?&]', password):  # Puedes agregar más caracteres especiales si lo deseas.
+    if not re.search(r'[@$!%*?#]', password):
         raise ValidationError('La contraseña debe contener al menos un signo especial.')
 
 def signup(request):
