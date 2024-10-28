@@ -10,6 +10,10 @@ from django.core.exceptions import ValidationError
 
 from .models import Profile
 
+from django.core.mail import send_mail
+from django.template.loader import render_to_string
+from django.utils.html import strip_tags
+
 # Create your views here.
 
 def validate_password_strength(password):
@@ -61,16 +65,34 @@ def signup(request):
                 nombres=request.POST['nombres'],
                 fecha_nacimiento=request.POST['fechaNacimiento'],
                 curp=request.POST['curp'],
-                procedencia=request.POST['procedencia'],  # 'si' o 'no'
-                estado=request.POST.get('estado', None),  # Solo si la preparatoria es fuera de Querétaro
-                institucion=request.POST.get('institucion', None),  # Solo si la preparatoria es fuera de Querétaro
-                municipio=request.POST.get('municipio', None),  # Si la preparatoria es en Querétaro
-                bachillerato=request.POST.get('bachillerato', None),  # Incluir opción de "otro"
-                otro_bachillerato=request.POST.get('otro_bachillerato', None),  # Campo opcional si elige "otro"
+                procedencia=request.POST['procedencia'],
+                estado=request.POST.get('estado', None),
+                institucion=request.POST.get('institucion', None),
+                municipio=request.POST.get('municipio', None),
+                bachillerato=request.POST.get('bachillerato', None),
+                otro_bachillerato=request.POST.get('otro_bachillerato', None),
                 matricula=request.POST['matricula'],
                 telefono=request.POST['telefono']
             )
             profile.save()
+
+            #el contenido del correo
+            html_content = render_to_string('confirmation_email.html', {
+                'nombre': profile.nombres,
+            })
+            text_content = strip_tags(html_content)  # Convertir el HTML
+
+            # Enviar correo
+            send_mail(
+                'Confirmación de cuenta',
+                text_content,  # Contenido en texto plano
+                'armanmart2017@gmail.com',  # Desde qué email enviar
+                [user.email],  # A qué email enviar
+                html_message=html_content,  # Contenido HTML del correo
+                fail_silently=False,
+            )
+
+            # Iniciar sesión y redirigir al usuario
             login(request, user)
             return redirect('homeuser')
         except IntegrityError:
