@@ -71,8 +71,6 @@ urlpatterns = [
     path('presentacion-tercerpaso/', viewsp3.presentacion_tercerpaso, name='presentacion-interactiva-tercer-paso'),
 
     path('cuartopaso/',viewsp4.cuartopaso, name='cuartopaso'),
-    path('mi-universidad-s2/',viewsp4.mi_universidad_s2, name='mi-universidad-s2'),
-    path('mi-universidad-s3/',viewsp4.mi_universidad_s3, name='mi-universidad-s3'),
     path('tablero-cuarto-paso/',viewsp4.tablero_cuartopaso, name='tablero-cuarto-paso'),
     path('video-cuarto-paso/',viewsp4.video_cuartopaso, name='video-cuarto-paso'),
     path('agenda-cuarto-paso/',viewsp4.agenda_cuartopaso, name='agenda-cuarto-paso'),
