@@ -150,4 +150,4 @@ EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'armanmart2017@gmail.com'
 EMAIL_HOST_PASSWORD = 'cwzj nuio yjgw npcf'
-
+DEFAULT_FROM_EMAIL = 'armanmart2017@gmail.com'
