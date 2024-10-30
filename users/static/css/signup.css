@@ -107,6 +107,44 @@ main {
     font-weight: bold;
 }
 
+/* Estilos para la sección de requisitos de contraseña */
+.password-requirements {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    padding: 1em;
+    border-radius: 8px;
+    margin-bottom: 1em;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+.requirements-title {
+    font-weight: bold;
+    color: #333;
+    font-size: 16px;
+    margin-bottom: 0.5em;
+}
+
+.password-requirements ul {
+    list-style: none;
+    padding-left: 1em;
+}
+
+.password-requirements li {
+    padding: 0.25em 0;
+    font-size: 14px;
+    color: #555;
+    display: flex;
+    align-items: center;
+}
+
+.password-requirements li::before {
+    content: '✓';
+    color: #4CAF50;
+    font-weight: bold;
+    margin-right: 0.5em;
+}
+
+
 .container-content input[type="text"],
 .container-content input[type="date"],
 .container-content input[type="tel"],
@@ -125,22 +163,30 @@ main {
     margin: 10px 5px;
 }
 
-.container-content button[type="submit"] {
-    background-color: #242B57;
+.register-btn {
+    background-color: #242B57; /* Azul oscuro */
     color: #ffffff;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 22px;
-    cursor: pointer;
     font-weight: bold;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 16px;
     width: 100%;
-    margin-bottom: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
-.container-content button[type="submit"]:hover {
-    background-color: #1e244e;
+.register-btn:hover {
+    background-color: #1e244e; /* Azul un poco más oscuro en hover */
     transform: scale(1.05);
-    transition: transform 0.3s;
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+.register-btn:active {
+    background-color: #1a1f46; /* Azul aún más oscuro cuando se hace clic */
+    transform: scale(0.98);
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
 }
 
 /* Transiciones para mostrar/ocultar formularios adicionales */
