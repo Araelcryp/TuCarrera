@@ -235,3 +235,7 @@ body {
 .info-section {
     flex: 1;
 }
+
+.instrucciones {
+    text-align: justify;
+}
