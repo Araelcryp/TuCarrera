@@ -1,0 +1,67 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explora el futuro de tu hijo</title>
+    <link rel="stylesheet" href="{% static 'css/tutor.css' %}">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <img src="{% static 'images/LOGOS.png'%}" alt="Logo" class="logo">
+        <nav>
+            <ul>
+                <li><a href="#">Carrera universitaria</a></li>
+                <li><a href="#">Conoce los temas</a></li>
+                <li><a href="/aboutprogram">Acerca del programa</a></li>
+            </ul>
+        </nav>
+        <a href="/">
+            <button class="cancel-btn">Salir</button>
+        </a>
+    </header>
+
+    <!-- Introducción -->
+    <section class="intro-section">
+        <h1>Explora el futuro académico de tu hijo</h1>
+        <p>Apoya a tu hijo en la elección de su carrera y universidad con la ayuda de esta plataforma educativa.</p>
+    </section>
+
+    <!-- Pasos Clave -->
+    <section id="pasos" class="steps-section">
+        <h2>Guía para ayudar a tu hijo en la elección de su futuro académico</h2>
+        <div class="steps-container">
+            <div class="step" data-aos="fade-up">
+                <img src="{% static 'images/step1.png' %}" alt="Explora opciones de carrera">
+                <h3>Explora áreas profesionales y carreras</h3>
+                <p>Descubre junto a tu hijo las áreas de estudio y carreras que se alinean con sus intereses y talentos, ayudándole a identificar su camino ideal.</p>
+            </div>
+            <div class="step" data-aos="fade-up" data-aos-delay="100">
+                <img src="{% static 'images/step2.png' %}" alt="Directorio de universidades">
+                <h3>Encuentra universidades adecuadas</h3>
+                <p>Accede a un directorio completo de universidades y elige las instituciones que mejor se ajusten a sus metas académicas y necesidades geográficas.</p>
+            </div>
+            <div class="step" data-aos="fade-up" data-aos-delay="200">
+                <img src="{% static 'images/step3.png' %}" alt="Oferta educativa">
+                <h3>Consulta la oferta educativa</h3>
+                <p>Explora los programas académicos disponibles y selecciona opciones que enriquezcan su desarrollo profesional y académico.</p>
+            </div>
+            <div class="step" data-aos="fade-up" data-aos-delay="300">
+                <img src="{% static 'images/step4.png' %}" alt="Becas">
+                <h3>Accede a información sobre becas</h3>
+                <p>Investiga las becas y apoyos financieros disponibles para construir juntos un plan hacia una educación universitaria sin barreras.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Script de AOS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 1000,
+        });
+    </script>
+</body>
+</html>

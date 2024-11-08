@@ -7,3 +7,6 @@ def home(request):
 
 def aboutprogram(request):
     return render (request, 'about-program.html')
+
+def tutor(request):
+    return render (request, 'tutor.html')

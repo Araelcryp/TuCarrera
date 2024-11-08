@@ -1,0 +1,131 @@
+/* Estilos generales */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9;
+    color: #333;
+}
+
+header {
+    background-color: #242B57;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    padding: 40px 25px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+header .logo {
+    width: 350px;
+}
+
+header nav {
+    margin-left: auto;
+}
+
+header nav ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+header nav ul li {
+    margin-right: 20px;
+}
+
+header nav ul li:hover {
+    transition: transform 0.3s;
+    transform: scale(1.05);
+    color: azure;
+}
+
+header nav ul li a {
+    text-decoration: none;
+    color: #ffffff;
+}
+
+.cancel-btn {
+    background-color: #ffffff;
+    color: #242B57;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 22px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-right: 50px;
+}
+
+.cancel-btn:hover {
+    background-color: #f9f9f9;
+    transform: scale(1.05);
+    transition: transform 0.3s;
+}
+
+/* Sección de introducción */
+.intro-section {
+    background: linear-gradient(135deg, #6D727A, #2d3142);
+    color: white;
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.intro-section h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+
+.intro-section p {
+    font-size: 1.2em;
+}
+
+/* Sección de pasos clave */
+.steps-section {
+    padding: 40px 20px;
+    text-align: center;
+    background-color: #f9f9fb;
+}
+
+.steps-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.step {
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 220px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.step h3 {
+    color: #333;
+    font-size: 1.1em;
+}
+
+.step img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+    border-radius: 8px;
+}
+
+.step:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Footer */
+footer {
+    background-color: #4a4e69;
+    color: #f4f4f9;
+    padding: 20px;
+    text-align: center;
+    font-size: 0.9em;
+    font-weight: 300;
+}
