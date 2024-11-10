@@ -1,17 +1,19 @@
 function openModal(modalId) {
-    document.getElementById(modalId).style.display = "block";
+    const modal = document.getElementById(modalId);
+    modal.classList.add("show"); // Añade la clase para mostrar la modal
 }
 
 function closeModal(modalId) {
-    document.getElementById(modalId).style.display = "none";
+    const modal = document.getElementById(modalId);
+    modal.classList.remove("show"); // Quita la clase para ocultar la modal
 }
 
-// Close the modal when clicking outside of the modal content
+// Cerrar la modal al hacer clic fuera del contenido
 window.onclick = function(event) {
-    let modals = document.getElementsByClassName("modal");
+    const modals = document.getElementsByClassName("modal");
     for (let i = 0; i < modals.length; i++) {
-        if (event.target == modals[i]) {
-            modals[i].style.display = "none";
+        if (event.target === modals[i]) {
+            modals[i].classList.remove("show"); // Quita la clase para ocultar la modal
         }
     }
-}
+};
