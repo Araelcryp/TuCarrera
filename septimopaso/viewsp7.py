@@ -32,3 +32,8 @@ def imagen2_septimopaso(request):
 @login_required
 def formato_septimopaso(request):
     return render (request,'formato_septimopaso.html')
+
+@login_required
+def formato2_septimopaso(request):
+    return render (request,'formato2_septimopaso.html')
+

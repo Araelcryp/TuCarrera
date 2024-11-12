@@ -95,6 +95,7 @@ urlpatterns = [
     path('infografia-septimo-paso/', viewsp7.infografia_septimopaso, name='infografia-septimo-paso'),
     path('imagen2-septimo-paso/', viewsp7.imagen2_septimopaso, name='imagen2-septimo-paso'),
     path('formato-septimo-paso/', viewsp7.formato_septimopaso, name='formato-septimo-paso'),
+    path('formato2-septimo-paso/', viewsp7.formato2_septimopaso, name='formato2-septimo-paso'),
     
     path('password_reset/', auth_views.PasswordResetView.as_view(
         template_name='password_reset_form.html',
