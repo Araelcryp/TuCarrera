@@ -140,3 +140,7 @@ header nav ul li a {
     transition: transform 0.3s;
     transform: scale(1.05);
 }
+
+.instrucciones {
+    text-align: center;
+}

@@ -78,9 +78,7 @@ urlpatterns = [
 
     path('quintopaso/', viewsp5.quintopaso, name='quintopaso'),
     path('imagen-quinto-paso/', viewsp5.imagen_quintopaso, name='imagen-quinto-paso'),
-    path('mis-apoyos-s2/', viewsp5.mis_apoyos_s2, name='mis-apoyos-s2'),
     path('tablero-quinto-paso/', viewsp5.tablero_quintopaso, name='tablero-quinto-paso'),
-    path('mis-apoyos-s3/', viewsp5.mis_apoyos_s3, name='mis-apoyos-s3'),
     path('infografia-quinto-paso/', viewsp5.infografia_quintopaso, name='infografia-quinto-paso'),
 
 

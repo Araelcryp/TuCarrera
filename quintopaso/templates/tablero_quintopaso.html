@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tablero interactivo</title>
-    <link rel="stylesheet" href="{% static 'css/tablero_paso5.css' %}">
+    <title>Imagen</title>
+    <link rel="stylesheet" href="{% static 'css/imagen_paso5.css' %}">
 </head>
 <body>
     <header>
@@ -17,13 +17,20 @@
                 <li><a href="/Home/index.html">Acerca del programa</a></li>
             </ul>
         </nav>
-        <a href="/mis-apoyos-s2">
+        <a href="/quintopaso">
             <img src="{% static 'images/Salir.png'%}" alt="Boton-salir" class="cancel-btn">
         </a>
     </header>
 
     <div class="content">
-        <div class="board">
+        <div class="image-container">
+            <h2 class="image-title">Becas vigentes</h2>
+            <p class="instrucciones">Existen becas federales, estatales y municipales,
+                cada una presenta características y requisitos distintos.
+                <br>
+                Te invitamos a que conozcan los beneficios que cada una de ellas te otorga y puedas elegir la convocatoria que más te convenga.                
+            </p>
+
             <div style="width: 800px;">
                 <div style="position: relative; padding-bottom: 56.25%; padding-top: 0; height: 0;">
                     <iframe 
@@ -43,14 +50,17 @@
             </div>
             
         </div>
+        <div class="controls-container">
+            <!-- Aquí puedes agregar otros controles para la imagen si es necesario -->
+        </div>
     </div>
 
     <div class="navigation-buttons">
-        <a href="/mis-apoyos-s2">
-            <img src="{% static 'images/Regresar.png'%}" alt="Boton-regresar" class="back-button">
+        <a href="/imagen-quinto-paso">
+            <img src="{% static 'images/Regresar.png'%}" alt="Boton-regresar" class="btn back-button">
         </a>
-        <a href="/mis-apoyos-s3">
-            <img src="{% static 'images/Continuar.png'%}" alt="Boton-continuar" class="continue-button">
+        <a href="/infografia-quinto-paso">
+            <img src="{% static 'images/Continuar.png'%}" alt="Boton-continuar" class="btn continue-button">
         </a>
     </div>
 </body>
