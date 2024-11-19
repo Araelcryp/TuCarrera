@@ -10,7 +10,7 @@ function openModal(event) {
     // Verificar si el elemento clickeado es una tarjeta o está dentro de una
     let card = event.target.closest('.card');
     if (!card) return;
-ss
+
     // Extraer información de los atributos de datos
     const university = card.getAttribute('data-university');
     const MapUrl = card.getAttribute('data-image');
