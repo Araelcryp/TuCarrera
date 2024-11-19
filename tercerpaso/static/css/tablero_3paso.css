@@ -82,6 +82,14 @@ header nav ul li a {
     color: #242B57;
 }
 
+.paragraph-of-instructions {
+    font-size: 15px;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 15px;
+    width: 800px;
+}
+
 /* Dropdown styles */
 .dropdown-container {
     display: flex;
