@@ -1,3 +1,7 @@
+html, body {
+    width: 100%;
+    overflow-x: hidden; /* Hides horizontal overflow */
+}
 body {
     font-family: 'Arial', sans-serif;
     margin: 0;
@@ -7,9 +11,9 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    overflow-x: hidden; /* Evita la barra de desplazamiento horizontal */
 }
 
+/* Estilos del header */
 header {
     background-color: #242B57;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
@@ -68,15 +72,51 @@ header nav ul li a {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 20px;
 }
 
-#calendar {
-    max-width: 900px;
-    width: 100%;
-    margin: 0 auto;
+.video-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #ffffff;
+    padding: 80px;
+    padding-top: 30px;
+    border-radius: 12px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    margin-top: 50px;
+    margin-bottom: 30px;
 }
 
+.video-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.nav-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    outline: none;
+}
+
+.nav-button img {
+    width: 50px;
+    height: 50px;
+}
+
+video {
+    width: 900px;
+    height: auto;
+    margin: 0 20px;
+    border-radius: 12px;
+}
+
+.controls-container button:hover {
+    background-color: #021f40;
+}
+
+/* Botones de navegación */
 .navigation-buttons {
     display: flex;
     justify-content: center;
@@ -105,4 +145,8 @@ header nav ul li a {
 .continue-button:hover {
     transition: transform 0.3s;
     transform: scale(1.05);
+}
+
+.instrucciones {
+    text-align: center;
 }
