@@ -74,37 +74,54 @@ header nav ul li a {
     align-items: center;
 }
 
-/* Estilos para el tablero interactivo */
-.board {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    max-width: 900px;
-    margin: 20px auto;
+.paragraph-of-instructions {
+    font-size: 15px;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 15px;
+    width: 800px;
 }
 
-.cell {
-    width: 100px;
-    height: 100px;
+.video-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     background-color: #ffffff;
+    padding: 80px;
+    padding-top: 30px;
     border-radius: 12px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    margin: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 18px;
-    font-weight: bold;
-    color: #333;
-    text-align: center;
-    cursor: pointer;
-    transition: background-color 0.3s, transform 0.3s;
+    margin-top: 50px;
+    margin-bottom: 30px;
 }
 
-.cell:hover {
-    background-color: #f4f4f9;
-    transform: scale(1.05);
+.video-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.nav-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    outline: none;
+}
+
+.nav-button img {
+    width: 50px;
+    height: 50px;
+}
+
+video {
+    width: 900px;
+    height: auto;
+    margin: 0 20px;
+    border-radius: 12px;
+}
+
+.controls-container button:hover {
+    background-color: #021f40;
 }
 
 /* Botones de navegación */
@@ -136,4 +153,8 @@ header nav ul li a {
 .continue-button:hover {
     transition: transform 0.3s;
     transform: scale(1.05);
+}
+
+.instrucciones {
+    text-align: center;
 }
