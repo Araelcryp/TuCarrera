@@ -20,7 +20,7 @@ function openModal(event) {
     modalTitle.textContent = university;
     modalIframe.src = MapUrl;
     modalIframe.alt = `Ubicacion de ${university}`;
-    modalDescription.textContent = info;
+    modalDescription.innerHTML = info;
 
     // Mostrar la ventana modal
     modal.style.display = 'block';
