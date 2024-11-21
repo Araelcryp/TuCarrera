@@ -91,7 +91,7 @@ header nav ul li a {
     gap: 30px; /* Añadir espacio entre las columnas */
     border-radius: 12px; /* Bordes redondeados */
     overflow: hidden; /* Evita que los elementos hijos sobresalgan del contenedor */
-    background-color: #ffffff; /* Contenedor blanco */
+    background-color: #f4f4f9; /* Contenedor blanco */
     padding: 40px; /* Aumentar el padding para mayor espacio alrededor de las columnas */
     box-shadow: 0px 2px 8px rgba(0,0,0,0.1);
     box-sizing: border-box; /* Incluye padding y border en el ancho total */
