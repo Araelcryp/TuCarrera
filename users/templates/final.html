@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Finalización del Test</title>
-    <link rel="stylesheet" href="{% static 'css/imagen2_7paso.css' %}">
+    <title>¡Constancia Completada!</title>
+    <link rel="stylesheet" href="{% static 'css/final.css' %}">
 </head>
 <body>
     <header>
@@ -17,24 +17,26 @@
                 <li><a href="/Home/index.html">Acerca del programa</a></li>
             </ul>
         </nav>
-        <a href="/homeuser">
+        <a href="/mi-plan-s2">
             <img src="{% static 'images/Salir.png' %}" alt="Boton-salir" class="cancel-btn">
         </a>
     </header>
 
     <div class="content">
         <div class="completion-container">
-            <img src="{% static 'images/.png' %}" alt="Graduation Hat" class="graduation-hat">
-            <h2>¡Felicitaciones por completar el test!</h2>
-            <p>Esté atento a emocionantes oportunidades y perspectivas. Contáctenos para cualquier consulta o preocupación de privacidad.</p>
-            <button id="exploreButton" class="btn explore-button">Terminar</button>
+            <img src="{% static 'images/graduation.png' %}" alt="Graduation Hat" class="graduation-hat">
+            <h2>¡Felicidades por completar el programa!</h2>
+            <p>Has concluido las actividades de la página “Contigo Tu Carrera Universitaria”.
+                <br>
+                Te deseamos mucho éxito en esta nueva etapa que estás por iniciar.
+                <br>
+                Descarga la constancia del cierre de esta actividad. 
+            </p>
+            <button id="downloadCertificate" class="btn download-button">Descargar constancia</button>
         </div>
     </div>
-
-    <script>
-        document.getElementById("exploreButton").addEventListener("click", function() {
-            window.location.href = "/homeuser";
-        });
-    </script>
+    <canvas id="confettiCanvas"></canvas>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <script src="{% static 'js/final.js' %}"></script>
 </body>
 </html>
