@@ -130,6 +130,12 @@ footer {
     font-weight: 300;
 }
 
-a {
+.link {
+    color: inherit; /* O usa el color deseado */
     text-decoration: none;
+}
+
+/* Quitar el color de enlaces visitados */
+.link:visited {
+    color: inherit; 
 }

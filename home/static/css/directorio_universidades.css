@@ -108,9 +108,10 @@ header nav ul li a {
     transition: all 0.2s ease-in-out;
     
 }
+
 .card-deck .card:hover{
-    box-shadow:  -13px -13px 5px #ededed,
-             13px 13px 5px #ffffff;
+    transform: translateY(-8px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 .card-deck .card:focus{
     outline: none;
@@ -134,7 +135,7 @@ header nav ul li a {
 .modal {
     display: none; 
     position: fixed;
-    z-index: 1000; 
+    z-index: 1; 
     left: 0;
     top: 0;
     width: 100%;
@@ -154,6 +155,15 @@ header nav ul li a {
     border-radius: 12px;
     box-shadow: 0 5px 15px rgba(0,0,0,0.3);
     animation: fadeIn 0.3s;
+}
+
+.modal-description a{
+    color: #0097C9;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+.modal-description a:hover{
+    color: #007bb5;
 }
 
 /* Animación de aparición */
@@ -207,38 +217,6 @@ header nav ul li a {
         flex: 1 1 100%;
     }
 }
-
-/* Botones de navegación */
-.navigation-buttons {
-    display: flex;
-    justify-content: center;
-    padding: 20px;
-}
-
-.back-button, .continue-button {
-    cursor: pointer;
-    width: 180px;
-    padding: 10px 20px;
-}
-
-.back-button {
-    margin-right: 20px; /* Añadir espacio entre los botones */
-}
-
-.back-button:hover {
-    transition: transform 0.3s;
-    transform: scale(1.05);
-}
-
-.continue-button {
-    color: #ffffff;
-}
-
-.continue-button:hover {
-    transition: transform 0.3s;
-    transform: scale(1.05);
-}
-
 
 /* Responsive Design: Adjust card layout on smaller screens */
 
