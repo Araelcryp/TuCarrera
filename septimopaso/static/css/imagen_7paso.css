@@ -95,6 +95,14 @@ header nav ul li a {
     width: 100%; /* Asegura que el texto ocupe todo el ancho disponible */
 }
 
+.paragraph-of-instructions {
+    font-size: 15px;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 15px;
+    width: 800px;
+}
+
 .displayed-image {
     width: 900px;
     height: auto;

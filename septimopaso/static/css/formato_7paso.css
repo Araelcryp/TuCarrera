@@ -93,6 +93,14 @@ header nav ul li a {
     margin-bottom: 20px;
 }
 
+.paragraph-of-instructions {
+    font-size: 15px;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 15px;
+    width: 800px;
+}
+
 .btn {
     cursor: pointer;
     width: 200px;

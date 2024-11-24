@@ -93,7 +93,6 @@ urlpatterns = [
     path('septimopaso/', viewsp7.septimopaso, name='septimopaso'),
     path('frase-septimo-paso/', viewsp7.frase_septimopaso, name='frase-septimo-paso'),
     path('imagen-septimo-paso/', viewsp7.imagen_septimopaso, name='imagen-septimo-paso'),
-    path('video-septimo-paso/', viewsp7.video_septimopaso, name='video-septimo-paso'),
     path('mi-plan-s2/', viewsp7.mi_plan_s2, name='mi-plan-s2'),
     path('infografia-septimo-paso/', viewsp7.infografia_septimopaso, name='infografia-septimo-paso'),
     path('imagen2-septimo-paso/', viewsp7.imagen2_septimopaso, name='imagen2-septimo-paso'),

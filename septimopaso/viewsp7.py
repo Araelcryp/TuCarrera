@@ -14,10 +14,6 @@ def frase_septimopaso(request):
 def imagen_septimopaso(request):
     return render (request,'imagen_septimopaso.html')
 
-@login_required
-def video_septimopaso(request):
-    return render (request,'video_septimopaso.html')
-
 def mi_plan_s2(request):
     return render (request,'mi_plan_s2.html')
 
