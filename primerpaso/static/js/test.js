@@ -4,6 +4,9 @@ document.addEventListener("DOMContentLoaded", function () {
     const prevButton = document.getElementById("prevButton");
     const nextButton = document.getElementById("nextButton");
     const submitButton = document.getElementById("submitButton");
+    const alertModal = document.getElementById("alertModal");
+    const closeModal = alertModal.querySelector(".close");
+    const closeModalButton = document.getElementById("closeModalButton");
     let currentQuestion = 0;
 
     // Function to update question visibility
@@ -16,6 +19,29 @@ document.addEventListener("DOMContentLoaded", function () {
         nextButton.style.display = currentQuestion === questions.length - 1 ? "none" : "inline-block";
         submitButton.style.display = currentQuestion === questions.length - 1 ? "inline-block" : "none";
     }
+
+    // Function to show modal
+    function showModal(message) {
+        const modalContent = alertModal.querySelector("p");
+        modalContent.textContent = message; // Cambia el texto de la modal dinámicamente
+        alertModal.style.display = "block";
+    }
+
+    // Close the modal when the user clicks the "X" button
+    closeModal.addEventListener("click", () => {
+        alertModal.style.display = "none";
+    });
+
+    // Close the modal when the user clicks outside of it
+    window.addEventListener("click", (event) => {
+        if (event.target === alertModal) {
+            alertModal.style.display = "none";
+        }
+    });
+
+    closeModalButton.addEventListener("click", () => {
+        alertModal.style.display = "none";
+    });
 
     // Function to calculate results
     function calculateResults() {
@@ -83,42 +109,43 @@ document.addEventListener("DOMContentLoaded", function () {
         displayResults(topCategories);
     }
 
-    // Function to display results AGREGAR DESCRIPCIONES COMPLETAS
+    // Function to display results
     function displayResults(topCategories) {
         const descriptions = {
-            A: "Inteligencia verbal / **Lingüística:**\nTienes una capacidad y facilidad de usar correctamente las palabras, ya sea en forma oral y escrita. Puedes aprender a hablar idiomas fácilmente o los idiomas no es algo que se te dificulte. Disfrutas de actividades como platicar, exponer, escribir, leer, debatir, dialogar o explicar tus ideas. Algunas profesiones relacionadas con la inteligencia verbal son: escritores, periodistas, abogados, locutores, historiadores, profesores, publicistas, políticos, vendedores, traductores, entre otros.",
-            B: "Inteligencia Lógica / **Matemática:**\nTienes facilidad con los números y para razonar de forma lógica, es sencillo para ti relacionar patrones, comprender diagramas o esquemas y resolver problemas.  Puedes organizar y clasificar la información en categorías, realizas fácilmente cálculos mentales y te gusta trabajar con calculadoras científicas u ordenadores. Algunas profesiones relacionadas con la inteligencia matemática son: médicos, Ingenieros civiles, ingenieros industriales, Ingenieros informáticos o en programación, contadores, economistas, administradores, físicos, matemáticos, entre otros.",
-            C: "Inteligencia Visual / **Espacial:**\n Disfrutas de las artes visuales, tienes una sensibilidad para los colores y las formas, posees habilidades para el diseño, generalmente representas tus ideas de manera gráfica, ya sea con imágenes o dibujos.  Eres muy imaginativo y creativo. Algunas profesiones relacionadas con la inteligencia visual/espacial son: la arquitectura, ingeniería civil, ingeniería aeronáutica, diseñadores gráficos, escultores, publicistas, pintores, cirujanos, entre otros.",
-            D: "Inteligencia Corporal: Tienes una gran habilidad física en cuanto a coordinación, equilibrio, fuerza, flexibilidad, velocidad y destreza. Para expresar ideas y sentimientos te apoyas de gestos y movimientos corporales. Disfrutas de actividades que requieren de una habilidad física como actividades deportivas o manipulación de objetos o herramientas de trabajo. Algunas profesiones relacionadas con la inteligencia corporal son: Profesores de educación física, actores, escultores, cirujanos, fisioterapeutas, bailarines, entre otros.",
-            E: "Inteligencia Musical / **Rítmica:**\n Tienes gran sensibilidad al ritmo, el tono o la melodía de una pieza musical, puedes expresar y comunicar tus sentimientos y emociones a través de la música, Tienes habilidad para componer música o tocar instrumentos. Algunas profesiones relacionadas con la inteligencia musical son: directores de orquesta, ingenieros de sonido, compositores, músicos, bailarines, entre otros.",
-            F: "Inteligencia Intrapersonal: Tienes un gran autoconocimiento, eres consciente de tus estados de ánimo y de tus motivaciones, eres muy consciente de lo que pasa a tu alrededor, eres independiente y muy reflexivo. Algunas profesiones relacionadas con la inteligencia intrapersonal son: psicólogos, filósofos, actores, profesores, psiquiatras, teólogos, entre otros.",
-            G: "Inteligencia Interpersonal:  Tienes la habilidad para empatizar con los demás, te es sencillo organizar a las personas y explicarles o enseñarles algún tema, disfrutas estar con otros, te es fácil hacer nuevas amistades y puedes comprender diferentes puntos de vista. Algunas profesiones relacionadas con la inteligencia interpersonal son: comunicólogos, profesores, abogados, psicólogos, sociólogos, publicistas, entre otros. ",
+            A: "Inteligencia verbal / Lingüística: Tienes una capacidad y facilidad de usar correctamente las palabras, ya sea en forma oral y escrita. Puedes aprender a hablar idiomas fácilmente o los idiomas no es algo que se te dificulte. Disfrutas de actividades como platicar, exponer, escribir, leer, debatir, dialogar o explicar tus ideas.",
+            B: "Inteligencia Lógica / Matemática: Tienes facilidad con los números y para razonar de forma lógica, es sencillo para ti relacionar patrones, comprender diagramas o esquemas y resolver problemas.",
+            C: "Inteligencia Visual / Espacial: Disfrutas de las artes visuales, tienes una sensibilidad para los colores y las formas, posees habilidades para el diseño.",
+            D: "Inteligencia Corporal: Tienes una gran habilidad física en cuanto a coordinación, equilibrio, fuerza, flexibilidad, velocidad y destreza.",
+            E: "Inteligencia Musical / Rítmica: Tienes gran sensibilidad al ritmo, el tono o la melodía de una pieza musical, puedes expresar y comunicar tus sentimientos y emociones a través de la música.",
+            F: "Inteligencia Intrapersonal: Tienes un gran autoconocimiento, eres consciente de tus estados de ánimo y de tus motivaciones.",
+            G: "Inteligencia Interpersonal: Tienes la habilidad para empatizar con los demás, te es sencillo organizar a las personas y explicarles o enseñarles algún tema.",
         };
 
-        // AQUI PODEMOS QUITAR O DEJAR EL PUNTAJE
         let resultText = "Resultados:\n\n";
         topCategories.forEach(([category, score]) => {
             resultText += `${descriptions[category]} (Puntaje: ${score})\n\n`;
         });
-    
-        // Redirigir a la página de resultados
+
+        // Redirect to results page
         const encodedResults = encodeURIComponent(resultText);
-        window.location.href = `/resultados-primer-paso?results=${encodedResults}`;
+        window.location.href = `resultados.html?results=${encodedResults}`;
     }
 
     // Event listeners for navigation buttons
-    nextButton.addEventListener("click", () => {
-        if (currentQuestion < questions.length - 1) {
-            currentQuestion++;
-            updateQuestions();
+    nextButton.addEventListener("click", (e) => {
+        const current = questions[currentQuestion];
+        const selectedOption = current.querySelector("input[type='radio']:checked");
+        if (!selectedOption) {
+            showModal("Por favor selecciona una respuesta antes de continuar.");
+            return;
         }
+        currentQuestion++;
+        updateQuestions();
     });
 
     prevButton.addEventListener("click", () => {
-        if (currentQuestion > 0) {
-            currentQuestion--;
-            updateQuestions();
-        }
+        currentQuestion--;
+        updateQuestions();
     });
 
     submitButton.addEventListener("click", (event) => {
