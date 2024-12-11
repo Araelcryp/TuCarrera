@@ -63,131 +63,250 @@ header nav ul li a {
     transition: transform 0.3s;
 }
 
+/* Test Container */
 .content {
     flex: 1;
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
     padding: 20px;
 }
 
 .test-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     background-color: #ffffff;
     padding: 40px;
-    padding-top: 30px;
-    border-radius: 12px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    border-radius: 20px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
     width: 80%;
-    max-width: 800px;
-    margin-top: 50px;
-    margin-bottom: 30px;
+    max-width: 700px;
+    animation: fadeIn 1s ease-in-out;
 }
 
 .test-title {
-    font-size: 24px;
+    font-size: 28px;
     font-weight: bold;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
+    text-align: center;
+    color: #242B57;
 }
 
+.test-instructions {
+    font-size: 16px;
+    text-align: center;
+    margin-bottom: 30px;
+    color: #6c757d;
+}
+
+p {
+    text-align: center;
+}
+
+/* Pregunta */
 .question {
-    background-color: #f9f9f9;
+    background: #f7f9fc;
     padding: 20px;
-    border-radius: 8px;
+    border-radius: 10px;
     margin-bottom: 20px;
-    width: 100%;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-    display: none; /* Ocultar todas las preguntas por defecto */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: none; /* Ocultas por defecto */
+    animation: slideIn 0.5s ease-in-out;
 }
 
 .question.active {
-    display: block; /* Mostrar solo la pregunta activa */
+    display: block;
 }
 
 .question p {
-    margin: 0;
     font-size: 18px;
+    color: #333;
+    margin-bottom: 15px;
 }
 
 .options {
     display: flex;
-    justify-content: space-around;
-    margin-top: 10px;
+    justify-content: space-between;
 }
 
 .options label {
     font-size: 16px;
+    color: #242B57;
+    padding: 10px 15px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
 }
 
-/* Botones de navegación */
+.options label:hover {
+    background-color: #242B57;
+    color: #ffffff;
+}
+
+.options input[type="radio"]:checked + label {
+    background-color: #357ABD;
+    color: #ffffff;
+    border-color: #357ABD;
+}
+
+/* Botones */
 .navigation-buttons {
     display: flex;
     justify-content: center;
-    padding: 20px;
+    gap: 15px;
+    margin-top: 20px;
+    margin-bottom: 50px;
+}
+
+.btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 30px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .back-button {
-    cursor: pointer;
-    width: 150px;
-    padding: 10px 20px;
-    text-align: center;
-    text-decoration: none;
-    border: 0;
-    border-radius: 22px;
-    box-shadow: 0px 2px 6px rgba(3,3,3,0.1);
-    background-color: #ffffff;
-    color: #717171;
-    font-size: 14px;
-    font-family: "Roboto";
-    font-weight: 700;
-    margin-right: 20px;
+    background-color: #e0e0e0;
+    color: #333;
 }
 
 .back-button:hover {
-    transition: transform 0.3s;
-    background-color: #f9f9f9;
+    background-color: #d6d6d6;
     transform: scale(1.05);
 }
 
 .continue-button {
-    cursor: pointer;
-    width: 150px;
-    padding: 10px 20px;
-    text-align: center;
-    text-decoration: none;
-    border: 0;
-    border-radius: 22px;
-    box-shadow: 0px 2px 6px rgba(0,0,0,0.16);
-    background-color: #023f81;
+    background-color: #242B57;
     color: #ffffff;
-    font-size: 15px;
-    font-family: "Roboto";
-    font-weight: 700;
 }
 
 .continue-button:hover {
-    transition: transform 0.3s;
     transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(38, 70, 83, 0.2);
 }
 
 /* Barra de progreso */
 .progress-container {
     width: 100%;
     background-color: #e0e0e0;
-    position: relative;
     height: 12px;
     border-radius: 6px;
-    margin-top: 10px;
+    margin-bottom: 20px;
     overflow: hidden;
 }
 
 .progress-bar {
     height: 100%;
-    background: linear-gradient(90deg, #4a7fb9 0%, #023f81 100%);
+    background: linear-gradient(90deg, #4a90e2 0%, #357ABD 100%);
     width: 0%;
-    transition: width 0.3s;
+    transition: width 0.4s;
     border-radius: 6px;
+}
+
+.modal {
+    display: none; /* Oculta la modal por defecto */
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Fondo oscuro transparente */
+    backdrop-filter: blur(5px); /* Efecto de desenfoque */
+}
+
+.modal-content {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Centra la modal */
+    background: linear-gradient(145deg, #f9f9f9, #eaeaea);
+    padding: 20px 30px;
+    border-radius: 12px;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.25);
+    text-align: center;
+    width: 80%;
+    max-width: 400px;
+    border: 1px solid #ddd;
+    animation: scaleIn 0.3s ease-out; /* Animación */
+}
+
+.modal-content p {
+    color: #333;
+    font-size: 16px;
+    font-family: 'Arial', sans-serif;
+    margin: 15px 0;
+    line-height: 1.5;
+}
+
+.close {
+    color: #888;
+    float: right;
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: -10px;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.close:hover,
+.close:focus {
+    color: #444;
+    text-decoration: none;
+}
+
+/* Botón en la Modal */
+.modal-content button {
+    background-color: #242B57; /* Azul corporativo */
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 10px 20px;
+    font-size: 14px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(4, 70, 139, 0.3);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.modal-content button:hover {
+    background-color: #3f4a95;
+    transform: scale(1.05);
+}
+
+.modal-content button:active {
+    background-color: #343e7e;
+    transform: scale(0.98);
+}
+
+/* Animación de entrada */
+@keyframes scaleIn {
+    from {
+        transform: scale(0.8) translate(-50%, -50%);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1) translate(-50%, -50%);
+        opacity: 1;
+    }
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
 }
