@@ -82,6 +82,14 @@ header nav ul li a {
     color: #242B57;
 }
 
+.paragraph-of-instructions {
+    font-size: 15px;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 15px;
+    width: 800px;
+}
+
 /* Dropdown styles */
 .dropdown-container {
     display: flex;
@@ -191,30 +199,4 @@ header nav ul li a {
     font-size: 18px;
     max-width: 600px;
     text-align: center;
-}
-
-/* Botones de navegación */
-.navigation-buttons {
-    display: flex;
-    justify-content: center;
-    padding: 20px;
-}
-
-.back-button, .continue-button {
-    cursor: pointer;
-    width: 180px;
-    padding: 10px 20px;
-}
-
-.back-button {
-    margin-right: 20px; /* Añadir espacio entre los botones */
-}
-
-.back-button:hover, .continue-button:hover {
-    transition: transform 0.3s;
-    transform: scale(1.05);
-}
-
-.continue-button {
-    color: #ffffff;
 }
