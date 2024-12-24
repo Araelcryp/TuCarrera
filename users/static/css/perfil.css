@@ -1,0 +1,341 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* Estilos del header */
+header {
+    background-color: #242B57;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    padding: 20px 25px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+header .logo {
+    width: 350px;
+    margin-left: 30px;
+}
+
+header nav {
+    margin-left: auto;
+}
+
+header nav ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+header nav ul li {
+    margin-right: 50px;
+}
+
+header nav ul li:hover {
+    transition: transform 0.3s;
+    transform: scale(1.05);
+    color: azure;
+}
+
+header nav ul li a {
+    text-decoration: none;
+    color: #ffffff;
+}
+
+.cancel-btn {
+    cursor: pointer;
+    width: 150px;
+    margin-right: 70px;
+}
+
+.cancel-btn:hover {
+    transform: scale(1.05);
+    transition: transform 0.3s;
+}
+
+.content {
+    flex: 1;
+    padding: 20px;
+    background-color: #ffffff;
+}
+
+.dashboard-container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.profile-section {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.profile-pic {
+    width: auto;
+    height: 120px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+.activity-section, .progress-section, .goals-section, .notifications-section, .results-section {
+    background-color: #f9f9f9;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.activity-section h2, .progress-section h2, .goals-section h2, .notifications-section h2, .results-section h2 {
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+
+.activity-section ul, .goals-section ul, .notifications-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.activity-section ul li, .goals-section ul li, .notifications-section ul li {
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+.progress-bar-container {
+    margin-bottom: 10px;
+}
+
+.progress-bar-container label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.progress-bar {
+    background-color: #4caf50;
+    height: 20px;
+    border-radius: 5px;
+}
+
+.results-section h3 {
+    margin-top: 20px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.result {
+    margin-bottom: 10px;
+}
+
+/* Estilo del botón para abrir el modal */
+.update-btn {
+    background-color: #242B57;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 20px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.update-btn:hover {
+    background-color: #3b4a9f;
+}
+
+/* Estilo del modal (fondo y contenedor) */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+/* Contenido del modal */
+.modal-content {
+    background-color: #ffffff;
+    margin: auto;
+    padding: 20px;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 400px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Botón de cierre del modal */
+.close-btn {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close-btn:hover {
+    color: #242B57;
+}
+
+/* Estilos de formulario en el modal */
+.modal-content form {
+    display: flex;
+    flex-direction: column;
+}
+
+.modal-content label {
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+.modal-content input {
+    padding: 8px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+/* Botón para guardar cambios */
+.save-btn {
+    background-color: #4caf50;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.save-btn:hover {
+    background-color: #45a049;
+}
+
+/* Botón para abrir el modal de agregar metas */
+.add-goal-btn {
+    background-color: #242B57;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.add-goal-btn:hover {
+    background-color: #3b4a9f;
+}
+
+/* Estilos para el modal de agregar metas */
+#modal-metas .modal-content {
+    background-color: #ffffff;
+    margin: auto;
+    padding: 20px;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 400px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Estilos para metas */
+.goal {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+/* Metas completadas */
+.goal.completed {
+    background-color: #e0f7e9; /* Fondo verde claro */
+    color: #2e7d32;
+    text-decoration: line-through;
+}
+
+/* Metas pendientes */
+.goal.pending {
+    background-color: #FBE79C; /* Fondo rojo claro */
+    color: black;
+}
+
+/* Estilo para la fecha de la meta */
+.goal-date {
+    font-size: 14px;
+    color: #555;
+}
+/* Estilos de la sección de notas */
+.notes-section {
+    background-color: #f9f9f9;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.notes-section h2 {
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+
+.note-item {
+    font-size: 16px;
+    background-color: #e7f3fe; /* Fondo azul claro */
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.note-date {
+    font-size: 14px;
+    color: #555;
+}
+
+/* Botón para agregar notas */
+.add-note-btn {
+    background-color: #242B57;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.add-note-btn:hover {
+    background-color: #3b4a9f;
+}
+
+/* Estilos para el modal de agregar notas */
+#modal-notes .modal-content {
+    background-color: #ffffff;
+    margin: auto;
+    padding: 20px;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 400px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}

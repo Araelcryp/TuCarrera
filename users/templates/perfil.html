@@ -1,0 +1,176 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Usuario</title>
+    <link rel="stylesheet" href="{% static 'css/perfil.css' %}">
+</head>
+<body>
+    <header>
+        <img src="{% static 'images/LOGOS.png'%}" alt="Logo" class="logo">
+        <nav>
+            <ul>
+                <li><a href="/homeuser">Inicio</a></li>
+                <li><a href="/Home/index.html">Conoce los temas</a></li>
+                <li><a href="/Home/index.html">Acerca del programa</a></li>
+            </ul>
+        </nav>
+        <a href="/homeuser">
+            <img src="{% static 'images/Salir.png'%}" alt="Boton-salir" class="cancel-btn">
+        </a>
+    </header>
+
+    <div class="content">
+        <div class="dashboard-container">
+            <!-- Perfil del Usuario -->
+            <div class="profile-section">
+                <img src="{% static 'images/images/PP.jpeg'%}" alt="Foto de Perfil" class="profile-pic">
+                <h2>Nombre del Usuario</h2>
+                <p>Tiempo total en la plataforma: 35 horas</p>
+                <button onclick="document.getElementById('modal').style.display='block'" class="update-btn">Actualizar Datos</button>
+            </div>
+
+            
+
+            <!-- Progreso de Contenidos -->
+            <div id="progress" class="progress-section">
+                <h2>Progreso de los Contenidos</h2>
+                <div class="progress-bar-container">
+                    <label for="content-progress">Mis Intereses - Progreso Total: 100%</label>
+                    <div class="progress-bar" id="content-progress" style="width: 100%;"></div>
+                </div>
+                <div class="progress-bar-container">
+                    <label for="content-progress">Mis Talentos - Progreso Total: 70%</label>
+                    <div class="progress-bar" id="content-progress" style="width: 70%;"></div>
+                </div>
+            </div>
+
+            <!-- Metas del Usuario -->
+            <div id="goals" class="goals-section">
+                <h2>Metas</h2>
+                <ul>
+                    <li class="goal completed">
+                        <span>Completar el curso antes del 30 de agosto</span>
+                        <span class="goal-date">Fecha: 30 de agosto</span>
+                    </li>
+                    <li class="goal pending">
+                        <span>Terminar el Test de Inteligencias multiples</span>
+                        <span class="goal-date">Fecha: 15 de noviembre</span>
+                    </li>
+                    <li class="goal pending">
+                        <span>Visualizar todos los contenidos del Paso 1 "Mis Intereses" al 100%</span>
+                        <span class="goal-date">Fecha: 1 de diciembre</span>
+                    </li>
+                </ul>
+                <!-- Botón para abrir el modal de agregar metas -->
+                <button onclick="document.getElementById('modal-metas').style.display='block'" class="add-goal-btn">Agregar Nueva Meta</button>
+            </div>
+            
+            <!-- Sección de Notas -->
+            <div id="notes" class="notes-section">
+                <h2>Notas</h2>
+                <ul>
+                    <li class="note-item">Revisar el contenido de orientación laboral. <span class="note-date">Fecha: 10 de noviembre</span></li>
+                    <li class="note-item">Duda sobre los resultados del test 2. <span class="note-date">Fecha: 12 de noviembre</span></li>
+                </ul>
+                <!-- Botón para abrir el modal de agregar nota -->
+                <button onclick="document.getElementById('modal-notes').style.display='block'" class="add-note-btn">Agregar Nueva Nota</button>
+            </div>
+
+            <!-- Resultados de los Tests -->
+            <div id="stats" class="results-section">
+                <h2>Resultados del Test</h2>
+                <div class="result">
+                    <label style="font-weight: 600;" for="test1">Test Inteligencias Múltiples:</label>
+                    <span id="test1"> Inteligencia Lógica, Inteligencia Corporal</span>
+                </div>
+                <div class="result">
+                    <label style="font-weight: 600;" for="test2">Test Intereses Profesionales:</label>
+                    <span id="test2">Ciencias Sociales, Carreras Profesionales en Administración</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span onclick="document.getElementById('modal').style.display='none'" class="close-btn">&times;</span>
+            <h2>Actualizar Datos</h2>
+            <form>
+                
+                <label for="email">Correo Electrónico:</label>
+                <input type="email" id="email" name="email" placeholder="Ingresa tu correo">
+                
+                <label for="telefono">Teléfono:</label>
+                <input type="tel" id="telefono" name="telefono" placeholder="Ingresa tu teléfono">
+                
+                <label for="telefono">Contraseña:</label>
+                <input type="tel" id="telefono" name="telefono" placeholder="Ingresa tu nueva contraseña">
+                
+                <button type="submit" class="save-btn">Guardar Cambios</button>
+            </form>
+        </div>
+    </div>
+    <!-- Modal de agregar metas -->
+    <div id="modal-metas" class="modal">
+        <div class="modal-content">
+            <span onclick="document.getElementById('modal-metas').style.display='none'" class="close-btn">&times;</span>
+            <h2>Agregar Nueva Meta</h2>
+            <form>
+                <label for="meta">Descripción de la Meta:</label>
+                <input type="text" id="meta" name="meta" placeholder="Describe tu meta aquí">
+
+                <label for="fecha">Fecha Objetivo:</label>
+                <input type="date" id="fecha" name="fecha">
+
+                <button type="submit" class="save-btn">Guardar Meta</button>
+            </form>
+        </div>
+    </div> 
+    <!-- Modal para agregar notas -->
+    <div id="modal-notes" class="modal">
+        <div class="modal-content">
+            <span onclick="document.getElementById('modal-notes').style.display='none'" class="close-btn">&times;</span>
+            <h2>Agregar Nueva Nota</h2>
+            <form>
+                <label for="nota">Descripción de la Nota:</label>
+                <textarea id="nota" name="nota" placeholder="Escribe tu nota aquí" rows="4" required></textarea>
+
+                <label for="fecha-nota">Fecha:</label>
+                <input type="date" id="fecha-nota" name="fecha-nota" required>
+
+                <button type="submit" class="save-btn">Guardar Nota</button>
+            </form>
+        </div>
+    </div>
+    
+    <script>
+        window.onclick = function(event) {
+            var modal = document.getElementById('modal');
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        };
+    </script>
+    <script>
+        // Cerrar el modal de metas al hacer clic fuera del contenido
+        window.onclick = function(event) {
+            var modalMetas = document.getElementById('modal-metas');
+            if (event.target == modalMetas) {
+                modalMetas.style.display = "none";
+            }
+        };
+    </script>
+    <script>
+        window.onclick = function(event) {
+            var modalNotes = document.getElementById('modal-notes');
+            if (event.target == modalNotes) {
+                modalNotes.style.display = "none";
+            }
+        };
+    </script>
+</body>
+</html>

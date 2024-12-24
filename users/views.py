@@ -137,3 +137,7 @@ def signin(request):
 @login_required
 def final(request):
     return render(request, 'final.html')
+
+@login_required
+def perfil(request):
+    return render(request, 'perfil.html')

@@ -45,6 +45,7 @@ urlpatterns = [
     path('homeadmin/', views.homeadmin, name='homeadmin'),
     path('homeuser/', views.homeuser, name='homeuser'),
     path('final/', views.final, name='final'),
+    path('perfil/', views.perfil, name='perfil'),
 
     path('primerpaso/',viewsp1.primerpaso, name='primerpaso'),
     path('imagen-primer-paso/',viewsp1.imagen_primerpaso, name='imagen-primer-paso'),
