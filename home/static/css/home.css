@@ -5,6 +5,7 @@ body {
     background-color: #f4f4f9;
     color: #333;
     line-height: 1.6;
+    overflow-x: hidden;
 }
 
 header {
@@ -316,6 +317,10 @@ footer p {
         max-height: 500px; /* Altura máxima del menú desplegado */
         opacity: 1; /* Mostrar el menú */
         transform: translateY(0); /* Volverlo a su posición */
+    }
+
+    header .logo {
+        width: 300px;
     }
 
     header nav ul {
