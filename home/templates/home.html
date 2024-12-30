@@ -9,19 +9,23 @@
 </head>
 <body>
     <!-- Header -->
-    <header>
+    <header class="header">
+
         <img src="{% static 'images/LOGOS.png'%}" alt="Logo" class="logo">
-        <nav>
+        <nav id="menu">
             <ul>
-                <li><a href="#Carrera">Carrera universitaria</a></li>
                 <li><a href="#Temas">Conoce los temas</a></li>
+                <li><a href="#Carrera">Carrera universitaria</a></li>
                 <li><a href="/aboutprogram">Acerca del programa</a></li>
                 <li><a href="/tutor">Soy padre de familia</a></li>
+                <li class="login-btn">
+                    <a href="/signin">
+                        <button>Iniciar sesión</button>
+                    </a>
+                </li>
             </ul>
         </nav>
-        <a href="/signin">
-            <img src="{% static 'images/INICIAR.png'%}" alt="Boton-iniciar" class="login-btn">
-        </a>
+        <div class="menu-toggle" id="menu-toggle">&#9776;</div>
     </header>
 
     <!-- Imagen con el titulo -->
@@ -247,6 +251,15 @@
         </div>
     </div> 
 
+    <script>
+        const menuToggle = document.getElementById("menu-toggle");
+        const menu = document.getElementById("menu");
+        
+        menuToggle.addEventListener("click", () => {
+            menu.classList.toggle("active");
+        });
+          
+    </script>
     <script src="{% static 'js/modals.js' %}"></script>
     
 </body>
