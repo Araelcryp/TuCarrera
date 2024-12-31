@@ -163,20 +163,6 @@ svg {
     transition: transform 0.3s;
 }
 
-footer {
-    background-color: #333c45;
-    color: #fff;
-    text-align: center;
-    padding: 10px 0;
-    width: 100%;
-    bottom: 0;
-    margin-top: 50px;
-}
-
-footer p {
-    margin: 0;
-}
-
 .modal {
     display: flex;
     justify-content: center;
@@ -212,6 +198,92 @@ footer p {
     animation: modalPopIn 0.5s ease forwards;
     overflow: hidden;
 }
+
+
+        .footer {
+            background-color: #242B57; /* Color acorde al diseño */
+            color: #fff;
+            padding: 2rem 0;
+            font-size: 0.9rem;
+        }
+
+        .footer-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .footer-logo {
+            flex: 1 1 20%;
+            text-align: center;
+        }
+
+        .footer-logo-img {
+            width: 100px;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-links,
+        .footer-contact,
+        .footer-social {
+            flex: 1 1 20%;
+            margin: 1rem;
+        }
+
+        .footer-links h3,
+        .footer-contact h3,
+        .footer-social h3 {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer-links ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-links li {
+            margin: 0.5rem 0;
+        }
+
+        .footer-links a {
+            text-decoration: none;
+            transition: color 0.3s;
+            color: #ffffff;
+        }
+
+        .footer-links a:hover {
+            color: #6D727A;
+        }
+
+        .footer-contact p {
+            margin: 0.3rem 0;
+        }
+
+        .footer-social .social-icons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .footer-social img {
+            width: 30px;
+            transition: transform 0.3s;
+        }
+
+        .footer-social img:hover {
+            transform: scale(1.2);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 2rem;
+            font-size: 0.8rem;
+            padding-top: 1rem;
+        }
+
 
 /* Animación para el contenido modal */
 @keyframes modalPopIn {
