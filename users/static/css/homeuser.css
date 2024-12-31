@@ -51,7 +51,7 @@ header nav ul li a {
     font-size: 1rem;
 }
 
-.login-btn a button {
+.cancel-btn a button {
     background: linear-gradient(to bottom, #59b2e0, #3c8fc1);
     color: #ffffff;
     font-weight: bold;
@@ -68,7 +68,7 @@ header nav ul li a {
     display: block;
 }
 
-.login-btn a button:hover {
+.cancel-btn a button:hover {
     transform: scale(1.05);
     transition: transform 0.3s;
 }
@@ -247,7 +247,7 @@ footer p {
         text-align: center; /* Centra los títulos en el menú toggle */
     }
 
-    .login-btn a button {
+    .cancel-btn a button {
         width: auto; /* Adaptar ancho al contenido */
         margin: 0 auto; /* Centrar el botón */
     }
