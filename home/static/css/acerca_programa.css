@@ -78,6 +78,36 @@ header nav ul li a {
     padding: 20px;
 }
 
+/* Estilos para la sección Acerca del Programa */
+.about-program {
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    margin: 50px auto;
+    text-align: center;
+}
+
+.about-program h1 {
+    font-size: 32px;
+    color: #242B57;
+    margin-bottom: 20px;
+}
+
+.about-program p {
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    color: #555;
+}
+
+.about-program .call-to-action {
+    font-weight: bold;
+    font-size: 20px;
+    color: #023f81;
+}
+
 .contact-container {
     display: flex;
     flex-direction: row;
