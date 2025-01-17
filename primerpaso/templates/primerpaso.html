@@ -10,15 +10,16 @@
   <body>
     <!-- Header -->
     <header>
-      <img src="{% static 'images/LOGOS.png' %}" alt="Logo" class="logo" />
-      <nav>
-        <ul>
-          <li><a href="/homeuser">Inicio</a></li>
-          <li><a href="#">Conoce los temas</a></li>
-          <li><a href="/aboutprogram">Acerca del programa</a></li>
-        </ul>
+      <img src="{% static 'images/LOGOS.png'%}" alt="Logo" class="logo">
+      <nav id="menu">
+          <ul>
+              <li><a href="/homeuser">Inicio</a></li>
+              <li><a href="#Temas">Conoce los temas</a></li>
+              <li><a href="/aboutprogram">Acerca del programa</a></li>
+          </ul>
       </nav>
-    </header>
+      <div class="menu-toggle" id="menu-toggle">&#9776;</div>
+  </header>
 
     <!-- Imagen con el titulo -->
     <section class="info-section">
@@ -132,4 +133,31 @@
       </a>
     </div>
   </body>
+  <script>
+    const menuToggle = document.getElementById("menu-toggle");
+    const menu = document.getElementById("menu");
+    const navLinks = menu.querySelectorAll("ul li a");
+    
+    // Abrir o cerrar el menú al hacer clic en el botón toggle
+    menuToggle.addEventListener("click", () => {
+        menu.classList.toggle("active");
+    });
+    
+    // Cerrar el menú cuando se hace clic en un enlace
+    navLinks.forEach(link => {
+        link.addEventListener("click", () => {
+            menu.classList.remove("active");
+        });
+    });
+    
+    // Cerrar el menú al hacer clic fuera del header
+    document.addEventListener("click", (event) => {
+        const isClickInsideMenu = menu.contains(event.target);
+        const isClickOnToggle = menuToggle.contains(event.target);
+    
+        if (!isClickInsideMenu && !isClickOnToggle) {
+            menu.classList.remove("active");
+        }
+    });
+  </script>
 </html>
