@@ -129,7 +129,6 @@ header .menu-toggle {
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     width: 80%;
     max-width: 1200px;
-    margin-top: 50px;
     margin-bottom: 30px;
 }
 
@@ -165,7 +164,7 @@ header .menu-toggle {
     padding: 10px 20px;
     border: none;
     border-radius: 8px;
-    background-color: #023f81;
+    background-color: #022d5a;
     color: white;
     font-size: 16px;
     cursor: pointer;
@@ -173,7 +172,7 @@ header .menu-toggle {
 }
 
 .contact-form button:hover {
-    background-color: #022d5a;
+    background-color: #242B57;
 }
 
 footer {
@@ -187,7 +186,6 @@ footer {
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     width: 80%;
     max-width: 1200px;
-    margin-top: 50px;
     margin-bottom: 30px;
     color: white;
 }
@@ -296,5 +294,73 @@ footer {
 
     nav.active {
         display: flex;
+    }
+}
+
+
+
+/* Media query para pantallas pequeñas */
+@media (max-width: 768px) {
+    .contact-container {
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+    }
+
+    .contact-form, .contact-map {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .contact-form h2, .contact-map h2 {
+        text-align: center;
+    }
+}
+
+/* Media query para pantallas muy pequeñas (teléfonos) */
+@media (max-width: 480px) {
+    .contact-form input, .contact-form textarea {
+        font-size: 12px;
+    }
+
+    .contact-form button {
+        font-size: 14px;
+    }
+}
+
+/* Media query para pantallas pequeñas */
+@media (max-width: 768px) {
+    footer {
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+    }
+
+    .footer-column {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .footer-column h3 {
+        font-size: 16px;
+    }
+
+    .footer-column p {
+        font-size: 14px;
+    }
+}
+
+/* Media query para pantallas muy pequeñas (teléfonos) */
+@media (max-width: 480px) {
+    footer {
+        padding: 15px;
+    }
+
+    .footer-column h3 {
+        font-size: 14px;
+    }
+
+    .footer-column p {
+        font-size: 12px;
     }
 }
