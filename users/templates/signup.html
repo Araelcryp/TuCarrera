@@ -7,7 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formulario de Registro</title>
     <link rel="stylesheet" href="{% static 'css/signup.css' %}">
-    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             const respuestaSi = document.getElementById("AnswerSi");
@@ -65,22 +64,24 @@
             });
         });
     </script>
-    
 </head>
 
 <body>
     <header>
-        <img src="{% static 'images/LOGOS.png' %}" alt="Logo" class="logo">
-        <nav>
+        <img src="{% static 'images/LOGOS.png'%}" alt="Logo" class="logo">
+        <nav id="menu">
             <ul>
-                <li><a href="#home">Carrera universitaria</a></li>
-                <li><a href="#services">Conoce los temas</a></li>
+                <li><a href="#Temas">Conoce los temas</a></li>
+                <li><a href="#Carrera">Carrera universitaria</a></li>
                 <li><a href="/aboutprogram">Acerca del programa</a></li>
+                <li class="cancel-btn">
+                    <a href="/">
+                        <button>Cancelar</button>
+                    </a>
+                </li>
             </ul>
         </nav>
-        <a href="/signin">
-            <button class="cancel-btn">Cancelar</button>
-        </a>
+        <div class="menu-toggle" id="menu-toggle">&#9776;</div>
     </header>
 
     <main>
@@ -523,6 +524,35 @@
         </div>
     </main>
 </body>
+
+<script>
+    const menuToggle = document.getElementById("menu-toggle");
+    const menu = document.getElementById("menu");
+    const navLinks = menu.querySelectorAll("ul li a");
+    
+    // Abrir o cerrar el menú al hacer clic en el botón toggle
+    menuToggle.addEventListener("click", () => {
+        menu.classList.toggle("active");
+    });
+    
+    // Cerrar el menú cuando se hace clic en un enlace
+    navLinks.forEach(link => {
+        link.addEventListener("click", () => {
+            menu.classList.remove("active");
+        });
+    });
+    
+    // Cerrar el menú al hacer clic fuera del header
+    document.addEventListener("click", (event) => {
+        const isClickInsideMenu = menu.contains(event.target);
+        const isClickOnToggle = menuToggle.contains(event.target);
+    
+        if (!isClickInsideMenu && !isClickOnToggle) {
+            menu.classList.remove("active");
+        }
+    });
+</script>
+
 <script>
     const selectElement = document.getElementById('bachillerato');
     const otroBachilleratoDiv = document.getElementById('otro-bachillerato');
