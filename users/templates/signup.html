@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formulario de Registro</title>
     <link rel="stylesheet" href="{% static 'css/signup.css' %}">
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             const respuestaSi = document.getElementById("AnswerSi");
@@ -201,379 +202,355 @@
                     </select>
 
                     <label for="bachillerato">Bachillerato donde estudiaste:</label>
-                    <div class="dropdown-container">
-                        <input type="text" id="dropdown-input" class="dropdown-input" placeholder="Busca tu bachillerato..." onkeyup="filterDropdown()"onclick="toggleDropdown(true)">
-                        <div id="dropdown-list" class="dropdown-list">
-                            <a onclick="selectOption('Academia Casa Hogar Sor Juana Inés De La Cruz A.C.')">Academia Casa Hogar Sor Juana Inés De La Cruz A.C.</a>
-                            <a onclick="selectOption('Alma Muriel')">Alma Muriel</a>
-                            <a onclick="selectOption('Bachillerato Carl Rogers')">Bachillerato Carl Rogers</a>
-                            <a onclick="selectOption('Bachillerato Colegio México Nuevo Campus Querétaro')">Bachillerato Colegio México Nuevo Campus Querétaro</a>
-                            <a onclick="selectOption('Bachillerato de la Universidad de las Mujeres')">Bachillerato de la Universidad de las Mujeres</a>
-                            <a onclick="selectOption('Bachillerato de la Universidad del Valle de México Querétaro')">Bachillerato de la Universidad del Valle de México Querétaro</a>
-                            <a onclick="selectOption('Bachillerato Nuevo Continente Campus Querétaro')">Bachillerato Nuevo Continente Campus Querétaro</a>
-                            <a onclick="selectOption('Bachillerato Omi San Juan del Río')">Bachillerato Omi San Juan del Río</a>
-                            <a onclick="selectOption('Bachillerato Tecnológico de la Universidad Internacional de Querétaro')">Bachillerato Tecnológico de la Universidad Internacional de Querétaro</a>
-                            <a onclick="selectOption('Bachillerato Tecnológico del Instituto de Estudios Turísticos del Centro')">Bachillerato Tecnológico del Instituto de Estudios Turísticos del Centro</a>
+                    <select id="bachillerato" name="bachillerato">
+                        <option value="">Seleccione un bachillerato</option>
+                        <option value="Academia Casa Hogar Sor Juana Inés De La Cruz A.C.">Academia Casa Hogar Sor Juana Inés De La Cruz A.C.</option>
+                        <option value="Alma Muriel">Alma Muriel</option>
+                        <option value="Bachillerato Carl Rogers">Bachillerato Carl Rogers</option>
+                        <option value="Bachillerato Colegio México Nuevo Campus Querétaro">Bachillerato Colegio México Nuevo Campus Querétaro</option>
+                        <option value="Bachillerato de la Universidad de las Mujeres">Bachillerato de la Universidad de las Mujeres</option>
+                        <option value="Bachillerato de la Universidad del Valle de México Querétaro">Bachillerato de la Universidad del Valle de México Querétaro</option>
+                        <option value="Bachillerato Nuevo Continente Campus Querétaro">Bachillerato Nuevo Continente Campus Querétaro</option>
+                        <option value="Bachillerato Omi San Juan del Río">Bachillerato Omi San Juan del Río</option>
+                        <option value="Bachillerato Tecnológico de la Universidad Internacional de Querétaro">Bachillerato Tecnológico de la Universidad Internacional de Querétaro</option>
+                        <option value="Bachillerato Tecnológico del Instituto de Estudios Turísticos del Centro">Bachillerato Tecnológico del Instituto de Estudios Turísticos del Centro</option>
+
+                        <option value="Bachillerato Tecnológico del Instituto Juárez Lincoln">Bachillerato Tecnológico del Instituto Juárez Lincoln</option>
+                        <option value="Bachillerato Tecnológico del Instituto Uni de Querétaro">Bachillerato Tecnológico del Instituto Uni de Querétaro</option>
+                        <option value="Bachillerato Tecnológico Grupo Isima, Plantel Querétaro">Bachillerato Tecnológico Grupo Isima, Plantel Querétaro</option>
+                        <option value="Bachillerato Tecnológico Instituto Vasco Plantel Querétaro">Bachillerato Tecnológico Instituto Vasco Plantel Querétaro</option>
+                        <option value="Bachillerato UGM Querétaro">Bachillerato UGM Querétaro</option>
+                        <option value="Bachillerato UNEA Campus Querétaro">Bachillerato UNEA Campus Querétaro</option>
+                        <option value="Buckingham High School">Buckingham High School</option>
+                        <option value="CAED CECATI 17">CAED CECATI 17</option>
+                        <option value="CAED CECATI 175">CAED CECATI 175</option>
+                        <option value="CAED Querétaro">CAED Querétaro</option>
+
+                        <option value="CAED San Juan del Río">CAED San Juan del Río</option>
+                        <option value="CEDART Ignacio Mariano de las Casas">CEDART Ignacio Mariano de las Casas</option>
+                        <option value="CEDVA Preparatoria">CEDVA Preparatoria</option>
+                        <option value="Centro Cultural Fray Junípero Serra">Centro Cultural Fray Junípero Serra</option>
+                        <option value="Centro de Atención para Estudiantes con Discapacidad, CECATI 122">Centro de Atención para Estudiantes con Discapacidad, CECATI 122</option>
+                        <option value="Centro de Bachillerato Tecnológico Agropecuario No. 326, en El Cazadero, Querétaro">Centro de Bachillerato Tecnológico Agropecuario No. 326, en El Cazadero, Querétaro</option>
+                        <option value="Centro de Bachillerato Tecnológico Agropecuario Num. 115">Centro de Bachillerato Tecnológico Agropecuario Num. 115</option>
+                        <option value="Centro de Bachillerato Tecnológico Agropecuario Num. 256">Centro de Bachillerato Tecnológico Agropecuario Num. 256</option>
+                        <option value="Centro de Bachillerato Tecnológico Industrial y de Servicios Num. 118">Centro de Bachillerato Tecnológico Industrial y de Servicios Num. 118</option>
+                        <option value="Centro de Bachillerato Tecnológico Industrial y de Servicios Num. 145">Centro de Bachillerato Tecnológico Industrial y de Servicios Num. 145</option>
+
+                        <option value="Centro de Educación y Formación Jamadi">Centro de Educación y Formación Jamadi</option>
+                        <option value="Centro de Estudios de Bachillerato John Von Newman">Centro de Estudios de Bachillerato John Von Newman</option>
+                        <option value="Centro de Estudios Medio Superiores y Superiores">Centro de Estudios Medio Superiores y Superiores</option>
+                        <option value="Centro de Estudios Tecnológicos en Aguas Continentales No. 23 en El Marqués, Qro.">Centro de Estudios Tecnológicos en Aguas Continentales No. 23 en El Marqués, Qro.</option>
+                        <option value="Centro de Estudios Tecnológicos en Aguas Continentales No. 24 en Corregidora, Qro.">Centro de Estudios Tecnológicos en Aguas Continentales No. 24 en Corregidora, Qro.</option>
+                        <option value="Centro de Estudios Tecnológicos Industrial y de Servicios Num. 105">Centro de Estudios Tecnológicos Industrial y de Servicios Num. 105</option>
+                        <option value="Centro de Estudios Tecnológicos Industrial y de Servicios Num. 142">Centro de Estudios Tecnológicos Industrial y de Servicios Num. 142</option>
+                        <option value="Centro de Estudios Tecnológicos Industrial y de Servicios Num. 16">Centro de Estudios Tecnológicos Industrial y de Servicios Num. 16</option>
+                        <option value="Centro de Estudios Universitarios en Querétaro">Centro de Estudios Universitarios en Querétaro</option>
+                        <option value="Centro de Formación de Recursos de Enfermería de Querétaro, A.C.">Centro de Formación de Recursos de Enfermería de Querétaro, A.C.</option>
+
+                        <option value="Centro de Innovación Educativa México">Centro de Innovación Educativa México</option>
+                        <option value="Centro Interactivo de Educación y Alta Especialización CIEE">Centro Interactivo de Educación y Alta Especialización CIEE</option>
+                        <option value="Centro Unión">Centro Unión</option>
+                        <option value="Centro Universitario de Educación Contemporánea">Centro Universitario de Educación Contemporánea</option>
+                        <option value="Centro Universitario Salvador Vázquez Altamirano, A.C.">Centro Universitario Salvador Vázquez Altamirano, A.C.</option>
+                        <option value="Cinco de Mayo">Cinco de Mayo</option>
+                        <option value="Clara Barton">Clara Barton</option>
+                        <option value="Clemencia Borja Taboada">Clemencia Borja Taboada</option>
+                        <option value="COBAQ Bachillerato Mixto">COBAQ Bachillerato Mixto</option>
+                        <option value="COBAQ Plantel Num. 28 San Ildefonso">COBAQ Plantel Num. 28 San Ildefonso</option>
+
+                        <option value="COBAQ Plantel Num. 1 Satélite">COBAQ Plantel Num. 1 Satélite</option>
+                        <option value="COBAQ Plantel Num. 10 San Juan del Río">COBAQ Plantel Num. 10 San Juan del Río</option>
+                        <option value="COBAQ Plantel Num. 11 Ezequiel Montes">COBAQ Plantel Num. 11 Ezequiel Montes</option>
+                        <option value="COBAQ Plantel Num. 12 Tequisquiapan">COBAQ Plantel Num. 12 Tequisquiapan</option>
+                        <option value="COBAQ Plantel Num. 13 Epigmenio González">COBAQ Plantel Num. 13 Epigmenio González</option>
+                        <option value="COBAQ Plantel Num. 14 San Joaquín">COBAQ Plantel Num. 14 San Joaquín</option>
+                        <option value="COBAQ Plantel Num. 15 Chichimequillas">COBAQ Plantel Num. 15 Chichimequillas</option>
+                        <option value="COBAQ Plantel Num. 16 El Colorado">COBAQ Plantel Num. 16 El Colorado</option>
+                        <option value="COBAQ Plantel Num. 17 "Constitución de 1917"">COBAQ Plantel Num. 17 "Constitución de 1917"</option>
+                        <option value="COBAQ Plantel Num. 18 Valle Dorado">COBAQ Plantel Num. 18 Valle Dorado</option>
+
+                        <option value="COBAQ Plantel Num. 19 Bravo">COBAQ Plantel Num. 19 Bravo</option>
+                        <option value="COBAQ Plantel Num. 2 Amealco">COBAQ Plantel Num. 2 Amealco</option>
+                        <option value="COBAQ Plantel Num. 20 Santiago Mexquititlán">COBAQ Plantel Num. 20 Santiago Mexquititlán</option>
+                        <option value="COBAQ Plantel Num. 21 Arcila">COBAQ Plantel Num. 21 Arcila</option>
+                        <option value="COBAQ Plantel Num. 22 Real de San Miguel">COBAQ Plantel Num. 22 Real de San Miguel</option>
+                        <option value="COBAQ Plantel Num. 23 Ahuacatlán de Guadalupe">COBAQ Plantel Num. 23 Ahuacatlán de Guadalupe</option>
+                        <option value="COBAQ Plantel Num. 24 Villa Progreso">COBAQ Plantel Num. 24 Villa Progreso</option>
+                        <option value="COBAQ Plantel Num. 25 La Lagunita">COBAQ Plantel Num. 25 La Lagunita</option>
+                        <option value="COBAQ Plantel Num. 26 Agua Zarca">COBAQ Plantel Num. 26 Agua Zarca</option>
+                        <option value="COBAQ Plantel Num. 27 Purísima de Arista">COBAQ Plantel Num. 27 Purísima de Arista</option>
                         
-                            <a onclick="selectOption('Bachillerato Tecnológico del Instituto Juárez Lincoln')">Bachillerato Tecnológico del Instituto Juárez Lincoln</a>
-                            <a onclick="selectOption('Bachillerato Tecnológico del Instituto Uni de Querétaro')">Bachillerato Tecnológico del Instituto Uni de Querétaro</a>
-                            <a onclick="selectOption('Bachillerato Tecnológico Grupo Isima, Plantel Querétaro')">Bachillerato Tecnológico Grupo Isima, Plantel Querétaro</a>
-                            <a onclick="selectOption('Bachillerato Tecnológico Instituto Vasco Plantel Querétaro')">Bachillerato Tecnológico Instituto Vasco Plantel Querétaro</a>
-                            <a onclick="selectOption('Bachillerato UGM Querétaro')">Bachillerato UGM Querétaro</a>
-                            <a onclick="selectOption('Bachillerato UNEA Campus Querétaro')">Bachillerato UNEA Campus Querétaro</a>
-                            <a onclick="selectOption('Buckingham High School')">Buckingham High School</a>
-                            <a onclick="selectOption('CAED CECATI 17')">CAED CECATI 17</a>
-                            <a onclick="selectOption('CAED CECATI 175')">CAED CECATI 175</a>
-                            <a onclick="selectOption('CAED Querétaro')">CAED Querétaro</a>
+                        <option value="COBAQ Plantel Num. 29 Bernal">COBAQ Plantel Num. 29 Bernal</option>
+                        <option value="COBAQ Plantel Num. 3 Corregidora">COBAQ Plantel Num. 3 Corregidora</option>
+                        <option value="COBAQ Plantel Num. 30 La Valla">COBAQ Plantel Num. 30 La Valla</option>
+                        <option value="COBAQ Plantel Num. 31 La Griega">COBAQ Plantel Num. 31 La Griega</option>
+                        <option value="COBAQ Plantel Num. 32 San Antonio de la Cal">COBAQ Plantel Num. 32 San Antonio de la Cal</option>
+                        <option value="COBAQ Plantel Num. 33 El Palmar">COBAQ Plantel Num. 33 El Palmar</option>
+                        <option value="COBAQ Plantel Num. 34 Arroyo Seco">COBAQ Plantel Num. 34 Arroyo Seco</option>
+                        <option value="COBAQ Plantel Num. 35 Vizarrón">COBAQ Plantel Num. 35 Vizarrón</option>
+                        <option value="COBAQ Plantel Num. 4 Jalpan">COBAQ Plantel Num. 4 Jalpan</option>
+                        <option value="COBAQ Plantel Num. 5 Cadereyta">COBAQ Plantel Num. 5 Cadereyta</option>
 
-                            <a onclick="selectOption('CAED San Juan del Río')">CAED San Juan del Río</a>
-                            <a onclick="selectOption('CEDART Ignacio Mariano de las Casas')">CEDART Ignacio Mariano de las Casas</a>
-                            <a onclick="selectOption('CEDVA Preparatoria')">CEDVA Preparatoria</a>
-                            <a onclick="selectOption('Centro Cultural Fray Junípero Serra')">Centro Cultural Fray Junípero Serra</a>
-                            <a onclick="selectOption('Centro de Atención para Estudiantes con Discapacidad, CECATI 122')">Centro de Atención para Estudiantes con Discapacidad, CECATI 122</a>
-                            <a onclick="selectOption('Centro de Bachillerato Tecnológico Agropecuario No. 326, en El Cazadero, Querétaro')">Centro de Bachillerato Tecnológico Agropecuario No. 326, en El Cazadero, Querétaro</a>
-                            <a onclick="selectOption('Centro de Bachillerato Tecnológico Agropecuario Num. 115')">Centro de Bachillerato Tecnológico Agropecuario Num. 115</a>
-                            <a onclick="selectOption('Centro de Bachillerato Tecnológico Agropecuario Num. 256')">Centro de Bachillerato Tecnológico Agropecuario Num. 256</a>
-                            <a onclick="selectOption('Centro de Bachillerato Tecnológico Industrial y de Servicios Num. 118')">Centro de Bachillerato Tecnológico Industrial y de Servicios Num. 118</a>
-                            <a onclick="selectOption('Centro de Bachillerato Tecnológico Industrial y de Servicios Num. 145')">Centro de Bachillerato Tecnológico Industrial y de Servicios Num. 145</a>
+                        <option value="COBAQ Plantel Num. 6 Tolimán">COBAQ Plantel Num. 6 Tolimán</option>
+                        <option value="COBAQ Plantel Num. 7 El Marqués">COBAQ Plantel Num. 7 El Marqués</option>
+                        <option value="COBAQ Plantel Num. 8 Azteca">COBAQ Plantel Num. 8 Azteca</option>
+                        <option value="COBAQ Plantel Num. 9 Santa Rosa Jáuregui">COBAQ Plantel Num. 9 Santa Rosa Jáuregui</option>
+                        <option value="Colegio Álamos">Colegio Álamos</option>
+                        <option value="Colegio Austriaco Mexicano Preparatoria">Colegio Austriaco Mexicano Preparatoria</option>
+                        <option value="Colegio Bosques Preparatoria Campus Real">Colegio Bosques Preparatoria Campus Real</option>
+                        <option value="Colegio Carol Baur">Colegio Carol Baur</option>
+                        <option value="Colegio Castellano Preparatoria">Colegio Castellano Preparatoria</option>
+                        <option value="Colegio Celta Internacional">Colegio Celta Internacional</option>
 
-                            <a onclick="Centro de Educación y Formación Jamadi')">Centro de Educación y Formación Jamadi</a>
-                            <a onclick="selectOption('Centro de Estudios de Bachillerato John Von Newman')">Centro de Estudios de Bachillerato John Von Newman</a>
-                            <a onclick="selectOption('Centro de Estudios Medio Superiores y Superiores')">Centro de Estudios Medio Superiores y Superiores</a>
-                            <a onclick="selectOption('Centro de Estudios Tecnológicos en Aguas Continentales No. 23 en El Marqués, Qro.')">Centro de Estudios Tecnológicos en Aguas Continentales No. 23 en El Marqués, Qro.</a>
-                            <a onclick="selectOption('Centro de Estudios Tecnológicos en Aguas Continentales No. 24 en Corregidora, Qro.')">Centro de Estudios Tecnológicos en Aguas Continentales No. 24 en Corregidora, Qro.</a>
-                            <a onclick="selectOption('Centro de Estudios Tecnológicos Industrial y de Servicios Num. 105')">Centro de Estudios Tecnológicos Industrial y de Servicios Num. 105</a>
-                            <a onclick="selectOption('Centro de Estudios Tecnológicos Industrial y de Servicios Num. 142')">Centro de Estudios Tecnológicos Industrial y de Servicios Num. 142</a>
-                            <a onclick="selectOption('Centro de Estudios Tecnológicos Industrial y de Servicios Num. 16')">Centro de Estudios Tecnológicos Industrial y de Servicios Num. 16</a>
-                            <a onclick="selectOption('Centro de Estudios Universitarios en Querétaro')">Centro de Estudios Universitarios en Querétaro</a>
-                            <a onclick="selectOption('Centro de Formación de Recursos de Enfermería de Querétaro, A.C.')">Centro de Formación de Recursos de Enfermería de Querétaro, A.C.</a>
+                        <option value="Colegio Cervantes">Colegio Cervantes</option>
+                        <option value="Colegio de Ciencias y Humanidades de Querétaro">Colegio de Ciencias y Humanidades de Querétaro</option>
+                        <option value="Colegio de Estudios Científicos y Tecnológicos del Estado de Querétaro Num. 10 Plantel La Esperanza">Colegio de Estudios Científicos y Tecnológicos del Estado de Querétaro Num. 10 Plantel La Esperanza</option>
+                        <option value="Colegio de Estudios Científicos y Tecnológicos del Estado de Querétaro Num. 11 Plantel La Tinaja">Colegio de Estudios Científicos y Tecnológicos del Estado de Querétaro Num. 11 Plantel La Tinaja</option>
+                        <option value="Colegio de Estudios Científicos y Tecnológicos del Estado de Querétaro Num. 12 Plantel Paso de Mata">Colegio de Estudios Científicos y Tecnológicos del Estado de Querétaro Num. 12 Plantel Paso de Mata</option>
+                        <option value="Colegio de Estudios Científicos y Tecnológicos del Estado de Querétaro Num. 6 Corregidora">Colegio de Estudios Científicos y Tecnológicos del Estado de Querétaro Num. 6 Corregidora</option>
+                        <option value="Colegio de Estudios Científicos y Tecnológicos del Estado de Querétaro Num. 7 Plantel San Juan del Río">Colegio de Estudios Científicos y Tecnológicos del Estado de Querétaro Num. 7 Plantel San Juan del Río</option>
+                        <option value="Colegio de Estudios Científicos y Tecnológicos del Estado de Querétaro Num. 8 Plantel Menchaca">Colegio de Estudios Científicos y Tecnológicos del Estado de Querétaro Num. 8 Plantel Menchaca</option>
+                        <option value="Colegio de Estudios Científicos y Tecnológicos del Estado de Querétaro Num. 82 Plantel Huimilpan">Colegio de Estudios Científicos y Tecnológicos del Estado de Querétaro Num. 82 Plantel Huimilpan</option>
+                        <option value="Colegio de Estudios Científicos y Tecnológicos del Estado de Querétaro Num. 83 Plantel Pedro Escobedo">Colegio de Estudios Científicos y Tecnológicos del Estado de Querétaro Num. 83 Plantel Pedro
+                        
+                        <option value="Colegio de Estudios Científicos y Tecnológicos del Estado de Querétaro Num. 84 Plantel Pinal de Amoles">Colegio de Estudios Científicos y Tecnológicos del Estado de Querétaro Num. 84 Plantel Pinal de Amoles</option>
+                        <option value="Colegio de Estudios Científicos y Tecnológicos del Estado de Querétaro Num. 85 Plantel Peñamiller">Colegio de Estudios Científicos y Tecnológicos del Estado de Querétaro Num. 85 Plantel Peñamiller</option>
+                        <option value="Colegio de Estudios Científicos y Tecnológicos del Estado de Querétaro Num. 9 Plantel Montenegro">Colegio de Estudios Científicos y Tecnológicos del Estado de Querétaro Num. 9 Plantel Montenegro</option>
+                        <option value="Colegio de Estudios Cientificos y Tecnológicos del Estado de Querétaro Plantel Querétaro">Colegio de Estudios Cientificos y Tecnológicos del Estado de Querétaro Plantel Querétaro</option>
+                        <option value="Colegio de Estudios Profesionales Lausanne">Colegio de Estudios Profesionales Lausanne</option>
+                        <option value="Colegio del Tepeyac, Querétaro">Colegio del Tepeyac, Querétaro</option>
+                        <option value="Colegio Diego Olvera Estrada">Colegio Diego Olvera Estrada</option>
+                        <option value="Colegio Educación y Patria">Colegio Educación y Patria</option>
+                        <option value="Colegio Fontanar">Colegio Fontanar</option>
+                        <option value="Colegio Fray Luis de León">Colegio Fray Luis de León</option>
 
-                            <a onclick="selectOption('Centro de Innovación Educativa México')">Centro de Innovación Educativa México</a>
-                            <a onclick="selectOption('Centro Interactivo de Educación y Alta Especialización CIEE')">Centro Interactivo de Educación y Alta Especialización CIEE</a>
-                            <a onclick="selectOption('Centro Unión')">Centro Unión</a>
-                            <a onclick="selectOption('Centro Universitario de Educación Contemporánea')">Centro Universitario de Educación Contemporánea</a>
-                            <a onclick="selectOption('Centro Universitario Salvador Vázquez Altamirano, A.C.')">Centro Universitario Salvador Vázquez Altamirano, A.C.</a>
-                            <a onclick="selectOption('Cinco de Mayo')">Cinco de Mayo</a>
-                            <a onclick="selectOption('Clara Barton')">Clara Barton</a>
-                            <a onclick="selectOption('Clemencia Borja Taboada')">Clemencia Borja Taboada</a>
-                            <a onclick="selectOption('COBAQ Bachillerato Mixto')">COBAQ Bachillerato Mixto</a>
-                            <a onclick="selectOption('COBAQ Plantel Num. 28 San Ildefonso')">COBAQ Plantel Num. 28 San Ildefonso</a>
+                        <option value="Colegio General Regules">Colegio General Regules</option>
+                        <option value="Colegio Gran Bretaña">Colegio Gran Bretaña</option>
+                        <option value="Colegio Helen Parkhurst">Colegio Helen Parkhurst</option>
+                        <option value="Colegio Holandés de Querétaro">Colegio Holandés de Querétaro</option>
+                        <option value="Colegio Internacional de Estudios Virtuales">Colegio Internacional de Estudios Virtuales</option>
+                        <option value="Colegio Internacional de Querétaro">Colegio Internacional de Querétaro</option>
+                        <option value="Colegio La Salle San Juan del Río">Colegio La Salle San Juan del Río</option>
+                        <option value="Colegio Lafayette de Querétaro, A. C.">Colegio Lafayette de Querétaro, A. C.</option>
+                        <option value="Colegio Marcelina">Colegio Marcelina</option>
+                        <option value="Colegio Masía de Querétaro">Colegio Masía de Querétaro</option>
 
-                            <a onclick="selectOption('COBAQ Plantel Num. 1 Satélite')">COBAQ Plantel Num. 1 Satélite</a>
-                            <a onclick="selectOption('COBAQ Plantel Num. 10 San Juan del Río')">COBAQ Plantel Num. 10 San Juan del Río</a>
-                            <a onclick="selectOption('COBAQ Plantel Num. 11 Ezequiel Montes')">COBAQ Plantel Num. 11 Ezequiel Montes</a>
-                            <a onclick="selectOption('COBAQ Plantel Num. 12 Tequisquiapan')">COBAQ Plantel Num. 12 Tequisquiapan</a>
-                            <a onclick="selectOption('COBAQ Plantel Num. 13 Epigmenio González')">COBAQ Plantel Num. 13 Epigmenio González</a>
-                            <a onclick="selectOption('COBAQ Plantel Num. 14 San Joaquín')">COBAQ Plantel Num. 14 San Joaquín</a>
-                            <a onclick="selectOption('COBAQ Plantel Num. 15 Chichimequillas')">COBAQ Plantel Num. 15 Chichimequillas</a>
-                            <a onclick="selectOption('COBAQ Plantel Num. 16 El Colorado')">COBAQ Plantel Num. 16 El Colorado</a>
-                            <a onclick="selectOption('COBAQ Plantel Num. 17 "Constitución de 1917"')">COBAQ Plantel Num. 17 "Constitución de 1917"</a>
-                            <a onclick="selectOption('COBAQ Plantel Num. 18 Valle Dorado')">COBAQ Plantel Num. 18 Valle Dorado</a>                      
-    
-                            <a onclick="selectOption('COBAQ Plantel Num. 19 Bravo')">COBAQ Plantel Num. 19 Bravo</a>
-                            <a onclick="selectOption('COBAQ Plantel Num. 2 Amealco')">COBAQ Plantel Num. 2 Amealco</a>
-                            <a onclick="selectOption('COBAQ Plantel Num. 20 Santiago Mexquititlán')">COBAQ Plantel Num. 20 Santiago Mexquititlán</a>
-                            <a onclick="selectOption('COBAQ Plantel Num. 21 Arcila')">COBAQ Plantel Num. 21 Arcila</a>
-                            <a onclick="selectOption('COBAQ Plantel Num. 22 Real de San Miguel')">COBAQ Plantel Num. 22 Real de San Miguel</a>
-                            <a onclick="selectOption('COBAQ Plantel Num. 23 Ahuacatlán de Guadalupe')">COBAQ Plantel Num. 23 Ahuacatlán de Guadalupe</a>
-                            <a onclick="selectOption('COBAQ Plantel Num. 24 Villa Progreso')">COBAQ Plantel Num. 24 Villa Progreso</a>
-                            <a onclick="selectOption('COBAQ Plantel Num. 25 La Lagunita')">COBAQ Plantel Num. 25 La Lagunita</a>
-                            <a onclick="selectOption('COBAQ Plantel Num. 26 Agua Zarca')">COBAQ Plantel Num. 26 Agua Zarca</a>
-                            <a onclick="selectOption('COBAQ Plantel Num. 27 Purísima de Arista')">COBAQ Plantel Num. 27 Purísima de Arista</a>
-                            
-                            <a onclick="selectOption('COBAQ Plantel Num. 29 Bernal')">COBAQ Plantel Num. 29 Bernal</a>
-                            <a onclick="selectOption('COBAQ Plantel Num. 3 Corregidora')">COBAQ Plantel Num. 3 Corregidora</a>
-                            <a onclick="selectOption('COBAQ Plantel Num. 30 La Valla')">COBAQ Plantel Num. 30 La Valla</a>
-                            <a onclick="selectOption('COBAQ Plantel Num. 31 La Griega')">COBAQ Plantel Num. 31 La Griega</a>
-                            <a onclick="selectOption('COBAQ Plantel Num. 32 San Antonio de la Cal')">COBAQ Plantel Num. 32 San Antonio de la Cal</a>
-                            <a onclick="selectOption('COBAQ Plantel Num. 33 El Palmar')">COBAQ Plantel Num. 33 El Palmar</a>
-                            <a onclick="selectOption('COBAQ Plantel Num. 34 Arroyo Seco')">COBAQ Plantel Num. 34 Arroyo Seco</a>
-                            <a onclick="selectOption('COBAQ Plantel Num. 35 Vizarrón')">COBAQ Plantel Num. 35 Vizarrón</a>
-                            <a onclick="selectOption('COBAQ Plantel Num. 4 Jalpan')">COBAQ Plantel Num. 4 Jalpan</a>
-                            <a onclick="selectOption('COBAQ Plantel Num. 5 Cadereyta')">COBAQ Plantel Num. 5 Cadereyta</a>
+                        <option value="Colegio Militarizado Nuevo México Campus Querétaro">Colegio Militarizado Nuevo México Campus Querétaro</option>
+                        <option value="Colegio Montpellier">Colegio Montpellier</option>
+                        <option value="Colegio Motolínia de Sistema Educativo Valladolid">Colegio Motolínia de Sistema Educativo Valladolid</option>
+                        <option value="Colegio Nacional de Danza Contemporánea">Colegio Nacional de Danza Contemporánea</option>
+                        <option value="Colegio Nacional de Educación Profesional Técnica "Amealco"">Colegio Nacional de Educación Profesional Técnica "Amealco"</option>
+                        <option value="Colegio Nacional de Educación Profesional Técnica Num. 41 "Querétaro"">Colegio Nacional de Educación Profesional Técnica Num. 41 "Querétaro"</option>
+                        <option value="Colegio Nacional de Educación Profesional Técnica Num. 42 "San Juan del Río"">Colegio Nacional de Educación Profesional Técnica Num. 42 "San Juan del Río"</option>
+                        <option value="Colegio Nueva España">Colegio Nueva España</option>
+                        <option value="Colegio Real de Querenda Bachillerato">Colegio Real de Querenda Bachillerato</option>
+                        <option value="Colegio South Hill de Querétaro, S.C.">Colegio South Hill de Querétaro, S.C.</option>
 
-                            <a onclick="selectOption('COBAQ Plantel Num. 6 Tolimán')">COBAQ Plantel Num. 6 Tolimán</a>
-                            <a onclick="selectOption('COBAQ Plantel Num. 7 El Marqués')">COBAQ Plantel Num. 7 El Marqués</a>
-                            <a onclick="selectOption('COBAQ Plantel Num. 8 Azteca')">COBAQ Plantel Num. 8 Azteca</a>
-                            <a onclick="selectOption('COBAQ Plantel Num. 9 Santa Rosa Jáuregui')">COBAQ Plantel Num. 9 Santa Rosa Jáuregui</a>
-                            <a onclick="selectOption('Colegio Álamos')">Colegio Álamos</a>
-                            <a onclick="selectOption('Colegio Austriaco Mexicano Preparatoria')">Colegio Austriaco Mexicano Preparatoria</a>
-                            <a onclick="selectOption('Colegio Bosques Preparatoria Campus Real')">Colegio Bosques Preparatoria Campus Real</a>
-                            <a onclick="selectOption('Colegio Carol Baur')">Colegio Carol Baur</a>
-                            <a onclick="selectOption('Colegio Castellano Preparatoria')">Colegio Castellano Preparatoria</a>
-                            <a onclick="selectOption('Colegio Celta Internacional')">Colegio Celta Internacional</a>                      
-    
-                            
-                            <a onclick="selectOption('Colegio Constantino')">Colegio Constantino</a>
-                            <a onclick="selectOption('Colegio de Ciencias y Humanidades de Querétaro')">Colegio de Ciencias y Humanidades de Querétaro</a>
-                            <a onclick="selectOption('Colegio de Estudios Científicos y Tecnológicos del Estado de Querétaro Num. 10 Plantel La Esperanza')">Colegio de Estudios Científicos y Tecnológicos del Estado de Querétaro Num. 10 Plantel La Esperanza</a>
-                            <a onclick="selectOption('Colegio de Estudios Científicos y Tecnológicos del Estado de Querétaro Num. 11 Plantel La Tinaja')">Colegio de Estudios Científicos y Tecnológicos del Estado de Querétaro Num. 11 Plantel La Tinaja</a>
-                            <a onclick="selectOption('Colegio de Estudios Científicos y Tecnológicos del Estado de Querétaro Num. 12 Plantel Paso de Mata')">Colegio de Estudios Científicos y Tecnológicos del Estado de Querétaro Num. 12 Plantel Paso de Mata</a>
-                            <a onclick="selectOption('Colegio de Estudios Científicos y Tecnológicos del Estado de Querétaro Num. 6 Corregidora')">Colegio de Estudios Científicos y Tecnológicos del Estado de Querétaro Num. 6 Corregidora</a>
-                            <a onclick="selectOption('Colegio de Estudios Científicos y Tecnológicos del Estado de Querétaro Num. 7 Plantel San Juan del Río')">Colegio de Estudios Científicos y Tecnológicos del Estado de Querétaro Num. 7 Plantel San Juan del Río</a>
-                            <a onclick="selectOption('Colegio de Estudios Científicos y Tecnológicos del Estado de Querétaro Num. 8 Plantel Menchaca')">Colegio de Estudios Científicos y Tecnológicos del Estado de Querét
-                            <a onclick="selectOption('Colegio de Estudios Científicos y Tecnológicos del Estado de Querétaro Num. 82 Plantel Huimilpan')">Colegio de Estudios Científicos y Tecnológicos del Estado de Querétaro Num. 82 Plantel Huimilpan</a>
-                            <a onclick="selectOption('Colegio de Estudios Científicos y Tecnológicos del Estado de Querétaro Num. 83 Plantel Pedro Escobedo')">Colegio de Estudios Científicos y Tecnológicos del Estado de Querétaro Num. 83 Plantel Pedro Escobedo</a>
+                        <option value="Colegio Suizo de México">Colegio Suizo de México</option>
+                        <option value="Colegio Sunhills Valley">Colegio Sunhills Valley</option>
+                        <option value="Colegio Universitario de Humanidades (CUDH)">Colegio Universitario de Humanidades (CUDH)</option>
+                        <option value="Colegio Wexford">Colegio Wexford</option>
+                        <option value="Conjunto Educativo Social Comercial Administrativo, A.C.">Conjunto Educativo Social Comercial Administrativo, A.C.</option>
+                        <option value="Coordinación de Preparatoria Abierta">Coordinación de Preparatoria Abierta</option>
+                        <option value="Corregidora">Corregidora</option>
+                        <option value="Educación Media Superior a Distancia Num. 11 Peña Colorada">Educación Media Superior a Distancia Num. 11 Peña Colorada</option>
+                        <option value="Educación Media Superior a Distancia Num. 12 Camargo">Educación Media Superior a Distancia Num. 12 Camargo</option>
+                        <option value="Educación Media Superior a Distancia Num. 13 San Pedro Escanela">Educación Media Superior a Distancia Num. 13 San Pedro Escanela</option>
 
-                            <a onclick="selectOption('Colegio de Estudios Científicos y Tecnológicos del Estado de Querétaro Num. 84 Plantel Pinal de Amoles')">Colegio de Estudios Científicos y Tecnológicos del Estado de Querétaro Num. 84 Plantel Pinal de Amoles</a>
-                            <a onclick="selectOption('Colegio de Estudios Científicos y Tecnológicos del Estado de Querétaro Num. 85 Plantel Peñamiller')">Colegio de Estudios Científicos y Tecnológicos del Estado de Querétaro Num. 85 Plantel Peñamiller</a>
-                            <a onclick="selectOption('Colegio de Estudios Científicos y Tecnológicos del Estado de Querétaro Num. 9 Plantel Montenegro')">Colegio de Estudios Científicos y Tecnológicos del Estado de Querétaro Num. 9 Plantel Montenegro</a>
-                            <a onclick="selectOption('Colegio de Estudios Cientificos y Tecnológicos del Estado de Querétaro Plantel Querétaro')">Colegio de Estudios Cientificos y Tecnológicos del Estado de Querétaro Plantel Querétaro</a>
-                            <a onclick="selectOption('Colegio de Estudios Profesionales Lausanne')">Colegio de Estudios Profesionales Lausanne</a>
-                            <a onclick="selectOption('Colegio del Tepeyac, Querétaro')">Colegio del Tepeyac, Querétaro</a>
-                            <a onclick="selectOption('Colegio Diego Olvera Estrada')">Colegio Diego Olvera Estrada</a>
-                            <a onclick="selectOption('Colegio Educación y Patria')">Colegio Educación y Patria</a>
-                            <a onclick="selectOption('Colegio Fontanar')">Colegio Fontanar</a>
-                            <a onclick="selectOption('Colegio Fray Luis de León')">Colegio Fray Luis de León</a>
-    
-                            <a onclick="selectOption('Colegio General Regules')">Colegio General Regules</a>
-                            <a onclick="selectOption('Colegio Gran Bretaña')">Colegio Gran Bretaña</a>
-                            <a onclick="selectOption('Colegio Helen Parkhurst')">Colegio Helen Parkhurst</a>
-                            <a onclick="selectOption('Colegio Holandés de Querétaro')">Colegio Holandés de Querétaro</a>
-                            <a onclick="selectOption('Colegio Internacional de Estudios Virtuales')">Colegio Internacional de Estudios Virtuales</a>
-                            <a onclick="selectOption('Colegio Internacional de Querétaro')">Colegio Internacional de Querétaro</a>
-                            <a onclick="selectOption('Colegio La Salle San Juan del Río')">Colegio La Salle San Juan del Río</a>
-                            <a onclick="selectOption('Colegio Lafayette de Querétaro, A. C.')">Colegio Lafayette de Querétaro, A. C.</a>
-                            <a onclick="selectOption('Colegio Marcelina')">Colegio Marcelina</a>
-                            <a onclick="selectOption('Colegio Masía de Querétaro')">Colegio Masía de Querétaro</a>
+                        <option value="Educación Media Superior a Distancia Num. 14 Tres Lagunas">Educación Media Superior a Distancia Num. 14 Tres Lagunas</option>
+                        <option value="Educación Media Superior a Distancia Num. 18 Tilaco">Educación Media Superior a Distancia Num. 18 Tilaco</option>
+                        <option value="Educación Media Superior a Distancia Num. 19 San Miguel Palmas">Educación Media Superior a Distancia Num. 19 San Miguel Palmas</option>
+                        <option value="Educación Media Superior a Distancia Num. 3 Conca">Educación Media Superior a Distancia Num. 3 Conca</option>
+                        <option value="Educación Media Superior a Distancia Num. 31 Valle Verde">Educación Media Superior a Distancia Num. 31 Valle Verde</option>
+                        <option value="Educación Media Superior a Distancia Num. 32 Santa María Álamos">Educación Media Superior a Distancia Num. 32 Santa María Álamos</option>
+                        <option value="Educación Media Superior a Distancia Num. 33 Buenavista">Educación Media Superior a Distancia Num. 33 Buenavista</option>
+                        <option value="Educación Media Superior a Distancia Num. 34 Escolásticas">Educación Media Superior a Distancia Num. 34 Escolásticas</option>
+                        <option value="Educación Media Superior a Distancia Num. 6 El Coyote">Educación Media Superior a Distancia Num. 6 El Coyote</option>
+                        <option value="Educación Media Superior a Distancia Num. 7 Higuerillas">Educación Media Superior a Distancia Num. 7 Higuerillas</option>
 
-                            <a onclick="selectOption('Colegio Militarizado Nuevo México Campus Querétaro')">Colegio Militarizado Nuevo México Campus Querétaro</a>
-                            <a onclick="selectOption('Colegio Montpellier')">Colegio Montpellier</a>
-                            <a onclick="selectOption('Colegio Motolínia de Sistema Educativo Valladolid')">Colegio Motolínia de Sistema Educativo Valladolid</a>
-                            <a onclick="selectOption('Colegio Nacional de Danza Contemporánea')">Colegio Nacional de Danza Contemporánea</a>
-                            <a onclick="selectOption('Colegio Nacional de Educación Profesional Técnica "Amealco"')">Colegio Nacional de Educación Profesional Técnica "Amealco"</a>
-                            <a onclick="selectOption('Colegio Nacional de Educación Profesional Técnica Num. 41 "Querétaro"')">Colegio Nacional de Educación Profesional Técnica Num. 41 "Querétaro"</a>
-                            <a onclick="selectOption('Colegio Nacional de Educación Profesional Técnica Num. 42 "San Juan del Río"')">Colegio Nacional de Educación Profesional Técnica Num. 42 "San Juan del Río"</a>
-                            <a onclick="selectOption('Colegio Nueva España')">Colegio Nueva España</a>
-                            <a onclick="selectOption('Colegio Real de Querenda Bachillerato')">Colegio Real de Querenda Bachillerato</a>
-                            <a onclick="selectOption('Colegio South Hill de Querétaro, S.C.')">Colegio South Hill de Querétaro, S.C.</a>                       
-    
-                            <a onclick="selectOption('Colegio Suizo de México')">Colegio Suizo de México</a>
-                            <a onclick="selectOption('Colegio Sunhills Valley')">Colegio Sunhills Valley</a>
-                            <a onclick="selectOption('Colegio Universitario de Humanidades (CUDH)')">Colegio Universitario de Humanidades (CUDH)</a>
-                            <a onclick="selectOption('Colegio Wexford')">Colegio Wexford</a>
-                            <a onclick="selectOption('Conjunto Educativo Social Comercial Administrativo, A.C.')">Conjunto Educativo Social Comercial Administrativo, A.C.</a>
-                            <a onclick="selectOption('Coordinación de Preparatoria Abierta')">Coordinación de Preparatoria Abierta</a>
-                            <a onclick="selectOption('Corregidora')">Corregidora</a>
-                            <a onclick="selectOption('Educación Media Superior a Distancia Num. 11 Peña Colorada')">Educación Media Superior a Distancia Num. 11 Peña Colorada</a>
-                            <a onclick="selectOption('Educación Media Superior a Distancia Num. 12 Camargo')">Educación Media Superior a Distancia Num. 12 Camargo</a>
-                            <a onclick="selectOption('Educación Media Superior a Distancia Num. 13 San Pedro Escanela')">Educación Media Superior a Distancia Num. 13 San Pedro Escanela</a>
-                            
-                            <a onclick="selectOption('Educación Media Superior a Distancia Num. 14 Tres Lagunas')">Educación Media Superior a Distancia Num. 14 Tres Lagunas</a>
-                            <a onclick="selectOption('Educación Media Superior a Distancia Num. 18 Tilaco')">Educación Media Superior a Distancia Num. 18 Tilaco</a>
-                            <a onclick="selectOption('Educación Media Superior a Distancia Num. 19 San Miguel Palmas')">Educación Media Superior a Distancia Num. 19 San Miguel Palmas</a>
-                            <a onclick="selectOption('Educación Media Superior a Distancia Num. 3 Conca')">Educación Media Superior a Distancia Num. 3 Conca</a>
-                            <a onclick="selectOption('Educación Media Superior a Distancia Num. 31 Valle Verde')">Educación Media Superior a Distancia Num. 31 Valle Verde</a>
-                            <a onclick="selectOption('Educación Media Superior a Distancia Num. 32 Santa María Álamos')">Educación Media Superior a Distancia Num. 32 Santa María Álamos</a>
-                            <a onclick="selectOption('Educación Media Superior a Distancia Num. 33 Buenavista')">Educación Media Superior a Distancia Num. 33 Buenavista</a>
-                            <a onclick="selectOption('Educación Media Superior a Distancia Num. 34 Escolásticas')">Educación Media Superior a Distancia Num. 34 Escolásticas</a>
-                            <a onclick="selectOption('Educación Media Superior a Distancia Num. 6 El Coyote')">Educación Media Superior a Distancia Num. 6 El Coyote</a>
-                            <a onclick="selectOption('Educación Media Superior a Distancia Num. 7 Higuerillas')">Educación Media Superior a Dist
+                        <option value="Educación Media Superior a Distancia Num. 8 Santa Águeda">Educación Media Superior a Distancia Num. 8 Santa Águeda</option>
+                        <option value="Educativa Metropolitana">Educativa Metropolitana</option>
+                        <option value="EMSAD Num. 20 Landa de Matamoros">EMSAD Num. 20 Landa de Matamoros</option>
+                        <option value="EMSAD Num. 22 Peña Blanca">EMSAD Num. 22 Peña Blanca</option>
+                        <option value="EMSAD Num. 23 Sombrerete">EMSAD Num. 23 Sombrerete</option>
+                        <option value="EMSAD Num. 24 Casa Blanca">EMSAD Num. 24 Casa Blanca</option>
+                        <option value="EMSAD Num. 25 El Rincón">EMSAD Num. 25 El Rincón</option>
+                        <option value="EMSAD Num. 26 Tancoyol">EMSAD Num. 26 Tancoyol</option>
+                        <option value="EMSAD Num. 27 Agua Fría">EMSAD Num. 27 Agua Fría</option>
+                        <option value="EMSAD Num. 28 Bellavista del Río">EMSAD Num. 28 Bellavista del Río</option>
 
-                            <a onclick="selectOption('Educación Media Superior a Distancia Num. 8 Santa Águeda')">Educación Media Superior a Distancia Num. 8 Santa Águeda</a>
-                            <a onclick="selectOption('Educativa Metropolitana')">Educativa Metropolitana</a>
-                            <a onclick="selectOption('EMSAD Num. 20 Landa de Matamoros')">EMSAD Num. 20 Landa de Matamoros</a>
-                            <a onclick="selectOption('EMSAD Num. 22 Peña Blanca')">EMSAD Num. 22 Peña Blanca</a>
-                            <a onclick="selectOption('EMSAD Num. 23 Sombrerete')">EMSAD Num. 23 Sombrerete</a>
-                            <a onclick="selectOption('EMSAD Num. 24 Casa Blanca')">EMSAD Num. 24 Casa Blanca</a>
-                            <a onclick="selectOption('EMSAD Num. 25 El Rincón')">EMSAD Num. 25 El Rincón</a>
-                            <a onclick="selectOption('EMSAD Num. 26 Tancoyol')">EMSAD Num. 26 Tancoyol</a>
-                            <a onclick="selectOption('EMSAD Num. 27 Agua Fría')">EMSAD Num. 27 Agua Fría</a>
-                            <a onclick="selectOption('EMSAD Num. 28 Bellavista del Río')">EMSAD Num. 28 Bellavista del Río</a>
-    
-                            <a onclick="selectOption('EMSAD Num. 30 San Miguel Tlaxcaltepec')">EMSAD Num. 30 San Miguel Tlaxcaltepec</a>
-                            <a onclick="selectOption('Escuela de Asistentes Educativos Chiquitines, A. C.')">Escuela de Asistentes Educativos Chiquitines, A. C.</a>
-                            <a onclick="selectOption('Escuela de Bachilleres de la UAQ, Modalidad Mixta y no Escolarizada')">Escuela de Bachilleres de la UAQ, Modalidad Mixta y no Escolarizada</a>
-                            <a onclick="selectOption('Escuela de Bachilleres de la UAQ, Plantel Amazcala')">Escuela de Bachilleres de la UAQ, Plantel Amazcala</a>
-                            <a onclick="selectOption('Escuela de Bachilleres de la UAQ, Plantel Amealco')">Escuela de Bachilleres de la UAQ, Plantel Amealco</a>
-                            <a onclick="selectOption('Escuela de Bachilleres de la UAQ, Plantel Bicentenario')">Escuela de Bachilleres de la UAQ, Plantel Bicentenario</a>
-                            <a onclick="selectOption('Escuela de Bachilleres de la UAQ, Plantel Colón')">Escuela de Bachilleres de la UAQ, Plantel Colón</a>
-                            <a onclick="selectOption('Escuela de Bachilleres de la UAQ, Plantel Conca')">Escuela de Bachilleres de la UAQ, Plantel Conca</a>
-                            <a onclick="selectOption('Escuela de Bachilleres de la UAQ, Plantel Corregidora')">Escuela de Bachilleres de la UAQ, Plantel Corregidora</a>
-                            <a onclick="selectOption('Escuela de Bachilleres de la UAQ, Plantel Huimilpan')">Escuela de Bachilleres de la UAQ, Plantel Huimilpan</a>
+                        <option value="EMSAD Num. 30 San Miguel Tlaxcaltepec">EMSAD Num. 30 San Miguel Tlaxcaltepec</option>
+                        <option value="Escuela de Asistentes Educativos Chiquitines, A. C.">Escuela de Asistentes Educativos Chiquitines, A. C.</option>
+                        <option value="Escuela de Bachilleres de la UAQ, Modalidad Mixta y no Escolarizada">Escuela de Bachilleres de la UAQ, Modalidad Mixta y no Escolarizada</option>
+                        <option value="Escuela de Bachilleres de la UAQ, Plantel Amazcala">Escuela de Bachilleres de la UAQ, Plantel Amazcala</option>
+                        <option value="Escuela de Bachilleres de la UAQ, Plantel Amealco">Escuela de Bachilleres de la UAQ, Plantel Amealco</option>
+                        <option value="Escuela de Bachilleres de la UAQ, Plantel Bicentenario">Escuela de Bachilleres de la UAQ, Plantel Bicentenario</option>
+                        <option value="Escuela de Bachilleres de la UAQ, Plantel Colón">Escuela de Bachilleres de la UAQ, Plantel Colón</option>
+                        <option value="Escuela de Bachilleres de la UAQ, Plantel Conca">Escuela de Bachilleres de la UAQ, Plantel Conca</option>
+                        <option value="Escuela de Bachilleres de la UAQ, Plantel Corregidora">Escuela de Bachilleres de la UAQ, Plantel Corregidora</option>
+                        <option value="Escuela de Bachilleres de la UAQ, Plantel Huimilpan">Escuela de Bachilleres de la UAQ, Plantel Huimilpan</option>
 
-                            <a onclick="selectOption('Escuela de Bachilleres de la UAQ, Plantel Jalpan')">Escuela de Bachilleres de la UAQ, Plantel Jalpan</a>
-                            <a onclick="selectOption('Escuela de Bachilleres de la UAQ, Plantel Landa de Matamoros')">Escuela de Bachilleres de la UAQ, Plantel Landa de Matamoros</a>
-                            <a onclick="selectOption('Escuela de Bachilleres de la UAQ, Plantel Norte')">Escuela de Bachilleres de la UAQ, Plantel Norte</a>
-                            <a onclick="selectOption('Escuela de Bachilleres de la UAQ, Plantel Pedro Escobedo')">Escuela de Bachilleres de la UAQ, Plantel Pedro Escobedo</a>
-                            <a onclick="selectOption('Escuela de Bachilleres de la UAQ, Plantel Pinal de Amoles')">Escuela de Bachilleres de la UAQ, Plantel Pinal de Amoles</a>
-                            <a onclick="selectOption('Escuela de Bachilleres de la UAQ, Plantel San Juan del Río')">Escuela de Bachilleres de la UAQ, Plantel San Juan del Río</a>
-                            <a onclick="selectOption('Escuela de Bachilleres de la UAQ, Plantel Sur')">Escuela de Bachilleres de la UAQ, Plantel Sur</a>
-                            <a onclick="selectOption('Escuela Preparatoria del Instituto Plancarte')">Escuela Preparatoria del Instituto Plancarte</a>
-                            <a onclick="selectOption('Escuela Preparatoria Leonardo de Vinci')">Escuela Preparatoria Leonardo de Vinci</a>
-                            <a onclick="selectOption('High School John Dewey')">High School John Dewey</a>
+                        <option value="Escuela de Bachilleres de la UAQ, Plantel Jalpan">Escuela de Bachilleres de la UAQ, Plantel Jalpan</option>
+                        <option value="Escuela de Bachilleres de la UAQ, Plantel Landa de Matamoros">Escuela de Bachilleres de la UAQ, Plantel Landa de Matamoros</option>
+                        <option value="Escuela de Bachilleres de la UAQ, Plantel Norte">Escuela de Bachilleres de la UAQ, Plantel Norte</option>
+                        <option value="Escuela de Bachilleres de la UAQ, Plantel Pedro Escobedo">Escuela de Bachilleres de la UAQ, Plantel Pedro Escobedo</option>
+                        <option value="Escuela de Bachilleres de la UAQ, Plantel Pinal de Amoles">Escuela de Bachilleres de la UAQ, Plantel Pinal de Amoles</option>
+                        <option value="Escuela de Bachilleres de la UAQ, Plantel San Juan del Río">Escuela de Bachilleres de la UAQ, Plantel San Juan del Río</option>
+                        <option value="Escuela de Bachilleres de la UAQ, Plantel Sur">Escuela de Bachilleres de la UAQ, Plantel Sur</option>
+                        <option value="Escuela Preparatoria del Instituto Plancarte">Escuela Preparatoria del Instituto Plancarte</option>
+                        <option value="Escuela Preparatoria Leonardo de Vinci">Escuela Preparatoria Leonardo de Vinci</option>
+                        <option value="High School John Dewey">High School John Dewey</option>
 
-                            <a onclick="selectOption('Instituto Bilingüe Victoria, A. C.')">Instituto Bilingüe Victoria, A. C.</a>
-                            <a onclick="selectOption('Instituto Cambridge')">Instituto Cambridge</a>
-                            <a onclick="selectOption('Instituto Champagnat')">Instituto Champagnat</a>
-                            <a onclick="selectOption('Instituto Comercial Imec')">Instituto Comercial Imec</a>
-                            <a onclick="selectOption('Instituto de Estudios Sociales y Administrativos de Querétaro')">Instituto de Estudios Sociales y Administrativos de Querétaro</a>
-                            <a onclick="selectOption('Instituto de la Juventud José Martí')">Instituto de la Juventud José Martí</a>
-                            <a onclick="selectOption('Instituto de Liderazgo Idel')">Instituto de Liderazgo Idel</a>
-                            <a onclick="selectOption('Instituto Ex Novo')">Instituto Ex Novo</a>
-                            <a onclick="selectOption('Instituto La Paz de Querétaro, A.C.')">Instituto La Paz de Querétaro, A.C.</a>
-                            <a onclick="selectOption('Instituto Marciano Tinajero y Estrada')">Instituto Marciano Tinajero y Estrada</a>
+                        <option value="Instituto Bilingüe Victoria, A. C.">Instituto Bilingüe Victoria, A. C.</option>
+                        <option value="Instituto Cambridge">Instituto Cambridge</option>
+                        <option value="Instituto Champagnat">Instituto Champagnat</option>
+                        <option value="Instituto Comercial Imec">Instituto Comercial Imec</option>
+                        <option value="Instituto de Estudios Sociales y Administrativos de Querétaro">Instituto de Estudios Sociales y Administrativos de Querétaro</option>
+                        <option value="Instituto de la Juventud José Martí">Instituto de la Juventud José Martí</option>
+                        <option value="Instituto de Liderazgo Idel">Instituto de Liderazgo Idel</option>
+                        <option value="Instituto Ex Novo">Instituto Ex Novo</option>
+                        <option value="Instituto La Paz de Querétaro, A.C.">Instituto La Paz de Querétaro, A.C.</option>
+                        <option value="Instituto Marciano Tinajero y Estrada">Instituto Marciano Tinajero y Estrada</option>
 
-                            
-                            <a onclick="selectOption('Instituto Oriente Querétaro')">Instituto Oriente Querétaro</a>
-                            <a onclick="selectOption('Instituto Paulo Freire Preparatoria')">Instituto Paulo Freire Preparatoria</a>
-                            <a onclick="selectOption('Instituto Plancarte San Juan del Río')">Instituto Plancarte San Juan del Río</a>
-                            <a onclick="selectOption('Instituto Preuniversitario del Centro de México Campus Querétaro')">Instituto Preuniversitario del Centro de México Campus Querétaro</a>
-                            <a onclick="selectOption('Instituto Preuniversitario del Centro de México Campus San Juan del Río')">Instituto Preuniversitario del Centro de México Campus San Juan del Río</a>
-                            <a onclick="selectOption('Instituto Profesional de Informática y Computación')">Instituto Profesional de Informática y Computación</a>
-                            <a onclick="selectOption('Instituto Querétano')">Instituto Querétano</a>
-                            <a onclick="selectOption('Instituto Querétano de Herramentales')">Instituto Querétano de Herramentales</a>
-                            <a onclick="selectOption('Instituto Rembrandt')">Instituto Rembrandt</a>
-                            <a onclick="selectOption('Instituto Renacimiento Preparatoria')">Instituto Renacimiento Preparatoria</a>
-                            
-                            <a onclick="selectOption('Instituto Santiago (Preparatoria)')">Instituto Santiago (Preparatoria)</a>
-                            <a onclick="selectOption('Instituto Social Comercial en Contaduría Administrativa')">Instituto Social Comercial en Contaduría Administrativa</a>
-                            <a onclick="selectOption('Instituto Social Comercial en Contaduría Administrativa A.C.')">Instituto Social Comercial en Contaduría Administrativa A.C.</a>
-                            <a onclick="selectOption('Instituto Social Educativo Comercial Administrativo')">Instituto Social Educativo Comercial Administrativo</a>
-                            <a onclick="selectOption('Instituto Sovany')">Instituto Sovany</a>
-                            <a onclick="selectOption('Instituto Tecnológico Anglo Mexicano')">Instituto Tecnológico Anglo Mexicano</a>
-                            <a onclick="selectOption('Instituto Thomas Jefferson')">Instituto Thomas Jefferson</a>
-                            <a onclick="selectOption('Instituto Universitario de Desarrollo Humano e Innovación Profesional')">Instituto Universitario de Desarrollo Humano e Innovación Profesional</a>
-                            <a onclick="selectOption('ITESM Campus Querétaro')">ITESM Campus Querétaro</a>
-                            <a onclick="selectOption('John F. Kennedy')">John F. Kennedy</a>                   
+                        <option value="Instituto Oriente Querétaro">Instituto Oriente Querétaro</option>
+                        <option value="Instituto Paulo Freire Preparatoria">Instituto Paulo Freire Preparatoria</option>
+                        <option value="Instituto Plancarte San Juan del Río">Instituto Plancarte San Juan del Río</option>
+                        <option value="Instituto Preuniversitario del Centro de México Campus Querétaro">Instituto Preuniversitario del Centro de México Campus Querétaro</option>
+                        <option value="Instituto Preuniversitario del Centro de México Campus San Juan del Río">Instituto Preuniversitario del Centro de México Campus San Juan del Río</option>
+                        <option value="Instituto Profesional de Informática y Computación">Instituto Profesional de Informática y Computación</option>
+                        <option value="Instituto Querétano">Instituto Querétano</option>
+                        <option value="Instituto Querétano de Herramentales">Instituto Querétano de Herramentales</option>
+                        <option value="Instituto Rembrandt">Instituto Rembrandt</option>
+                        <option value="Instituto Renacimiento Preparatoria">Instituto Renacimiento Preparatoria</option>
 
-                            <a onclick="selectOption('Liceo de Querétaro')">Liceo de Querétaro</a>
-                            <a onclick="selectOption('Lic. José Guadalupe Ramírez Álvarez')">Lic. José Guadalupe Ramírez Álvarez</a>
-                            <a onclick="selectOption('Liceo Corregidora')">Liceo Corregidora</a>
-                            <a onclick="selectOption('Liceo Patrick Henry Preparatoria')">Liceo Patrick Henry Preparatoria</a>
-                            <a onclick="selectOption('Lycée Français International Jules Verne Sección Preparatoria')">Lycée Français International Jules Verne Sección Preparatoria</a>
-                            <a onclick="selectOption('MH Institución Educativa')">MH Institución Educativa</a>
-                            <a onclick="selectOption('New Port High School')">New Port High School</a>
-                            <a onclick="selectOption('Plantel Conalep Aeronáutico')">Plantel Conalep Aeronáutico</a>
-                            <a onclick="selectOption('Plantel Conalep Automotriz José Vasconcelos')">Plantel Conalep Automotriz José Vasconcelos</a>
-                            <a onclick="selectOption('Prepa Anáhuac Querétaro')">Prepa Anáhuac Querétaro</a>
-                    
-                            <a onclick="selectOption('Prepa Balmoral Escocés')">Prepa Balmoral Escocés</a>
-                            <a onclick="selectOption('Prepa Cav')">Prepa Cav</a>
-                            <a onclick="selectOption('Prepa Ceickor')">Prepa Ceickor</a>
-                            <a onclick="selectOption('Prepa Idai')">Prepa Idai</a>
-                            <a onclick="selectOption('Prepa Plenus')">Prepa Plenus</a>
-                            <a onclick="selectOption('Preparatoria Centro Escolar Cadereyta')">Preparatoria Centro Escolar Cadereyta</a>
-                            <a onclick="selectOption('Preparatoria Cervantes')">Preparatoria Cervantes</a>
-                            <a onclick="selectOption('Preparatoria Cesba')">Preparatoria Cesba</a>
-                            <a onclick="selectOption('Preparatoria Conín')">Preparatoria Conín</a>
-                            <a onclick="selectOption('Preparatoria Cuauhtémoc Querétaro')">Preparatoria Cuauhtémoc Querétaro</a>
-                            
-                            <a onclick="selectOption('Preparatoria de Negocios')">Preparatoria de Negocios</a>
-                            <a onclick="selectOption('Preparatoria del Instituto Asunción de Querétaro')">Preparatoria del Instituto Asunción de Querétaro</a>
-                            <a onclick="selectOption('Preparatoria Emprende Innova')">Preparatoria Emprende Innova</a>
-                            <a onclick="selectOption('Preparatoria Intercultural San Patricio')">Preparatoria Intercultural San Patricio</a>
-                            <a onclick="selectOption('Preparatoria Iteca')">Preparatoria Iteca</a>
-                            <a onclick="selectOption('Preparatoria La Cima')">Preparatoria La Cima</a>
-                            <a onclick="selectOption('Preparatoria Nuevo Horizonte')">Preparatoria Nuevo Horizonte</a>
-                            <a onclick="selectOption('Preparatoria Summerhill')">Preparatoria Summerhill</a>
-                            <a onclick="selectOption('Preparatoria Universidad Marista de Querétaro, Campus San Juan del Río')">Preparatoria Universidad Marista de Querétaro, Campus San Juan del Río</a>
-                            <a onclick="selectOption('Preparatorias Universidad Marista de Querétaro')">Preparatorias Universidad Marista de Querétaro</a>
-                            
-                            
-                            
+                        <option value="Instituto Santiago (Preparatoria)">Instituto Santiago (Preparatoria)</option>
+                        <option value="Instituto Social Comercial en Contaduría Administrativa">Instituto Social Comercial en Contaduría Administrativa</option>
+                        <option value="Instituto Social Comercial en Contaduría Administrativa A.C.">Instituto Social Comercial en Contaduría Administrativa A.C.</option>
+                        <option value="Instituto Social Educativo Comercial Administrativo">Instituto Social Educativo Comercial Administrativo</option>
+                        <option value="Instituto Sovany">Instituto Sovany</option>
+                        <option value="Instituto Tecnológico Anglo Mexicano">Instituto Tecnológico Anglo Mexicano</option>
+                        <option value="Instituto Thomas Jefferson">Instituto Thomas Jefferson</option>
+                        <option value="Instituto Universitario de Desarrollo Humano e Innovación Profesional">Instituto Universitario de Desarrollo Humano e Innovación Profesional</option>
+                        <option value="ITESM Campus Querétaro">ITESM Campus Querétaro</option>
+                        <option value="John F. Kennedy">John F. Kennedy</option>
 
+                        <option value="Liceo de Querétaro">Liceo de Querétaro</option>
+                        <option value="Lic. José Guadalupe Ramírez Álvarez">Lic. José Guadalupe Ramírez Álvarez</option>
+                        <option value="Liceo Corregidora">Liceo Corregidora</option>
+                        <option value="Liceo Patrick Henry Preparatoria">Liceo Patrick Henry Preparatoria</option>
+                        <option value="Lycée Français International Jules Verne Sección Preparatoria">Lycée Français International Jules Verne Sección Preparatoria</option>
+                        <option value="MH Institución Educativa">MH Institución Educativa</option>
+                        <option value="New Port High School">New Port High School</option>
+                        <option value="Plantel Conalep Aeronáutico">Plantel Conalep Aeronáutico</option>
+                        <option value="Plantel Conalep Automotriz José Vasconcelos">Plantel Conalep Automotriz José Vasconcelos</option>
+                        <option value="Prepa Anáhuac Querétaro">Prepa Anáhuac Querétaro</option>
 
+                        <option value="Prepa Balmoral Escocés">Prepa Balmoral Escocés</option>
+                        <option value="Prepa Cav">Prepa Cav</option>
+                        <option value="Prepa Ceickor">Prepa Ceickor</option>
+                        <option value="Prepa Idai">Prepa Idai</option>
+                        <option value="Prepa Plenus">Prepa Plenus</option>
+                        <option value="Preparatoria Centro Escolar Cadereyta">Preparatoria Centro Escolar Cadereyta</option>
+                        <option value="Preparatoria Cervantes">Preparatoria Cervantes</option>
+                        <option value="Preparatoria Cesba">Preparatoria Cesba</option>
+                        <option value="Preparatoria Conín">Preparatoria Conín</option>
+                        <option value="Preparatoria Cuauhtémoc Querétaro">Preparatoria Cuauhtémoc Querétaro</option>
 
-                            <a onclick="selectOption('Santiago Galás')">Santiago Galás</a>
-                            <a onclick="selectOption('Telebachillerato Comunitario Agua Fría')">Telebachillerato Comunitario Agua Fría</a>
-                            <a onclick="selectOption('Telebachillerato Comunitario El Aguacate')">Telebachillerato Comunitario El Aguacate</a>
-                            <a onclick="selectOption('Telebachillerato Comunitario El Lobo')">Telebachillerato Comunitario El Lobo</a>
-                            <a onclick="selectOption('Telebachillerato Comunitario El Platano')">Telebachillerato Comunitario El Platano</a>
-                            <a onclick="selectOption('Telebachillerato Comunitario La Carbonera')">Telebachillerato Comunitario La Carbonera</a>
-                            <a onclick="selectOption('Telebachillerato Comunitario La Florida')">Telebachillerato Comunitario La Florida</a>
-                            <a onclick="selectOption('Telebachillerato Comunitario La Fuente')">Telebachillerato Comunitario La Fuente</a>
-                            <a onclick="selectOption('Telebachillerato Comunitario La Monja')">Telebachillerato Comunitario La Monja</a>
-                            <a onclick="selectOption('Telebachillerato Comunitario La Plazuela')">Telebachillerato Comunitario La Plazuela</a>
+                        <option value="Preparatoria de Negocios">Preparatoria de Negocios</option>
+                        <option value="Preparatoria del Instituto Asunción de Querétaro">Preparatoria del Instituto Asunción de Querétaro</option>
+                        <option value="Preparatoria Emprende Innova">Preparatoria Emprende Innova</option>
+                        <option value="Preparatoria Intercultural San Patricio">Preparatoria Intercultural San Patricio</option>
+                        <option value="Preparatoria Iteca">Preparatoria Iteca</option>
+                        <option value="Preparatoria La Cima">Preparatoria La Cima</option>
+                        <option value="Preparatoria Nuevo Horizonte">Preparatoria Nuevo Horizonte</option>
+                        <option value="Preparatoria Summerhill">Preparatoria Summerhill</option>
+                        <option value="Preparatoria Universidad Marista de Querétaro, Campus San Juan del Río">Preparatoria Universidad Marista de Querétaro, Campus San Juan del Río</option>
+                        <option value="Preparatorias Universidad Marista de Querétaro">Preparatorias Universidad Marista de Querétaro</option>
 
-                            <a onclick="selectOption('Telebachillerato Comunitario La Solana')">Telebachillerato Comunitario La Solana</a>
-                            <a onclick="selectOption('Telebachillerato Comunitario La Versolilla')">Telebachillerato Comunitario La Versolilla</a>
-                            <a onclick="selectOption('Telebachillerato Comunitario Laguna de Servín')">Telebachillerato Comunitario Laguna de Servín</a>
-                            <a onclick="selectOption('Telebachillerato Comunitario Laguna de Vaquerías')">Telebachillerato Comunitario Laguna de Vaquerías</a>
-                            <a onclick="selectOption('Telebachillerato Comunitario Los Juárez')">Telebachillerato Comunitario Los Juárez</a>
-                            <a onclick="selectOption('Telebachillerato Comunitario Maconí')">Telebachillerato Comunitario Maconí</a>
-                            <a onclick="selectOption('Telebachillerato Comunitario Mesa de Ramírez<')">Telebachillerato Comunitario Mesa de Ramírez</a>
-                            <a onclick="selectOption('Telebachillerato Comunitario Neblinas')">Telebachillerato Comunitario Neblinas</a>
-                            <a onclick="selectOption('Telebachillerato Comunitario Paniagua')">Telebachillerato Comunitario Paniagua</a>
-                            <a onclick="selectOption('Telebachillerato Comunitario Pathe')">Telebachillerato Comunitario Pathe</a>                   
-                                
+                        <option value="Santiago Galás">Santiago Galás</option>
+                        <option value="Telebachillerato Comunitario Agua Fría">Telebachillerato Comunitario Agua Fría</option>
+                        <option value="Telebachillerato Comunitario El Aguacate">Telebachillerato Comunitario El Aguacate</option>
+                        <option value="Telebachillerato Comunitario El Lobo">Telebachillerato Comunitario El Lobo</option>
+                        <option value="Telebachillerato Comunitario El Platano">Telebachillerato Comunitario El Platano</option>
+                        <option value="Telebachillerato Comunitario La Carbonera">Telebachillerato Comunitario La Carbonera</option>
+                        <option value="Telebachillerato Comunitario La Florida">Telebachillerato Comunitario La Florida</option>
+                        <option value="Telebachillerato Comunitario La Fuente">Telebachillerato Comunitario La Fuente</option>
+                        <option value="Telebachillerato Comunitario La Monja">Telebachillerato Comunitario La Monja</option>
+                        <option value="Telebachillerato Comunitario La Plazuela">Telebachillerato Comunitario La Plazuela</option>
 
-                            <a onclick="selectOption('Telebachillerato Comunitario Puerto de la Luz')">Telebachillerato Comunitario Puerto de la Luz</a>
-                            <a onclick="selectOption('Telebachillerato Comunitario Quiotillos')">Telebachillerato Comunitario Quiotillos</a>
-                            <a onclick="selectOption('Telebachillerato Comunitario Rancho Nuevo')">Telebachillerato Comunitario Rancho Nuevo</a>
-                            <a onclick="selectOption('Telebachillerato Comunitario San Ignacio')">Telebachillerato Comunitario San Ignacio</a>
-                            <a onclick="selectOption('Telebachillerato Comunitario San Pedro Viejo')">Telebachillerato Comunitario San Pedro Viejo</a>
-                            <a onclick="selectOption('Telebachillerato Comunitario Santa Inés')">Telebachillerato Comunitario Santa Inés</a>
-                            <a onclick="selectOption('Telebachillerato Comunitario Santa Lucía')">Telebachillerato Comunitario Santa Lucía</a>
-                            <a onclick="selectOption('Telebachillerato Comunitario Santa María de los Cocos')">Telebachillerato Comunitario Santa María de los Cocos</a>
-                            <a onclick="selectOption('Telebachillerato Comunitario Sauz de Guadalupe')">Telebachillerato Comunitario Sauz de Guadalupe</a>
-                            <a onclick="selectOption('Telebachillerato Comunitario Yerbabuena')">Telebachillerato Comunitario Yerbabuena</a>
-                            
-                            <aonclick="selectOption('Universidad Alfred Nobel Bachillerato')">Universidad Alfred Nobel Bachillerato</aonclick=>
-                            <a onclick="selectOption('Universidad Mondragón México')">Universidad Mondragón México</a>
-                            <a onclick="selectOption('Universidad Tec Milenio')">Universidad Tec Milenio</a>
-                            <a onclick="selectOption('Universidad Tecnologica de Mexico Bachillerato, Campus Queretaro')">Universidad Tecnologica de Mexico Bachillerato, Campus Queretaro</a>
-                            <a onclick="selectOption('Vanguardia Educativa de Mexico')">Vanguardia Educativa de Mexico</a>
-                            
-                        </div>
+                        <option value="Telebachillerato Comunitario La Solana">Telebachillerato Comunitario La Solana</option>
+                        <option value="Telebachillerato Comunitario La Versolilla">Telebachillerato Comunitario La Versolilla</option>
+                        <option value="Telebachillerato Comunitario Laguna de Servín">Telebachillerato Comunitario Laguna de Servín</option>
+                        <option value="Telebachillerato Comunitario Laguna de Vaquerías">Telebachillerato Comunitario Laguna de Vaquerías</option>
+                        <option value="Telebachillerato Comunitario Los Juárez">Telebachillerato Comunitario Los Juárez</option>
+                        <option value="Telebachillerato Comunitario Maconí">Telebachillerato Comunitario Maconí</option>
+                        <option value="Telebachillerato Comunitario Mesa de Ramírez">Telebachillerato Comunitario Mesa de Ramírez</option>
+                        <option value="Telebachillerato Comunitario Neblinas">Telebachillerato Comunitario Neblinas</option>
+                        <option value="Telebachillerato Comunitario Paniagua">Telebachillerato Comunitario Paniagua</option>
+                        <option value="Telebachillerato Comunitario Pathe">Telebachillerato Comunitario Pathe</option>
+
+                        <option value="Telebachillerato Comunitario Puerto de la Luz">Telebachillerato Comunitario Puerto de la Luz</option>
+                        <option value="Telebachillerato Comunitario Quiotillos">Telebachillerato Comunitario Quiotillos</option>
+                        <option value="Telebachillerato Comunitario Rancho Nuevo">Telebachillerato Comunitario Rancho Nuevo</option>
+                        <option value="Telebachillerato Comunitario San Ignacio">Telebachillerato Comunitario San Ignacio</option>
+                        <option value="Telebachillerato Comunitario San Pedro Viejo">Telebachillerato Comunitario San Pedro Viejo</option>
+                        <option value="Telebachillerato Comunitario Santa Inés">Telebachillerato Comunitario Santa Inés</option>
+                        <option value="Telebachillerato Comunitario Santa Lucía">Telebachillerato Comunitario Santa Lucía</option>
+                        <option value="Telebachillerato Comunitario Santa María de los Cocos">Telebachillerato Comunitario Santa María de los Cocos</option>
+                        <option value="Telebachillerato Comunitario Sauz de Guadalupe">Telebachillerato Comunitario Sauz de Guadalupe</option>
+                        <option value="Telebachillerato Comunitario Yerbabuena">Telebachillerato Comunitario Yerbabuena</option>
+
+                        <option value="Universidad Alfred Nobel Bachillerato">Universidad Alfred Nobel Bachillerato</option>
+                        <option value="Universidad Mondragón México">Universidad Mondragón México</option>
+                        <option value="Universidad Tec Milenio">Universidad Tec Milenio</option>
+                        <option value="Universidad Tecnologica de Mexico Bachillerato, Campus Queretaro">Universidad Tecnologica de Mexico Bachillerato, Campus Queretaro</option>
+                        <option value="Vanguardia Educativa de Mexico">Vanguardia Educativa de Mexico</option>
+                        <option value="Otro">Otro</option>
+                    </select>
+
+                    <div id="otro-bachillerato" style="display: none;">
+                        <label for="otro">Especifique otro bachillerato:</label>
+                        <input type="text" id="otro" name="otro" placeholder="Escriba el nombre" />
                     </div>
-
+                    
                     <label for="matricula">Matrícula:</label>
                     <input type="text" id="matricula" name="matricula">
-                </div>
+                </div>                                                              
+                
                     <input class="register-btn" type="submit" value="Registrar">
             </form>
         </div>
     </main>
 </body>
 <script>
-    function toggleDropdown(show) {
-        const dropdown = document.getElementById('dropdown-list');
-        dropdown.style.display = show ? 'block' : 'none';
-    }
+    const selectElement = document.getElementById('bachillerato');
+    const otroBachilleratoDiv = document.getElementById('otro-bachillerato');
 
-    function filterDropdown() {
-        const input = document.getElementById('dropdown-input').value.toLowerCase();
-        const dropdown = document.getElementById('dropdown-list');
-        const options = dropdown.getElementsByTagName('a');
-        const customInput = document.querySelector('.custom-input');
-
-        let hasResults = false;
-
-        for (let i = 0; i < options.length; i++) {
-            const text = options[i].textContent || options[i].innerText;
-            if (text.toLowerCase().includes(input)) {
-                options[i].style.display = '';
-                hasResults = true;
-            } else {
-                options[i].style.display = 'none';
-            }
-        }
-
-        // Si no hay resultados, mostrar el campo personalizado
-        if (!hasResults) {
-            customInput.style.display = 'block';
-            dropdown.style.display = 'none';
+    // Mostrar u ocultar el cuadro de texto cuando se selecciona "Otro"
+    selectElement.addEventListener('change', function () {
+        if (this.value === 'Otro') {
+            otroBachilleratoDiv.style.display = 'block';
         } else {
-            customInput.style.display = 'none';
-            dropdown.style.display = 'block';
-        }
-    }
-
-    function selectOption(value) {
-        document.getElementById('dropdown-input').value = value;
-        document.querySelector('.custom-input').style.display = 'none';
-        toggleDropdown(false);
-    }
-
-    // Cerrar el dropdown al hacer clic fuera
-    document.addEventListener('click', (event) => {
-        const dropdownContainer = document.querySelector('.dropdown-container');
-        if (!dropdownContainer.contains(event.target)) {
-            toggleDropdown(false);
+            otroBachilleratoDiv.style.display = 'none';
         }
     });
 
-    
+    // Agregar evento de teclado para filtrar opciones
+    selectElement.addEventListener('keydown', function (event) {
+        const filter = event.key.toLowerCase();
+        const options = Array.from(selectElement.options);
+
+        // Si el usuario presiona una tecla que no es funcional
+        if (event.key.length === 1) {
+            for (let i = 1; i < options.length; i++) { // Comienza en 1 para omitir "Seleccione un bachillerato"
+                const option = options[i];
+                if (option.text.toLowerCase().startsWith(filter)) {
+                    selectElement.selectedIndex = i; // Selecciona la primera coincidencia
+                    break;
+                }
+            }
+        }
+    });
 </script>
 </html>
