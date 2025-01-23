@@ -128,7 +128,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // Redirect to results page
         const encodedResults = encodeURIComponent(resultText);
-        window.location.href = `resultados.html?results=${encodedResults}`;
+        window.location.href = `/resultados-primer-paso?results=${encodedResults}`;
     }
 
     // Event listeners for navigation buttons
