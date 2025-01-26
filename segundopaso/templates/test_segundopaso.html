@@ -8,19 +8,21 @@
     <link rel="stylesheet" href="{% static 'css/test_paso2.css' %}">
 </head>
 <body>
-    <!-- Header -->
     <header>
-        <img src="{% static 'images/LOGOS.png' %}" alt="Logo" class="logo">
-        <nav>
+        <img src="{% static 'images/LOGOS.png'%}" alt="Logo" class="logo">
+        <nav id="menu">
             <ul>
                 <li><a href="/homeuser">Inicio</a></li>
-                <li><a href="/Home/index.html">Conoce los temas</a></li>
+                <li><a href="#">Conoce los temas</a></li>
                 <li><a href="/aboutprogram">Acerca del programa</a></li>
+                <li class="back-btn">
+                    <a href="/segundopaso">
+                        <button>Salir</button>
+                    </a>
+                </li>
             </ul>
         </nav>
-        <a href="/segundopaso">
-            <img src="{% static 'images/Salir.png'%}" alt="Boton-salir" class="cancel-btn">
-        </a>
+        <div class="menu-toggle" id="menu-toggle">&#9776;</div>
     </header>
 
     <!-- Barra de progreso -->
@@ -86,10 +88,10 @@
                     <p>Mi familia tiene un negocio familiar en el que suelen pedirme ayuda.</p>
                     <div class="options">
                         <label>
-                            <input type="radio" name="question4" value="si"> Sí
+                            <input type="radio" name="question5" value="si"> Sí
                         </label>
                         <label>
-                            <input type="radio" name="question4" value="no"> No
+                            <input type="radio" name="question5" value="no"> No
                         </label>
                     </div>
                 </div>
@@ -98,10 +100,10 @@
                     <p>Me resulta fácil proponer mejoras a procesos que ya existen.</p>
                     <div class="options">
                         <label>
-                            <input type="radio" name="question4" value="si"> Sí
+                            <input type="radio" name="question6" value="si"> Sí
                         </label>
                         <label>
-                            <input type="radio" name="question4" value="no"> No
+                            <input type="radio" name="question6" value="no"> No
                         </label>
                     </div>
                 </div>
@@ -110,10 +112,10 @@
                     <p>Me gusta armar y desarmar objetos.</p>
                     <div class="options">
                         <label>
-                            <input type="radio" name="question4" value="si"> Sí
+                            <input type="radio" name="question7" value="si"> Sí
                         </label>
                         <label>
-                            <input type="radio" name="question4" value="no"> No
+                            <input type="radio" name="question7" value="no"> No
                         </label>
                     </div>
                 </div>
@@ -122,10 +124,10 @@
                     <p>Me interesa lo relacionado con la electrónica, mecánica y programación de equipos para la industria.</p>
                     <div class="options">
                         <label>
-                            <input type="radio" name="question4" value="si"> Sí
+                            <input type="radio" name="question8" value="si"> Sí
                         </label>
                         <label>
-                            <input type="radio" name="question4" value="no"> No
+                            <input type="radio" name="question8" value="no"> No
                         </label>
                     </div>
                 </div>
@@ -134,10 +136,10 @@
                     <p>Se me facilita aprender nuevos idiomas.</p>
                     <div class="options">
                         <label>
-                            <input type="radio" name="question4" value="si"> Sí
+                            <input type="radio" name="question9" value="si"> Sí
                         </label>
                         <label>
-                            <input type="radio" name="question4" value="no"> No
+                            <input type="radio" name="question9" value="no"> No
                         </label>
                     </div>
                 </div>
@@ -146,10 +148,10 @@
                     <p>Me gustaría saber sobre los procesos de importación y exportación.</p>
                     <div class="options">
                         <label>
-                            <input type="radio" name="question4" value="si"> Sí
+                            <input type="radio" name="question10" value="si"> Sí
                         </label>
                         <label>
-                            <input type="radio" name="question4" value="no"> No
+                            <input type="radio" name="question10" value="no"> No
                         </label>
                     </div>
                 </div>
@@ -158,10 +160,10 @@
                     <p>Conozco o he manejado algún software de diseño.</p>
                     <div class="options">
                         <label>
-                            <input type="radio" name="question4" value="si"> Sí
+                            <input type="radio" name="question11" value="si"> Sí
                         </label>
                         <label>
-                            <input type="radio" name="question4" value="no"> No
+                            <input type="radio" name="question11" value="no"> No
                         </label>
                     </div>
                 </div>
@@ -170,10 +172,10 @@
                     <p>Tengo interés por las tecnologías de la información.</p>
                     <div class="options">
                         <label>
-                            <input type="radio" name="question4" value="si"> Sí
+                            <input type="radio" name="question12" value="si"> Sí
                         </label>
                         <label>
-                            <input type="radio" name="question4" value="no"> No
+                            <input type="radio" name="question12" value="no"> No
                         </label>
                     </div>
                 </div>
@@ -182,10 +184,10 @@
                     <p>Estoy a la vanguardia en tecnología, gadgets y aplicaciones.</p>
                     <div class="options">
                         <label>
-                            <input type="radio" name="question4" value="si"> Sí
+                            <input type="radio" name="question13" value="si"> Sí
                         </label>
                         <label>
-                            <input type="radio" name="question4" value="no"> No
+                            <input type="radio" name="question13" value="no"> No
                         </label>
                     </div>
                 </div>
@@ -194,10 +196,10 @@
                     <p>Puedo analizar indicadores para mejorar o solucionar problemas de productividad y eficiencia.</p>
                     <div class="options">
                         <label>
-                            <input type="radio" name="question4" value="si"> Sí
+                            <input type="radio" name="question14" value="si"> Sí
                         </label>
                         <label>
-                            <input type="radio" name="question4" value="no"> No
+                            <input type="radio" name="question14" value="no"> No
                         </label>
                     </div>
                 </div>
@@ -206,10 +208,10 @@
                     <p>Me gustaría diseñar productos innovadores, más accesibles y de mejor calidad.</p>
                     <div class="options">
                         <label>
-                            <input type="radio" name="question4" value="si"> Sí
+                            <input type="radio" name="question15" value="si"> Sí
                         </label>
                         <label>
-                            <input type="radio" name="question4" value="no"> No
+                            <input type="radio" name="question15" value="no"> No
                         </label>
                     </div>
                 </div>
@@ -218,10 +220,10 @@
                     <p>Entiendo y estoy a favor de la educación a distancia.</p>
                     <div class="options">
                         <label>
-                            <input type="radio" name="question4" value="si"> Sí
+                            <input type="radio" name="question16" value="si"> Sí
                         </label>
                         <label>
-                            <input type="radio" name="question4" value="no"> No
+                            <input type="radio" name="question15" value="no"> No
                         </label>
                     </div>
                 </div>
@@ -230,10 +232,10 @@
                     <p>Puedo sostener una conversación sobre Inteligencia artificial y robots.</p>
                     <div class="options">
                         <label>
-                            <input type="radio" name="question4" value="si"> Sí
+                            <input type="radio" name="question17" value="si"> Sí
                         </label>
                         <label>
-                            <input type="radio" name="question4" value="no"> No
+                            <input type="radio" name="question17" value="no"> No
                         </label>
                     </div>
                 </div>
@@ -242,10 +244,10 @@
                     <p>Puedo analizar, interpretar y redactar información.</p>
                     <div class="options">
                         <label>
-                            <input type="radio" name="question4" value="si"> Sí
+                            <input type="radio" name="question18" value="si"> Sí
                         </label>
                         <label>
-                            <input type="radio" name="question4" value="no"> No
+                            <input type="radio" name="question18" value="no"> No
                         </label>
                     </div>
                 </div>
@@ -254,10 +256,10 @@
                     <p>Me interesan los temas globales y las diferentes culturas.</p>
                     <div class="options">
                         <label>
-                            <input type="radio" name="question4" value="si"> Sí
+                            <input type="radio" name="question19" value="si"> Sí
                         </label>
                         <label>
-                            <input type="radio" name="question4" value="no"> No
+                            <input type="radio" name="question19" value="no"> No
                         </label>
                     </div>
                 </div>
@@ -266,10 +268,10 @@
                     <p>Podría sostener una conversación sobre temas sociales.</p>
                     <div class="options">
                         <label>
-                            <input type="radio" name="question4" value="si"> Sí
+                            <input type="radio" name="question20" value="si"> Sí
                         </label>
                         <label>
-                            <input type="radio" name="question4" value="no"> No
+                            <input type="radio" name="question20" value="no"> No
                         </label>
                     </div>
                 </div>
@@ -278,10 +280,10 @@
                     <p>Estoy de acuerdo en que el mundo puede ser dibujado con un lenguaje matemático.</p>
                     <div class="options">
                         <label>
-                            <input type="radio" name="question4" value="si"> Sí
+                            <input type="radio" name="question21" value="si"> Sí
                         </label>
                         <label>
-                            <input type="radio" name="question4" value="no"> No
+                            <input type="radio" name="question21" value="no"> No
                         </label>
                     </div>
                 </div>
@@ -290,10 +292,10 @@
                     <p>Tengo interés o alguna vez he programado.</p>
                     <div class="options">
                         <label>
-                            <input type="radio" name="question4" value="si"> Sí
+                            <input type="radio" name="question22" value="si"> Sí
                         </label>
                         <label>
-                            <input type="radio" name="question4" value="no"> No
+                            <input type="radio" name="question22" value="no"> No
                         </label>
                     </div>
                 </div>
@@ -302,10 +304,10 @@
                     <p>Siempre me he considerado una persona emprendedora.</p>
                     <div class="options">
                         <label>
-                            <input type="radio" name="question4" value="si"> Sí
+                            <input type="radio" name="question23" value="si"> Sí
                         </label>
                         <label>
-                            <input type="radio" name="question4" value="no"> No
+                            <input type="radio" name="question23" value="no"> No
                         </label>
                     </div>
                 </div>
@@ -314,10 +316,10 @@
                     <p>Soy bueno (a) evaluando riesgos.</p>
                     <div class="options">
                         <label>
-                            <input type="radio" name="question4" value="si"> Sí
+                            <input type="radio" name="question24" value="si"> Sí
                         </label>
                         <label>
-                            <input type="radio" name="question4" value="no"> No
+                            <input type="radio" name="question24" value="no"> No
                         </label>
                     </div>
                 </div>
@@ -326,10 +328,10 @@
                     <p>Me gusta investigar el porqué de las cosas.</p>
                     <div class="options">
                         <label>
-                            <input type="radio" name="question4" value="si"> Sí
+                            <input type="radio" name="question25" value="si"> Sí
                         </label>
                         <label>
-                            <input type="radio" name="question4" value="no"> No
+                            <input type="radio" name="question25" value="no"> No
                         </label>
                     </div>
                 </div>
@@ -338,10 +340,10 @@
                     <p>Se me facilitan las matemáticas y la física.</p>
                     <div class="options">
                         <label>
-                            <input type="radio" name="question4" value="si"> Sí
+                            <input type="radio" name="question26" value="si"> Sí
                         </label>
                         <label>
-                            <input type="radio" name="question4" value="no"> No
+                            <input type="radio" name="question26" value="no"> No
                         </label>
                     </div>
                 </div>
@@ -350,10 +352,10 @@
                     <p>Sé organizar mis actividades y mis tiempos.</p>
                     <div class="options">
                         <label>
-                            <input type="radio" name="question4" value="si"> Sí
+                            <input type="radio" name="question27" value="si"> Sí
                         </label>
                         <label>
-                            <input type="radio" name="question4" value="no"> No
+                            <input type="radio" name="question27" value="no"> No
                         </label>
                     </div>
                 </div>
@@ -362,10 +364,10 @@
                     <p>Tengo facilidad de palabra y negociación.</p>
                     <div class="options">
                         <label>
-                            <input type="radio" name="question4" value="si"> Sí
+                            <input type="radio" name="question28" value="si"> Sí
                         </label>
                         <label>
-                            <input type="radio" name="question4" value="no"> No
+                            <input type="radio" name="question28" value="no"> No
                         </label>
                     </div>
                 </div>
@@ -374,10 +376,10 @@
                     <p>Disfruto el diseño.</p>
                     <div class="options">
                         <label>
-                            <input type="radio" name="question4" value="si"> Sí
+                            <input type="radio" name="question29" value="si"> Sí
                         </label>
                         <label>
-                            <input type="radio" name="question4" value="no"> No
+                            <input type="radio" name="question29" value="no"> No
                         </label>
                     </div>
                 </div>
@@ -386,10 +388,10 @@
                     <p>Soy bueno (a) resolviendo acertijos.</p>
                     <div class="options">
                         <label>
-                            <input type="radio" name="question4" value="si"> Sí
+                            <input type="radio" name="question30" value="si"> Sí
                         </label>
                         <label>
-                            <input type="radio" name="question4" value="no"> No
+                            <input type="radio" name="question30" value="no"> No
                         </label>
                     </div>
                 </div>
@@ -398,10 +400,10 @@
                     <p>Soy extrovertido (a) y me gusta tratar con gente.</p>
                     <div class="options">
                         <label>
-                            <input type="radio" name="question4" value="si"> Sí
+                            <input type="radio" name="question31" value="si"> Sí
                         </label>
                         <label>
-                            <input type="radio" name="question4" value="no"> No
+                            <input type="radio" name="question31" value="no"> No
                         </label>
                     </div>
                 </div>
@@ -410,10 +412,10 @@
                     <p>La gente me reconoce como una persona ordenada y sistematizada.</p>
                     <div class="options">
                         <label>
-                            <input type="radio" name="question4" value="si"> Sí
+                            <input type="radio" name="question32" value="si"> Sí
                         </label>
                         <label>
-                            <input type="radio" name="question4" value="no"> No
+                            <input type="radio" name="question32" value="no"> No
                         </label>
                     </div>
                 </div>
@@ -422,10 +424,10 @@
                     <p>Me agradaría aprender a solucionar problemas y tengo disposición a ayudar.</p>
                     <div class="options">
                         <label>
-                            <input type="radio" name="question4" value="si"> Sí
+                            <input type="radio" name="question33" value="si"> Sí
                         </label>
                         <label>
-                            <input type="radio" name="question4" value="no"> No
+                            <input type="radio" name="question33" value="no"> No
                         </label>
                     </div>
                 </div>
@@ -434,10 +436,10 @@
                     <p>Me interesan y conozco los procesos de automatización.</p>
                     <div class="options">
                         <label>
-                            <input type="radio" name="question4" value="si"> Sí
+                            <input type="radio" name="question34" value="si"> Sí
                         </label>
                         <label>
-                            <input type="radio" name="question4" value="no"> No
+                            <input type="radio" name="question34" value="no"> No
                         </label>
                     </div>
                 </div>
@@ -446,10 +448,10 @@
                     <p>Me integro bien a cualquier equipo de trabajo.</p>
                     <div class="options">
                         <label>
-                            <input type="radio" name="question4" value="si"> Sí
+                            <input type="radio" name="question35" value="si"> Sí
                         </label>
                         <label>
-                            <input type="radio" name="question4" value="no"> No
+                            <input type="radio" name="question35" value="no"> No
                         </label>
                     </div>
                 </div>
@@ -458,10 +460,10 @@
                     <p>Considero que la imagen personal es importante para diferenciarte de los demás.</p>
                     <div class="options">
                         <label>
-                            <input type="radio" name="question4" value="si"> Sí
+                            <input type="radio" name="question36" value="si"> Sí
                         </label>
                         <label>
-                            <input type="radio" name="question4" value="no"> No
+                            <input type="radio" name="question36" value="no"> No
                         </label>
                     </div>
                 </div>
@@ -470,10 +472,10 @@
                     <p>Cuando siento curiosidad por algún tema lo investigo.</p>
                     <div class="options">
                         <label>
-                            <input type="radio" name="question4" value="si"> Sí
+                            <input type="radio" name="question37" value="si"> Sí
                         </label>
                         <label>
-                            <input type="radio" name="question4" value="no"> No
+                            <input type="radio" name="question37" value="no"> No
                         </label>
                     </div>
                 </div>
@@ -482,10 +484,10 @@
                     <p>Se me facilita seguir instrucciones para armar un objeto.</p>
                     <div class="options">
                         <label>
-                            <input type="radio" name="question4" value="si"> Sí
+                            <input type="radio" name="question38" value="si"> Sí
                         </label>
                         <label>
-                            <input type="radio" name="question4" value="no"> No
+                            <input type="radio" name="question38" value="no"> No
                         </label>
                     </div>
                 </div>
@@ -494,10 +496,10 @@
                     <p>Suelo ser organizado (a) al planear mi día.</p>
                     <div class="options">
                         <label>
-                            <input type="radio" name="question4" value="si"> Sí
+                            <input type="radio" name="question39" value="si"> Sí
                         </label>
                         <label>
-                            <input type="radio" name="question4" value="no"> No
+                            <input type="radio" name="question39" value="no"> No
                         </label>
                     </div>
                 </div>
@@ -506,10 +508,10 @@
                     <p>Tengo un buen entendimiento de las personas y sus comportamientos.</p>
                     <div class="options">
                         <label>
-                            <input type="radio" name="question4" value="si"> Sí
+                            <input type="radio" name="question40" value="si"> Sí
                         </label>
                         <label>
-                            <input type="radio" name="question4" value="no"> No
+                            <input type="radio" name="question40" value="no"> No
                         </label>
                     </div>
                 </div>
@@ -518,10 +520,10 @@
                     <p>Soy bueno (a) arreglando cosas que se descomponen.</p>
                     <div class="options">
                         <label>
-                            <input type="radio" name="question4" value="si"> Sí
+                            <input type="radio" name="question41" value="si"> Sí
                         </label>
                         <label>
-                            <input type="radio" name="question4" value="no"> No
+                            <input type="radio" name="question41" value="no"> No
                         </label>
                     </div>
                 </div>
@@ -530,10 +532,10 @@
                     <p>Considero que el mundo puede estar mejor interconectado.</p>
                     <div class="options">
                         <label>
-                            <input type="radio" name="question4" value="si"> Sí
+                            <input type="radio" name="question42" value="si"> Sí
                         </label>
                         <label>
-                            <input type="radio" name="question4" value="no"> No
+                            <input type="radio" name="question42" value="no"> No
                         </label>
                     </div>
                 </div>
@@ -542,10 +544,10 @@
                     <p>Soy dedicado (a) para el estudio.</p>
                     <div class="options">
                         <label>
-                            <input type="radio" name="question4" value="si"> Sí
+                            <input type="radio" name="question43" value="si"> Sí
                         </label>
                         <label>
-                            <input type="radio" name="question4" value="no"> No
+                            <input type="radio" name="question43" value="no"> No
                         </label>
                     </div>
                 </div>
@@ -554,10 +556,10 @@
                     <p>Poseo habilidades de liderazgo y se dar instrucciones.</p>
                     <div class="options">
                         <label>
-                            <input type="radio" name="question4" value="si"> Sí
+                            <input type="radio" name="question44" value="si"> Sí
                         </label>
                         <label>
-                            <input type="radio" name="question4" value="no"> No
+                            <input type="radio" name="question44" value="no"> No
                         </label>
                     </div>
                 </div>
@@ -566,10 +568,10 @@
                     <p>Podría nombrar facilmente 7 marcas de vehículos.</p>
                     <div class="options">
                         <label>
-                            <input type="radio" name="question4" value="si"> Sí
+                            <input type="radio" name="question45" value="si"> Sí
                         </label>
                         <label>
-                            <input type="radio" name="question4" value="no"> No
+                            <input type="radio" name="question45" value="no"> No
                         </label>
                     </div>
                 </div>
@@ -578,10 +580,10 @@
                     <p>Me siento seguro (a) trabajando con máquinas de gran tamaño.</p>
                     <div class="options">
                         <label>
-                            <input type="radio" name="question4" value="si"> Sí
+                            <input type="radio" name="question46" value="si"> Sí
                         </label>
                         <label>
-                            <input type="radio" name="question4" value="no"> No
+                            <input type="radio" name="question46" value="no"> No
                         </label>
                     </div>
                 </div>
@@ -590,10 +592,10 @@
                     <p>Considero que las máquinas facilitan la tarea de los humanos.</p>
                     <div class="options">
                         <label>
-                            <input type="radio" name="question4" value="si"> Sí
+                            <input type="radio" name="question47" value="si"> Sí
                         </label>
                         <label>
-                            <input type="radio" name="question4" value="no"> No
+                            <input type="radio" name="question47" value="no"> No
                         </label>
                     </div>
                 </div>
@@ -602,10 +604,10 @@
                     <p>Me siento cómodo (a) aportando ideas en un trabajo en equipo.</p>
                     <div class="options">
                         <label>
-                            <input type="radio" name="question4" value="si"> Sí
+                            <input type="radio" name="question48" value="si"> Sí
                         </label>
                         <label>
-                            <input type="radio" name="question4" value="no"> No
+                            <input type="radio" name="question48" value="no"> No
                         </label>
                     </div>
                 </div>
@@ -614,10 +616,10 @@
                     <p>Me han dicho que soy una persona sensible.</p>
                     <div class="options">
                         <label>
-                            <input type="radio" name="question4" value="si"> Sí
+                            <input type="radio" name="question49" value="si"> Sí
                         </label>
                         <label>
-                            <input type="radio" name="question4" value="no"> No
+                            <input type="radio" name="question49" value="no"> No
                         </label>
                     </div>
                 </div>
@@ -626,10 +628,10 @@
                     <p>El cuerpo humano es una máquina increible.</p>
                     <div class="options">
                         <label>
-                            <input type="radio" name="question4" value="si"> Sí
+                            <input type="radio" name="question50" value="si"> Sí
                         </label>
                         <label>
-                            <input type="radio" name="question4" value="no"> No
+                            <input type="radio" name="question50" value="no"> No
                         </label>
                     </div>
                 </div>
@@ -638,10 +640,10 @@
                     <p>Soy bueno resolviendo conflictos entre personas.</p>
                     <div class="options">
                         <label>
-                            <input type="radio" name="question4" value="si"> Sí
+                            <input type="radio" name="question51" value="si"> Sí
                         </label>
                         <label>
-                            <input type="radio" name="question4" value="no"> No
+                            <input type="radio" name="question51" value="no"> No
                         </label>
                     </div>
                 </div>
@@ -650,10 +652,10 @@
                     <p>Me interesa la gente y como se organiza la sociedad.</p>
                     <div class="options">
                         <label>
-                            <input type="radio" name="question4" value="si"> Sí
+                            <input type="radio" name="question52" value="si"> Sí
                         </label>
                         <label>
-                            <input type="radio" name="question4" value="no"> No
+                            <input type="radio" name="question52" value="no"> No
                         </label>
                     </div>
                 </div>
@@ -662,10 +664,10 @@
                     <p>Suelo participar en movimientos sociales.</p>
                     <div class="options">
                         <label>
-                            <input type="radio" name="question4" value="si"> Sí
+                            <input type="radio" name="question53" value="si"> Sí
                         </label>
                         <label>
-                            <input type="radio" name="question4" value="no"> No
+                            <input type="radio" name="question53" value="no"> No
                         </label>
                     </div>
                 </div>
@@ -674,10 +676,10 @@
                     <p>Si me enfermo, suelo saber qué hacer para autocuidarme.</p>
                     <div class="options">
                         <label>
-                            <input type="radio" name="question4" value="si"> Sí
+                            <input type="radio" name="question54" value="si"> Sí
                         </label>
                         <label>
-                            <input type="radio" name="question4" value="no"> No
+                            <input type="radio" name="question54" value="no"> No
                         </label>
                     </div>
                 </div>
@@ -686,10 +688,10 @@
                     <p>No se me dificulta leer a las personas.</p>
                     <div class="options">
                         <label>
-                            <input type="radio" name="question4" value="si"> Sí
+                            <input type="radio" name="question55" value="si"> Sí
                         </label>
                         <label>
-                            <input type="radio" name="question4" value="no"> No
+                            <input type="radio" name="question55" value="no"> No
                         </label>
                     </div>
                 </div>
@@ -698,10 +700,10 @@
                     <p>Tengo buena capacidad de reacción.</p>
                     <div class="options">
                         <label>
-                            <input type="radio" name="question35" value="si"> Sí
+                            <input type="radio" name="question56" value="si"> Sí
                         </label>
                         <label>
-                            <input type="radio" name="question35" value="no"> No
+                            <input type="radio" name="question56" value="no"> No
                         </label>
                     </div>
                 </div>
@@ -727,5 +729,31 @@
         <button id="closeModalButton">Entendido</button>
     </div>
 </div>
-
+<script>
+    const menuToggle = document.getElementById("menu-toggle");
+    const menu = document.getElementById("menu");
+    const navLinks = menu.querySelectorAll("ul li a");
+    
+    // Abrir o cerrar el menú al hacer clic en el botón toggle
+    menuToggle.addEventListener("click", () => {
+        menu.classList.toggle("active");
+    });
+    
+    // Cerrar el menú cuando se hace clic en un enlace
+    navLinks.forEach(link => {
+        link.addEventListener("click", () => {
+            menu.classList.remove("active");
+        });
+    });
+    
+    // Cerrar el menú al hacer clic fuera del header
+    document.addEventListener("click", (event) => {
+        const isClickInsideMenu = menu.contains(event.target);
+        const isClickOnToggle = menuToggle.contains(event.target);
+    
+        if (!isClickInsideMenu && !isClickOnToggle) {
+            menu.classList.remove("active");
+        }
+    });
+</script>
 </html>
