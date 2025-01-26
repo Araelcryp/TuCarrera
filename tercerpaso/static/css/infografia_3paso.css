@@ -6,6 +6,7 @@ html, body {
     width: 100%;
     overflow-x: hidden; /* Hides horizontal overflow */
 }
+
 body {
     font-family: 'Arial', sans-serif;
     margin: 0;
