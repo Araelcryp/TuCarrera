@@ -1,7 +1,12 @@
+* {
+    box-sizing: border-box;
+}
+
 html, body {
     width: 100%;
     overflow-x: hidden; /* Hides horizontal overflow */
 }
+
 body {
     font-family: 'Arial', sans-serif;
     margin: 0;
@@ -13,20 +18,18 @@ body {
     min-height: 100vh;
 }
 
-/* Estilos del header */
 header {
     background-color: #242B57;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    padding: 20px 25px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 40px 25px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 100%;
+    position: relative;
 }
 
 header .logo {
     width: 350px;
-    margin-left: 30px;
 }
 
 header nav {
@@ -47,23 +50,41 @@ header nav ul li {
 header nav ul li:hover {
     transition: transform 0.3s;
     transform: scale(1.05);
-    color: azure;
 }
 
 header nav ul li a {
     text-decoration: none;
     color: #ffffff;
+    font-size: 1rem;
 }
 
-.cancel-btn {
+.back-btn a button {
+    background: linear-gradient(to bottom, #59b2e0, #3c8fc1);
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 16px;
+    border: 2px solid #ffffff;
+    border-radius: 22px;
+    padding: 10px 20px;
     cursor: pointer;
+    box-shadow: 0px 4px 0px #2b6d9a;
+    text-align: center;
+    transition: all 0.2s ease-in-out;
     width: 150px;
-    margin-right: 70px;
+    margin: 0 auto;
+    display: block;
 }
 
-.cancel-btn:hover {
+.back-btn a button:hover {
     transform: scale(1.05);
     transition: transform 0.3s;
+}
+
+header .menu-toggle {
+    display: none;
+    font-size: 1.5rem;
+    color: #fff;
+    cursor: pointer;
 }
 
 .content {
@@ -153,4 +174,98 @@ video {
 .continue-button:hover {
     transition: transform 0.3s;
     transform: scale(1.05);
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+
+    header nav {
+        display: flex; /* Siempre flex para la animación */
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: #242B57;
+        flex-direction: column;
+        text-align: center; /* Alinear los elementos a la izquierda */
+        padding-left: 20px;
+        z-index: 10;
+        max-height: 0; /* Ocultar inicialmente */
+        overflow: hidden; /* Ocultar el contenido fuera del contenedor */
+        opacity: 0;
+        transform: translateY(-20px); /* Mover el menú hacia arriba */
+        transition: max-height 0.5s ease, opacity 0.5s ease, transform 0.5s ease;
+    }
+
+    header nav.active {
+        max-height: 500px; /* Altura máxima del menú desplegado */
+        opacity: 1; /* Mostrar el menú */
+        transform: translateY(0); /* Volverlo a su posición */
+    }
+
+    header .logo {
+        width: 300px;
+    }
+
+    header nav ul {
+        flex-direction: column;
+        justify-content: center; /* Centrar ítems verticalmente */
+        align-items: center; /* Centrar ítems horizontalmente */
+    }
+
+    header nav ul li {
+        margin: 15px 0;
+        opacity: 0;
+        transform: translateX(-20px); /* Mover los ítems hacia la izquierda */
+        transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+
+    header nav ul li:nth-child(1) {
+        transition-delay: 0.1s; /* Retraso individual */
+    }
+
+    header nav ul li:nth-child(2) {
+        transition-delay: 0.2s;
+    }
+
+    header nav ul li:nth-child(3) {
+        transition-delay: 0.3s;
+    }
+
+    header nav ul li:nth-child(4) {
+        transition-delay: 0.4s;
+    }
+
+    header nav ul li:nth-child(5) {
+        transition-delay: 0.5s;
+    }
+
+    header nav.active ul li {
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+    header nav.active ul li:hover {
+        transform: scale(1.05);
+        transition: transform 0.3s;
+    }
+
+    header nav ul li a {
+        font-size: 1.2rem;
+        transition: color 0.3s ease-in-out;
+        text-align: center; /* Centra los títulos en el menú toggle */
+    }
+
+    .cancel-btn a button {
+        width: auto; /* Adaptar ancho al contenido */
+        margin: 0 auto; /* Centrar el botón */
+    }
+
+    header .menu-toggle {
+        display: block;
+    }
+
+    nav.active {
+        display: flex;
+    }
 }
