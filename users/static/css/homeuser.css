@@ -111,9 +111,10 @@ header .menu-toggle {
     padding: 0;
 }
 
-main {
+.mapa_carrera {
     padding: 0;
     margin: 0;
+    background-color: #4996C6;
 }
 
 .topics {
