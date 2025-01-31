@@ -40,6 +40,7 @@ def signup(request):
     else:
         password1 = request.POST['password1']
         password2 = request.POST['password2']
+        curp= request.POST['curp']
 
         if password1 != password2:
             return render(request, 'signup.html', {
@@ -54,7 +55,7 @@ def signup(request):
                 "error": e.message
             })
         try:
-            validate_curp(request.POST['curp'])
+            validate_curp(curp)
         except ValidationError as e:
             return render(request, 'signup.html', {
                 "error": e.message

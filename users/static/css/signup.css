@@ -156,6 +156,7 @@ main {
 .container-content input[type="tel"],
 .container-content input[type="email"],
 .container-content input[type="password"],
+.container-content input[type="curp"],
 .container-content select {
     width: 100%;
     padding: 10px;
