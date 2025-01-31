@@ -30,6 +30,8 @@ def validate_password_strength(password):
 
 def validate_curp(curp):
     REGEX_CURP = r'^[A-Z]{4}\d{6}[HM][A-Z]{5}\d{2}$'
+    if len(curp) != 18:
+        raise ValidationError('CURP inválida. Debe tener 18 caracteres.')
     if not re.match(REGEX_CURP, curp):
         raise ValidationError('CURP inválida. Verifica que tenga el formato correcto.')
     
