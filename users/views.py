@@ -28,6 +28,12 @@ def validate_password_strength(password):
     if not re.search(r'[@$!%*?#]', password):
         raise ValidationError('La contraseña debe contener al menos un signo especial.')
 
+def validate_curp(curp):
+    REGEX_CURP = r'^[A-Z]{4}\d{6}[HM][A-Z]{5}\d{2}$'
+    if not re.match(REGEX_CURP, curp):
+        raise ValidationError('CURP inválida. Verifica que tenga el formato correcto.')
+    
+
 def signup(request):
     if request.method == 'GET':
         return render(request, 'signup.html')
@@ -43,6 +49,12 @@ def signup(request):
         # Validar la fortaleza de la contraseña
         try:
             validate_password_strength(password1)
+        except ValidationError as e:
+            return render(request, 'signup.html', {
+                "error": e.message
+            })
+        try:
+            validate_curp(request.POST['curp'])
         except ValidationError as e:
             return render(request, 'signup.html', {
                 "error": e.message
