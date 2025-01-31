@@ -19,9 +19,21 @@
             const municipio = document.getElementById("municipio");
             const bachillerato = document.getElementById("bachillerato");
             const matricula = document.getElementById("matricula");
+            const CURPInput = document.getElementById('curp');
+
     
             const bachilleratoSelect = document.getElementById('bachillerato');
             const otroBachilleratoContainer = document.getElementById('otroBachilleratoContainer');
+
+            // Validar el formato del CURP
+            CURPInput.addEventListener('input', function () {
+                const curpPattern = /^[A-Z]{4}\d{6}[HM][A-Z]{5}[A-Z0-9]{2}$/;
+                if (!curpPattern.test(CURPInput.value.toUpperCase())) {
+                    CURPInput.setCustomValidity('El CURP no tiene un formato válido.');
+                } else {
+                    CURPInput.setCustomValidity('');
+                }
+            });
     
             // Función para actualizar los campos según procedencia
             function updateForm() {
