@@ -1,6 +1,8 @@
-from django.shortcuts import render
+import json
+from django.shortcuts import render,redirect
 from django.contrib.auth.decorators import login_required
 from django.http import JsonResponse
+from .models import TestResult
 # Create your views here.
 
 @login_required
@@ -40,8 +42,32 @@ def test_primerpaso(request):
     return render(request,'test_primerpaso.html')
 
 @login_required
-def resultados_primerpaso(request):
-    return render(request,'resultados_primerpaso.html')
+def resultados_primer_paso(request):
+    try:
+        resultado = TestResult.objects.get(user=request.user)
+
+        # Crear un diccionario con las inteligencias y sus puntajes
+        inteligencias = {
+            "📖 Inteligencia Verbal": resultado.inteligencia_verbal,
+            "🔢 Inteligencia Lógica": resultado.inteligencia_logica,
+            "🎨 Inteligencia Visual": resultado.inteligencia_visual,
+            "🤸‍♂️ Inteligencia Corporal": resultado.inteligencia_corporal,
+            "🎵 Inteligencia Musical": resultado.inteligencia_musical,
+            "🧠 Inteligencia Intrapersonal": resultado.inteligencia_intrapersonal,
+            "🤝 Inteligencia Interpersonal": resultado.inteligencia_interpersonal,
+        }
+
+        # Ordenar y seleccionar las 3 más altas
+        top_3 = sorted(
+            [(nombre, puntaje) for nombre, puntaje in inteligencias.items() if puntaje > 0],
+            key=lambda x: x[1],
+            reverse=True
+        )[:3]  
+
+    except TestResult.DoesNotExist:
+        top_3 = None  
+
+    return render(request, "resultados_primerpaso.html", {"top_3": top_3})
 
 @login_required
 def presentacion_interactiva(request):
@@ -66,3 +92,22 @@ def update_progress(request):
             user_profile.save()
             return JsonResponse({'progress': progress_percentage})
     return JsonResponse({'error': 'Invalid request'}, status=400)
+
+@login_required
+def guardar_resultados(request):
+    if request.method == "POST":
+        data = json.loads(request.body)
+        resultado, created = TestResult.objects.get_or_create(user=request.user)
+        
+        resultado.inteligencia_verbal = data.get('A', 0)
+        resultado.inteligencia_logica = data.get('B', 0)
+        resultado.inteligencia_visual = data.get('C', 0)
+        resultado.inteligencia_corporal = data.get('D', 0)
+        resultado.inteligencia_musical = data.get('E', 0)
+        resultado.inteligencia_intrapersonal = data.get('F', 0)
+        resultado.inteligencia_interpersonal = data.get('G', 0)
+        resultado.completado = True
+        resultado.save()
+
+        return JsonResponse({"success": True})
+    return JsonResponse({"error": "Método no permitido"}, status=405)

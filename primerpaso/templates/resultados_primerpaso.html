@@ -33,7 +33,18 @@
                 las 3 habilidades en las que destacas. Esta información te puede ayudar para 
                 identificar las carreras que se relacionan con tus principales fortalezas.
             </p>
-            <div id="results"></div>
+            <div id="results">
+                {% if top_3 %}
+                    <h3>Tus 3 principales inteligencias:</h3>
+                    <ul>
+                        {% for inteligencia, puntaje in top_3 %}
+                            <li>{{ inteligencia }}: {{ puntaje }}</li>
+                        {% endfor %}
+                    </ul>
+                {% else %}
+                    <p>No hay resultados disponibles. Realiza el test primero.</p>
+                {% endif %}
+            </div>
             <div class="navigation-buttons">
                 <button id="continueButton" class="btn continue-button">Continuar</button>
             </div>
