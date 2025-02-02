@@ -35,7 +35,13 @@ def infografia_primerpaso(request):
 
 @login_required
 def instrucciones_primerpaso(request):
-    return render(request,'instrucciones_primerpaso.html')
+    try:
+        resultado = TestResult.objects.get(user=request.user)
+        completado = resultado.completado  # Obtener el estado de completado
+    except TestResult.DoesNotExist:
+        completado = False  # Si no hay registro, el test no está completado
+
+    return render(request, "instrucciones_primerpaso.html", {"completado": completado})
 
 @login_required
 def test_primerpaso(request):

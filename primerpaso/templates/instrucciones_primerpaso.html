@@ -37,7 +37,11 @@
                 <li>No hay respuestas correctas o incorrectas, solo tus intereses personales.</li>
                 <li>Una vez completado el test, haz clic en "Ver resultados" para conocer tu área profesional recomendada.</li>
             </ol>
-            <button onclick="window.location.href='/test-primer-paso'" class="continue-button">Comenzar el test</button>
+            <button 
+                onclick="window.location.href='{% if completado %}/resultados-primer-paso{% else %}/test-primer-paso{% endif %}'" 
+                class="continue-button">
+                {% if completado %}Ver Resultados{% else %}Comenzar el test{% endif %}
+            </button>
         </div>
     </div>
 </body>
