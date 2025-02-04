@@ -32,7 +32,7 @@
             <div
               class="card"
               data-university="Universidad Politécnica de Santa Rosa Jauregui"
-              data-video="https://youtu.be/6gk8trmkcPA"
+              data-video="https://www.youtube.com/embed/6gk8trmkcPA?si=HRFBlWqyOufkppnw"
               data-pdf="https://drive.google.com/file/d/1o2OMPLiTt4u_tQM7sDD3BfjSQ4p73Mte/view?usp=drive_link" 
             >
               <h3 class="card-title">
@@ -45,7 +45,7 @@
             <div
               class="card"
               data-university="Universidad Aeronáutica en Querétaro"
-              data-video="https://youtu.be/9VbWCF5wwEU"
+              data-video="https://www.youtube.com/embed/9VbWCF5wwEU?si=daPY3gl64lO2aVhG"
             >
               <h3 class="card-title">Universidad Aeronáutica en Querétaro</h3>
               <img src="{% static 'images/LogosUNIS/UNAQ.png' %}" alt="Logo de
@@ -55,7 +55,7 @@
             <div
               class="card"
               data-university="Universidad Tecnológica de San Juan del Río"
-              data-video="https://youtu.be/HY87SX76f6U"
+              data-video="https://www.youtube.com/embed/HJK-bj_vgC0?si=PdX8qEIDaIb0CfTF"
             >
               <h3 class="card-title">
                 Universidad Tecnológica de San Juan del Río
@@ -78,7 +78,7 @@
             <div
               class="card"
               data-university="Universidad Tecnológica de Corregidora"
-              data-video="https://youtu.be/HJK-bj_vgC0"
+              data-video="https://www.youtube.com/embed/HY87SX76f6U?si=0S6fLWEvo3EXnCsM"
             >
               <h3 class="card-title">Universidad Tecnológica de Corregidora</h3>
               <img src="{% static 'images/LogosUNIS/UTC.png' %}" alt="Logo de la
@@ -88,7 +88,7 @@
             <div
               class="card"
               data-university="Universidad Tecnológica de Querétaro"
-              data-video="https://youtu.be/GDXPaRWaLnY"
+              data-video="https://www.youtube.com/embed/GDXPaRWaLnY?si=fX0NnHzm6yoSjFZV"
               data-pdf="https://drive.google.com/file/d/1EqeMjMnfaTL8_oycimj4XKRf6Rw9ume4/view?usp=drive_link"
             >
               <h3 class="card-title">Universidad Tecnológica de Querétaro</h3>
@@ -122,7 +122,7 @@
             <div
               class="card"
               data-university="Universidad Tecnológico de México campus San Juan del Río"
-              data-video="https://youtu.be/NH4FvsBCJPo"
+              data-video="https://www.youtube.com/embed/NH4FvsBCJPo?si=0FAuzpSt8tG_Lx-s"
               data-pdf="https://drive.google.com/file/d/1EqeMjMnfaTL8_oycimj4XKRf6Rw9ume4/view?usp=drive_link"
             >
               <h3 class="card-title">Tecnológico Nacional de México</h3>
@@ -133,7 +133,7 @@
             <div
               class="card"
               data-university="Escuela Nacional de Estudios Superiores U.N.A.M"
-              data-video="https://www.dropbox.com/scl/fo/rutj04x5ccpbe373pbg41/ACJQH1XZ-1K4EhGnJxXBbgo?e=1&raw=1"
+              data-video="https://www.youtube.com/embed/HXU7kXIjZsc?si=B_oStDQ6jzXudtFf"
             >
               <h3 class="card-title">
                 Escuela Nacional de Estudios Superiores
@@ -174,10 +174,13 @@
         <div class="modal-body">
           <div class="modal-info">
             <h2 id="modal-title">Título de la Universidad</h2>
-            <video id='modal-video' class="modal-video" width="100%" height="400" controls>
-              <source id='modal-video-src' src="" type="video/mp4" />
-              Your browser does not support the video tag.
-            </video>
+            <div class="modal-video-container">
+                <iframe id="modal-video-src" class="modal-video" width="100%" height="400"
+                        src="" 
+                        frameborder="0" 
+                        allowfullscreen>
+                </iframe>
+              </div>
             <a id='pdf-button' href="" target="_blank" class="pdf-button">Descargar PDF</a>
           </div>
         </div>
