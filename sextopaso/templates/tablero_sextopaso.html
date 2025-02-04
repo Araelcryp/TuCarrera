@@ -1,77 +1,228 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Tablero</title>
-    <link rel="stylesheet" href="{% static 'css/tablero_6paso.css' %}">
-</head>
-<body>
+    <link rel="stylesheet" href="{% static 'css/tablero_6paso.css' %}" />
+  </head>
+  <body>
     <header>
-        <img src="{% static 'images/LOGOS.png'%}" alt="Logo" class="logo">
-        <nav id="menu">
-            <ul>
-                <li><a href="/homeuser">Inicio</a></li>
-                <li><a href="#">Conoce los temas</a></li>
-                <li><a href="/aboutprogram">Acerca del programa</a></li>
-                <li class="back-btn">
-                    <a href="/sextopaso">
-                        <button>Salir</button>
-                    </a>
-                </li>
-            </ul>
-        </nav>
-        <div class="menu-toggle" id="menu-toggle">&#9776;</div>
+      <img src="{% static 'images/LOGOS.png'%}" alt="Logo" class="logo" />
+      <nav id="menu">
+        <ul>
+          <li><a href="/homeuser">Inicio</a></li>
+          <li><a href="#">Conoce los temas</a></li>
+          <li><a href="/aboutprogram">Acerca del programa</a></li>
+          <li class="back-btn">
+            <a href="/sextopaso">
+              <button>Salir</button>
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <div class="menu-toggle" id="menu-toggle">&#9776;</div>
     </header>
 
-    <div class="content">
-        <div class="video-container">
-            <h2>Actividades por universidad</h2>
-            <p class="paragraph-of-instructions">
-                Pulsa el botón de cada universidad para descubrir las actividades que impulsarán tu desarrollo integral.                                      
-            </p>
-            <h1>Próximamente</h1>
+    <div class="container">
+      <div class="main-content">
+        <div class="card-deck">
+          <div class="row">
+            <div
+              class="card"
+              data-university="Universidad Politécnica de Santa Rosa Jauregui"
+              data-video="https://www.youtube.com/embed/VIDEO_ID"
+            >
+              <h3 class="card-title">
+                Universidad Politécnica de Santa Rosa Jauregui
+              </h3>
+              <img src="{% static 'images/LogosUNIS/UPSRJ.png' %}" alt="Logo de
+              la Universidad" class="card-img" />
+              <p class="card-text">Santiago de Querétaro, Qro.</p>
+            </div>
+            <div
+              class="card"
+              data-university="Universidad Aeronáutica en Querétaro"
+              data-video="https://www.youtube.com/embed/VIDEO_ID"
+            >
+              <h3 class="card-title">Universidad Aeronáutica en Querétaro</h3>
+              <img src="{% static 'images/LogosUNIS/UNAQ.png' %}" alt="Logo de
+              la Universidad" class="card-img" />
+              <p class="card-text">Santiago de Querétaro, Qro.</p>
+            </div>
+            <div
+              class="card"
+              data-university="Universidad Tecnológica de San Juan del Río"
+              data-video="https://www.youtube.com/embed/VIDEO_ID"
+            >
+              <h3 class="card-title">
+                Universidad Tecnológica de San Juan del Río
+              </h3>
+              <img src="{% static 'images/LogosUNIS/UTSJR.png' %}" alt="Logo de
+              la Universidad" class="card-img" />
+              <p class="card-text">San Juan del Río, Qro.</p>
+            </div>
+            <div
+              class="card"
+              data-university="Universidad Politécnica de Querétaro"
+              data-video="https://www.youtube.com/embed/VIDEO_ID"
+            >
+              <h3 class="card-title">Universidad Politécnica de Querétaro</h3>
+              <img src="{% static 'images/LogosUNIS/UPQ.png' %}" alt="Logo de la
+              Universidad" class="card-img" />
+              <p class="card-text">Santiago de Querétaro, Qro.</p>
+            </div>
+            <div
+              class="card"
+              data-university="Universidad Tecnológica de Corregidora"
+              data-video="https://www.youtube.com/embed/VIDEO_ID"
+            >
+              <h3 class="card-title">Universidad Tecnológica de Corregidora</h3>
+              <img src="{% static 'images/LogosUNIS/UTC.png' %}" alt="Logo de la
+              Universidad" class="card-img" />
+              <p class="card-text">Corregidora, Qro.</p>
+            </div>
+            <div
+              class="card"
+              data-university="Universidad Tecnológica de Querétaro"
+              data-video="https://www.youtube.com/embed/VIDEO_ID"
+            >
+              <h3 class="card-title">Universidad Tecnológica de Querétaro</h3>
+              <img src="{% static 'images/LogosUNIS/UTEQ.png' %}" alt="Logo de
+              la Universidad" class="card-img" />
+              <p class="card-text">Santiago de Querétaro, Qro.</p>
+            </div>
+          </div>
+
+          <div class="row">
+            <div
+              class="card"
+              data-university="Universidad Autónoma de Querétaro"
+              data-video="https://www.youtube.com/embed/VIDEO_ID"
+            >
+              <h3 class="card-title">Universidad Autónoma de Querétaro</h3>
+              <img src="{% static 'images/LogosUNIS/UAQ.png' %}" alt="Logo de la
+              Universidad" class="card-img" />
+              <p class="card-text">Santiago de Querétaro, Qro.</p>
+            </div>
+            <div
+              class="card"
+              data-university="Universidad Tecnológico de México campus Querétaro"
+              data-video="https://www.youtube.com/embed/VIDEO_ID"
+            >
+              <h3 class="card-title">Tecnológico Nacional de México</h3>
+              <img src="{% static 'images/LogosUNIS/TECNM.png' %}" alt="Logo de
+              la Universidad" class="card-img" />
+              <p class="card-text">Santiago de Querétaro, Qro.</p>
+            </div>
+            <div
+              class="card"
+              data-university="Universidad Tecnológico de México campus San Juan del Río"
+              data-video="https://www.youtube.com/embed/VIDEO_ID"
+            >
+              <h3 class="card-title">Tecnológico Nacional de México</h3>
+              <img src="{% static 'images/LogosUNIS/TECNM.png' %}" alt="Logo de
+              la Universidad" class="card-img" />
+              <p class="card-text">San Juan del Río, Qro.</p>
+            </div>
+            <div
+              class="card"
+              data-university="Escuela Nacional de Estudios Superiores U.N.A.M"
+              data-video="https://www.youtube.com/embed/VIDEO_ID"
+            >
+              <h3 class="card-title">
+                Escuela Nacional de Estudios Superiores
+              </h3>
+              <img src="{% static 'images/LogosUNIS/ENES_Juriquilla.png' %}"
+              alt="Logo de la Universidad" class="card-img" />
+              <p class="card-text">Santiago de Querétaro, Qro.</p>
+            </div>
+            <div
+              class="card"
+              data-university="Centenaria Y Benemérita Escuela Normal del Estado De Querétaro 'Andrés Balvanera'"
+              data-video="https://www.youtube.com/embed/VIDEO_ID"
+            >
+              <h3 class="card-title">
+                Centenaria Y Benemérita Escuela Normal del Estado De Querétaro
+                "Andrés Balvanera"
+              </h3>
+              <img src="{% static 'images/LogosUNIS/CBENEQ.png' %}" alt="Logo de
+              la Universidad" class="card-img" />
+              <p class="card-text">Santiago de Querétaro, Qro.</p>
+            </div>
+            <div
+              class="card"
+              data-university="Universidad Pedagógica Nacional campus Querétaro"
+              data-video="https://www.youtube.com/embed/VIDEO_ID"
+            >
+              <h3 class="card-title">Universidad Pedagógica Nacional</h3>
+              <img src="{% static 'images/LogosUNIS/UPN.png' %}" alt="Logo de la
+              Universidad" class="card-img" />
+              <p class="card-text">Santiago de Querétaro, Qro</p>
+            </div>
+          </div>
+
+    <!--MODAL -->
+    <div id="modal" class="modal">
+      <div class="modal-content">
+        <span class="close-button">&times;</span>
+        <div class="modal-body">
+          <div class="modal-info">
+            <h2 id="modal-title">Título de la Universidad</h2>
+            <video id='modal-video' class="modal-video" width="100%" height="400" controls>
+              <source id='modal-video-src' src="" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+            <a id='pdf-button' href="" target="_blank" class="pdf-button">Descargar PDF</a>
+          </div>
         </div>
-        <div class="controls-container">
-            <!-- Aquí puedes agregar otros controles para el video -->
-        </div>
+      </div>
     </div>
 
     <div class="navigation-buttons">
-        <a href="/sextopaso">
-            <img src="{% static 'images/Regresar.png'%}" alt="Boton-regresar" class="btn back-button">
-        </a>
-        <a href="/septimopaso">
-            <img src="{% static 'images/Continuar.png'%}" alt="Boton-continuar" class="btn continue-button">
-        </a>
+      <a href="/sextopaso">
+        <img
+          src="{% static 'images/Regresar.png'%}"
+          alt="Boton-regresar"
+          class="btn back-button"
+        />
+      </a>
+      <a href="/septimopaso">
+        <img
+          src="{% static 'images/Continuar.png'%}"
+          alt="Boton-continuar"
+          class="btn continue-button"
+        />
+      </a>
     </div>
-</body>
-<script>
+  </body>
+  <script src="{% static 'js/tablero_6paso.js' %}"></script>
+  <script>
     const menuToggle = document.getElementById("menu-toggle");
     const menu = document.getElementById("menu");
     const navLinks = menu.querySelectorAll("ul li a");
-    
+
     // Abrir o cerrar el menú al hacer clic en el botón toggle
     menuToggle.addEventListener("click", () => {
-        menu.classList.toggle("active");
+      menu.classList.toggle("active");
     });
-    
+
     // Cerrar el menú cuando se hace clic en un enlace
-    navLinks.forEach(link => {
-        link.addEventListener("click", () => {
-            menu.classList.remove("active");
-        });
+    navLinks.forEach((link) => {
+      link.addEventListener("click", () => {
+        menu.classList.remove("active");
+      });
     });
-    
+
     // Cerrar el menú al hacer clic fuera del header
     document.addEventListener("click", (event) => {
-        const isClickInsideMenu = menu.contains(event.target);
-        const isClickOnToggle = menuToggle.contains(event.target);
-    
-        if (!isClickInsideMenu && !isClickOnToggle) {
-            menu.classList.remove("active");
-        }
+      const isClickInsideMenu = menu.contains(event.target);
+      const isClickOnToggle = menuToggle.contains(event.target);
+
+      if (!isClickInsideMenu && !isClickOnToggle) {
+        menu.classList.remove("active");
+      }
     });
-</script>
+  </script>
 </html>
