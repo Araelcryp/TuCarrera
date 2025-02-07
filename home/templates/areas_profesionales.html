@@ -12,8 +12,8 @@
         <img src="{% static 'images/LOGOS.png'%}" alt="Logo" class="logo">
         <nav id="menu">
             <ul>
-                <li><a href="#">Carrera universitaria</a></li>
-                <li><a href="#">Conoce los temas</a></li>
+                <li><a href="#Temas">Conoce los temas</a></li>
+                <li><a href="#Carrera">Carrera universitaria</a></li>
                 <li><a href="/aboutprogram">Acerca del programa</a></li>
                 <li class="back-btn">
                     <a href="/tutor">
@@ -43,61 +43,354 @@
                 <button class="dropdown-btn" onclick="toggleDropdown('dropdown1')">🚀 Ciencias físicas y matemáticas</button>
                 <div id="dropdown1" class="dropdown-content">
                     <input class="dropdown-search" type="text" id="searchInput1" onkeyup="filterDropdown('dropdown1', 'searchInput1')" placeholder="Buscar carrera...">
-                    <a href="#" onclick="selectItem(this), showInfo('Universidades disponibles: Universidad Tecnológica de San Juan del Río, Universidad Tecnológica de Querétaro, Universidad Aeronáutica en Querétaro.')">Técnico Superior Universitario en Mantenimiento Área Industrial</a>
-                    <a href="#" onclick="selectItem(this), showInfo('Universidades disponibles: Universidad Tecnológica de San Juan del Río')">Técnico Superior Universitario en Construcción</a>
-                    <a href="#" onclick="selectItem(this), showInfo('Universidades disponibles: Universidad Tecnológica de Querétaro')">Técnico Superior Universitario en Mecatrónica, Área Automatización</a>
-                    <a href="#" onclick="selectItem(this), showInfo('Universidades disponibles: Universidad Tecnológica de Querétaro')">Técnico Superior Universitario en Logística Área Cadena de Suministros</a>
-                    <a href="#" onclick="selectItem(this), showInfo('Universidades disponibles: Universidad Tecnológica de Querétaro, Universidad Tecnológica de San Juan del Río')">Técnico Superior Universitario en Energías Renovables Área Energía Solar</a>
-                    <a href="#" onclick="selectItem(this), showInfo('Universidades disponibles: Universidad Tecnológica de Querétaro')">Técnico Superior Universitario en Mecánica Área Automotriz</a>
-                    <a href="#" onclick="selectItem(this), showInfo('Universidades disponibles: Universidad Tecnológica de Querétaro, Universidad Tecnológica de San Juan del Río')">Técnico Superior Universitario en Procesos Industriales Área Manufactura</a>
-                    <a href="#" onclick="selectItem(this), showInfo('Universidades disponibles: Universidad Autónoma de Querétaro')">Técnico Superior Universitario en Construcción Sostenible</a>
-                    <a href="#" onclick="selectItem(this), showInfo('Universidades disponibles: Universidad Tecnológica de San Juan del Río')">Técnico Superior Universitario en Procesos Industriales Área Sistemas de Gestión de la Calidad</a>
-                    <a href="#" onclick="selectItem(this), showInfo('Universidades disponibles: Universidad Tecnológica de Querétaro')">Técnico Superior Universitario en Nanotecnología Área Materiales</a>
-                    <a href="#" onclick="selectItem(this), showInfo('Universidades disponibles: Universidad Tecnológica de San Juan del Río')">Técnico Superior Universitario en Mecatrónica Área Automatización</a>
-                    <a href="#" onclick="selectItem(this), showInfo('Universidades disponibles: Universidad Politécnica de Santa Rosa Jáuregui')">Ingeniería en Animación y Efectos Visuales</a>
-                    <a href="#" onclick="selectItem(this), showInfo('Universidades disponibles: Universidad Tecnológica de Querétaro, Universidad Tecnológica de San Juan del Río')">Técnico Superior Universitario en Tecnologías de la Información Área Desarrollo de Software Multiplataforma</a>
-                    <a href="#" onclick="selectItem(this), showInfo('Universidades disponibles: Universidad Tecnológica de Querétaro')">Técnico Superior Universitario en Mecánica Área Moldes y Troqueles</a>
-                    <a href="#" onclick="selectItem(this), showInfo('Universidades disponibles: Universidad Tecnológica de Corregidora')">Técnico Superior Universitario en Mecatrónica Área Sistemas de Manufactura Flexible</a>
-                    <a href="#" onclick="selectItem(this), showInfo('Universidades disponibles: Universidad Tecnológica de Corregidora')">Técnico Superior Universitario en Tecnologías de la Información Área Entornos Virtuales y Negocios Digitales</a>
-                    <a href="#" onclick="selectItem(this), showInfo('Universidades disponibles: Universidad Tecnológica de Querétaro')">Técnico Superior Universitario en Tecnologías de la Información Área Infraestructura de Redes Digitales</a>
-                    <a href="#" onclick="selectItem(this), showInfo('Universidades disponibles: Universidad Tecnológica de San Juan del Río, Universidad Tecnológica de Querétaro')">Técnico Superior Universitario en Procesos Industriales Área Plásticos</a>
-                    <a href="#" onclick="selectItem(this), showInfo('Universidades disponibles: Instituto Tecnológico de San Juan del Río')">Ingeniería en Tecnologías de la Información y Comunicación</a>
-                    <a href="#" onclick="selectItem(this), showInfo('Universidades disponibles: Universidad Politécnica de Querétaro')">Ingeniería en Redes y Telecomunicaciones</a>
-                    <a href="#" onclick="selectItem(this), showInfo('Universidades disponibles: Universidad Autónoma de Querétaro')">Ingeniería en Telecomunicaciones y Redes</a>
-                    <a href="#" onclick="selectItem(this), showInfo('Universidades disponibles: Universidad Autónoma de Querétaro')">Licenciatura en Matemáticas Aplicadas</a>
-                    <a href="#" onclick="selectItem(this), showInfo('Universidades disponibles: Universidad Tecnológica de Querétaro, Universidad Tecnológica de San Juan del Río')">Ingeniería en Mantenimiento Industrial</a>
-                    <a href="#" onclick="selectItem(this), showInfo('Universidades disponibles: Universidad Tecnológica de Querétaro')">Ingeniería en Tecnologías de Automatización</a>
-                    <a href="#" onclick="selectItem(this), showInfo('Universidades disponibles: Universidad Autónoma de Querétaro')">Licenciatura en Informática</a>
-                    <a href="#" onclick="selectItem(this), showInfo('Universidades disponibles: Universidad Autónoma de Querétaro')">Licenciatura en Actuaría</a>
-                    <a href="#" onclick="selectItem(this), showInfo('Universidades disponibles: Universidad Autónoma de Querétaro, Universidad Politécnica de Santa Rosa Jáuregui')">Ingeniería de Software</a>
-                    <a href="#" onclick="selectItem(this), showInfo('Universidades disponibles: Universidad Nacional Autónoma de México')">Licenciatura en Tecnología</a>
-                    <a href="#" onclick="selectItem(this), showInfo('Universidades disponibles: Universidad Autónoma de Querétaro')">Ingeniería Física</a>
-                    <a href="#" onclick="selectItem(this), showInfo('Universidades disponibles: Universidad Politécnica de Santa Rosa Jáuregui')">Ingeniería en Metrología Industrial</a>
-                    <a href="#" onclick="selectItem(this), showInfo('Universidades disponibles: Universidad Tecnológica de Querétaro')">Ingeniería en Metal Mecánica</a>
-                    <a href="#" onclick="selectItem(this), showInfo('Universidades disponibles: Universidad Tecnológica de Querétaro, Universidad Tecnológica de San Juan del Río')">Ingeniería en Energías Renovables</a>
-                    <a href="#" onclick="selectItem(this), showInfo('Universidades disponibles: Tecnológico Nacional de México, Campus Querétaro')">Ingeniería Mecánica</a>
-                    <a href="#" onclick="selectItem(this), showInfo('Universidades disponibles: Tecnológico Nacional de México, Campus Querétaro')">Ingeniería en Logística</a>
-                    <a href="#" onclick="selectItem(this), showInfo('Universidades disponibles: Universidad Autónoma de Querétaro, Universidad Tecnológica de Corregidora')">Ingeniería en Biotecnología</a>
-                    <a href="#" onclick="selectItem(this), showInfo('Universidades disponibles: Universidad Autónoma de Querétaro')">Ingeniería en Computación</a>
-                    <a href="#" onclick="selectItem(this), showInfo('Universidades disponibles: Universidad Politécnica de Querétaro')">Ingeniería en Telemática</a>
-                    <a href="#" onclick="selectItem(this), showInfo('Universidades disponibles: Universidad Tecnológica de Querétaro, Tecnológico Nacional de México, Campus Querétaro, Instituto Tecnológico de San Juan del Río')">Ingeniería Industrial</a>
-                    <a href="#" onclick="selectItem(this), showInfo('Universidades disponibles: Universidad Tecnológica de Querétaro, Universidad Autónoma de Querétaro')">Ingeniería en Nanotecnología</a>
-                    <a href="#" onclick="selectItem(this), showInfo('Universidades disponibles: Universidad Autónoma de Querétaro')">Ingeniería Química en Materiales</a>
-                    <a href="#" onclick="selectItem(this), showInfo('Universidades disponibles: Universidad Tecnológica de Querétaro')">Licenciatura en Diseño y Gestión de Redes Logísticas</a>
-                    <a href="#" onclick="selectItem(this), showInfo('Universidades disponibles: Tecnológico Nacional de México, Campus Querétaro')">Ingeniería en Materiales</a>
-                    <a href="#" onclick="selectItem(this), showInfo('Universidades disponibles: Tecnológico Nacional de México, Campus Querétaro, Universidad Politécnica de Querétaro')">Ingeniería Mecatrónica</a>
-                    <a href="#" onclick="selectItem(this), showInfo('Universidades disponibles: Universidad Aeronáutica en Querétaro')">Ingeniería en Electrónica y Control de Sistemas de Aeronaves</a>
-                    <a href="#" onclick="selectItem(this), showInfo('Universidades disponibles: Universidad Tecnológica de Querétaro')">Ingeniería en Procesos y Operaciones Industriales</a>
-                    <a href="#" onclick="selectItem(this), showInfo('Universidades disponibles: Universidad Autónoma de Querétaro, Instituto Tecnológico de San Juan del Río')">Ingeniería Electromecánica</a>
-                    <a href="#" onclick="selectItem(this), showInfo('Universidades disponibles: Universidad Aeronáutica en Querétaro')">Ingeniería Aeronáutica en Manufactura</a>
-                    <a href="#" onclick="selectItem(this), showInfo('Universidades disponibles: Universidad Autónoma de Querétaro')">Ingeniero Agroindustrial</a>
-                    <a href="#" onclick="selectItem(this), showInfo('Universidades disponibles: Universidad Politécnica de Querétaro')">Ingeniería en Tecnologías de Manufactura</a>
-                    <a href="#" onclick="selectItem(this), showInfo('Universidades disponibles: Universidad Nacional Autónoma de México')">Licenciatura en Ingeniería en Energías Renovables</a>
-                    <a href="#" onclick="selectItem(this), showInfo('Universidades disponibles: Universidad Politécnica de Querétaro')">Ingeniería en Sistemas Computacionales</a>
-                    <a href="#" onclick="selectItem(this), showInfo('Universidades disponibles: Universidad Autónoma de Querétaro')">Licenciatura en Contaduría Pública</a>
-                    <a href="#" onclick="selectItem(this), showInfo('Universidades disponibles: Universidad Autónoma de Querétaro')">Licenciatura en Administración</a>
-                    <a href="#" onclick="selectItem(this), showInfo('Universidades disponibles: Universidad Autónoma de Querétaro')">Licenciatura en Finanzas</a>
-                    <a href="#" onclick="selectItem(this), showInfo('Universidades disponibles: Universidad Politécnica de Querétaro')">Licenciatura en Ciencias de Datos</a>                    
+
+                    <a href="#" onclick="selectItem(this), showInfo('<strong> Ingeniería en Animación y Efectos Visuales </strong> <br><br> <img src=\'/static/logos/UPSRJ.png\' alt=\'UPSRJ\' class=\'university-logo\'> Universidad Politécnica de Santa Rosa Jáuregui ')">
+                        Ingeniería en Animación y Efectos Visuales
+                    </a>
+
+                    <a href="#" onclick="selectItem(this), showInfo('<strong> Ingeniería en Redes y Telecomunicaciones </strong> <br><br> <img src=\'/static/logos/UPQ.png\' alt=\'UPQ\' class=\'university-logo\'> Universidad Politécnica de Querétaro ')">
+                        Ingeniería en Redes y Telecomunicaciones
+                    </a>
+
+                    <a href="#" onclick="selectItem(this), showInfo('<strong> Ingeniería En Robótica Computacional </strong> <br><br> <img src=\'/static/logos/UPSRJ.png\' alt=\'UPSRJ\' class=\'university-logo\'> Universidad Politécnica de Querétaro ')">
+                        Ingeniería en Robótica Computacional
+                    </a>
+
+                    <a href="#" onclick="selectItem(this), showInfo('<strong> Ingeniería en Sistemas Automotrices </strong> <br><br> <img src=\'/static/logos/UPSRJ.png\' alt=\'UPSRJ\' class=\'university-logo\'> Universidad Politécnica de Santa Rosa Jáuregui ')">
+                        Ingeniería en Sistemas Automotrices
+                    </a>
+
+                    <a href="#" onclick="selectItem(this), showInfo('<strong> Ingeniería en Sistemas Computacionales </strong> <br><br> <img src=\'/static/logos/UPQ.png\' alt=\'UPQ\' class=\'university-logo\'> Universidad Politécnica de Querétaro ')">
+                        Ingeniería en Sistemas Computacionales
+                    </a>
+
+                    <a href="#" onclick="selectItem(this), showInfo('<strong> Ingeniería en Tecnología Automotriz </strong> <br><br> <img src=\'/static/logos/UPQ.png\' alt=\'UPQ\' class=\'university-logo\'> Universidad Politécnica de Querétaro ')">
+                        Ingeniería en Tecnología Automotriz
+                    </a>
+
+                    <a href="#" onclick="selectItem(this), showInfo('<strong> Ingeniería en Tecnologías de Manufactura </strong> <br><br> <img src=\'/static/logos/UPQ.png\' alt=\'UPQ\' class=\'university-logo\'> Universidad Politécnica de Querétaro ')">
+                        Ingeniería en Tecnologías de Manufactura
+                    </a>
+
+                    <a href="#" onclick="selectItem(this), showInfo('<strong> Ingeniería en Calidad y Metrología </strong> <br><br> <img src=\'/static/logos/UPSRJ.png\' alt=\'UPSRJ\' class=\'university-logo\'> Universidad Politécnica de Santa Rosa Jáuregui ')">
+                        Ingeniería en Calidad y Metrología
+                    </a>
+
+                    <a href="#" onclick="selectItem(this), showInfo('<strong> Ingeniería en Tecnologías de la Información e Innovación Digital </strong> <br><br> <img src=\'/static/logos/UPSRJ.png\' alt=\'UPSRJ\' class=\'university-logo\'> Universidad Politécnica de Santa Rosa Jáuregui ')">
+                        Ingeniería en Tecnologías de la Información e Innovación Digital
+                    </a>
+
+                    <a href="#" onclick="selectItem(this), showInfo('<strong> Ingeniería Mecatrónica </strong> <br><br> <img src=\'/static/logos/UPQ.png\' alt=\'UPQ\' class=\'university-logo\'> Universidad Politécnica de Querétaro ')">
+                        Ingeniería Mecatrónica
+                    </a>
+
+                    <a href="#" onclick="selectItem(this), showInfo('<strong> Licenciatura en Ingeniería Industrial </strong> <br><br> <img src=\'/static/logos/UTSJR.png\' alt=\'UTSJR\' class=\'university-logo\'> Universidad Tecnológica de San Juan del Río ')">
+                        Licenciatura en Ingeniería Industrial 
+                    </a>
+
+                    <a href="#" onclick="selectItem(this), showInfo('<strong> Licenciatura en Ingeniería Aeronáutica enn Mantenimiento </strong> <br><br> <img src=\'/static/logos/UNAQ.png\' alt=\'UNAQ\' class=\'university-logo\'> Universidad Aeronáutica en Querétaro ')">
+                        Licenciatura en Ingeniería Aeronáutica en Mantenimiento
+                    </a>
+
+                    <a href="#" onclick="selectItem(this), showInfo('<strong> Licenciatura en Ingeniería Aeronáutica en Manufactura </strong> <br><br> <img src=\'/static/logos/UNAQ.png\' alt=\'UNAQ\' class=\'university-logo\'> Universidad Aeronáutica en Querétaro ')">
+                        Licenciatura en Ingeniería Aeronáutica en Manufactura
+                    </a>
+
+                    <a href="#" onclick="selectItem(this), showInfo('<strong> Licenciatura en Ingeniería Civil </strong> <br><br> <img src=\'/static/logos/UTSJR.png\' alt=\'UTSJR\' class=\'university-logo\'> Universidad Tecnológica de San Juan del Río ')">
+                        Licenciatura en Ingeniería Civil 
+                    </a>
+
+                    <a href="#" onclick="selectItem(this), showInfo('<strong> Licenciatura en Ingeniería en Diseño Mecánico Aeronáutico </strong> <br><br> <img src=\'/static/logos/UNAQ.png\' alt=\'UNAQ\' class=\'university-logo\'> Universidad Aeronáutica en Querétaro ')">
+                        Licenciatura en Ingeniería en Diseño Mecánico Aeronáutico
+                    </a>
+
+                    <a href="#" onclick="selectItem(this), showInfo('<strong> Licenciatura en Ingeniería en Electrónica y Control de Sistemas de Aeronaves </strong> <br><br> <img src=\'/static/logos/UNAQ.png\' alt=\'UNAQ\' class=\'university-logo\'> Universidad Aeronáutica en Querétaro ')">
+                        Licenciatura en Ingeniería en Electrónica y Control de Sistemas de Aeronaves
+                    </a>
+
+                    <a href="#" onclick="selectItem(this), showInfo('<strong> Licenciatura en Ingeniería en Logística </strong> <br><br> <img src=\'/static/logos/UTEQ.png\' alt=\'UTEQ\' class=\'university-logo\'> Universidad Tecnológica de Querétaro ')">
+                        Licenciatura en Ingeniería en Logística
+                    </a>
+                    
+                    <a href="#" onclick="selectItem(this), showInfo('<strong> Licenciatura en Ingeniería en Mantenimiento Industrial </strong> <br><br> <img src=\'/static/logos/UTEQ.png\' alt=\'UTEQ\' class=\'university-logo\'> Universidad Tecnológica de Querétaro <br><br> <img src=\'/static/logos/UTC.jpg\' alt=\'UTC\' class=\'university-logo\'> Universidad Tecnológica de Corregidora <br><br> <img src=\'/static/logos/UTSJR.png\' alt=\'UTSJR\' class=\'university-logo\'> Universidad Tecnológica de San Juan del Río ')">
+                        Licenciatura en Ingeniería en Mantenimiento Industrial
+                    </a>
+
+                    <a href="#" onclick="selectItem(this), showInfo('<strong> Licenciatura en Ingeniería en Nanotecnología </strong> <br><br> <img src=\'/static/logos/UTEQ.png\' alt=\'UTEQ\' class=\'university-logo\'> Universidad Tecnológica de Querétaro ')">
+                        Licenciatura en Ingeniería en Nanotecnología
+                    </a>
+
+                    <a href="#" onclick="selectItem(this), showInfo('<strong> Licenciatura en Ingeniería en Tecnologías de la Información e Innovación Digital </strong> <br><br> <img src=\'/static/logos/UTSJR.png\' alt=\'UTSJR\' class=\'university-logo\'> Universidad Tecnológica de San Juan del Río <br><br> <img src=\'/static/logos/UTEQ.png\' alt=\'UTEQ\' class=\'university-logo\'> Universidad Tecnológica de Querétaro <br><br> <img src=\'/static/logos/UTC.jpg\' alt=\'UTC\' class=\'university-logo\'> Universidad Tecnológica de Corregidora <br><br> <img src=\'/static/logos/UTSJR.png\' alt=\'UTSJR\' class=\'university-logo\'> Universidad Tecnológica de San Juan del Río, Jalpan ')">
+                        Licenciatura en Ingeniería en Tecnologías de la Información e Innovación Digital 
+                    </a>
+
+                    <a href="#" onclick="selectItem(this), showInfo('<strong> Licenciatura en Ingeniería Industrial </strong> <br><br> <img src=\'/static/logos/UTEQ.png\' alt=\'UTEQ\' class=\'university-logo\'> Universidad Tecnológica de Querétaro ')">
+                        Licenciatura en Ingeniería Industrial
+                    </a>
+
+                    <a href="#" onclick="selectItem(this), showInfo('<strong> Licenciatura en Ingeniería Mecánica </strong> <br><br> <img src=\'/static/logos/UTEQ.png\' alt=\'UTEQ\' class=\'university-logo\'> Universidad Tecnológica de Querétaro ')">
+                        Licenciatura en Ingeniería Mecánica
+                    </a>
+
+                    <a href="#" onclick="selectItem(this), showInfo('<strong> Licenciatura en Ingeniería Mecatrónica </strong> <br><br> <img src=\'/static/logos/UTEQ.png\' alt=\'UTEQ\' class=\'university-logo\'> Universidad Tecnológica de Querétaro <br><br> <img src=\'/static/logos/UTC.jpg\' alt=\'UTC\' class=\'university-logo\'> Universidad Tecnológica de Corregidora <br><br> <img src=\'/static/logos/UTSJR.png\' alt=\'UTSJR\' class=\'university-logo\'> Universidad Tecnológica de San Juan del Río ')">
+                        Licenciatura en Ingeniería Mecatrónica
+                    </a>
+
+                    <a href="#" onclick="selectItem(this), showInfo('<strong> Licenciatura en Ingeniería Mecatrónica Mixto Virtual </strong> <br><br> <img src=\'/static/logos/UTSJR.png\' alt=\'UTSJR\' class=\'university-logo\'> Universidad Tecnológica de San Juan del Río ')">
+                        Licenciatura en Ingeniería Mecatrónica Mixto Virtual
+                    </a>
+
+                    <a href="#" onclick="selectItem(this), showInfo('<strong> Técnico Superior Universitario en Automatización </strong> <br><br> <img src=\'/static/logos/UPQ.png\' alt=\'UPQ\' class=\'university-logo\'> Universidad Politécnica de Querétaro <br><br> <img src=\'/static/logos/UTEQ.png\' alt=\'UTEQ\' class=\'university-logo\'> Universidad Tecnológica de Querétaro <br><br> <img src=\'/static/logos/UTSJR.png\' alt=\'UTSJR\' class=\'university-logo\'> Universidad Tecnológica de San Juan del Río ')">
+                        Técnico Superior Universitario en Automatización
+                    </a>
+
+                    <a href="#" onclick="selectItem(this), showInfo('<strong> Técnico Superior Universitario en Automatización Mixto Virtual </strong> <br><br> <img src=\'/static/logos/UTSJR.png\' alt=\'UTSJR\' class=\'university-logo\'> Universidad Tecnológica de San Juan del Río ')">
+                        Técnico Superior Universitario en Automatización Mixto Virtual 
+                    </a>
+
+                    <a href="#" onclick="selectItem(this), showInfo('<strong> Técnico Superior Universitario en Automotriz </strong> <br><br> <img src=\'/static/logos/UTSJR.png\' alt=\'UTSJR\' class=\'university-logo\'> Universidad Tecnológica de San Juan del Río ')">
+                        Técnico Superior Universitario en Automotriz
+                    </a>
+
+                    <a href="#" onclick="selectItem(this), showInfo('<strong> Técnico Superior Universitario en Cadena de Suministro </strong> <br><br> <img src=\'/static/logos/UTEQ.png\' alt=\'UTEQ\' class=\'university-logo\'> Universidad Tecnológica de Querétaro ')">
+                        Técnico Superior Universitario en Cadena de Suministro
+                    </a>
+
+                    <a href="#" onclick="selectItem(this), showInfo('<strong> Técnico Superior Universitario en Ciencia de Datos </strong> <br><br> <img src=\'/static/logos/UPSRJ.png\' alt=\'UPSRJ\' class=\'university-logo\'> Universidad Politécnica de Santa Rosa Jáuregui <br><br> <img src=\'/static/logos/UPQ.png\' alt=\'UPQ\' class=\'university-logo\'> Universidad Politécnica de Querétaro <br><br> <img src=\'/static/logos/UTSJR.png\' alt=\'UTSJR\' class=\'university-logo\'> Universidad Tecnológica de San Juan del Río ')">
+                        Técnico Superior Universitario en Ciencia de Datos
+                    </a>
+
+                    <a href="#" onclick="selectItem(this), showInfo('<strong> Técnico Superior Universitario en Construcción </strong> <br><br> <img src=\'/static/logos/UTSJR.png\' alt=\'UTSJR\' class=\'university-logo\'> Universidad Tecnológica de San Juan del Río ')">
+                        Técnico Superior Universitario en Construcción 
+                    </a>
+
+                    <a href="#" onclick="selectItem(this), showInfo('<strong> Técnico Superior Universitario en Desarrollo de Software Multiplataforma </strong> <br><br> <img src=\'/static/logos/UTEQ.png\' alt=\'UTEQ\' class=\'university-logo\'> Universidad Tecnológica de Querétaro <br><br> <img src=\'/static/logos/UTSJR.png\' alt=\'UTSJR\' class=\'university-logo\'> Universidad Tecnológica de San Juan del Río <br><br> <img src=\'/static/logos/UTSJR.png\' alt=\'UTSJR\' class=\'university-logo\'> Universidad Tecnológica de San Juan del Río, Jalpan ')">
+                        Técnico Superior Universitario en Desarrollo de Software Multiplataforma
+                    </a>
+
+                    <a href="#" onclick="selectItem(this), showInfo('<strong> Técnico Superior Universitario en Desarrollo Multiplataforma </strong> <br><br> <img src=\'/static/logos/UPSRJ.png\' alt=\'UPSRJ\' class=\'university-logo\'> Universidad Politécnica de Santa Rosa Jáuregui ')">
+                        Técnico Superior Universitario en Desarrollo Multiplataforma
+                    </a>
+
+                    <a href="#" onclick="selectItem(this), showInfo('<strong> Técnico Superior Universitario en Energía Solar </strong> <br><br> <img src=\'/static/logos/UTEQ.png\' alt=\'UTEQ\' class=\'university-logo\'> Universidad Tecnológica de Querétaro ')">
+                        Técnico Superior Universitario en Energía Solar
+                    </a>
+
+                    <a href="#" onclick="selectItem(this), showInfo('<strong> Técnico Superior Universitario en Energía Turbo Solar </strong> <br><br> <img src=\'/static/logos/UTEQ.png\' alt=\'UTEQ\' class=\'university-logo\'> Universidad Tecnológica de Querétaro <br><br> <img src=\'/static/logos/UTSJR.png\' alt=\'UTSJR\' class=\'university-logo\'> Universidad Tecnológica de San Juan del Río ')">
+                        Técnico Superior Universitario en Energía Turbo Solar
+                    </a>
+
+                    <a href="#" onclick="selectItem(this), showInfo('<strong> Técnico Superior Universitario en Infraestructura en Redes Digitales </strong> <br><br> <img src=\'/static/logos/UTEQ.png\' alt=\'UTEQ\' class=\'university-logo\'> Universidad Tecnológica de Querétaro ')">
+                        Técnico Superior Universitario en Infraestructura en Redes Digitales
+                    </a>
+
+                    <a href="#" onclick="selectItem(this), showInfo('<strong> Técnico Superior Universitario en Inteligencia Artificial </strong> <br><br> <img src=\'/static/logos/UPSRJ.png\' alt=\'UPSRJ\' class=\'university-logo\'> Universidad Politécnica de Santa Rosa Jáuregui <br><br> <img src=\'/static/logos/UTSJR.png\' alt=\'UTSJR\' class=\'university-logo\'> Universidad Tecnológica de San Juan del Río ')">
+                        Técnico Superior Universitario en Inteligencia Artificial
+                    </a>
+
+                    <a href="#" onclick="selectItem(this), showInfo('<strong> Técnico Superior Universitario en Mantenimiento a Instalaciones </strong> <br><br> <img src=\'/static/logos/UTC.jpg\' alt=\'UTC\' class=\'university-logo\'> Universidad Tecnológica de Corregidora ')">
+                        Técnico Superior Universitario en Mantenimiento a Instalaciones
+                    </a>
+
+                    <a href="#" onclick="selectItem(this), showInfo('<strong> Técnico Superior Universitario en Mantenimiento a Maquinaria Pesada </strong> <br><br> <img src=\'/static/logos/UTSJR.png\' alt=\'UTSJR\' class=\'university-logo\'> Universidad Tecnológica de San Juan del Río ')">
+                        Técnico Superior Universitario en Mantenimiento a Maquinaria Pesada
+                    </a>
+
+                    <a href="#" onclick="selectItem(this), showInfo('<strong> Técnico Superior Universitario en Mantenimiento de Aeronaves de Ala Fija y Motores </strong> <br><br> <img src=\'/static/logos/UNAQ.png\' alt=\'UNAQ\' class=\'university-logo\'> Universidad Aeronáutica en Querétaro ')">
+                        Técnico Superior Universitario en Mantenimiento de Aeronaves de Ala Fija y Motores
+                    </a>
+
+                    <a href="#" onclick="selectItem(this), showInfo('<strong> Técnico Superior Universitario en Mantenimiento de Sistemas Electrónicos de las Aeronaves </strong> <br><br> <img src=\'/static/logos/UNAQ.png\' alt=\'UNAQ\' class=\'university-logo\'> Universidad Aeronáutica en Querétaro ')">
+                        Técnico Superior Universitario en Mantenimiento de Sistemas Electrónicos de las Aeronaves
+                    </a>
+
+                    <a href="#" onclick="selectItem(this), showInfo('<strong> Técnico Superior Universitario en Mantenimiento Industrial </strong> <br><br> <img src=\'/static/logos/UTEQ.png\' alt=\'UTEQ\' class=\'university-logo\'> Universidad Tecnológica de Querétaro <br><br> <img src=\'/static/logos/UTSJR.png\' alt=\'UTSJR\' class=\'university-logo\'> Universidad Tecnológica de San Juan del Río ')">
+                        Técnico Superior Universitario en Mantenimiento Industrial
+                    </a>
+
+                    <a href="#" onclick="selectItem(this), showInfo('<strong> Técnico Superior Universitario en Mantenimiento y Programación de Robots </strong> <br><br> <img src=\'/static/logos/UPSRJ.png\' alt=\'UPSRJ\' class=\'university-logo\'> Universidad Politécnica de Santa Rosa Jáuregui ')">
+                        Técnico Superior Universitario en Mantenimiento y Programación de Robots
+                    </a>
+
+                    <a href="#" onclick="selectItem(this), showInfo('<strong> Técnico Superior Universitario en Manufactura Aeronáuticas </strong> <br><br> <img src=\'/static/logos/UNAQ.png\' alt=\'UNAQ\' class=\'university-logo\'> Universidad Aeronáutica en Querétaro ')">
+                        Técnico Superior Universitario en Manufactura Aeronáutica
+                    </a>
+
+                    <a href="#" onclick="selectItem(this), showInfo('<strong> Técnico Superior Universitario en Mecánica Automotriz </strong> <br><br> <img src=\'/static/logos/UTEQ.png\' alt=\'UTEQ\' class=\'university-logo\'> Universidad Tecnológica de Querétaro ')">
+                        Técnico Superior Universitario en Mecánica Automotriz
+                    </a>
+
+                    <a href="#" onclick="selectItem(this), showInfo('<strong> Técnico Superior Universitario en Mecánica en Moldes y Troqueles </strong> <br><br> <img src=\'/static/logos/UTEQ.png\' alt=\'UTEQ\' class=\'university-logo\'> Universidad Tecnológica de Querétaro ')">
+                        Técnico Superior Universitario en Mecánica en Moldes y Troqueles
+                    </a>
+
+                    <a href="#" onclick="selectItem(this), showInfo('<strong> Técnico Superior Universitario en Modelado de Elementos Mecánicos Aeronáuticos </strong> <br><br> <img src=\'/static/logos/UNAQ.png\' alt=\'UNAQ\' class=\'university-logo\'> Universidad Aeronáutica en Querétaro ')">
+                        Técnico Superior Universitario en Modelado de Elementos Mecánicos Aeronáuticos
+                    </a>
+
+                    <a href="#" onclick="selectItem(this), showInfo('<strong> Técnico Superior Universitario en Moldeo de Plásticos </strong> <br><br> <img src=\'/static/logos/UTEQ.png\' alt=\'UTEQ\' class=\'university-logo\'> Universidad Tecnológica de Querétaro <br><br> <img src=\'/static/logos/UTSJR.png\' alt=\'UTSJR\' class=\'university-logo\'> Universidad Tecnológica de San Juan del Río ')">
+                        Técnico Superior Universitario en Moldeo de Plásticos
+                    </a>
+
+                    <a href="#" onclick="selectItem(this), showInfo('<strong> Técnico Superior Universitario en Nanotecnología </strong> <br><br> <img src=\'/static/logos/UTEQ.png\' alt=\'UTEQ\' class=\'university-logo\'> Universidad Tecnológica de Querétaro ')">
+                        Técnico Superior Universitario en Nanotecnología
+                    </a>
+
+                    <a href="#" onclick="selectItem(this), showInfo('<strong> Técnico Superior Universitario en Procesos de Desarrollo de Software Multiplataforma </strong> <br><br> <img src=\'/static/logos/UPQ.png\' alt=\'UPQ\' class=\'university-logo\'> Universidad Politécnica de Querétaro ')">
+                        Técnico Superior Universitario en Procesos de Desarrollo de Software Multiplataforma
+                    </a>
+
+                    <a href="#" onclick="selectItem(this), showInfo('<strong> Técnico Superior Universitario en Procesos de Fabricación </strong> <br><br> <img src=\'/static/logos/UPQ.png\' alt=\'UPQ\' class=\'university-logo\'> Universidad Politécnica de Querétaro ')">
+                        Técnico Superior Universitario en Procesos de Fabricación
+                    </a>
+
+                    <a href="#" onclick="selectItem(this), showInfo('<strong> Técnico Superior Universitario en Procesos Logísticos </strong> <br><br> <img src=\'/static/logos/UPQ.png\' alt=\'UPQ\' class=\'university-logo\'> Universidad Politécnica de Querétaro ')">
+                        Técnico Superior Universitario en Procesos Logísticos
+                    </a>
+
+                    <a href="#" onclick="selectItem(this), showInfo('<strong> Técnico Superior Universitario en Procesos Productivos </strong> <br><br> <img src=\'/static/logos/UTEQ.png\' alt=\'UTEQ\' class=\'university-logo\'> Universidad Tecnológica de Querétaro <br><br> <img src=\'/static/logos/UTSJR.png\' alt=\'UTSJR\' class=\'university-logo\'> Universidad Tecnológica de San Juan del Río ')">
+                        Técnico Superior Universitario en Procesos Productivos
+                    </a>
+
+                    <a href="#" onclick="selectItem(this), showInfo('<strong> Técnico Superior Universitario en Programación y Sistemas de Aeronaves </strong> <br><br> <img src=\'/static/logos/UNAQ.png\' alt=\'UNAQ\' class=\'university-logo\'> Universidad Aeronáutica en Querétaro ')">
+                        Técnico Superior Universitario en Programación y Sistemas de Aeronaves
+                    </a>
+
+                    <a href="#" onclick="selectItem(this), showInfo('<strong> Técnico Superior Universitario en Robótica </strong> <br><br> <img src=\'/static/logos/UTSJR.png\' alt=\'UTSJR\' class=\'university-logo\'> Universidad Tecnológica de San Juan del Río ')">
+                        Técnico Superior Universitario en Robótica 
+                    </a>
+
+                    <a href="#" onclick="selectItem(this), showInfo('<strong> Técnico Superior Universitario en Servicio Posventa Automotriz </strong> <br><br> <img src=\'/static/logos/UTEQ.png\' alt=\'UTEQ\' class=\'university-logo\'> Universidad Tecnológica de Querétaro ')">
+                        Técnico Superior Universitario en Servicio Posventa Automotriz
+                    </a>
+
+                    <a href="#" onclick="selectItem(this), showInfo('<strong> Técnico Superior Universitario en Sistemas Automotrices </strong> <br><br> <img src=\'/static/logos/UPSRJ.png\' alt=\'UPSRJ\' class=\'university-logo\'> Universidad Politécnica de Santa Rosa Jáuregui ')">
+                        Técnico Superior Universitario en Sistemas Automotrices
+                    </a>
+
+                    <a href="#" onclick="selectItem(this), showInfo('<strong> Técnico Superior Universitario en Sistemas Automotrices en Electromovilidad </strong> <br><br> <img src=\'/static/logos/UPSRJ.png\' alt=\'UPSRJ\' class=\'university-logo\'> Universidad Politécnica de Santa Rosa Jáuregui ')">
+                        Técnico Superior Universitario en Sistemas Automotrices en Electromovilidad
+                    </a>
+
+                    <a href="#" onclick="selectItem(this), showInfo('<strong> Técnico Superior Universitario en Sistemas de Calidad y Metrología </strong> <br><br> <img src=\'/static/logos/UPSRJ.png\' alt=\'UPSRJ\' class=\'university-logo\'> Universidad Politécnica de Santa Rosa Jáuregui ')">
+                        Técnico Superior Universitario en Sistemas de Calidad y Metrología
+                    </a>
+
+                    <a href="#" onclick="selectItem(this), showInfo('<strong> Técnico Superior Universitario en Sistemas de Gestión de Calidad </strong> <br><br> <img src=\'/static/logos/UTSJR.png\' alt=\'UTSJR\' class=\'university-logo\'> Universidad Tecnológica de San Juan del Río ')">
+                        Técnico Superior Universitario en Sistemas de Gestión de Calidad 
+                    </a>
+
+                    <a href="#" onclick="selectItem(this), showInfo('<strong> Técnico Superior Universitario en Sistemas de Manufactura Flexible </strong> <br><br> <img src=\'/static/logos/UTC.jpg\' alt=\'UTC\' class=\'university-logo\'>  Universidad Tecnológica de Corregidora <br><br> <img src=\'/static/logos/UTSJR.png\' alt=\'UTSJR\' class=\'university-logo\'>  Universidad Tecnológica de San Juan del Río ')">
+                        Técnico Superior Universitario en Sistemas de Manufactura Flexible
+                    </a>
+
+                    <a href="#" onclick="selectItem(this), showInfo('<strong> Técnico Superior Universitario en Tecnología Automotriz </strong> <br><br> <img src=\'/static/logos/UPQ.png\' alt=\'UPQ\' class=\'university-logo\'> Universidad Politécnica de Querétaro ')">
+                        Técnico Superior Universitario en Tecnología Automotriz
+                    </a>
+
+                    <a href="#" onclick="selectItem(this), showInfo('<strong> Técnico Superior Universitario en Construcción Sostenible </strong> <br><br> <img src=\'/static/logos/UAQ.jpg\' alt=\'UAQ\' class=\'university-logo\'> Universidad Autónoma de Querétaro ')">
+                        Técnico Superior Universitario en Construcción Sostenible
+                    </a>
+
+                    <a href="#" onclick="selectItem(this), showInfo('<strong> Ingeniería en Tecnologías de la Información y Comunicación </strong> <br><br> <img src=\'/static/logos/ITSJR.\' alt=\'ITSJR\' class=\'university-logo\'> Instituto Tecnológico de San Juan del Río ')">
+                        Ingeniería en Tecnologías de la Información y Comunicación
+                    </a>
+
+                    <a href="#" onclick="selectItem(this), showInfo('<strong> Ingeniería en Telecomunicaciones y Redes </strong> <br><br> <img src=\'/static/logos/UAQ.jpg\' alt=\'UAQ\' class=\'university-logo\'> Universidad Autónoma de Querétaro ')">
+                        Ingeniería en Telecomunicaciones y Redes
+                    </a>
+
+                    <a href="#" onclick="selectItem(this), showInfo('<strong> Licenciatura en Matemáticas Aplicadas </strong> <br><br> <img src=\'/static/logos/UAQ.jpg\' alt=\'UAQ\' class=\'university-logo\'> Universidad Autónoma de Querétaro ')">
+                        Licenciatura en Matemáticas Aplicadas
+                    </a>
+
+                    <a href="#" onclick="selectItem(this), showInfo('<strong> Licenciatura en diseño industrial </strong> <br><br> <img src=\'/static/logos/UAQ.jpg\' alt=\'UAQ\' class=\'university-logo\'> Universidad Autónoma de Querétaro ')">
+                        Licenciatura en diseño industrial
+                    </a>
+
+                    <a href="#" onclick="selectItem(this), showInfo('<strong> Licenciatura en Informática </strong> <br><br> <img src=\'/static/logos/UAQ.jpg\' alt=\'UAQ\' class=\'university-logo\'> Universidad Autónoma de Querétaro ')">
+                        Licenciatura en Informática
+                    </a>
+
+                    <a href="#" onclick="selectItem(this), showInfo('<strong> Ingeniería de Software </strong> <br><br> <img src=\'/static/logos/UAQ.jpg\' alt=\'UAQ\' class=\'university-logo\'> Universidad Autónoma de Querétaro ')">
+                        Ingeniería de Software
+                    </a>
+
+                    <a href="#" onclick="selectItem(this), showInfo('<strong> Licenciatura en Tecnología </strong> <br><br> <img src=\'/static/logos/UNAM.jpg\' alt=\'UNAM\' class=\'university-logo\'> Universidad Nacional Autónoma de México ')">
+                        Licenciatura en Tecnología
+                    </a>
+
+                    <a href="#" onclick="selectItem(this), showInfo('<strong> Ingeniería Física </strong> <br><br> <img src=\'/static/logos/UAQ.jpg\' alt=\'UAQ\' class=\'university-logo\'> Universidad Autónoma de Querétaro ')">
+                        Ingeniería Física
+                    </a>
+
+                    <a href="#" onclick="selectItem(this), showInfo('<strong> Ingeniería Mecánica </strong> <br><br> <img src=\'/static/logos/TECNM.png\' alt=\'TECNM\' class=\'university-logo\'> Tecnológico Nacional de México, Campus Querétaro ')">
+                        Ingeniería Mecánica
+                    </a>
+
+                    <a href="#" onclick="selectItem(this), showInfo('<strong> Ingeniería en Logística </strong> <br><br> <img src=\'/static/logos/TECNM.png\' alt=\'TECNM\' class=\'university-logo\'> Tecnológico Nacional de México, Campus Querétaro ')">
+                        Ingeniería en Logística
+                    </a>
+
+                    <a href="#" onclick="selectItem(this), showInfo('<strong> Ingeniería en Biotecnología </strong> <br><br> <img src=\'/static/logos/UAQ.jpg\' alt=\'UAQ\' class=\'university-logo\'> Universidad Autónoma de Querétaro ')">
+                        Ingeniería en Biotecnología
+                    </a>
+
+                    <a href="#" onclick="selectItem(this), showInfo('<strong> Ingeniería en Computación </strong> <br><br> <img src=\'/static/logos/UAQ.jpg\' alt=\'UAQ\' class=\'university-logo\'> Universidad Autónoma de Querétaro ')">
+                        Ingeniería en Computación
+                    </a>
+
+                    <a href="#" onclick="selectItem(this), showInfo('<strong> Ingeniería Industrial </strong> <br><br> <img src=\'/static/logos/TECNM.png\' alt=\'TECNM\' class=\'university-logo\'> Tecnológico Nacional de México, Campus Querétaro <br><br> <img src=\'/static/logos/ITSJR.\' alt=\'ITSJR\' class=\'university-logo\'> Instituto Tecnológico de San Juan del Río ')">
+                        Ingeniería Industrial
+                    </a>
+
+                    <a href="#" onclick="selectItem(this), showInfo('<strong> Ingeniería en Nanotecnología </strong> <br><br> <img src=\'/static/logos/UAQ.jpg\' alt=\'UAQ\' class=\'university-logo\'> Universidad Autónoma de Querétaro ')">
+                        Ingeniería en Nanotecnología
+                    </a>
+
+                    <a href="#" onclick="selectItem(this), showInfo('<strong> Ingeniería Química en Materiales </strong> <br><br> <img src=\'/static/logos/UAQ.jpg\' alt=\'UAQ\' class=\'university-logo\'> Universidad Autónoma de Querétaro ')">
+                        Ingeniería Química en Materiales
+                    </a>
+
+                    <a href="#" onclick="selectItem(this), showInfo('<strong> Ingeniería en Materiales </strong> <br><br> <img src=\'/static/logos/TECNM.png\' alt=\'TECNM\' class=\'university-logo\'> Tecnológico Nacional de México, Campus Querétaro ')">
+                        Ingeniería en Materiales
+                    </a>
+
+                    <a href="#" onclick="selectItem(this), showInfo('<strong> Ingeniería Mecatrónica </strong> <br><br> <img src=\'/static/logos/TECNM.png\' alt=\'TECNM\' class=\'university-logo\'> Tecnológico Nacional de México, Campus Querétaro ')">
+                        Ingeniería Mecatrónica
+                    </a>
+
+                    <a href="#" onclick="selectItem(this), showInfo('<strong> Ingeniería Electromecánica </strong> <br><br> <img src=\'/static/logos/UAQ.jpg\' alt=\'UAQ\' class=\'university-logo\'> Universidad Autónoma de Querétaro <br><br> <img src=\'/static/logos/ITSJR.\' alt=\'ITSJR\' class=\'university-logo\'> Instituto Tecnológico de San Juan del Río ')">
+                        Ingeniería Electromecánica
+                    </a>
+
+                    <a href="#" onclick="selectItem(this), showInfo('<strong> Ingeniero Agroindustrial </strong> <br><br> <img src=\'/static/logos/UAQ.jpg\' alt=\'UAQ\' class=\'university-logo\'> Universidad Autónoma de Querétaro ')">
+                        Ingeniero Agroindustrial
+                    </a>
+
+                    <a href="#" onclick="selectItem(this), showInfo('<strong> Licenciatura en Ingeniería en Energías Renovables </strong> <br><br> <img src=\'/static/logos/UNAM.jpg\' alt=\'UNAM\' class=\'university-logo\'> Universidad Nacional Autónoma de México ')">
+                        Licenciatura en Ingeniería en Energías Renovables
+                    </a>
+
+                    <a href="#" onclick="selectItem(this), showInfo('<strong> Licenciatura en Contaduría Pública </strong> <br><br> <img src=\'/static/logos/UAQ.jpg\' alt=\'UAQ\' class=\'university-logo\'> Universidad Autónoma de Querétaro ')">
+                        Licenciatura en Contaduría Pública
+                    </a>
+
+                    <a href="#" onclick="selectItem(this), showInfo('<strong> Licenciatura en Administración </strong> <br><br> <img src=\'/static/logos/UAQ.jpg\' alt=\'UAQ\' class=\'university-logo\'> Universidad Autónoma de Querétaro ')">
+                        Licenciatura en Administración
+                    </a>
+
+                    <a href="#" onclick="selectItem(this), showInfo('<strong> Licenciatura en Finanzas </strong> <br><br> <img src=\'/static/logos/UAQ.jpg\' alt=\'UAQ\' class=\'university-logo\'> Universidad Autónoma de Querétaro ')">
+                        Licenciatura en Finanzas
+                    </a>
+
+                    <a href="#" onclick="selectItem(this), showInfo('<strong> Ingeniería Física </strong> <br><br> <img src=\'/static/logos/UAQ.jpg\' alt=\'UAQ\' class=\'university-logo\'> Universidad Autónoma de Querétaro ')">
+                        Ingeniería Física
+                    </a>
+
+                    <a href="#" onclick="selectItem(this), showInfo('<strong> Licenciatura en Actuaría </strong> <br><br> <img src=\'/static/logos/UAQ.jpg\' alt=\'UAQ\' class=\'university-logo\'> Universidad Autónoma de Querétaro ')">
+                        Licenciatura en Actuaría
+                    </a>
                 </div>
             </div>
 
@@ -106,37 +399,155 @@
                     y de la salud</button>
                 <div id="dropdown2" class="dropdown-content">
                     <input class="dropdown-search" type="text" id="searchInput2" onkeyup="filterDropdown('dropdown2', 'searchInput2')" placeholder="Buscar carrera...">
-                    <a href="#" onclick="selectItem(this), showInfo('Universidades disponibles: Universidad Autónoma de Querétaro')">Técnico superior universitario en prótesis dental</a>
-                    <a href="#" onclick="selectItem(this), showInfo('Universidades disponibles: Universidad Tecnológica de San Juan del Río')">Técnico superior universitario en química área industrial</a>
-                    <a href="#" onclick="selectItem(this), showInfo('Universidades disponibles: Universidad Tecnológica de Querétaro')">Técnico superior universitario en química área tecnología ambiental</a>
-                    <a href="#" onclick="selectItem(this), showInfo('Universidades disponibles: Universidad Tecnológica de Corregidora')">Técnico superior universitario en química área biotecnología</a>
-                    <a href="#" onclick="selectItem(this), showInfo('Universidades disponibles: Universidad Tecnológica de San Juan del Río')">Técnico superior universitario en química área tecnología farmacéutica</a>
-                    <a href="#" onclick="selectItem(this), showInfo('Universidades disponibles: Universidad Autónoma de Querétaro')">Licenciatura en microbiología</a>
-                    <a href="#" onclick="selectItem(this), showInfo('Universidades disponibles: Universidad Nacional Autónoma de México')">Licenciatura en ciencias de la tierra</a>
-                    <a href="#" onclick="selectItem(this), showInfo('Universidades disponibles: Universidad Tecnológica de San Juan del Río')">Ingeniería en química farmacéutica</a>
-                    <a href="#" onclick="selectItem(this), showInfo('Universidades disponibles: Universidad Nacional Autónoma de México')">Licenciatura en ciencias genómicas</a>
-                    <a href="#" onclick="selectItem(this), showInfo('Universidades disponibles: Universidad Autónoma de Querétaro')">Licenciatura en biología</a>
-                    <a href="#" onclick="selectItem(this), showInfo('Universidades disponibles: Universidad Autónoma de Querétaro')">Licenciatura en geografía ambiental</a>
-                    <a href="#" onclick="selectItem(this), showInfo('Universidades disponibles: Universidad Autónoma de Querétaro')">Ingeniería agroquímica</a>
-                    <a href="#" onclick="selectItem(this), showInfo('Universidades disponibles: Universidad Nacional Autónoma de México')">Licenciatura en órtesis y prótesis</a>
-                    <a href="#" onclick="selectItem(this), showInfo('Universidades disponibles: Universidad Autónoma de Querétaro')">Licenciatura en enfermería</a>
-                    <a href="#" onclick="selectItem(this), showInfo('Universidades disponibles: Universidad Autónoma de Querétaro')">Licenciatura en producción agropecuaria sustentable</a>
-                    <a href="#" onclick="selectItem(this), showInfo('Universidades disponibles: Universidad Autónoma de Querétaro')">Ingeniería biomédica</a>
-                    <a href="#" onclick="selectItem(this), showInfo('Universidades disponibles: Universidad Autónoma de Querétaro')">Licenciatura en horticultura ambiental</a>
-                    <a href="#" onclick="selectItem(this), showInfo('Universidades disponibles: Universidad Autónoma de Querétaro')">Licenciatura en optometría</a>
-                    <a href="#" onclick="selectItem(this), showInfo('Universidades disponibles: Universidad Nacional Autónoma de México')">Licenciatura en neurociencias</a>
-                    <a href="#" onclick="selectItem(this), showInfo('Universidades disponibles: Universidad Autónoma de Querétaro')">Ingeniería químico en alimentos</a>
-                    <a href="#" onclick="selectItem(this), showInfo('Universidades disponibles: Universidad Politécnica de Santa Rosa Jáuregui')">Licenciatura en terapia física</a>
-                    <a href="#" onclick="selectItem(this), showInfo('Universidades disponibles: Universidad Autónoma de Querétaro')">Licenciatura en nutrición</a>
-                    <a href="#" onclick="selectItem(this), showInfo('Universidades disponibles: Universidad Autónoma de Querétaro')">Médico general</a>
-                    <a href="#" onclick="selectItem(this), showInfo('Universidades disponibles: Universidad Tecnológica de San Juan del Río, Universidad Autónoma de Querétaro')">Ingeniería química</a>
-                    <a href="#" onclick="selectItem(this), showInfo('Universidades disponibles: Universidad Autónoma de Querétaro')">Ingeniería químico ambiental</a>
-                    <a href="#" onclick="selectItem(this), showInfo('Universidades disponibles: Universidad Autónoma de Querétaro')">Químico farmacéutico biólogo</a>
-                    <a href="#" onclick="selectItem(this), showInfo('Universidades disponibles: Universidad Autónoma de Querétaro')">Médico veterinario zootecnista</a>
-                    <a href="#" onclick="selectItem(this), showInfo('Universidades disponibles: Universidad Autónoma de Querétaro')">Ingeniería agroindustrial</a>
-                    <a href="#" onclick="selectItem(this), showInfo('Universidades disponibles: Universidad Autónoma de Querétaro')">Licenciatura en odontología</a>
-                    <a href="#" onclick="selectItem(this), showInfo('Universidades disponibles: Universidad Autónoma de Querétaro')">Técnico superior universitario en medicina prehospitalaria integral</a>
-                    <a href="#" onclick="selectItem(this), showInfo('Universidades disponibles: Universidad Autónoma de Querétaro')">Licenciatura en enfermería por nivelación</a>                    
+
+                    <a href="#" onclick="selectItem(this), showInfo('<strong> Licenciatura en Ingeniería Ambiental y Sustentabilidad </strong> <br><br> <img src=\'/static/logos/UTEQ.png\' alt=\'UTEQ\' class=\'university-logo\'> Universidad Tecnológica de Querétaro ')">
+                        Licenciatura en Ingeniería Ambiental y Sustentabilidad
+                    </a>
+
+                    <a href="#" onclick="selectItem(this), showInfo('<strong> Licenciatura en Ingeniería en Agricultura Sustentable y Protegida </strong> <br><br> <img src=\'/static/logos/UTEQ.png\' alt=\'UTEQ\' class=\'university-logo\'> Universidad Tecnológica de Querétaro ')">
+                        Licenciatura en Ingeniería en Agricultura Sustentable y Protegida
+                    </a>
+
+                    <a href="#" onclick="selectItem(this), showInfo('<strong> Licenciatura en Ingeniería en Biotecnología </strong> <br><br> <img src=\'/static/logos/UTC.jpg\' alt=\'UTC\' class=\'university-logo\'> Universidad Tecnológica de Corregidora ')">
+                        Licenciatura en Ingeniería en Biotecnología
+                    </a>
+
+                    <a href="#" onclick="selectItem(this), showInfo('<strong> Licenciatura en Ingeniería en Energía y Desarrollo Sostenible </strong> <br><br> <img src=\'/static/logos/UTEQ.png\' alt=\'UTEQ\' class=\'university-logo\'> Universidad Tecnológica de Querétaro <br><br> <img src=\'/static/logos/UTSJR.png\' alt=\'UTSJR\' class=\'university-logo\'> Universidad Tecnológica de San Juan del Río ')">
+                        Licenciatura en Ingeniería en Energía y Desarrollo Sostenible
+                    </a>
+
+                    <a href="#" onclick="selectItem(this), showInfo('<strong> Licenciatura en Ingeniería en Química Farmacéutica </strong> <br><br> <img src=\'/static/logos/UTEQ.png\' alt=\'UTEQ\' class=\'university-logo\'> Universidad Tecnológica de Querétaro ')">
+                        Licenciatura en Ingeniería en Química Farmacéutica
+                    </a>
+
+                    <a href="#" onclick="selectItem(this), showInfo('<strong> Licenciatura en Ingeniería Química </strong> <br><br> <img src=\'/static/logos/UTSJR.png\' alt=\'UTSJR\' class=\'university-logo\'> Universidad Tecnológica de San Juan del Río ')">
+                        Licenciatura en Ingeniería Química
+                    </a>
+
+                    <a href="#" onclick="selectItem(this), showInfo('<strong> Licenciatura en Terapia Física </strong> <br><br> <img src=\'/static/logos/UPSRJ.png\' alt=\'UPSRJ\' class=\'university-logo\'> Universidad Politécnica de Santa Rosa Jáuregui ')">
+                        Licenciatura en Terapia Física
+                    </a>
+
+                    <a href="#" onclick="selectItem(this), showInfo('<strong> Técnico Superior Universitario en Agricultura Sustentable y Protegida </strong> <br><br> <img src=\'/static/logos/UTEQ.png\' alt=\'UTEQ\' class=\'university-logo\'> Universidad Tecnológica de Querétaro ')">
+                        Técnico Superior Universitario en Agricultura Sustentable y Protegida
+                    </a>
+
+                    <a href="#" onclick="selectItem(this), showInfo('<strong> Técnico Superior Universitario en Biotecnología </strong> <br><br> <img src=\'/static/logos/UTC.jpg\' alt=\'UTC\' class=\'university-logo\'> Universidad Tecnológica de Corregidora ')">
+                        Técnico Superior Universitario en Biotecnología
+                    </a>
+
+                    <a href="#" onclick="selectItem(this), showInfo('<strong> Técnico Superior Universitario en Gestión Ambiental </strong> <br><br> <img src=\'/static/logos/UTEQ.png\' alt=\'UTEQ\' class=\'university-logo\'> Universidad Tecnológica de Querétaro ')">
+                        Técnico Superior Universitario en Gestión Ambiental
+                    </a>
+
+                    <a href="#" onclick="selectItem(this), showInfo('<strong> Técnico Superior Universitario en Química en Tecnología Farmacéutica </strong> <br><br> <img src=\'/static/logos/UTSJR.png\' alt=\'UTSJR\' class=\'university-logo\'> Universidad Tecnológica de San Juan del Río ')">
+                        Técnico Superior Universitario en Química en Tecnología Farmacéutica 
+                    </a>
+
+                    <a href="#" onclick="selectItem(this), showInfo('<strong> Técnico Superior Universitario En Química Industrial </strong> <br><br> <img src=\'/static/logos/UTSJR.png\' alt=\'UTSJR\' class=\'university-logo\'> Universidad Tecnológica de San Juan del Río ')">
+                        Técnico Superior Universitario En Química Industrial
+                    </a>
+
+                    <a href="#" onclick="selectItem(this), showInfo('<strong> Técnico superior universitario en prótesis dental </strong> <br><br> <img src=\'/static/logos/UAQ.jpg\' alt=\'UAQ\' class=\'university-logo\'> Universidad Autónoma de Querétaro ')">
+                        Técnico superior universitario en prótesis dental
+                    </a>
+
+                    <a href="#" onclick="selectItem(this), showInfo('<strong> Licenciatura en microbiología </strong> <br><br> <img src=\'/static/logos/UAQ.jpg\' alt=\'UAQ\' class=\'university-logo\'> Universidad Autónoma de Querétaro ')">
+                        Licenciatura en microbiología
+                    </a>
+
+                    <a href="#" onclick="selectItem(this), showInfo('<strong> Licenciatura en ciencias de la tierra </strong> <br><br> <img src=\'/static/logos/UNAM.jpg\' alt=\'UNAM\' class=\'university-logo\'> Universidad Nacional Autónoma de México ')">
+                        Licenciatura en ciencias de la tierra
+                    </a>
+
+                    <a href="#" onclick="selectItem(this), showInfo('<strong> Licenciatura en ciencias genómicas </strong> <br><br> <img src=\'/static/logos/UNAM.jpg\' alt=\'UNAM\' class=\'university-logo\'> Universidad Nacional Autónoma de México ')">
+                        Licenciatura en ciencias genómicas
+                    </a>
+
+                    <a href="#" onclick="selectItem(this), showInfo('<strong> Licenciatura en biología </strong> <br><br> <img src=\'/static/logos/UAQ.jpg\' alt=\'UAQ\' class=\'university-logo\'> Universidad Autónoma de Querétaro ')">
+                        Licenciatura en biología
+                    </a>
+
+                    <a href="#" onclick="selectItem(this), showInfo('<strong> Licenciatura en geografía ambiental </strong> <br><br> <img src=\'/static/logos/LOGO.\' alt=\'UNIVERSIDAD\' class=\'university-logo\'> Universidad Autónoma de Querétaro ')">
+                        Licenciatura en geografía ambiental
+                    </a>
+
+                    <a href="#" onclick="selectItem(this), showInfo('<strong> Ingeniería agroquímica </strong> <br><br> <img src=\'/static/logos/UAQ.jpg\' alt=\'UAQ\' class=\'university-logo\'> Universidad Autónoma de Querétaro ')">
+                        Ingeniería agroquímica
+                    </a>
+
+                    <a href="#" onclick="selectItem(this), showInfo('<strong> Licenciatura en órtesis y prótesis </strong> <br><br> <img src=\'/static/logos/UNAM.jpg\' alt=\'UNAM\' class=\'university-logo\'> Universidad Nacional Autónoma de México ')">
+                        Licenciatura en órtesis y prótesis
+                    </a>
+
+                    <a href="#" onclick="selectItem(this), showInfo('<strong> Licenciatura en enfermería </strong> <br><br> <img src=\'/static/logos/UAQ.jpg\' alt=\'UAQ\' class=\'university-logo\'> Universidad Autónoma de Querétaro ')">
+                        Licenciatura en enfermería
+                    </a>
+
+                    <a href="#" onclick="selectItem(this), showInfo('<strong> Licenciatura en producción agropecuaria sustentable </strong> <br><br> <img src=\'/static/logos/UAQ.jpg\' alt=\'UAQ\' class=\'university-logo\'> Universidad Autónoma de Querétaro ')">
+                        Licenciatura en producción agropecuaria sustentable
+                    </a>
+
+                    <a href="#" onclick="selectItem(this), showInfo('<strong> Ingeniería biomédica </strong> <br><br> <img src=\'/static/logos/UAQ.jpg\' alt=\'UAQ\' class=\'university-logo\'> Universidad Autónoma de Querétaro ')">
+                        Ingeniería biomédica
+                    </a>
+
+                    <a href="#" onclick="selectItem(this), showInfo('<strong> Licenciatura en horticultura ambiental </strong> <br><br> <img src=\'/static/logos/UAQ.jpg\' alt=\'UAQ\' class=\'university-logo\'> Universidad Autónoma de Querétaro ')">
+                        Licenciatura en horticultura ambiental
+                    </a>
+
+                    <a href="#" onclick="selectItem(this), showInfo('<strong> Licenciatura en optometría </strong> <br><br> <img src=\'/static/logos/UAQ.jpg\' alt=\'UAQ\' class=\'university-logo\'> Universidad Autónoma de Querétaro ')">
+                        Licenciatura en optometría
+                    </a>
+
+                    <a href="#" onclick="selectItem(this), showInfo('<strong> Licenciatura en neurociencias </strong> <br><br> <img src=\'/static/logos/UNAM.jpg\' alt=\'UNAM\' class=\'university-logo\'> Universidad Nacional Autónoma de México ')">
+                        Licenciatura en neurociencias
+                    </a>
+
+                    <a href="#" onclick="selectItem(this), showInfo('<strong> Ingeniería químico en alimentos </strong> <br><br> <img src=\'/static/logos/UAQ.jpg\' alt=\'UAQ\' class=\'university-logo\'> Universidad Autónoma de Querétaro ')">
+                        Ingeniería químico en alimentos
+                    </a>
+
+                    <a href="#" onclick="selectItem(this), showInfo('<strong> Licenciatura en nutrición </strong> <br><br> <img src=\'/static/logos/UAQ.jpg\' alt=\'UAQ\' class=\'university-logo\'> Universidad Autónoma de Querétaro ')">
+                        Licenciatura en nutrición
+                    </a>
+
+                    <a href="#" onclick="selectItem(this), showInfo('<strong> Médico general </strong> <br><br> <img src=\'/static/logos/UAQ.jpg\' alt=\'UAQ\' class=\'university-logo\'> Universidad Autónoma de Querétaro ')">
+                        Médico general
+                    </a>
+
+                    <a href="#" onclick="selectItem(this), showInfo('<strong> Ingeniería química </strong> <br><br> <img src=\'/static/logos/UAQ.jpg\' alt=\'UAQ\' class=\'university-logo\'> Universidad Autónoma de Querétaro ')">
+                        Ingeniería química
+                    </a>
+
+                    <a href="#" onclick="selectItem(this), showInfo('<strong> Ingeniería químico ambiental </strong> <br><br> <img src=\'/static/logos/UAQ.jpg\' alt=\'UAQ\' class=\'university-logo\'> Universidad Autónoma de Querétaro ')">
+                        Ingeniería químico ambiental
+                    </a>
+
+                    <a href="#" onclick="selectItem(this), showInfo('<strong> Químico farmacéutico biólogo </strong> <br><br> <img src=\'/static/logos/UAQ.jpg\' alt=\'UAQ\' class=\'university-logo\'> Universidad Autónoma de Querétaro ')">
+                        Químico farmacéutico biólogo
+                    </a>
+
+                    <a href="#" onclick="selectItem(this), showInfo('<strong> Médico veterinario zootecnista </strong> <br><br> <img src=\'/static/logos/UAQ.jpg\' alt=\'UAQ\' class=\'university-logo\'> Universidad Autónoma de Querétaro ')">
+                        Médico veterinario zootecnista
+                    </a>
+
+                    <a href="#" onclick="selectItem(this), showInfo('<strong> Ingeniería agroindustrial </strong> <br><br> <img src=\'/static/logos/UAQ.jpg\' alt=\'UAQ\' class=\'university-logo\'> Universidad Autónoma de Querétaro ')">
+                        Ingeniería agroindustrial
+                    </a>
+
+                    <a href="#" onclick="selectItem(this), showInfo('<strong> Licenciatura en odontología </strong> <br><br> <img src=\'/static/logos/UAQ.jpg\' alt=\'UAQ\' class=\'university-logo\'> Universidad Autónoma de Querétaro ')">
+                        Licenciatura en odontología
+                    </a>
+
+                    <a href="#" onclick="selectItem(this), showInfo('<strong> Técnico superior universitario en medicina prehospitalaria integral </strong> <br><br> <img src=\'/static/logos/UAQ.jpg\' alt=\'UAQ\' class=\'university-logo\'> Universidad Autónoma de Querétaro ')">
+                        Técnico superior universitario en medicina prehospitalaria integral
+                    </a>
+
+                    <a href="#" onclick="selectItem(this), showInfo('<strong> Licenciatura en enfermería por nivelación </strong> <br><br> <img src=\'/static/logos/UAQ.jpg\' alt=\'UAQ\' class=\'university-logo\'> Universidad Autónoma de Querétaro ')">
+                        Licenciatura en enfermería por nivelación
+                    </a>
+
                 </div>
             </div>
 
@@ -144,44 +555,159 @@
                 <button class="dropdown-btn" onclick="toggleDropdown('dropdown3')">🗳️ Ciencias sociales</button>
                 <div id="dropdown3" class="dropdown-content">
                     <input class="dropdown-search" type="text" id="searchInput3" onkeyup="filterDropdown('dropdown3', 'searchInput3')" placeholder="Buscar carrera...">
-                    <a onclick="selectItem(this), showInfo('Universidades disponibles: Universidad Tecnológica de Corregidora')">Técnico superior universitario en turismo área desarrollo de productos alternativos</a>
-                    <a onclick="selectItem(this), showInfo('Universidades disponibles: Universidad Tecnológica de Querétaro')">Técnico superior universitario en administración área capital humano</a>
-                    <a onclick="selectItem(this), showInfo('Universidades disponibles: Universidad Tecnológica de Querétaro')">Técnico superior universitario en desarrollo de negocios área servicios posventa automotriz</a>
-                    <a onclick="selectItem(this), showInfo('Universidades disponibles: Universidad Tecnológica de San Juan del Río')">Técnico superior universitario en asesor financiero cooperativo</a>
-                    <a onclick="selectItem(this), showInfo('Universidades disponibles: Universidad Tecnológica de San Juan del Río, Universidad Tecnológica de Querétaro')">Técnico superior universitario en desarrollo de negocios área mercadotecnia</a>
-                    <a onclick="selectItem(this), showInfo('Universidades disponibles: Instituto del Servicio Profesional de Carrera')">Técnico superior universitario como policía investigador</a>
-                    <a onclick="selectItem(this), showInfo('Universidades disponibles: Universidad Autónoma de Querétaro')">Licenciatura en relaciones internacionales</a>
-                    <a onclick="selectItem(this), showInfo('Universidades disponibles: Universidad Autónoma de Querétaro')">Licenciatura en administración</a>
-                    <a onclick="selectItem(this), showInfo('Universidades disponibles: Universidad Autónoma de Querétaro')">Licenciatura en filosofía</a>
-                    <a onclick="selectItem(this), showInfo('Universidades disponibles: Universidad Autónoma de Querétaro')">Licenciatura en desarrollo humano para la sustentabilidad</a>
-                    <a onclick="selectItem(this), showInfo('Universidades disponibles: Universidad Autónoma de Querétaro')">Licenciatura en desarrollo local</a>
-                    <a onclick="selectItem(this), showInfo('Universidades disponibles: Universidad Autónoma de Querétaro')">Licenciatura en economía empresarial</a>
-                    <a onclick="selectItem(this), showInfo('Universidades disponibles: Universidad Autónoma de Querétaro')">Licenciatura en lenguas modernas en francés</a>
-                    <a onclick="selectItem(this), showInfo('Universidades disponibles: Universidad Autónoma de Querétaro')">Licenciatura en antropología</a>
-                    <a onclick="selectItem(this), showInfo('Universidades disponibles: Universidad Autónoma de Querétaro')">Licenciatura en administración de tecnologías de información</a>
-                    <a onclick="selectItem(this), showInfo('Universidades disponibles: Universidad Autónoma de Querétaro')">Licenciatura en comunicación y periodismo</a>
-                    <a onclick="selectItem(this), showInfo('Universidades disponibles: Universidad Autónoma de Querétaro')">Licenciatura en gestión del turismo cultural y natural</a>
-                    <a onclick="selectItem(this), showInfo('Universidades disponibles: Universidad Autónoma de Querétaro')">Contador público</a>
-                    <a onclick="selectItem(this), showInfo('Universidades disponibles: Universidad Autónoma de Querétaro')">Licenciatura en criminología</a>
-                    <a onclick="selectItem(this), showInfo('Universidades disponibles: Universidad Autónoma de Querétaro')">Licenciatura en negocios y comercio internacional</a>
-                    <a onclick="selectItem(this), showInfo('Universidades disponibles: Universidad Politécnica de Querétaro, Universidad Nacional Autónoma de México')">Licenciatura en negocios internacionales</a>
-                    <a onclick="selectItem(this), showInfo('Universidades disponibles: Universidad Autónoma de Querétaro')">Licenciatura en ciencias políticas y administración pública</a>
-                    <a onclick="selectItem(this), showInfo('Universidades disponibles: Universidad Autónoma de Querétaro')">Licenciatura en derecho</a>
-                    <a onclick="selectItem(this), showInfo('Universidades disponibles: Universidad Autónoma de Querétaro')">Licenciatura en lenguas modernas en inglés</a>
-                    <a onclick="selectItem(this), showInfo('Universidades disponibles: Universidad Autónoma de Querétaro')">Licenciatura en negocios turísticos</a>
-                    <a onclick="selectItem(this), showInfo('Universidades disponibles: Tecnológico Nacional de México, campus Querétaro')">Ingeniería en gestión empresarial</a>
-                    <a onclick="selectItem(this), showInfo('Universidades disponibles: Tecnológico Nacional de México, campus Querétaro, Universidad Autónoma de Querétaro')">Licenciatura en administración</a>
-                    <a onclick="selectItem(this), showInfo('Universidades disponibles: Universidad Autónoma de Querétaro')">Licenciatura en gestión y desarrollo de empresas sociales</a>
-                    <a onclick="selectItem(this), showInfo('Universidades disponibles: Universidad Politécnica de Querétaro')">Licenciatura en administración y gestión empresarial</a>
-                    <a onclick="selectItem(this), showInfo('Universidades disponibles: Universidad Politécnica de Querétaro')">Licenciatura en gestión de pequeñas y medianas empresas</a>
-                    <a onclick="selectItem(this), showInfo('Universidades disponibles: Universidad Tecnológica de San Juan del Río')">Licenciatura en innovación de negocios y mercadotecnia</a>
-                    <a onclick="selectItem(this), showInfo('Universidades disponibles: Universidad Autónoma de Querétaro')">Licenciatura en gastronomía</a>
-                    <a onclick="selectItem(this), showInfo('Universidades disponibles: Universidad Tecnológica de Querétaro')">Licenciatura en gestión del capital humano</a>
-                    <a onclick="selectItem(this), showInfo('Universidades disponibles: Universidad Tecnológica de Querétaro')">Licenciatura en innovación de negocios y mercadotecnia</a>
-                    <a onclick="selectItem(this), showInfo('Universidades disponibles: Universidad Autónoma de Querétaro')">Licenciatura en administración financiera</a>
-                    <a onclick="selectItem(this), showInfo('Universidades disponibles: Universidad Autónoma de Querétaro')">Licenciatura en psicología</a>
-                    <a onclick="selectItem(this), showInfo('Universidades disponibles: Universidad Autónoma de Querétaro')">Licenciado en gestión pública y gobierno</a>
-                    <a onclick="selectItem(this), showInfo('Universidades disponibles: Universidad Autónoma de Querétaro')">Licenciatura en estudios socioterritoriales</a>                    
+                    
+                    <a href="#" onclick="selectItem(this), showInfo('<strong> Licenciatura en Administración </strong> <br><br> <img src=\'/static/logos/UTEQ.png\' alt=\'UTEQ\' class=\'university-logo\'> Universidad Tecnológica de Querétaro ')">
+                        Licenciatura en Administración
+                    </a>
+
+                    <a href="#" onclick="selectItem(this), showInfo('<strong> Licenciatura en Administración y Gestión Empresarial </strong> <br><br> <img src=\'/static/logos/UPQ.png\' alt=\'UPQ\' class=\'university-logo\'> Universidad Politécnica de Querétaro ')">
+                        Licenciatura en Administración y Gestión Empresarial
+                    </a>
+
+                    <a href="#" onclick="selectItem(this), showInfo('<strong> Licenciatura en Gestión y Desarrollo Turístico </strong> <br><br> <img src=\'/static/logos/UTC.jpg\' alt=\'UTC\' class=\'university-logo\'> Universidad Tecnológica de Corregidora ')">
+                        Licenciatura en Gestión y Desarrollo Turístico
+                    </a>
+
+                    <a href="#" onclick="selectItem(this), showInfo('<strong> Licenciatura en Negocios Internacionales </strong> <br><br> <img src=\'/static/logos/UPQ.png\' alt=\'UPQ\' class=\'university-logo\'> Universidad Politécnica de Querétaro <br><br> <img src=\'/static/logos/UNAM.jpg\' alt=\'UNAM\' class=\'university-logo\'> Universidad Nacional Autónoma de México ')">
+                        Licenciatura en Negocios Internacionales
+                    </a>
+
+                    <a href="#" onclick="selectItem(this), showInfo('<strong> Licenciatura en Negocios y Mercadotecnia </strong> <br><br> <img src=\'/static/logos/UTSJR.png\' alt=\'UTSJR\' class=\'university-logo\'> Universidad Tecnológica de San Juan del Río <br><br> <img src=\'/static/logos/UTSJR.png\' alt=\'UTSJR\' class=\'university-logo\'> Universidad Tecnológica de San Juan del Río, Jalpan <br><br> <img src=\'/static/logos/UTEQ.png\' alt=\'UTEQ\' class=\'university-logo\'> Universidad Tecnológica de Querétaro ')">
+                        Licenciatura en Negocios y Mercadotecnia
+                    </a>
+
+                    <a href="#" onclick="selectItem(this), showInfo('<strong> Técnico Superior Universitario en Asesor Financiero </strong> <br><br> <img src=\'/static/logos/UTSJR.png\' alt=\'UTSJR\' class=\'university-logo\'> Universidad Tecnológica de San Juan del Río, Jalpan ')">
+                        Técnico Superior Universitario en Asesor Financiero 
+                    </a>
+
+                    <a href="#" onclick="selectItem(this), showInfo('<strong> Técnico Superior Universitario en Entornos Virtuales y Negocios Digitales </strong> <br><br> <img src=\'/static/logos/UTC.jpg\' alt=\'UTC\' class=\'university-logo\'> Universidad Tecnológica de Corregidora <br><br> <img src=\'/static/logos/UTSJR.png\' alt=\'UTSJR\' class=\'university-logo\'> Universidad Tecnológica de San Juan del Río ')">
+                        Técnico Superior Universitario en Entornos Virtuales y Negocios Digitales
+                    </a>
+
+                    <a href="#" onclick="selectItem(this), showInfo('<strong> Técnico Superior Universitario en Gestión de Capital Humano </strong> <br><br> <img src=\'/static/logos/UPQ.png\' alt=\'UPQ\' class=\'university-logo\'> Universidad Politécnica de Querétaro ')">
+                        Técnico Superior Universitario en Gestión de Capital Humano
+                    </a>
+
+                    <a href="#" onclick="selectItem(this), showInfo('<strong> Técnico Superior Universitario en Gestión del Capital Humano </strong> <br><br> <img src=\'/static/logos/UTEQ.png\' alt=\'UTEQ\' class=\'university-logo\'> Universidad Tecnológica de Querétaro ')">
+                        Técnico Superior Universitario en Gestión del Capital Humano
+                    </a>
+
+                    <a href="#" onclick="selectItem(this), showInfo('<strong> Técnico Superior Universitario en Mercadotecnia </strong> <br><br> <img src=\'/static/logos/UTEQ.png\' alt=\'UTEQ\' class=\'university-logo\'> Universidad Tecnológica de Querétaro <br><br> <img src=\'/static/logos/UTSJR.png\' alt=\'UTSJR\' class=\'university-logo\'> Universidad Tecnológica de San Juan del Río <br><br> <img src=\'/static/logos/UTSJR.png\' alt=\'UTSJR\' class=\'university-logo\'> Universidad Tecnológica de San Juan del Río, Jalpan ')">
+                        Técnico Superior Universitario en Mercadotecnia
+                    </a>
+
+                    <a href="#" onclick="selectItem(this), showInfo('<strong> Técnico Superior Universitario en Turismo </strong> <br><br> <img src=\'/static/logos/UTC.jpg\' alt=\'UTC\' class=\'university-logo\'> Universidad Tecnológica de Corregidora <br><br> <img src=\'/static/logos/UTSJR.png\' alt=\'UTSJR\' class=\'university-logo\'> Universidad Tecnológica de San Juan del Río ')">
+                        Técnico Superior Universitario en Turismo
+                    </a>
+
+                    <a href="#" onclick="selectItem(this), showInfo('<strong> Técnico superior universitario como policía investigador </strong> <br><br> <img src=\'/static/logos/ISPC.\' alt=\'ISPC\' class=\'university-logo\'> Instituto del Servicio Profesional de Carrera ')">
+                        Técnico superior universitario como policía investigador
+                    </a>
+
+                    <a href="#" onclick="selectItem(this), showInfo('<strong> Licenciatura en relaciones internacionales </strong> <br><br> <img src=\'/static/logos/UAQ.jpg\' alt=\'UAQ\' class=\'university-logo\'> Universidad Autónoma de Querétaro ')">
+                        Licenciatura en relaciones internacionales
+                    </a>
+
+                    <a href="#" onclick="selectItem(this), showInfo('<strong> Licenciatura en administración </strong> <br><br> <img src=\'/static/logos/UAQ.jpg\' alt=\'UAQ\' class=\'university-logo\'> Universidad Autónoma de Querétaro ')">
+                        Licenciatura en administración
+                    </a>
+
+                    <a href="#" onclick="selectItem(this), showInfo('<strong> Licenciatura en filosofía </strong> <br><br> <img src=\'/static/logos/UAQ.jpg\' alt=\'UAQ\' class=\'university-logo\'> Universidad Autónoma de Querétaro ')">
+                        Licenciatura en filosofía
+                    </a>
+
+                    <a href="#" onclick="selectItem(this), showInfo('<strong> Licenciatura en desarrollo humano para la sustentabilidad </strong> <br><br> <img src=\'/static/logos/UAQ.jpg\' alt=\'UAQ\' class=\'university-logo\'> Universidad Autónoma de Querétaro ')">
+                        Licenciatura en desarrollo humano para la sustentabilidad
+                    </a>
+
+                    <a href="#" onclick="selectItem(this), showInfo('<strong> Licenciatura en desarrollo local </strong> <br><br> <img src=\'/static/logos/UAQ.jpg\' alt=\'UAQ\' class=\'university-logo\'> Universidad Autónoma de Querétaro ')">
+                        Licenciatura en desarrollo local
+                    </a>
+
+                    <a href="#" onclick="selectItem(this), showInfo('<strong> Licenciatura en economía empresarial </strong> <br><br> <img src=\'/static/logos/UAQ.jpg\' alt=\'UAQ\' class=\'university-logo\'> Universidad Autónoma de Querétaro ')">
+                        Licenciatura en economía empresarial
+                    </a>
+
+                    <a href="#" onclick="selectItem(this), showInfo('<strong> Licenciatura en lenguas modernas en francés </strong> <br><br> <img src=\'/static/logos/UAQ.jpg\' alt=\'UAQ\' class=\'university-logo\'> Universidad Autónoma de Querétaro ')">
+                        Licenciatura en lenguas modernas en francés
+                    </a>
+
+                    <a href="#" onclick="selectItem(this), showInfo('<strong> Licenciatura en antropología </strong> <br><br> <img src=\'/static/logos/UAQ.jpg\' alt=\'UAQ\' class=\'university-logo\'> Universidad Autónoma de Querétaro ')">
+                        Licenciatura en antropología
+                    </a>
+
+                    <a href="#" onclick="selectItem(this), showInfo('<strong> Licenciatura en administración de tecnologías de información </strong> <br><br> <img src=\'/static/logos/UAQ.jpg\' alt=\'UAQ\' class=\'university-logo\'> Universidad Autónoma de Querétaro ')">
+                        Licenciatura en administración de tecnologías de información
+                    </a>
+
+                    <a href="#" onclick="selectItem(this), showInfo('<strong> Licenciatura en comunicación y periodismo </strong> <br><br> <img src=\'/static/logos/UAQ.jpg\' alt=\'UAQ\' class=\'university-logo\'> Universidad Autónoma de Querétaro ')">
+                        Licenciatura en comunicación y periodismo
+                    </a>
+
+                    <a href="#" onclick="selectItem(this), showInfo('<strong> Licenciatura en gestión del turismo cultural y natural </strong> <br><br> <img src=\'/static/logos/UAQ.jpg\' alt=\'UAQ\' class=\'university-logo\'> Universidad Autónoma de Querétaro ')">
+                        Licenciatura en gestión del turismo cultural y natural
+                    </a>
+
+                    <a href="#" onclick="selectItem(this), showInfo('<strong> Contador público </strong> <br><br> <img src=\'/static/logos/UAQ.jpg\' alt=\'UAQ\' class=\'university-logo\'> Universidad Autónoma de Querétaro ')">
+                        Contador público
+                    </a>
+
+                    <a href="#" onclick="selectItem(this), showInfo('<strong> Licenciatura en criminología </strong> <br><br> <img src=\'/static/logos/UAQ.jpg\' alt=\'UAQ\' class=\'university-logo\'> Universidad Autónoma de Querétaro ')">
+                        Licenciatura en criminología
+                    </a>
+
+                    <a href="#" onclick="selectItem(this), showInfo('<strong> Licenciatura en negocios y comercio internacional </strong> <br><br> <img src=\'/static/logos/UAQ.jpg\' alt=\'UAQ\' class=\'university-logo\'> Universidad Autónoma de Querétaro ')">
+                        Licenciatura en negocios y comercio internacional
+                    </a>
+
+                    <a href="#" onclick="selectItem(this), showInfo('<strong> Licenciatura en ciencias políticas y administración pública </strong> <br><br> <img src=\'/static/logos/UAQ.jpg\' alt=\'UAQ\' class=\'university-logo\'> Universidad Autónoma de Querétaro ')">
+                        Licenciatura en ciencias políticas y administración pública
+                    </a>
+
+                    <a href="#" onclick="selectItem(this), showInfo('<strong> Licenciatura en derecho </strong> <br><br> <img src=\'/static/logos/UAQ.jpg\' alt=\'UAQ\' class=\'university-logo\'> Universidad Autónoma de Querétaro ')">
+                        Licenciatura en derecho
+                    </a>
+
+                    <a href="#" onclick="selectItem(this), showInfo('<strong> Licenciatura en lenguas modernas en inglés </strong> <br><br> <img src=\'/static/logos/UAQ.jpg\' alt=\'UAQ\' class=\'university-logo\'> Universidad Autónoma de Querétaro ')">
+                        Licenciatura en lenguas modernas en inglés
+                    </a>
+
+                    <a href="#" onclick="selectItem(this), showInfo('<strong> Licenciatura en negocios turísticos </strong> <br><br> <img src=\'/static/logos/UAQ.jpg\' alt=\'UAQ\' class=\'university-logo\'> Universidad Autónoma de Querétaro ')">
+                        Licenciatura en negocios turísticos
+                    </a>
+
+                    <a href="#" onclick="selectItem(this), showInfo('<strong> Ingeniería en gestión empresarial </strong> <br><br> <img src=\'/static/logos/TECNM.png\' alt=\'TECNM\' class=\'university-logo\'> Tecnológico Nacional de México, campus Querétaro ')">
+                        Ingeniería en gestión empresarial
+                    </a>
+
+                    <a href="#" onclick="selectItem(this), showInfo('<strong> Licenciatura en administración </strong> <br><br> <img src=\'/static/logos/TECNM.png\' alt=\'TECNM\' class=\'university-logo\'> Tecnológico Nacional de México, campus Querétaro <br><br> <img src=\'/static/logos/UAQ.jpg\' alt=\'UAQ\' class=\'university-logo\'> Universidad Autónoma de Querétaro ')">
+                        Licenciatura en administración
+                    </a>
+
+                    <a href="#" onclick="selectItem(this), showInfo('<strong> Licenciatura en gestión y desarrollo de empresas sociales </strong> <br><br> <img src=\'/static/logos/UAQ.jpg\' alt=\'UAQ\' class=\'university-logo\'> Universidad Autónoma de Querétaro ')">
+                        Licenciatura en gestión y desarrollo de empresas sociales
+                    </a>
+
+                    <a href="#" onclick="selectItem(this), showInfo('<strong> Licenciatura en gastronomía </strong> <br><br> <img src=\'/static/logos/UAQ.jpg\' alt=\'UAQ\' class=\'university-logo\'> Universidad Autónoma de Querétaro ')">
+                        Licenciatura en gastronomía
+                    </a>
+
+                    <a href="#" onclick="selectItem(this), showInfo('<strong> Licenciatura en administración financiera </strong> <br><br> <img src=\'/static/logos/UAQ.jpg\' alt=\'UAQ\' class=\'university-logo\'> Universidad Autónoma de Querétaro ')">
+                        Licenciatura en administración financiera
+                    </a>
+
+                    <a href="#" onclick="selectItem(this), showInfo('<strong> Licenciatura en psicología </strong> <br><br> <img src=\'/static/logos/UAQ.jpg\' alt=\'UAQ\' class=\'university-logo\'> Universidad Autónoma de Querétaro ')">
+                        Licenciatura en psicología
+                    </a>
+
+                    <a href="#" onclick="selectItem(this), showInfo('<strong> Licenciado en gestión pública y gobierno </strong> <br><br> <img src=\'/static/logos/UAQ.jpg\' alt=\'UAQ\' class=\'university-logo\'> Universidad Autónoma de Querétaro ')">
+                        Licenciado en gestión pública y gobierno
+                    </a>
+
+                    <a href="#" onclick="selectItem(this), showInfo('<strong> Licenciatura en estudios socioterritoriales </strong> <br><br> <img src=\'/static/logos/UAQ.jpg\' alt=\'UAQ\' class=\'university-logo\'> Universidad Autónoma de Querétaro ')">
+                        Licenciatura en estudios socioterritoriales
+                    </a>
+
                 </div>
             </div>
 
@@ -189,64 +715,202 @@
                 <button class="dropdown-btn" onclick="toggleDropdown('dropdown4')">🎭 Humanidades y artes</button>
                 <div id="dropdown4" class="dropdown-content">
                     <input class="dropdown-search" type="text" id="searchInput4" onkeyup="filterDropdown('dropdown4', 'searchInput4')" placeholder="Buscar carrera...">
-                    <a onclick="selectItem(this), showInfo('Universidades disponibles: Universidad Pedagógica Nacional')">Licenciatura en educación preescolar indígena</a>
-                    <a onclick="selectItem(this), showInfo('Universidades disponibles: Centenaria y Benemérita Escuela Normal del Estado de Querétaro Andrés Balvanera')">Licenciatura en enseñanza y aprendizaje de las matemáticas en educación secundaria</a>
-                    <a onclick="selectItem(this), showInfo('Universidades disponibles: Universidad Autónoma de Querétaro')">Profesional asociado en enseñanza de la lengua</a>
-                    <a onclick="selectItem(this), showInfo('Universidades disponibles: Centenaria y Benemérita Escuela Normal del Estado de Querétaro Andrés Balvanera')">Licenciatura en educación preescolar</a>
-                    <a onclick="selectItem(this), showInfo('Universidades disponibles: Universidad Pedagógica Nacional')">Licenciatura en intervención educativa</a>
-                    <a onclick="selectItem(this), showInfo('Universidades disponibles: Centenaria y Benemérita Escuela Normal del Estado de Querétaro Andrés Balvanera')">Licenciatura en inclusión educativa</a>
-                    <a onclick="selectItem(this), showInfo('Universidades disponibles: Universidad Autónoma de Querétaro')">Licenciatura en animación digital y medios interactivos</a>
-                    <a onclick="selectItem(this), showInfo('Universidades disponibles: Universidad Autónoma de Querétaro')">Licenciatura en restauración de bienes muebles</a>
-                    <a onclick="selectItem(this), showInfo('Universidades disponibles: Universidad Autónoma de Querétaro')">Licenciatura en diseño y comunicación visual</a>
-                    <a onclick="selectItem(this), showInfo('Universidades disponibles: Universidad Autónoma de Querétaro')">Licenciatura en innovación y gestión educativa</a>
-                    <a onclick="selectItem(this), showInfo('Universidades disponibles: Universidad Autónoma de Querétaro')">Licenciatura en lenguas modernas en español</a>
-                    <a onclick="selectItem(this), showInfo('Universidades disponibles: Universidad Pedagógica Nacional')">Licenciatura en educación</a>
-                    <a onclick="selectItem(this), showInfo('Universidades disponibles: Centenaria y Benemérita Escuela Normal del Estado de Querétaro Andrés Balvanera')">Licenciatura en enseñanza y aprendizaje de la biología en educación secundaria</a>
-                    <a onclick="selectItem(this), showInfo('Universidades disponibles: Centenaria y Benemérita Escuela Normal del Estado de Querétaro Andrés Balvanera')">Licenciatura en enseñanza y aprendizaje de la geografía en educación secundaria</a>
-                    <a onclick="selectItem(this), showInfo('Universidades disponibles: Universidad Autónoma de Querétaro')">Licenciatura en docencia del arte</a>
-                    <a onclick="selectItem(this), showInfo('Universidades disponibles: Universidad Autónoma de Querétaro')">Licenciatura en artes visuales</a>
-                    <a onclick="selectItem(this), showInfo('Universidades disponibles: Centenaria y Benemérita Escuela Normal del Estado de Querétaro Andrés Balvanera')">Licenciatura en educación física</a>
-                    <a onclick="selectItem(this), showInfo('Universidades disponibles: Centenaria y Benemérita Escuela Normal del Estado de Querétaro Andrés Balvanera')">Licenciatura en enseñanza y aprendizaje del español en educación secundaria</a>
-                    <a onclick="selectItem(this), showInfo('Universidades disponibles: Centenaria y Benemérita Escuela Normal del Estado de Querétaro Andrés Balvanera')">Licenciatura en educación primaria</a>
-                    <a onclick="selectItem(this), showInfo('Universidades disponibles: Universidad Tecnológica de Querétaro')">Técnico superior universitario en lengua inglesa</a>
-                    <a onclick="selectItem(this), showInfo('Universidades disponibles: Universidad Pedagógica Nacional')">Licenciatura en educación primaria indígena</a>
-                    <a onclick="selectItem(this), showInfo('Universidades disponibles: Centenaria y Benemérita Escuela Normal del Estado de Querétaro Andrés Balvanera')">Licenciatura en enseñanza y aprendizaje del inglés en educación secundaria</a>
-                    <a onclick="selectItem(this), showInfo('Universidades disponibles: Universidad Autónoma de Querétaro')">Licenciatura en humanidades y producción de imágenes</a>
-                    <a onclick="selectItem(this), showInfo('Universidades disponibles: Universidad Autónoma de Querétaro')">Licenciatura en historia</a>
-                    <a onclick="selectItem(this), showInfo('Universidades disponibles: Universidad Autónoma de Querétaro')">Licenciatura en danza folklórica mexicana</a>
-                    <a onclick="selectItem(this), showInfo('Universidades disponibles: Escuela de Laudería')">Licenciatura en laudería</a>
-                    <a onclick="selectItem(this), showInfo('Universidades disponibles: Universidad Autónoma de Querétaro')">Licenciatura en actuación</a>
-                    <a onclick="selectItem(this), showInfo('Universidades disponibles: Escuela Normal Superior de Querétaro, Centenaria y Benemérita Escuela Normal del Estado de Querétaro Andrés Balvanera')">Licenciatura en enseñanza y aprendizaje de la historia en educación secundaria</a>
-                    <a onclick="selectItem(this), showInfo('Universidades disponibles: Universidad Autónoma de Querétaro')">Licenciatura en arte danzario</a>
-                    <a onclick="selectItem(this), showInfo('Universidades disponibles: Universidad Autónoma de Querétaro')">Licenciatura en estudios literarios</a>
-                    <a onclick="selectItem(this), showInfo('Universidades disponibles: Universidad Autónoma de Querétaro')">Licenciatura en diseño industrial</a>
-                    <a onclick="selectItem(this), showInfo('Universidades disponibles: Universidad Tecnológica de Querétaro')">Licenciatura en gestión institucional educativa y curricular</a>
-                    <a onclick="selectItem(this), showInfo('Universidades disponibles: Universidad Autónoma de Querétaro')">Licenciatura en educación física y ciencias del deporte</a>
-                    <a onclick="selectItem(this), showInfo('Universidades disponibles: Universidad Autónoma de Querétaro')">Licenciatura en música</a>
-                    <a onclick="selectItem(this), showInfo('Universidades disponibles: Universidad Autónoma de Querétaro')">Licenciatura en música popular contemporánea</a>
-                    <a onclick="selectItem(this), showInfo('Universidades disponibles: Universidad Autónoma de Querétaro')">Licenciatura en educación y mediación intercultural</a>
-                    <a onclick="selectItem(this), showInfo('Universidades disponibles: Centenaria y Benemérita Escuela Normal del Estado de Querétaro Andrés Balvanera, Escuela Normal Superior de Querétaro')">Licenciatura en enseñanza y aprendizaje en telesecundaria</a>
-                    <a onclick="selectItem(this), showInfo('Universidades disponibles: Colegio Nacional de Danza Contemporánea')">Licenciatura en danza contemporánea</a>
-                    <a onclick="selectItem(this), showInfo('Universidades disponibles: Universidad Autónoma de Querétaro')">Licenciatura en composición musical para medios audiovisuales y escénicos</a>
-                    <a onclick="selectItem(this), showInfo('Universidades disponibles: Escuela Normal Superior de Querétaro, Centenaria y Benemérita Escuela Normal del Estado de Querétaro Andrés Balvanera')">Licenciatura en enseñanza y aprendizaje del español</a>
-                    <a onclick="selectItem(this), showInfo('Universidades disponibles: Centenaria y Benemérita Escuela Normal del Estado de Querétaro Andrés Balvanera')">Licenciatura en educación física</a>
-                    <a onclick="selectItem(this), showInfo('Universidades disponibles: Centenaria y Benemérita Escuela Normal del Estado de Querétaro Andrés Balvanera')">Licenciatura en inclusión educativa</a>
-                    <a onclick="selectItem(this), showInfo('Universidades disponibles: Centenaria y Benemérita Escuela Normal del Estado de Querétaro Andrés Balvanera')">Licenciatura en educación preescolar</a>
-                    <a onclick="selectItem(this), showInfo('Universidades disponibles: Centenaria y Benemérita Escuela Normal del Estado de Querétaro Andrés Balvanera')">Licenciatura en enseñanza y aprendizaje de las matemáticas</a>
-                    <a onclick="selectItem(this), showInfo('Universidades disponibles: Centenaria y Benemérita Escuela Normal del Estado de Querétaro Andrés Balvanera')">Licenciatura en educación primaria</a>
-                    <a onclick="selectItem(this), showInfo('Universidades disponibles: Centenaria y Benemérita Escuela Normal del Estado de Querétaro Andrés Balvanera')">Licenciatura en educación preescolar</a>
-                    <a onclick="selectItem(this), showInfo('Universidades disponibles: Centenaria y Benemérita Escuela Normal del Estado de Querétaro Andrés Balvanera')">Licenciatura en educación inicial</a>                                    
+
+                    <a href="#" onclick="selectItem(this), showInfo('<strong> Licenciatura en Educación </strong> <br><br> <img src=\'/static/logos/UTEQ.png\' alt=\'UTEQ\' class=\'university-logo\'> Universidad Tecnológica de Querétaro ')">
+                        Licenciatura en Educación
+                    </a>
+
+                    <a href="#" onclick="selectItem(this), showInfo('<strong> Técnico Superior Universitario en Enseñanza del Idioma Inglés </strong> <br><br> <img src=\'/static/logos/UTEQ.png\' alt=\'UTEQ\' class=\'university-logo\'> Universidad Tecnológica de Querétaro ')">
+                        Técnico Superior Universitario en Enseñanza del Idioma Inglés
+                    </a>
+
+                    <a href="#" onclick="selectItem(this), showInfo('<strong> Licenciatura en educación preescolar indígena </strong> <br><br> <img src=\'/static/logos/UPN.\' alt=\'UPN\' class=\'university-logo\'> Universidad Pedagógica Nacional ')">
+                        Licenciatura en educación preescolar indígena
+                    </a>
+
+                    <a href="#" onclick="selectItem(this), showInfo('<strong> Licenciatura en enseñanza y aprendizaje de las matemáticas en educación secundaria </strong> <br><br> <img src=\'/static/logos/CBENEQ.png\' alt=\'CBENEQ\' class=\'university-logo\'> Centenaria y Benemérita Escuela Normal del Estado de Querétaro Andrés Balvanera ')">
+                        Licenciatura en enseñanza y aprendizaje de las matemáticas en educación secundaria
+                    </a>
+
+                    <a href="#" onclick="selectItem(this), showInfo('<strong> Profesional asociado en enseñanza de la lengua </strong> <br><br> <img src=\'/static/logos/UAQ.jpg\' alt=\'UAQ\' class=\'university-logo\'> Universidad Autónoma de Querétaro ')">
+                        Profesional asociado en enseñanza de la lengua
+                    </a>
+
+                    <a href="#" onclick="selectItem(this), showInfo('<strong> Licenciatura en educación preescolar </strong> <br><br> <img src=\'/static/logos/CBENEQ.png\' alt=\'CBENEQ\' class=\'university-logo\'> Centenaria y Benemérita Escuela Normal del Estado de Querétaro Andrés Balvanera ')">
+                        Licenciatura en educación preescolar
+                    </a>
+
+                    <a href="#" onclick="selectItem(this), showInfo('<strong> Licenciatura en intervención educativa </strong> <br><br> <img src=\'/static/logos/UPN.\' alt=\'UPN\' class=\'university-logo\'> Universidad Pedagógica Nacional ')">
+                        Licenciatura en intervención educativa
+                    </a>
+
+                    <a href="#" onclick="selectItem(this), showInfo('<strong> Licenciatura en inclusión educativa </strong> <br><br> <img src=\'/static/logos/CBENEQ.png\' alt=\'CBENEQ\' class=\'university-logo\'> Centenaria y Benemérita Escuela Normal del Estado de Querétaro Andrés Balvanera ')">
+                        Licenciatura en inclusión educativa
+                    </a>
+
+                    <a href="#" onclick="selectItem(this), showInfo('<strong> Licenciatura en animación digital y medios interactivos </strong> <br><br> <img src=\'/static/logos/UAQ.jpg\' alt=\'UAQ\' class=\'university-logo\'> Universidad Autónoma de Querétaro ')">
+                        Licenciatura en animación digital y medios interactivos
+                    </a>
+
+                    <a href="#" onclick="selectItem(this), showInfo('<strong> Licenciatura en restauración de bienes muebles </strong> <br><br> <img src=\'/static/logos/UAQ.jpg\' alt=\'UAQ\' class=\'university-logo\'> Universidad Autónoma de Querétaro ')">
+                        Licenciatura en restauración de bienes muebles
+                    </a>
+
+                    <a href="#" onclick="selectItem(this), showInfo('<strong> Licenciatura en diseño y comunicación visual </strong> <br><br> <img src=\'/static/logos/UAQ.jpg\' alt=\'UAQ\' class=\'university-logo\'> Universidad Autónoma de Querétaro ')">
+                        Licenciatura en diseño y comunicación visual
+                    </a>
+
+                    <a href="#" onclick="selectItem(this), showInfo('<strong> Licenciatura en innovación y gestión educativa </strong> <br><br> <img src=\'/static/logos/UAQ.jpg\' alt=\'UAQ\' class=\'university-logo\'> Universidad Autónoma de Querétaro ')">
+                        Licenciatura en innovación y gestión educativa
+                    </a>
+
+                    <a href="#" onclick="selectItem(this), showInfo('<strong> Licenciatura en lenguas modernas en español </strong> <br><br> <img src=\'/static/logos/UAQ.jpg\' alt=\'UAQ\' class=\'university-logo\'> Universidad Autónoma de Querétaro ')">
+                        Licenciatura en lenguas modernas en español
+                    </a>
+
+                    <a href="#" onclick="selectItem(this), showInfo('<strong> Licenciatura en educación </strong> <br><br> <img src=\'/static/logos/UPN.\' alt=\'UPN\' class=\'university-logo\'> Universidad Pedagógica Nacional ')">
+                        Licenciatura en educación
+                    </a>
+
+                    <a href="#" onclick="selectItem(this), showInfo('<strong> Licenciatura en enseñanza y aprendizaje de la biología en educación secundaria </strong> <br><br> <img src=\'/static/logos/CBENEQ.png\' alt=\'CBENEQ\' class=\'university-logo\'> Centenaria y Benemérita Escuela Normal del Estado de Querétaro Andrés Balvanera ')">
+                        Licenciatura en enseñanza y aprendizaje de la biología en educación secundaria
+                    </a>
+
+                    <a href="#" onclick="selectItem(this), showInfo('<strong> Licenciatura en enseñanza y aprendizaje de la geografía en educación secundaria </strong> <br><br> <img src=\'/static/logos/CBENEQ.png\' alt=\'CBENEQ\' class=\'university-logo\'> Centenaria y Benemérita Escuela Normal del Estado de Querétaro Andrés Balvanera ')">
+                        Licenciatura en enseñanza y aprendizaje de la geografía en educación secundaria
+                    </a>
+
+                    <a href="#" onclick="selectItem(this), showInfo('<strong> Licenciatura en enseñanza y aprendizaje del español en educación secundaria </strong> <br><br> <img src=\'/static/logos/CBENEQ.png\' alt=\'CBENEQ\' class=\'university-logo\'> Centenaria y Benemérita Escuela Normal del Estado de Querétaro Andrés Balvanera ')">
+                        Licenciatura en enseñanza y aprendizaje del español en educación secundaria
+                    </a>
+
+                    <a href="#" onclick="selectItem(this), showInfo('<strong> Licenciatura en enseñanza y aprendizaje del inglés en educación secundaria </strong> <br><br> <img src=\'/static/logos/CBENEQ.png\' alt=\'CBENEQ\' class=\'university-logo\'> Centenaria y Benemérita Escuela Normal del Estado de Querétaro Andrés Balvanera ')">
+                        Licenciatura en enseñanza y aprendizaje del inglés en educación secundaria
+                    </a>
+
+                    <a href="#" onclick="selectItem(this), showInfo('<strong> Licenciatura en enseñanza y aprendizaje de la historia en educación secundaria </strong> <br><br> <img src=\'/static/logos/CBENEQ.png\' alt=\'CBENEQ\' class=\'university-logo\'> Centenaria y Benemérita Escuela Normal del Estado de Querétaro Andrés Balvanera ')">
+                        Licenciatura en enseñanza y aprendizaje de la historia en educación secundaria
+                    </a>
+
+                    <a href="#" onclick="selectItem(this), showInfo('<strong> Licenciatura en docencia del arte </strong> <br><br> <img src=\'/static/logos/UAQ.jpg\' alt=\'UAQ\' class=\'university-logo\'> Universidad Autónoma de Querétaro ')">
+                        Licenciatura en docencia del arte
+                    </a>
+
+                    <a href="#" onclick="selectItem(this), showInfo('<strong> Licenciatura en artes visuales </strong> <br><br> <img src=\'/static/logos/UAQ.jpg\' alt=\'UAQ\' class=\'university-logo\'> Universidad Autónoma de Querétaro ')">
+                        Licenciatura en artes visuales
+                    </a>
+
+                    <a href="#" onclick="selectItem(this), showInfo('<strong> Licenciatura en educación física </strong> <br><br> <img src=\'/static/logos/CBENEQ.png\' alt=\'CBENEQ\' class=\'university-logo\'> Centenaria y Benemérita Escuela Normal del Estado de Querétaro Andrés Balvanera ')">
+                        Licenciatura en educación física
+                    </a>
+
+                    <a href="#" onclick="selectItem(this), showInfo('<strong> Licenciatura en educación primaria </strong> <br><br> <img src=\'/static/logos/CBENEQ.png\' alt=\'CBENEQ\' class=\'university-logo\'> Centenaria y Benemérita Escuela Normal del Estado de Querétaro Andrés Balvanera ')">
+                        Licenciatura en educación primaria
+                    </a>
+
+                    <a href="#" onclick="selectItem(this), showInfo('<strong> Licenciatura en educación primaria indígena </strong> <br><br> <img src=\'/static/logos/UPN.\' alt=\'UPN\' class=\'university-logo\'> Universidad Pedagógica Nacional ')">
+                        Licenciatura en educación primaria indígena
+                    </a>
+
+                    <a href="#" onclick="selectItem(this), showInfo('<strong> Licenciatura en humanidades y producción de imágenes </strong> <br><br> <img src=\'/static/logos/UAQ.jpg\' alt=\'UAQ\' class=\'university-logo\'> Universidad Autónoma de Querétaro ')">
+                        Licenciatura en humanidades y producción de imágenes
+                    </a>
+
+                    <a href="#" onclick="selectItem(this), showInfo('<strong> Licenciatura en historia </strong> <br><br> <img src=\'/static/logos/UAQ.jpg\' alt=\'UAQ\' class=\'university-logo\'> Universidad Autónoma de Querétaro ')">
+                        Licenciatura en historia
+                    </a>
+
+                    <a href="#" onclick="selectItem(this), showInfo('<strong> Licenciatura en danza folklórica mexicana </strong> <br><br> <img src=\'/static/logos/UAQ.jpg\' alt=\'UAQ\' class=\'university-logo\'> Universidad Autónoma de Querétaro ')">
+                        Licenciatura en danza folklórica mexicana
+                    </a>
+
+                    <a href="#" onclick="selectItem(this), showInfo('<strong> Licenciatura en laudería </strong> <br><br> <img src=\'/static/logos/EL.\' alt=\'EL\' class=\'university-logo\'> Escuela de Laudería ')">
+                        Licenciatura en laudería
+                    </a>
+
+                    <a href="#" onclick="selectItem(this), showInfo('<strong> Licenciatura en actuación </strong> <br><br> <img src=\'/static/logos/UAQ.jpg\' alt=\'UAQ\' class=\'university-logo\'> Universidad Autónoma de Querétaro ')">
+                        Licenciatura en actuación
+                    </a>
+
+                    <a href="#" onclick="selectItem(this), showInfo('<strong> Licenciatura en arte danzario </strong> <br><br> <img src=\'/static/logos/UAQ.jpg\' alt=\'UAQ\' class=\'university-logo\'> Universidad Autónoma de Querétaro ')">
+                        Licenciatura en arte danzario
+                    </a>
+
+                    <a href="#" onclick="selectItem(this), showInfo('<strong> Licenciatura en estudios literarios </strong> <br><br> <img src=\'/static/logos/UAQ.jpg\' alt=\'UAQ\' class=\'university-logo\'> Universidad Autónoma de Querétaro ')">
+                        Licenciatura en estudios literarios
+                    </a>
+
+                    <a href="#" onclick="selectItem(this), showInfo('<strong> Licenciatura en educación física y ciencias del deporte </strong> <br><br> <img src=\'/static/logos/UAQ.jpg\' alt=\'UAQ\' class=\'university-logo\'> Universidad Autónoma de Querétaro ')">
+                        Licenciatura en educación física y ciencias del deporte
+                    </a>
+
+                    <a href="#" onclick="selectItem(this), showInfo('<strong> Licenciatura en música </strong> <br><br> <img src=\'/static/logos/UAQ.jpg\' alt=\'UAQ\' class=\'university-logo\'> Universidad Autónoma de Querétaro ')">
+                        Licenciatura en música
+                    </a>
+
+                    <a href="#" onclick="selectItem(this), showInfo('<strong> Licenciatura en música popular contemporánea </strong> <br><br> <img src=\'/static/logos/UAQ.jpg\' alt=\'UAQ\' class=\'university-logo\'> Universidad Autónoma de Querétaro ')">
+                        Licenciatura en música popular contemporánea
+                    </a>
+
+                    <a href="#" onclick="selectItem(this), showInfo('<strong> Licenciatura en educación y mediación intercultural </strong> <br><br> <img src=\'/static/logos/UAQ.jpg\' alt=\'UAQ\' class=\'university-logo\'> Universidad Autónoma de Querétaro ')">
+                        Licenciatura en educación y mediación intercultural
+                    </a>
+
+                    <a href="#" onclick="selectItem(this), showInfo('<strong> Licenciatura en enseñanza y aprendizaje en telesecundaria </strong> <br><br> <img src=\'/static/logos/CBENEQ.png\' alt=\'CBENEQ\' class=\'university-logo\'> Centenaria y Benemérita Escuela Normal del Estado de Querétaro Andrés Balvanera <br><br> <img src=\'/static/logos/ENSQ.\' alt=\'ENSQ\' class=\'university-logo\'> Escuela Normal Superior de Querétaro ')">
+                        Licenciatura en enseñanza y aprendizaje en telesecundaria
+                    </a>
+
+                    <a href="#" onclick="selectItem(this), showInfo('<strong> Licenciatura en danza contemporánea </strong> <br><br> <img src=\'/static/logos/CNDC.\' alt=\'CNDC\' class=\'university-logo\'> Colegio Nacional de Danza Contemporánea ')">
+                        Licenciatura en danza contemporánea
+                    </a>
+
+                    <a href="#" onclick="selectItem(this), showInfo('<strong> Licenciatura en composición musical para medios audiovisuales y escénicos </strong> <br><br> <img src=\'/static/logos/UAQ.jpg\' alt=\'UAQ\' class=\'university-logo\'> Universidad Autónoma de Querétaro ')">
+                        Licenciatura en composición musical para medios audiovisuales y escénicos
+                    </a>
+
+                    <a href="#" onclick="selectItem(this), showInfo('<strong> Licenciatura en enseñanza y aprendizaje del español </strong> <br><br> <img src=\'/static/logos/CBENEQ.png\' alt=\'CBENEQ\' class=\'university-logo\'> Centenaria y Benemérita Escuela Normal del Estado de Querétaro Andrés Balvanera <br><br> <img src=\'/static/logos/ENSQ.\' alt=\'ENSQ\' class=\'university-logo\'> Escuela Normal Superior de Querétaro ')">
+                        Licenciatura en enseñanza y aprendizaje del español
+                    </a>
+
+                    <a href="#" onclick="selectItem(this), showInfo('<strong> Licenciatura en educación física </strong> <br><br> <img src=\'/static/logos/CBENEQ.png\' alt=\'CBENEQ\' class=\'university-logo\'> Centenaria y Benemérita Escuela Normal del Estado de Querétaro Andrés Balvanera ')">
+                        Licenciatura en educación física
+                    </a>
+
+                    <a href="#" onclick="selectItem(this), showInfo('<strong> Licenciatura en inclusión educativa </strong> <br><br> <img src=\'/static/logos/CBENEQ.png\' alt=\'CBENEQ\' class=\'university-logo\'> Centenaria y Benemérita Escuela Normal del Estado de Querétaro Andrés Balvanera ')">
+                        Licenciatura en inclusión educativa
+                    </a>
+
+                    <a href="#" onclick="selectItem(this), showInfo('<strong> Licenciatura en educación preescolar </strong> <br><br> <img src=\'/static/logos/CBENEQ.png\' alt=\'CBENEQ\' class=\'university-logo\'> Centenaria y Benemérita Escuela Normal del Estado de Querétaro Andrés Balvanera ')">
+                        Licenciatura en educación preescolar
+                    </a>
+
+                    <a href="#" onclick="selectItem(this), showInfo('<strong> Licenciatura en enseñanza y aprendizaje de las matemáticas </strong> <br><br> <img src=\'/static/logos/CBENEQ.png\' alt=\'CBENEQ\' class=\'university-logo\'> Centenaria y Benemérita Escuela Normal del Estado de Querétaro Andrés Balvanera ')">
+                        Licenciatura en enseñanza y aprendizaje de las matemáticas
+                    </a>
+
+                    <a href="#" onclick="selectItem(this), showInfo('<strong> Licenciatura en educación primaria </strong> <br><br> <img src=\'/static/logos/CBENEQ.png\' alt=\'CBENEQ\' class=\'university-logo\'> Centenaria y Benemérita Escuela Normal del Estado de Querétaro Andrés Balvanera ')">
+                        Licenciatura en educación primaria
+                    </a>
+
+                    <a href="#" onclick="selectItem(this), showInfo('<strong> Licenciatura en educación preescolar </strong> <br><br> <img src=\'/static/logos/CBENEQ.png\' alt=\'CBENEQ\' class=\'university-logo\'> Centenaria y Benemérita Escuela Normal del Estado de Querétaro Andrés Balvanera ')">
+                        Licenciatura en educación preescolar
+                    </a>
+
+                    <a href="#" onclick="selectItem(this), showInfo('<strong> Licenciatura en educación inicial </strong> <br><br> <img src=\'/static/logos/CBENEQ.png\' alt=\'CBENEQ\' class=\'university-logo\'> Centenaria y Benemérita Escuela Normal del Estado de Querétaro Andrés Balvanera ')">
+                        Licenciatura en educación inicial
+                    </a>
+
                 </div>
             </div>
-
         </div>
 
         <!-- Display event information here -->
         <div id="info-text" class="info-box">Selecciona una carrera para ver más detalles.</div>
+        <div id="info-text" style="margin-top: 20px; font-size: 16px;"></div>
         
     </div>
     
-    <script src="{% static 'js/tablero_3paso.js'%}"></script>
+    <script src="{% static 'js/areas_profesionales_tutor.js'%}"></script>
     
 </body>
 <script>
@@ -275,6 +939,5 @@
             menu.classList.remove("active");
         }
     });
-
 </script>
 </html>
