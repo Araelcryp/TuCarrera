@@ -19,7 +19,6 @@ document.addEventListener("DOMContentLoaded", function () {
         menta: [4, 16, 25, 27, 37, 43, 44, 51]
     };
 
-    // Function to update question visibility
     function updateQuestions() {
         questions.forEach((question, index) => {
             question.style.display = index === currentQuestion ? "block" : "none";
@@ -44,18 +43,6 @@ document.addEventListener("DOMContentLoaded", function () {
         };
 
         console.log("Form data entries:", [...formData.entries()]);
-
-        formData.forEach((value, key) => {
-            const questionNumber = parseInt(key.replace('question', ''));
-            if (value === 'si') {
-                for (let category in categories) {
-                    if (categories[category].includes(questionNumber)) {
-                        scores[category]++;
-                        break;
-                    }
-                }
-            }
-        });
 
         formData.forEach((value, key) => {
             const questionNumber = parseInt(key.replace('question', ''));
@@ -114,7 +101,6 @@ document.addEventListener("DOMContentLoaded", function () {
         window.location.href = `/resultados-segundo-paso?results=${encodedResult}`;
     }
 
-    // Function to show modal
     function showModal(message) {
         const modalContent = alertModal?.querySelector("p");
         if (modalContent) {
@@ -123,7 +109,6 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
-    // Close modal logic
     closeModal?.addEventListener("click", () => {
         alertModal.style.display = "none";
     });
@@ -138,7 +123,6 @@ document.addEventListener("DOMContentLoaded", function () {
         alertModal.style.display = "none";
     });
 
-    // Navigation buttons event listeners
     nextButton.addEventListener("click", () => {
         const current = questions[currentQuestion];
         const selectedOption = current.querySelector("input[type='radio']:checked");
@@ -165,4 +149,14 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     updateQuestions();
+
+    // **Evitar que "Enter" envíe el formulario**
+    document.addEventListener("keydown", function (event) {
+        if (event.key === "Enter") {
+            let activeElement = document.activeElement;
+            if (activeElement.type === "radio") {
+                event.preventDefault();
+            }
+        }
+    });
 });

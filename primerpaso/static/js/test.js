@@ -72,7 +72,12 @@ document.addEventListener("DOMContentLoaded", function () {
             },
             body: JSON.stringify(results)
         })
-        .then(response => response.json())
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`Error en la respuesta del servidor: ${response.statusText}`);
+            }
+            return response.json();
+        })
         .then(data => {
             if (data.success) {
                 window.location.href = "/resultados-primer-paso/";  // ✅ Redirige correctamente
@@ -105,6 +110,16 @@ document.addEventListener("DOMContentLoaded", function () {
     submitButton.addEventListener("click", (event) => {
         event.preventDefault();
         calculateResults();
+    });
+
+    // **Evitar que "Enter" envíe el formulario automáticamente**
+    document.addEventListener("keydown", function (event) {
+        if (event.key === "Enter") {
+            let activeElement = document.activeElement;
+            if (activeElement.type === "radio") {
+                event.preventDefault();
+            }
+        }
     });
 
     // Función para obtener el token CSRF de Django
