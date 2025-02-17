@@ -114,7 +114,13 @@ header .menu-toggle {
     margin-bottom: 20px;
 }
 
-.instructions-container p, ol {
+.instructions-container p {
+    font-size: 16px;
+    text-align: center;
+    width: 100%;
+}
+
+.instructions-container ol {
     font-size: 16px;
     text-align: left;
     width: 100%;
