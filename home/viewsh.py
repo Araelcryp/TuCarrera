@@ -5,6 +5,9 @@ from django.shortcuts import render
 def home(request):
     return render (request, 'home.html')
 
+def temas(request):
+    return render (request, 'temas.html')
+
 def aboutprogram(request):
     return render (request, 'about-program.html')
 

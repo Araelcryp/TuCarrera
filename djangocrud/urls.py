@@ -32,6 +32,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
 
     path('', viewsh.home, name='home'),
+    path('temas/',viewsh.temas, name='temas'),
     path('aboutprogram/',viewsh.aboutprogram, name='aboutprogram'),
     path('tutor/',viewsh.tutor, name='tutor'),
     path('areas_profesionales/',viewsh.areas_profesionales, name='areas_profesionales'),

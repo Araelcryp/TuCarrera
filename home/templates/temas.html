@@ -1,0 +1,90 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Plan de Carrera</title>
+    <link rel="stylesheet" href="{% static 'css/temas.css' %}">
+</head>
+<body>
+    <header>
+        <img src="{% static 'images/LOGOS.png' %}" alt="Logo" class="logo">
+        <nav id="menu">
+            <ul>
+                <li class="back-btn">
+                    <a href="javascript:history.back()">
+                        <button>Salir</button>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <div class="menu-toggle" id="menu-toggle">&#9776;</div>
+    </header>
+
+    <main>
+        <section class="intro">
+            <h1>Construye tu futuro</h1>
+            <p>Explora cada una de las etapas clave para definir tu plan de carrera.</p>
+        </section>
+
+        <section id="etapas" class="steps-container">
+            <div class="step-card">
+                <h2>Mis intereses</h2>
+                <p>Aprende a identificar tus intereses personales y cómo influyen en la elección de una carrera.</p>
+            </div>
+            <div class="step-card">
+                <h2>Mis talentos</h2>
+                <p>Descubre tus habilidades y cómo potenciarlas en el ámbito profesional.</p>
+            </div>
+            <div class="step-card">
+                <h2>Mi entorno</h2>
+                <p>Explora las oportunidades laborales y los perfiles más demandados en el mercado.</p>
+            </div>
+            <div class="step-card">
+                <h2>Mi universidad</h2>
+                <p>Consulta la oferta académica en el estado de Querétaro y encuentra la mejor opción para ti.</p>
+            </div>
+            <div class="step-card">
+                <h2>Mis apoyos</h2>
+                <p>Infórmate sobre becas, financiamientos y programas de apoyo para estudiantes.</p>
+            </div>
+            <div class="step-card">
+                <h2>¡Quiero más!</h2>
+                <p>Descubre actividades extracurriculares, certificaciones y cursos adicionales para fortalecer tu perfil.</p>
+            </div>
+            <div class="step-card">
+                <h2>Mi plan de carrera</h2>
+                <p>Organiza tu plan de estudios y elige la universidad que mejor se adapte a tus metas profesionales.</p>
+            </div>
+        </section>
+    </main>
+    <script>
+        const menuToggle = document.getElementById("menu-toggle");
+        const menu = document.getElementById("menu");
+        const navLinks = menu.querySelectorAll("ul li a");
+        
+        // Abrir o cerrar el menú al hacer clic en el botón toggle
+        menuToggle.addEventListener("click", () => {
+            menu.classList.toggle("active");
+        });
+        
+        // Cerrar el menú cuando se hace clic en un enlace
+        navLinks.forEach(link => {
+            link.addEventListener("click", () => {
+                menu.classList.remove("active");
+            });
+        });
+        
+        // Cerrar el menú al hacer clic fuera del header
+        document.addEventListener("click", (event) => {
+            const isClickInsideMenu = menu.contains(event.target);
+            const isClickOnToggle = menuToggle.contains(event.target);
+        
+            if (!isClickInsideMenu && !isClickOnToggle) {
+                menu.classList.remove("active");
+            }
+        });
+    </script>
+</body>
+</html>
