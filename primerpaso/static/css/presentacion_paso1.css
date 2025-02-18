@@ -107,6 +107,7 @@ header .menu-toggle {
     margin-top: 50px;
     margin-bottom: 30px;
 } 
+
 .presentation-title {
     font-size: 24px;
     font-weight: bold;
@@ -114,8 +115,9 @@ header .menu-toggle {
     text-align: center;
     width: 100%;
 }
+
 .paragraph-of-instructions {
-    font-size: 15px;
+    font-size: 18px;
     text-align: center;
     margin-top: 10px;
     margin-bottom: 15px;
