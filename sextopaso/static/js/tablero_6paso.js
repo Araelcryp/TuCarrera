@@ -1,11 +1,27 @@
 // Obtener elementos del DOM
 const modal = document.getElementById('modal');
+const modalTitle = document.querySelector('modal-title');
 const closeButton = document.querySelector('.close-button');
-const modalIframe = document.getElementById('modal-iframe');
-const modalTitle = document.getElementById('modal-title');
-const modalDescription = document.getElementById('modal-description');
-const pdfButton = document.getElementById('pdf-button');
-const modalVideo = document.getElementById('modal-video-src');
+const pdfIframe = document.getElementById('modal-pdf');
+let pdfDoc = null;
+
+
+// Load and render PDF with PDF.js library
+function loadPdf(url) {
+    const loadingTask = pdfjsLib.getDocument(url);
+    loadingTask.promise.then(function (pdf) {
+        pdfDoc = pdf;
+        return pdf.getPage(1);
+    }).then(function (page) {
+        const context = canvas.getContext("2d");
+        const viewport = page.getViewport({ scale: 1.5 });
+
+        canvas.height = viewport.height;
+        canvas.width = viewport.width;
+
+        page.render({ canvasContext: context, viewport: viewport });
+    });
+}
 
 // Función para abrir la ventana modal con la información de la tarjeta clickeada
 function openModal(event) {
@@ -15,20 +31,14 @@ function openModal(event) {
 
     // Extraer información de los atributos de datos
     const university = card.getAttribute('data-university');
-    // const MapUrl = card.getAttribute('data-image');
-    const VideoUrl = card.getAttribute('data-video');
-    // const info = card.getAttribute('data-info');
     const PDFUrl = card.getAttribute('data-pdf');
 
     // Rellenar el contenido de la ventana modal
     modalTitle.textContent = university;
-    //modalIframe.src = MapUrl;
-    //modalIframe.alt = `Ubicacion de ${university}`;
-    //modalDescription.innerHTML = info;
-    modalVideo.src = VideoUrl;
-    pdfButton.href = PDFUrl;
-    
 
+    if (pdfDoc) {
+        loadPdf(pdfDoc, PDFUrl);
+    }
 
     // Mostrar la ventana modal
     modal.style.display = 'block';
@@ -54,3 +64,4 @@ window.addEventListener('click', function (event) {
         closeModal();
     }
 });
+

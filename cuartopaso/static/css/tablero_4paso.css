@@ -2,9 +2,11 @@
     box-sizing: border-box;
 }
 
-html, body {
+html,
+body {
     width: 100%;
-    overflow-x: hidden; /* Hides horizontal overflow */
+    overflow-x: hidden;
+    /* Hides horizontal overflow */
 }
 
 body {
@@ -96,103 +98,124 @@ header .menu-toggle {
     margin: 10px auto;
     padding: 0;
 }
-.main-content{
+
+.main-content {
     display: flex;
     background-color: #ffffff;
     margin: 20px;
     padding: 20px;
     border-radius: 14px;
     box-shadow: inset -16px -16px 14px #d6d6d6,
-    inset 16px 16px 14px #ffffff;
+        inset 16px 16px 14px #ffffff;
 }
 
 .card-deck {
     display: flex;
     flex-wrap: wrap;
     gap: 16px;
-    padding:20px;
+    padding: 20px;
     justify-content: center;
 }
-.card-deck .row{
+
+.card-deck .row {
     display: flex;
-    justify-content: space-between; /* Evenly distribute space between cards */
+    justify-content: space-between;
+    /* Evenly distribute space between cards */
 }
-.card-deck .card{
-    flex: 1 1 calc(16.66% - 16px); /* 100% / 6 cards = ~16.66% per card */
+
+.card-deck .card {
+    flex: 1 1 calc(16.66% - 16px);
+    /* 100% / 6 cards = ~16.66% per card */
     box-sizing: border-box;
     background-color: #ffffff;
     border-radius: 18px;
     margin: 0 8px;
     padding: 15px;
     cursor: pointer;
-    box-shadow:  13px 13px 26px #d9d9d9,
-             -13px -13px 26px #ffffff;
+    box-shadow: 13px 13px 26px #d9d9d9,
+        -13px -13px 26px #ffffff;
     transition: all 0.2s ease-in-out;
-    
-}
-.card-deck .card:hover{
-    box-shadow:  -13px -13px 5px #ededed,
-             13px 13px 5px #ffffff;
-}
-.card-deck .card:focus{
-    outline: none;
-    box-shadow: inset 2px 2px 5px #bcbcbc, inset -2px -2px 5px #ffffff, 
-    2px 2px 5px #bcbcbc, -2px -2px 5px #ffffff;
+
 }
 
-.card h3{
+.card-deck .card:hover {
+    box-shadow: -13px -13px 5px #ededed,
+        13px 13px 5px #ffffff;
+}
+
+.card-deck .card:focus {
+    outline: none;
+    box-shadow: inset 2px 2px 5px #bcbcbc, inset -2px -2px 5px #ffffff,
+        2px 2px 5px #bcbcbc, -2px -2px 5px #ffffff;
+}
+
+/* Styles for the card content */
+/* Estilos para la carta*/
+.card h3 {
+    font-size: large;
+    text-align: center;
+}
+
+.card p {
     font-size: medium;
+    margin-top: auto;
 }
-.card p{
-    font-size: small;
-}
+
 .card img {
     width: 100%;
     height: auto;
+    flex-grow: 1;
+    object-fit: cover;
     border-radius: 8px;
 }
 
 /* Estilos para la Ventana Modal */
 .modal {
-    display: none; 
+    display: none;
     position: fixed;
-    z-index: 1; 
+    z-index: 1;
     left: 0;
     top: 0;
     width: 100%;
-    height: 100%; 
-    overflow: auto; 
-    background-color: rgba(69, 69, 69, 0.75); 
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(69, 69, 69, 0.75);
 }
 
 /* Contenido de la ventana modal */
 .modal-content {
     background-color: #fefefe;
-    margin: 50px auto; 
+    margin: 50px auto;
     padding: 20px;
     border: 1px solid #888;
-    width: 80%; 
-    max-width: 800px; 
+    width: 80%;
+    max-width: 800px;
     border-radius: 12px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
     animation: fadeIn 0.3s;
 }
 
 
 
-.modal-description a{
+.modal-description a {
     color: #0097C9;
     text-decoration: none;
     transition: color 0.3s;
 }
-.modal-description a:hover{
+
+.modal-description a:hover {
     color: #007bb5;
 }
 
 /* Animación de aparición */
 @keyframes fadeIn {
-    from {opacity: 0;}
-    to {opacity: 1;}
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
 }
 
 /* Botón de cierre */
@@ -217,7 +240,8 @@ header .menu-toggle {
     gap: 20px;
 }
 
-.modal-image, .modal-info {
+.modal-image,
+.modal-info {
     flex: 1 1 45%;
 }
 
@@ -230,13 +254,15 @@ header .menu-toggle {
 .modal-info h2 {
     margin-top: 20px;
 }
+
 /* Responsive Design: Adjust modal layout on smaller screens */
 @media (max-width: 600px) {
     .modal-body {
         flex-direction: column;
     }
 
-    .modal-image, .modal-info {
+    .modal-image,
+    .modal-info {
         flex: 1 1 100%;
     }
 }
@@ -248,14 +274,16 @@ header .menu-toggle {
     padding: 20px;
 }
 
-.back-button, .continue-button {
+.back-button,
+.continue-button {
     cursor: pointer;
     width: 180px;
     padding: 10px 20px;
 }
 
 .back-button {
-    margin-right: 20px; /* Añadir espacio entre los botones */
+    margin-right: 20px;
+    /* Añadir espacio entre los botones */
 }
 
 .back-button:hover {
@@ -277,25 +305,31 @@ header .menu-toggle {
 
 @media (max-width: 1200px) {
     .card-deck .card {
-        flex: 0 0 24%; /* 4 cards per row */
+        flex: 0 0 24%;
+        /* 4 cards per row */
     }
 }
 
 @media (max-width: 900px) {
     .card-deck .card {
-        flex: 0 0 32%; /* 3 cards per row */
+        flex: 0 0 32%;
+        /* 3 cards per row */
     }
 }
 
 @media (max-width: 600px) {
     .card-deck .row {
-        flex-direction: column; /* Stack cards vertically */
-        align-items: center; /* Center cards */
+        flex-direction: column;
+        /* Stack cards vertically */
+        align-items: center;
+        /* Center cards */
     }
 
     .card-deck .card {
-        flex: 0 0 80%; /* Width of each card */
-        margin-bottom: 20px; /* Space between stacked cards */
+        flex: 0 0 80%;
+        /* Width of each card */
+        margin-bottom: 20px;
+        /* Space between stacked cards */
     }
 }
 
@@ -303,27 +337,35 @@ header .menu-toggle {
 @media (max-width: 768px) {
 
     header nav {
-        display: flex; /* Siempre flex para la animación */
+        display: flex;
+        /* Siempre flex para la animación */
         position: absolute;
         top: 100%;
         left: 0;
         width: 100%;
         background-color: #242B57;
         flex-direction: column;
-        text-align: center; /* Alinear los elementos a la izquierda */
+        text-align: center;
+        /* Alinear los elementos a la izquierda */
         padding-left: 20px;
         z-index: 10;
-        max-height: 0; /* Ocultar inicialmente */
-        overflow: hidden; /* Ocultar el contenido fuera del contenedor */
+        max-height: 0;
+        /* Ocultar inicialmente */
+        overflow: hidden;
+        /* Ocultar el contenido fuera del contenedor */
         opacity: 0;
-        transform: translateY(-20px); /* Mover el menú hacia arriba */
+        transform: translateY(-20px);
+        /* Mover el menú hacia arriba */
         transition: max-height 0.5s ease, opacity 0.5s ease, transform 0.5s ease;
     }
 
     header nav.active {
-        max-height: 500px; /* Altura máxima del menú desplegado */
-        opacity: 1; /* Mostrar el menú */
-        transform: translateY(0); /* Volverlo a su posición */
+        max-height: 500px;
+        /* Altura máxima del menú desplegado */
+        opacity: 1;
+        /* Mostrar el menú */
+        transform: translateY(0);
+        /* Volverlo a su posición */
     }
 
     header .logo {
@@ -332,19 +374,23 @@ header .menu-toggle {
 
     header nav ul {
         flex-direction: column;
-        justify-content: center; /* Centrar ítems verticalmente */
-        align-items: center; /* Centrar ítems horizontalmente */
+        justify-content: center;
+        /* Centrar ítems verticalmente */
+        align-items: center;
+        /* Centrar ítems horizontalmente */
     }
 
     header nav ul li {
         margin: 15px 0;
         opacity: 0;
-        transform: translateX(-20px); /* Mover los ítems hacia la izquierda */
+        transform: translateX(-20px);
+        /* Mover los ítems hacia la izquierda */
         transition: opacity 0.5s ease, transform 0.5s ease;
     }
 
     header nav ul li:nth-child(1) {
-        transition-delay: 0.1s; /* Retraso individual */
+        transition-delay: 0.1s;
+        /* Retraso individual */
     }
 
     header nav ul li:nth-child(2) {
@@ -376,12 +422,15 @@ header .menu-toggle {
     header nav ul li a {
         font-size: 1.2rem;
         transition: color 0.3s ease-in-out;
-        text-align: center; /* Centra los títulos en el menú toggle */
+        text-align: center;
+        /* Centra los títulos en el menú toggle */
     }
 
     .cancel-btn a button {
-        width: auto; /* Adaptar ancho al contenido */
-        margin: 0 auto; /* Centrar el botón */
+        width: auto;
+        /* Adaptar ancho al contenido */
+        margin: 0 auto;
+        /* Centrar el botón */
     }
 
     header .menu-toggle {

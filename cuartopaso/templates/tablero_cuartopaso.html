@@ -1,242 +1,200 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Tablero interactivo</title>
-    <link rel="stylesheet" href="{% static 'css/tablero_4paso.css' %}" />
-  </head>
-  <body>
-    <header>
-      <img src="{% static 'images/LOGOS.png'%}" alt="Logo" class="logo" />
-      <nav id="menu">
-        <ul>
-          <li><a href="/homeuser">Inicio</a></li>
-          <li><a href="/temas">Conoce los temas</a></li>
-          <li><a href="/aboutprogram">Acerca del programa</a></li>
-          <li class="back-btn">
-            <a href="/cuartopaso">
-              <button>Salir</button>
-            </a>
-          </li>
-        </ul>
-      </nav>
-      <div class="menu-toggle" id="menu-toggle">&#9776;</div>
-    </header>
 
-    <div class="container">
-      <div class="main-content">
-        <div class="card-deck">
-          <div class="row">
-            <div
-              class="card"
-              data-university="Universidad Politécnica de Santa Rosa Jauregui"
-              data-image="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3728.7236563964284!2d-100.43564289066774!3d20.842862680680085!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d4a626e79f1fc9%3A0xdda7c4672995c724!2sPolytechnic%20University%20of%20Santa%20Rosa%20J%C3%A1uregui!5e0!3m2!1sen!2smx!4v1729693529495!5m2!1sen!2smx"
-              data-info="<strong>Página web:</strong> <a href='https://www.upsrj.edu.mx/' target='_blank'>www.upsrj.edu.mx/</a><br><br><strong>Número de contacto:</strong> (442) 1961 300 Ext. 111<br><br><strong>Correo electrónico:</strong> contacto@upsrj.edu.mx <br><br><strong>Dirección:</strong> Carretera Federal 57QRO-SLP km 31-150 S/N Parque Industrial Querétaro C.P. 76220"
-            >
-              <h3 class="card-title">
-                Universidad Politécnica de Santa Rosa Jauregui
-              </h3>
-              <img src="{% static "images/LogosUNIS/UPSRJ.png" %}" alt="Logo de
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tablero interactivo</title>
+  <link rel="stylesheet" href="{% static 'css/tablero_4paso.css' %}" />
+</head>
+
+<body>
+  <header>
+    <img src="{% static 'images/LOGOS.png'%}" alt="Logo" class="logo" />
+    <nav id="menu">
+      <ul>
+        <li><a href="/homeuser">Inicio</a></li>
+        <li><a href="/temas">Conoce los temas</a></li>
+        <li><a href="/aboutprogram">Acerca del programa</a></li>
+        <li class="back-btn">
+          <a href="/cuartopaso">
+            <button>Salir</button>
+          </a>
+        </li>
+      </ul>
+    </nav>
+    <div class="menu-toggle" id="menu-toggle">&#9776;</div>
+  </header>
+
+  <div class="container">
+    <div class="main-content">
+      <div class="card-deck">
+        <div class="row">
+          <div class="card" data-university="Universidad Politécnica de Santa Rosa Jauregui"
+            data-image="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3728.7236563964284!2d-100.43564289066774!3d20.842862680680085!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d4a626e79f1fc9%3A0xdda7c4672995c724!2sPolytechnic%20University%20of%20Santa%20Rosa%20J%C3%A1uregui!5e0!3m2!1sen!2smx!4v1729693529495!5m2!1sen!2smx"
+            data-info="<strong>Página web:</strong> <a href='https://www.upsrj.edu.mx/' target='_blank'>www.upsrj.edu.mx/</a><br><br><strong>Número de contacto:</strong> (442) 1961 300 Ext. 111<br><br><strong>Correo electrónico:</strong> contacto@upsrj.edu.mx <br><br><strong>Dirección:</strong> Carretera Federal 57QRO-SLP km 31-150 S/N Parque Industrial Querétaro C.P. 76220">
+            <h3 class="card-title">
+              Universidad Politécnica de Santa Rosa Jauregui
+            </h3>
+            <img src="{% static " images/LogosUNIS/UPSRJ.png" %}" alt="Logo de
               la Universidad" class="card-img" />
-              <p class="card-text">Santiago de Querétaro, Qro.</p>
-            </div>
-            <div
-              class="card"
-              data-university="Universidad Aeronáutica en Querétaro"
-              data-image="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3734.057935987717!2d-100.19055259067574!3d20.626495180844493!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d3666b65ad5179%3A0x52f4ec7f61852fdf!2sAeronautical%20University%20in%20Quer%C3%A9taro!5e0!3m2!1sen!2smx!4v1729694933186!5m2!1sen!2smx"
-              data-info="<strong>Página web:</strong> <a href='https://www.unaq.edu.mx/' target='_blank'>www.unaq.edu.mx/</a><br><br><strong>Número de contacto:</strong>  (442) 101 66 00<br><br><strong>Correo electrónico:</strong> informacion@unaq.mx <br><br> <strong>Dirección:</strong> Carretera Estatal 200 Querétaro – Tequisquiapan No. 22154 Col. Parque Aeroespacial de Querétaro. Colón, Querétaro. México C.P. 76278"
-            >
-              <h3 class="card-title">Universidad Aeronáutica en Querétaro</h3>
-              <img src="{% static "images/LogosUNIS/UNAQ.png" %}" alt="Logo de
-              la Universidad" class="card-img" />
-              <p class="card-text">Santiago de Querétaro, Qro.</p>
-            </div>
-            <div
-              class="card"
-              data-university="Universidad Tecnológica de San Juan del Río"
-              data-image="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3740.368778039192!2d-100.01267069068521!3d20.367679281042534!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d30c6707079ad9%3A0x16daa5dc56c8c592!2sUniversidad%20Tecnol%C3%B3gica%20de%20San%20Juan%20del%20R%C3%ADo!5e0!3m2!1sen!2smx!4v1729695178785!5m2!1sen!2smx"
-              data-info="<strong>Página web:</strong> <a href='https://www.utsjr.edu.mx/index.php' target='_blank'>www.utsjr.edu.mx/</a><br><br><strong>Número de contacto:</strong>  (427) 129 2000, Ext.238<br><br><strong>Correo electrónico:</strong> amartinezm@utsjr.edu.mx <br><br> <strong>Dirección:</strong> Av. La Palma No. 125, Col. Vista Hermosa, San Juan del Río."
-            >
-              <h3 class="card-title">
-                Universidad Tecnológica de San Juan del Río
-              </h3>
-              <img src="{% static "images/LogosUNIS/UTSJR.png" %}" alt="Logo de
-              la Universidad" class="card-img" />
-              <p class="card-text">San Juan del Río, Qro.</p>
-            </div>
-            <div
-              class="card"
-              data-university="Universidad Politécnica de Querétaro"
-              data-image="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3736.0228911471586!2d-100.27738289067865!3d20.546244280905732!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d3452b278e7259%3A0xeb40a967d716216c!2sUniversidad%20Polit%C3%A9cnica%20de%20Quer%C3%A9taro!5e0!3m2!1sen!2smx!4v1729696114232!5m2!1sen!2smx"
-              data-info="<strong>Página web:</strong> <a href='https://www.upq.mx/' target='_blank'>www.upq.mx/</a><br><br><strong>Número de contacto:</strong> 101 9000<br><br><strong>Correo electrónico:</strong> recepcion@upq.mx <br><br> <strong>Dirección:</strong> Carretera Estatal 420 SN, El Marqués Querétaro CP 76240"
-            >
-              <h3 class="card-title">Universidad Politécnica de Querétaro</h3>
-              <img src="{% static "images/LogosUNIS/UPQ.png" %}" alt="Logo de la
-              Universidad" class="card-img" />
-              <p class="card-text">Santiago de Querétaro, Qro.</p>
-            </div>
-            <div
-              class="card"
-              data-university="Universidad Tecnológica de Corregidora"
-              data-image="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3738.4233963622555!2d-100.4297042906823!3d20.447796180981186!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d346328d6cf753%3A0xd9c29a69dacf814e!2sTechnological%20University%20of%20Corregidora!5e0!3m2!1sen!2smx!4v1729695475977!5m2!1sen!2smx"
-              data-info="<strong>Página web:</strong> <a href='https://utcorregidora.edu.mx/' target='_blank'>utcorregidora.edu.mx/</a><br><br><strong>Número de contacto:</strong> (442) 483 0070<br><br><strong>Correo electrónico:</strong> info@utcorregidora.edu.mx <br><br> <strong>Dirección:</strong> Carr. Santa Bárbara-Coroneo Km. 11.2, Corregidora, Qro. Méx."
-            >
-              <h3 class="card-title">Universidad Tecnológica de Corregidora</h3>
-              <img src="{% static "images/LogosUNIS/UTC.png" %}" alt="Logo de la
-              Universidad" class="card-img" />
-              <p class="card-text">Corregidora, Qro.</p>
-            </div>
-            <div
-              class="card"
-              data-university="Universidad Tecnológica de Querétaro"
-              data-image="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3733.38415428959!2d-100.40867409067471!3d20.6539444808236!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d35a486363880d%3A0xd927286fe3c75218!2sTechnological%20University%20of%20Quer%C3%A9taro!5e0!3m2!1sen!2smx!4v1729696197306!5m2!1sen!2smx"
-              data-info="<strong>Página web:</strong> <a href='https://www.uteq.edu.mx/' target='_blank'>www.uteq.edu.mx/</a><br><br><strong>Número de contacto:</strong>  (442) 343 1117<br><br><strong>Número de contacto:</strong>  (446) 139 1769<br><br><strong>Correo electrónico:</strong> admisiones@uteq.edu.mx <br><br> <strong>Dirección:</strong> Av. Pie de la Cuesta 2501, Nacional, 76148 Santiago de Querétaro, Qro."
-            >
-              <h3 class="card-title">Universidad Tecnológica de Querétaro</h3>
-              <img src="{% static "images/LogosUNIS/UTEQ.png" %}" alt="Logo de
-              la Universidad" class="card-img" />
-              <p class="card-text">Santiago de Querétaro, Qro.</p>
-            </div>
+            <p class="card-text">Santiago de Querétaro, Qro.</p>
           </div>
-
-          <div class="row">
-            <div
-              class="card"
-              data-university="Universidad Autónoma de Querétaro"
-              data-image="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14939.915837298442!2d-100.41855969826085!3d20.588916845239055!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d35acc3908ce03%3A0xf429c21cfe016ff7!2sCentro%20Universitario%2C%20Santiago%20de%20Quer%C3%A9taro%2C%20Qro.!5e0!3m2!1sen!2smx!4v1738025056176!5m2!1sen!2smx"
-              data-info="<strong>Página web:</strong> <a href='https://www.uaq.mx/' target='_blank'>www.uaq.mx/</a><br><br><strong>Número de contacto:</strong>  (442) 192 1200<br><br><strong>Correo electrónico:</strong> <br><br> <strong>Dirección:</strong> Cerro de las Campanas s/n, Centro, 76010 Santiago de Querétaro, Qro."
-            >
-              <h3 class="card-title">Universidad Autónoma de Querétaro</h3>
-              <img src="{% static "images/LogosUNIS/UAQ.png" %}" alt="Logo de la
+          <div class="card" data-university="Universidad Aeronáutica en Querétaro"
+            data-image="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3734.057935987717!2d-100.19055259067574!3d20.626495180844493!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d3666b65ad5179%3A0x52f4ec7f61852fdf!2sAeronautical%20University%20in%20Quer%C3%A9taro!5e0!3m2!1sen!2smx!4v1729694933186!5m2!1sen!2smx"
+            data-info="<strong>Página web:</strong> <a href='https://www.unaq.edu.mx/' target='_blank'>www.unaq.edu.mx/</a><br><br><strong>Número de contacto:</strong>  (442) 101 66 00<br><br><strong>Correo electrónico:</strong> informacion@unaq.mx <br><br> <strong>Dirección:</strong> Carretera Estatal 200 Querétaro – Tequisquiapan No. 22154 Col. Parque Aeroespacial de Querétaro. Colón, Querétaro. México C.P. 76278">
+            <h3 class="card-title">Universidad Aeronáutica en Querétaro</h3>
+            <img src="{% static " images/LogosUNIS/UNAQ.png" %}" alt="Logo de
+              la Universidad" class="card-img" />
+            <p class="card-text">Santiago de Querétaro, Qro.</p>
+          </div>
+          <div class="card" data-university="Universidad Tecnológica de San Juan del Río"
+            data-image="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3740.368778039192!2d-100.01267069068521!3d20.367679281042534!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d30c6707079ad9%3A0x16daa5dc56c8c592!2sUniversidad%20Tecnol%C3%B3gica%20de%20San%20Juan%20del%20R%C3%ADo!5e0!3m2!1sen!2smx!4v1729695178785!5m2!1sen!2smx"
+            data-info="<strong>Página web:</strong> <a href='https://www.utsjr.edu.mx/index.php' target='_blank'>www.utsjr.edu.mx/</a><br><br><strong>Número de contacto:</strong>  (427) 129 2000, Ext.238<br><br><strong>Correo electrónico:</strong> amartinezm@utsjr.edu.mx <br><br> <strong>Dirección:</strong> Av. La Palma No. 125, Col. Vista Hermosa, San Juan del Río.">
+            <h3 class="card-title">
+              Universidad Tecnológica de San Juan del Río
+            </h3>
+            <img src="{% static " images/LogosUNIS/UTSJR.png" %}" alt="Logo de
+              la Universidad" class="card-img" />
+            <p class="card-text">San Juan del Río, Qro.</p>
+          </div>
+          <div class="card" data-university="Universidad Politécnica de Querétaro"
+            data-image="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3736.0228911471586!2d-100.27738289067865!3d20.546244280905732!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d3452b278e7259%3A0xeb40a967d716216c!2sUniversidad%20Polit%C3%A9cnica%20de%20Quer%C3%A9taro!5e0!3m2!1sen!2smx!4v1729696114232!5m2!1sen!2smx"
+            data-info="<strong>Página web:</strong> <a href='https://www.upq.mx/' target='_blank'>www.upq.mx/</a><br><br><strong>Número de contacto:</strong> 101 9000<br><br><strong>Correo electrónico:</strong> recepcion@upq.mx <br><br> <strong>Dirección:</strong> Carretera Estatal 420 SN, El Marqués Querétaro CP 76240">
+            <h3 class="card-title">Universidad Politécnica de Querétaro</h3>
+            <img src="{% static " images/LogosUNIS/UPQ.png" %}" alt="Logo de la
               Universidad" class="card-img" />
-              <p class="card-text">Santiago de Querétaro, Qro.</p>
-            </div>
-            <div
-              class="card"
-              data-university="Universidad Tecnológico de México campus Querétaro"
-              data-image="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d119476.90689755329!2d-100.54548158177685!3d20.642982246070478!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d35ad21d8e2209%3A0xbb8194bb8a5d8465!2sInstituto%20Tecnol%C3%B3gico%20de%20Quer%C3%A9taro!5e0!3m2!1sen!2smx!4v1738025710270!5m2!1sen!2smx"
-              data-info="<strong>Página web:</strong> <a href='https://queretaro.tecnm.mx' target='_blank'>queretaro.tecnm.mx</a><br><br><strong>Número de contacto:</strong>  (442) 227 4400<br><br><strong>Correo electrónico:</strong> <br><br> <strong>Dirección:</strong>  Av Tecnológico S/N, Centro Histórico, Centro, 76000 Santiago de Querétaro, Qro."
-            >
-              <h3 class="card-title">Tecnológico Nacional de México</h3>
-              <img src="{% static "images/LogosUNIS/TECNM.png" %}" alt="Logo de
+            <p class="card-text">Santiago de Querétaro, Qro.</p>
+          </div>
+          <div class="card" data-university="Universidad Tecnológica de Corregidora"
+            data-image="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3738.4233963622555!2d-100.4297042906823!3d20.447796180981186!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d346328d6cf753%3A0xd9c29a69dacf814e!2sTechnological%20University%20of%20Corregidora!5e0!3m2!1sen!2smx!4v1729695475977!5m2!1sen!2smx"
+            data-info="<strong>Página web:</strong> <a href='https://utcorregidora.edu.mx/' target='_blank'>utcorregidora.edu.mx/</a><br><br><strong>Número de contacto:</strong> (442) 483 0070<br><br><strong>Correo electrónico:</strong> info@utcorregidora.edu.mx <br><br> <strong>Dirección:</strong> Carr. Santa Bárbara-Coroneo Km. 11.2, Corregidora, Qro. Méx.">
+            <h3 class="card-title">Universidad Tecnológica de Corregidora</h3>
+            <img src="{% static " images/LogosUNIS/UTC.png" %}" alt="Logo de la
+              Universidad" class="card-img" />
+            <p class="card-text">Corregidora, Qro.</p>
+          </div>
+          <div class="card" data-university="Universidad Tecnológica de Querétaro"
+            data-image="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3733.38415428959!2d-100.40867409067471!3d20.6539444808236!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d35a486363880d%3A0xd927286fe3c75218!2sTechnological%20University%20of%20Quer%C3%A9taro!5e0!3m2!1sen!2smx!4v1729696197306!5m2!1sen!2smx"
+            data-info="<strong>Página web:</strong> <a href='https://www.uteq.edu.mx/' target='_blank'>www.uteq.edu.mx/</a><br><br><strong>Número de contacto:</strong>  (442) 343 1117<br><br><strong>Número de contacto:</strong>  (446) 139 1769<br><br><strong>Correo electrónico:</strong> admisiones@uteq.edu.mx <br><br> <strong>Dirección:</strong> Av. Pie de la Cuesta 2501, Nacional, 76148 Santiago de Querétaro, Qro.">
+            <h3 class="card-title">Universidad Tecnológica de Querétaro</h3>
+            <img src="{% static " images/LogosUNIS/UTEQ.png" %}" alt="Logo de
               la Universidad" class="card-img" />
-              <p class="card-text">Santiago de Querétaro, Qro.</p>
-            </div>
-            <div
-              class="card"
-              data-university="Universidad Tecnológico de México campus San Juan del Río"
-              data-image="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d676780.7560712553!2d-100.528863116052!3d20.435567770642116!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d30b9d2a2de9e7%3A0xfdd33d0cfe467ee6!2sTechnological%20Institute%20of%20San%20Juan%20del%20Rio!5e0!3m2!1sen!2smx!4v1738026139749!5m2!1sen!2smx"
-              data-info="<strong>Página web:</strong> <a href='https://itsanjuan.edu.mx' target='_blank'>itsanjuan.edu.mx</a><br><br><strong>Número de contacto:</strong>  (427) 272 4118<br><br><strong>Correo electrónico:</strong> <br><br> <strong>Dirección:</strong>  Av Tecnológico 2, Quintas de Guadalupe, 76800 San Juan del Río, Qro."
-            >
-              <h3 class="card-title">Tecnológico Nacional de México</h3>
-              <img src="{% static "images/LogosUNIS/TECNM.png" %}" alt="Logo de
+            <p class="card-text">Santiago de Querétaro, Qro.</p>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="card" data-university="Universidad Autónoma de Querétaro"
+            data-image="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14939.915837298442!2d-100.41855969826085!3d20.588916845239055!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d35acc3908ce03%3A0xf429c21cfe016ff7!2sCentro%20Universitario%2C%20Santiago%20de%20Quer%C3%A9taro%2C%20Qro.!5e0!3m2!1sen!2smx!4v1738025056176!5m2!1sen!2smx"
+            data-info="<strong>Página web:</strong> <a href='https://www.uaq.mx/' target='_blank'>www.uaq.mx/</a><br><br><strong>Número de contacto:</strong>  (442) 192 1200<br><br><strong>Correo electrónico:</strong> <br><br> <strong>Dirección:</strong> Cerro de las Campanas s/n, Centro, 76010 Santiago de Querétaro, Qro.">
+            <h3 class="card-title">Universidad Autónoma de Querétaro</h3>
+            <img src="{% static " images/LogosUNIS/UAQ.png" %}" alt="Logo de la
+              Universidad" class="card-img" />
+            <p class="card-text">Santiago de Querétaro, Qro.</p>
+          </div>
+          <div class="card" data-university="Universidad Tecnológico de México campus Querétaro"
+            data-image="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d119476.90689755329!2d-100.54548158177685!3d20.642982246070478!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d35ad21d8e2209%3A0xbb8194bb8a5d8465!2sInstituto%20Tecnol%C3%B3gico%20de%20Quer%C3%A9taro!5e0!3m2!1sen!2smx!4v1738025710270!5m2!1sen!2smx"
+            data-info="<strong>Página web:</strong> <a href='https://queretaro.tecnm.mx' target='_blank'>queretaro.tecnm.mx</a><br><br><strong>Número de contacto:</strong>  (442) 227 4400<br><br><strong>Correo electrónico:</strong> <br><br> <strong>Dirección:</strong>  Av Tecnológico S/N, Centro Histórico, Centro, 76000 Santiago de Querétaro, Qro.">
+            <h3 class="card-title">Tecnológico Nacional de México</h3>
+            <img src="{% static " images/LogosUNIS/TECNM.png" %}" alt="Logo de
               la Universidad" class="card-img" />
-              <p class="card-text">San Juan del Río, Qro.</p>
-            </div>
-            <div
-              class="card"
-              data-university="Escuela Nacional de Estudios Superiores U.N.A.M"
-              data-image="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3732.1259251970005!2d-100.4483729!3d20.705110500000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d357670f752323%3A0x373307a03a7e224!2sENES%20Juriquilla!5e0!3m2!1sen!2smx!4v1738026448216!5m2!1sen!2smx"
-              data-info="<strong>Página web:</strong> <a href='https://www.enesjuriquilla.unam.mx' target='_blank'>www.enesjuriquilla.unam.mx</a><br><br><strong>Número de contacto:</strong>  (442) 238 1000<br><br><strong>Correo electrónico:</strong> <br><br> <strong>Dirección:</strong>  Blvd. Juriquilla 3001, 76230 Juriquilla, Qro."
-            >
-              <h3 class="card-title">
-                Escuela Nacional de Estudios Superiores
-              </h3>
-              <img src="{% static "images/LogosUNIS/ENES_Juriquilla.png" %}" alt="Logo de la Universidad" class="card-img" />
-              <p class="card-text">Santiago de Querétaro, Qro.</p>
-            </div>
-            <div class="card"
-              data-university="Centenaria Y Benemérita Escuela Normal del Estado De Querétaro 'Andrés Balvanera'"
-              data-image="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3735.469066319937!2d-100.3841371!3d20.5688934!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d344dd310b4c7d%3A0x53196b96f3de4c20!2sCentenaria%20Y%20Benem%C3%A9rita%20Escuela%20Normal%20del%20Estado%20De%20Quer%C3%A9taro%20%22Andr%C3%A9s%20Balvanera%22!5e0!3m2!1sen!2smx!4v1738026821679!5m2!1sen!2smx"
-              data-info= "<strong>Página web:</strong> <a href='https://www.cbeneq.edu.mx' target='_blank'>www.cbeneq.edu.mx</a><br><br><strong>Número de contacto:</strong>  (442) 213 1131<br><br><strong>Correo electrónico:</strong> <br><br> <strong>Dirección:</strong>  San Mateo s/n, Vista Alegre, 76090 Santiago de Querétaro, Qro."
-            >
-              <h3 class="card-title">Centenaria Y Benemérita Escuela Normal del Estado De Querétaro "Andrés Balvanera"</h3>
-              <img src="{% static "images/LogosUNIS/CBENEQ.png" %}" alt="Logo de la Universidad" class="card-img" />
-              <p class="card-text">Santiago de Querétaro, Qro.</p>
-            </div>
-            <div class="card"
-              data-university="Universidad Pedagógica Nacional campus Querétaro"
-              data-image="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3734.0650567602743!2d-100.4065463!3d20.626204899999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d35afaa42384b7%3A0x6189aaab5d43146b!2sUniversidad%20Pedag%C3%B3gica%20Nacional%20Unidad%2022-A%20Quer%C3%A9taro.!5e0!3m2!1sen!2smx!4v1738027632896!5m2!1sen!2smx"
-              data-info= "<strong>Página web:</strong> <a href='https://www.upn.mx' target='_blank'>www.upn.mx</a><br><br><strong>Número de contacto:</strong>  (442) 220 5180<br><br><strong>Correo electrónico:</strong> <br><br> <strong>Dirección:</strong>  Av. Pie de la Cuesta N° 299, Desarrollo San Pablo, 76130 Santiago de Querétaro, Qro.">
-              <h3 class="card-title">Universidad Pedagógica Nacional</h3>
-              <img src="{% static "images/LogosUNIS/UPN.png" %}" alt="Logo de la Universidad" class="card-img" />
-              <p class="card-text">Santiago de Querétaro, Qro </p>
-            </div>
+            <p class="card-text">Santiago de Querétaro, Qro.</p>
+          </div>
+          <div class="card" data-university="Universidad Tecnológico de México campus San Juan del Río"
+            data-image="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d676780.7560712553!2d-100.528863116052!3d20.435567770642116!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d30b9d2a2de9e7%3A0xfdd33d0cfe467ee6!2sTechnological%20Institute%20of%20San%20Juan%20del%20Rio!5e0!3m2!1sen!2smx!4v1738026139749!5m2!1sen!2smx"
+            data-info="<strong>Página web:</strong> <a href='https://itsanjuan.edu.mx' target='_blank'>itsanjuan.edu.mx</a><br><br><strong>Número de contacto:</strong>  (427) 272 4118<br><br><strong>Correo electrónico:</strong> <br><br> <strong>Dirección:</strong>  Av Tecnológico 2, Quintas de Guadalupe, 76800 San Juan del Río, Qro.">
+            <h3 class="card-title">Tecnológico Nacional de México</h3>
+            <img src="{% static " images/LogosUNIS/TECNM.png" %}" alt="Logo de
+              la Universidad" class="card-img" />
+            <p class="card-text">San Juan del Río, Qro.</p>
+          </div>
+          <div class="card" data-university="Escuela Nacional de Estudios Superiores U.N.A.M"
+            data-image="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3732.1259251970005!2d-100.4483729!3d20.705110500000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d357670f752323%3A0x373307a03a7e224!2sENES%20Juriquilla!5e0!3m2!1sen!2smx!4v1738026448216!5m2!1sen!2smx"
+            data-info="<strong>Página web:</strong> <a href='https://www.enesjuriquilla.unam.mx' target='_blank'>www.enesjuriquilla.unam.mx</a><br><br><strong>Número de contacto:</strong>  (442) 238 1000<br><br><strong>Correo electrónico:</strong> <br><br> <strong>Dirección:</strong>  Blvd. Juriquilla 3001, 76230 Juriquilla, Qro.">
+            <h3 class="card-title">
+              Escuela Nacional de Estudios Superiores
+            </h3>
+            <img src="{% static " images/LogosUNIS/ENES_Juriquilla.png" %}" alt="Logo de la Universidad"
+              class="card-img" />
+            <p class="card-text">Santiago de Querétaro, Qro.</p>
+          </div>
+          <div class="card"
+            data-university="Centenaria Y Benemérita Escuela Normal del Estado De Querétaro 'Andrés Balvanera'"
+            data-image="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3735.469066319937!2d-100.3841371!3d20.5688934!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d344dd310b4c7d%3A0x53196b96f3de4c20!2sCentenaria%20Y%20Benem%C3%A9rita%20Escuela%20Normal%20del%20Estado%20De%20Quer%C3%A9taro%20%22Andr%C3%A9s%20Balvanera%22!5e0!3m2!1sen!2smx!4v1738026821679!5m2!1sen!2smx"
+            data-info="<strong>Página web:</strong> <a href='https://www.cbeneq.edu.mx' target='_blank'>www.cbeneq.edu.mx</a><br><br><strong>Número de contacto:</strong>  (442) 213 1131<br><br><strong>Correo electrónico:</strong> <br><br> <strong>Dirección:</strong>  San Mateo s/n, Vista Alegre, 76090 Santiago de Querétaro, Qro.">
+            <h3 class="card-title">Centenaria Y Benemérita Escuela Normal del Estado De Querétaro "Andrés Balvanera"
+            </h3>
+            <img src="{% static " images/LogosUNIS/CBENEQ.png" %}" alt="Logo de la Universidad" class="card-img" />
+            <p class="card-text">Santiago de Querétaro, Qro.</p>
+          </div>
+          <div class="card" data-university="Universidad Pedagógica Nacional campus Querétaro"
+            data-image="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3734.0650567602743!2d-100.4065463!3d20.626204899999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d35afaa42384b7%3A0x6189aaab5d43146b!2sUniversidad%20Pedag%C3%B3gica%20Nacional%20Unidad%2022-A%20Quer%C3%A9taro.!5e0!3m2!1sen!2smx!4v1738027632896!5m2!1sen!2smx"
+            data-info="<strong>Página web:</strong> <a href='https://www.upn.mx' target='_blank'>www.upn.mx</a><br><br><strong>Número de contacto:</strong>  (442) 220 5180<br><br><strong>Correo electrónico:</strong> <br><br> <strong>Dirección:</strong>  Av. Pie de la Cuesta N° 299, Desarrollo San Pablo, 76130 Santiago de Querétaro, Qro.">
+            <h3 class="card-title">Universidad Pedagógica Nacional</h3>
+            <img src="{% static " images/LogosUNIS/UPN.png" %}" alt="Logo de la Universidad" class="card-img" />
+            <p class="card-text">Santiago de Querétaro, Qro </p>
           </div>
         </div>
       </div>
     </div>
-    <!--MODAL -->
-    <div id="modal" class="modal">
-      <div class="modal-content">
-        <span class="close-button">&times;</span>
-        <div class="modal-body">
-          <div class="modal-image">
-            <iframe
-              id="modal-iframe"
-              width="100%"
-              height="400"
-              style="border: 0"
-              allowfullscreen=""
-              loading="lazy"
-              referrerpolicy="no-referrer-when-downgrade"
-            ></iframe>
-          </div>
-          <div class="modal-info">
-            <h2 id="modal-title">Título de la Universidad</h2>
-            <p id="modal-description" class="modal-description">
-              Información detallada sobre la universidad.
-            </p>
-          </div>
+  </div>
+  <!--MODAL -->
+  <div id="modal" class="modal">
+    <div class="modal-content">
+      <span class="close-button">&times;</span>
+      <div class="modal-body">
+        <div class="modal-image">
+          <iframe id="modal-iframe" width="100%" height="400" style="border: 0" allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+        <div class="modal-info">
+          <h2 id="modal-title">Título de la Universidad</h2>
+          <p id="modal-description" class="modal-description">
+            Información detallada sobre la universidad.
+          </p>
         </div>
       </div>
     </div>
-    <div class="navigation-buttons">
-      <a href="/cuartopaso">
-        <img
-          src="{% static 'images/Regresar.png'%}"
-          alt="Boton-regresar"
-          class="btn back-button"
-        />
-      </a>
-      <a href="/video-cuarto-paso">
-        <img
-          src="{% static 'images/Continuar.png'%}"
-          alt="Boton-continuar"
-          class="btn continue-button"
-        />
-      </a>
-    </div>
+  </div>
+  <div class="navigation-buttons">
+    <a href="/cuartopaso">
+      <img src="{% static 'images/Regresar.png'%}" alt="Botón-regresar" class="btn back-button" />
+    </a>
+    <a href="/video-cuarto-paso">
+      <img src="{% static 'images/Continuar.png'%}" alt="Botón-continuar" class="btn continue-button" />
+    </a>
+  </div>
 
-    <script src="{% static 'js/tablero_4paso.js' %}"></script>
-  </body>
-  <script>
-    const menuToggle = document.getElementById("menu-toggle");
-    const menu = document.getElementById("menu");
-    const navLinks = menu.querySelectorAll("ul li a");
+  <script src="{% static 'js/tablero_4paso.js' %}"></script>
+</body>
+<script>
+  const menuToggle = document.getElementById("menu-toggle");
+  const menu = document.getElementById("menu");
+  const navLinks = menu.querySelectorAll("ul li a");
 
-    // Abrir o cerrar el menú al hacer clic en el botón toggle
-    menuToggle.addEventListener("click", () => {
-      menu.classList.toggle("active");
+  // Abrir o cerrar el menú al hacer clic en el botón toggle
+  menuToggle.addEventListener("click", () => {
+    menu.classList.toggle("active");
+  });
+
+  // Cerrar el menú cuando se hace clic en un enlace
+  navLinks.forEach((link) => {
+    link.addEventListener("click", () => {
+      menu.classList.remove("active");
     });
+  });
 
-    // Cerrar el menú cuando se hace clic en un enlace
-    navLinks.forEach((link) => {
-      link.addEventListener("click", () => {
-        menu.classList.remove("active");
-      });
-    });
+  // Cerrar el menú al hacer clic fuera del header
+  document.addEventListener("click", (event) => {
+    const isClickInsideMenu = menu.contains(event.target);
+    const isClickOnToggle = menuToggle.contains(event.target);
 
-    // Cerrar el menú al hacer clic fuera del header
-    document.addEventListener("click", (event) => {
-      const isClickInsideMenu = menu.contains(event.target);
-      const isClickOnToggle = menuToggle.contains(event.target);
+    if (!isClickInsideMenu && !isClickOnToggle) {
+      menu.classList.remove("active");
+    }
+  });
+</script>
 
-      if (!isClickInsideMenu && !isClickOnToggle) {
-        menu.classList.remove("active");
-      }
-    });
-  </script>
 </html>
