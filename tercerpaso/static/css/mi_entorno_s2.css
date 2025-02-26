@@ -205,31 +205,35 @@ header .menu-toggle {
     padding: 20px;
     width: 100%;
     box-sizing: border-box; /* Incluye padding y border en el ancho total */
-    position: relative; /* Cambiado a relative para mantener los botones dentro del flujo del documento */
+    position: relative; /* Mantiene los botones dentro del flujo del documento */
     bottom: 0;
 }
 
-.back-button, .continue-button {
-    cursor: pointer;
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     width: 180px;
-    padding: 10px 20px;
+    padding: 5px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    background-color: #002D62;
+    border-radius: 25px;
+    border: 2px solid #d3d3d3;
+    text-decoration: none;
+    cursor: pointer;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s, background 0.3s;
+    text-align: center;
 }
 
 .back-button {
-    margin-right: 20px; /* Añadir espacio entre los botones */
+    margin-right: 40px; /* Espacio entre botones */
 }
 
-.back-button:hover {
-    transition: transform 0.3s;
-    transform: scale(1.05);
-}
-
-.continue-button {
-    color: #ffffff;
-}
-
-.continue-button:hover {
-    transition: transform 0.3s;
+.btn:hover {
+    background-color: #0044A7;
     transform: scale(1.05);
 }
 
