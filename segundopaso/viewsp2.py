@@ -51,9 +51,10 @@ CATEGORY_DESCRIPTIONS = {
 
 @login_required
 def resultados_segundopaso(request):
-    results = TestResult.objects.filter(user=request.user).order_by('-date_taken')
+    # Obtener el resultado más alto del usuario
+    best_result = TestResult.objects.filter(user=request.user).order_by('-score').first()
 
-    for result in results:
-        result.description = CATEGORY_DESCRIPTIONS.get(result.category, "No se ha podido determinar una categoría.")
+    if best_result:
+        best_result.description = CATEGORY_DESCRIPTIONS.get(best_result.category, "No se ha podido determinar una categoría.")
 
-    return render(request, "resultados_segundopaso.html", {"results": results})
+    return render(request, "resultados_segundopaso.html", {"result": best_result})

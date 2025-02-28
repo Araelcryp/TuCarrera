@@ -29,17 +29,12 @@
         <div class="result-container">
             <h2>Resultados del Test de Intereses Profesionales</h2>
             <p style="text-align: center; font-size: 18px;"><b>¡Felicidades!</b><br><br>
-                Has concluido el test de intereses profesionales y a continuación se muestran 
-                los resultados obtenidos.
+                Has concluido el test de intereses profesionales y a continuación se muestra el área en la que tienes mayor afinidad.
             </p>
 
-            {% if results %}
+            {% if result %}
                 <h3 style="text-align: center;">Tu área de mayor afinidad es:</h3>
-                <ul style="text-align: center; list-style: none; font-size: 18px;">
-                    {% for result in results %}
-                        <li><b>{{ result.description }}</b> - Puntuación: {{ result.score }}</li>
-                    {% endfor %}
-                </ul>
+                <p style="text-align: center; font-size: 20px;"><b>{{ result.description }}</b></p>
             {% else %}
                 <p style="text-align: center;">No hay resultados disponibles.</p>
             {% endif %}
