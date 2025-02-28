@@ -87,21 +87,21 @@
 
     <main>
         <div class="container-content">
-            <h1>Formulario de Registro</h1>
+            <h1>Formulario de registro</h1>
             <div style="color: red; font-weight: bold;"> {{ error }} </div>
             <form action="{% url 'signup' %}" method="POST">
                 {% csrf_token %}
 
-                <label for="apellidoPaterno">Apellido Paterno:</label>
+                <label for="apellidoPaterno">Apellido paterno:</label>
                 <input type="text" id="apellidoPaterno" name="apellidoPaterno" required>
 
-                <label for="apellidoMaterno">Apellido Materno:</label>
+                <label for="apellidoMaterno">Apellido materno:</label>
                 <input type="text" id="apellidoMaterno" name="apellidoMaterno" required>
 
                 <label for="nombres">Nombre(s):</label>
                 <input type="text" id="nombres" name="nombres" required>
 
-                <label for="fechaNacimiento">Fecha de Nacimiento:</label>
+                <label for="fechaNacimiento">Fecha de nacimiento:</label>
                 <input type="date" id="fechaNacimiento" name="fechaNacimiento" required>
 
                 <label for="curp">CURP:</label>
@@ -109,10 +109,10 @@
 
                 <!-- Nuevos campos: Correo Electrónico y Contraseña -->
 
-                <label for="telefono">Teléfono de Contacto:</label>
+                <label for="telefono">Teléfono de contacto:</label>
                 <input type="tel" id="telefono" name="telefono" required>
 
-                <label for="email">Correo Electrónico:</label>
+                <label for="email">Correo electrónico:</label>
                 <input type="email" id="email" name="email" required>
                 
                 <div class="password-requirements">
@@ -128,7 +128,7 @@
                 <label for="password1">Contraseña:</label>
                 <input type="password" id="password1" name="password1" required>
 
-                <label for="password2">Confirmar Contraseña:</label>
+                <label for="password2">Confirmar contraseña:</label>
                 <input type="password" id="password2" name="password2" required>
 
                 <label for="procedencia">¿Estudiaste la preparatoria en Querétaro?</label>
