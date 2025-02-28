@@ -18,7 +18,10 @@ def presentacion_segundopaso(request):
 
 @login_required
 def instrucciones_segundopaso(request):
-    return render (request,'instrucciones_segundopaso.html')
+    # Verificar si el usuario tiene resultados guardados
+    test_completed = TestResult.objects.filter(user=request.user).exists()
+    
+    return render(request, "instrucciones_segundopaso.html", {"test_completed": test_completed})
 
 @login_required
 def test_segundopaso(request):

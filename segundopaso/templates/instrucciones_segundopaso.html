@@ -38,35 +38,39 @@
                 <li>No hay respuestas correctas o incorrectas, solo tus intereses personales.</li>
                 <li>Una vez completado el test, haz clic en "Ver Resultados" para ver tu área profesional recomendada.</li>
             </ol>
-            <button onclick="window.location.href='/test-segundo-paso'" class="continue-button">Comenzar el test</button>
+
+            {% if test_completed %}
+                <button onclick="window.location.href='/resultados-segundo-paso'" class="continue-button">Ver Resultados</button>
+            {% else %}
+                <button onclick="window.location.href='/test-segundo-paso'" class="continue-button">Comenzar el test</button>
+            {% endif %}
         </div>
     </div>
 </body>
+
 <script>
     const menuToggle = document.getElementById("menu-toggle");
     const menu = document.getElementById("menu");
     const navLinks = menu.querySelectorAll("ul li a");
     
-    // Abrir o cerrar el menú al hacer clic en el botón toggle
     menuToggle.addEventListener("click", () => {
         menu.classList.toggle("active");
     });
     
-    // Cerrar el menú cuando se hace clic en un enlace
     navLinks.forEach(link => {
         link.addEventListener("click", () => {
             menu.classList.remove("active");
         });
     });
     
-    // Cerrar el menú al hacer clic fuera del header
     document.addEventListener("click", (event) => {
         const isClickInsideMenu = menu.contains(event.target);
         const isClickOnToggle = menuToggle.contains(event.target);
-    
+
         if (!isClickInsideMenu && !isClickOnToggle) {
             menu.classList.remove("active");
         }
     });
 </script>
+
 </html>
