@@ -42,8 +42,6 @@ document.addEventListener("DOMContentLoaded", function () {
             menta: 0
         };
 
-        console.log("Form data entries:", [...formData.entries()]);
-
         formData.forEach((value, key) => {
             const questionNumber = parseInt(key.replace('question', ''));
             if (value === 'si') {
@@ -66,39 +64,29 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         }
 
-        displayResult(maxCategory);
+        saveResults(maxCategory, maxScore);
     }
 
-    function displayResult(category) {
-        let resultText = '';
-        switch (category) {
-            case 'rojo':
-                resultText = 'ÁREA PROFESIONAL: CIENCIAS SOCIALES\nCARRERAS PROFESIONALES EN ADMINISTRACIÓN Y NEGOCIOS';
-                break;
-            case 'morado':
-                resultText = 'ÁREA PROFESIONAL: CIENCIAS FÍSICAS Y MATEMÁTICAS\nCARRERAS PROFESIONALES EN INGENIERÍA Y MANUFACTURA';
-                break;
-            case 'azul':
-                resultText = 'ÁREA PROFESIONAL: CIENCIAS FÍSICAS Y MATEMÁTICAS\nCARRERAS PROFESIONALES EN TECNOLOGÍAS DE LA INFORMACIÓN';
-                break;
-            case 'verde':
-                resultText = 'ÁREA PROFESIONAL: HUMANIDADES Y ARTES\nCARRERAS PROFESIONALES EN HUMANIDADES Y ARTES';
-                break;
-            case 'amarillo':
-                resultText = 'ÁREA PROFESIONAL: CIENCIAS BIOLÓGICAS, QUÍMICAS Y DE LA SALUD\nCARRERAS PROFESIONALES EN CIENCIAS DE LA SALUD';
-                break;
-            case 'gris':
-                resultText = 'ÁREA PROFESIONAL: CIENCIAS FÍSICAS Y MATEMÁTICAS\nCARRERAS PROFESIONALES EN CIENCIAS NATURALES, MATEMÁTICA Y ESTADÍSTICA';
-                break;
-            case 'menta':
-                resultText = 'ÁREA PROFESIONAL: ARTES Y HUMANIDADES\nCARRERAS PROFESIONALES EN EDUCACIÓN';
-                break;
-            default:
-                resultText = 'No se ha podido determinar una categoría.';
-        }
+    function saveResults(category, score) {
+        fetch('/guardar_resultado/', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+                'X-CSRFToken': getCSRFToken()
+            },
+            body: `category=${encodeURIComponent(category)}&score=${encodeURIComponent(score)}`
+        }).then(response => response.json())
+          .then(data => {
+              console.log("Resultado guardado:", data);
+              window.location.href = `/resultados-segundo-paso?results=${encodeURIComponent(data.message)}`;
+          }).catch(error => {
+              console.error("Error al guardar resultado:", error);
+          });
+    }
 
-        const encodedResult = encodeURIComponent(resultText);
-        window.location.href = `/resultados-segundo-paso?results=${encodedResult}`;
+    function getCSRFToken() {
+        const cookieValue = document.cookie.split('; ').find(row => row.startsWith('csrftoken='));
+        return cookieValue ? cookieValue.split('=')[1] : '';
     }
 
     function showModal(message) {

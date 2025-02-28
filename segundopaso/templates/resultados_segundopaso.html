@@ -27,13 +27,23 @@
 
     <div class="content">
         <div class="result-container">
-            <h2>Resultados del test de intereses profesionales</h2>
+            <h2>Resultados del Test de Intereses Profesionales</h2>
             <p style="text-align: center; font-size: 18px;"><b>¡Felicidades!</b><br><br>
-                Has concluido el test de intereses profesionales y a continuación se muestra 
-                el área en las que tienes mayor afinidad. Esta información te puede ayudar 
-                a identificar las carreras que mejor se alinean con tus intereses y preferencias.
+                Has concluido el test de intereses profesionales y a continuación se muestran 
+                los resultados obtenidos.
             </p>
-            <div style="text-align: center; font-size: 16px;" id="results"></div>
+
+            {% if results %}
+                <h3 style="text-align: center;">Tu área de mayor afinidad es:</h3>
+                <ul style="text-align: center; list-style: none; font-size: 18px;">
+                    {% for result in results %}
+                        <li><b>{{ result.description }}</b> - Puntuación: {{ result.score }}</li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <p style="text-align: center;">No hay resultados disponibles.</p>
+            {% endif %}
+
             <div class="navigation-buttons">
                 <button id="continueButton" class="btn continue-button">Continuar</button>
             </div>
@@ -41,43 +51,34 @@
     </div>
 
     <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const results = new URLSearchParams(window.location.search).get('results');
-            if (results) {
-                document.getElementById("results").innerText = decodeURIComponent(results);
-            }
+        document.getElementById("continueButton").addEventListener("click", function() {
+            window.location.href = "/tercerpaso";
+        });
+    </script>
 
-            document.getElementById("continueButton").addEventListener("click", function() {
-                window.location.href = "/tercerpaso";
+    <script>
+        const menuToggle = document.getElementById("menu-toggle");
+        const menu = document.getElementById("menu");
+        const navLinks = menu.querySelectorAll("ul li a");
+        
+        menuToggle.addEventListener("click", () => {
+            menu.classList.toggle("active");
+        });
+
+        navLinks.forEach(link => {
+            link.addEventListener("click", () => {
+                menu.classList.remove("active");
             });
+        });
+
+        document.addEventListener("click", (event) => {
+            const isClickInsideMenu = menu.contains(event.target);
+            const isClickOnToggle = menuToggle.contains(event.target);
+
+            if (!isClickInsideMenu && !isClickOnToggle) {
+                menu.classList.remove("active");
+            }
         });
     </script>
 </body>
-<script>
-    const menuToggle = document.getElementById("menu-toggle");
-    const menu = document.getElementById("menu");
-    const navLinks = menu.querySelectorAll("ul li a");
-    
-    // Abrir o cerrar el menú al hacer clic en el botón toggle
-    menuToggle.addEventListener("click", () => {
-        menu.classList.toggle("active");
-    });
-    
-    // Cerrar el menú cuando se hace clic en un enlace
-    navLinks.forEach(link => {
-        link.addEventListener("click", () => {
-            menu.classList.remove("active");
-        });
-    });
-    
-    // Cerrar el menú al hacer clic fuera del header
-    document.addEventListener("click", (event) => {
-        const isClickInsideMenu = menu.contains(event.target);
-        const isClickOnToggle = menuToggle.contains(event.target);
-    
-        if (!isClickInsideMenu && !isClickOnToggle) {
-            menu.classList.remove("active");
-        }
-    });
-</script>
 </html>
