@@ -11,19 +11,31 @@ def primerpaso(request):
 
 @login_required
 def imagen_primerpaso(request):
-    return render(request,'imagen_primerpaso.html')
+    profile = request.user.profile
+    profile.progreso_personalidad = 100
+    profile.save()
+    return render(request, 'imagen_primerpaso.html')
 
 @login_required
 def presentacion_primerpaso(request):
-    return render(request,'presentacion_primerpaso.html')
+    profile = request.user.profile
+    profile.progreso_autoestima = 100
+    profile.save()
+    return render(request, 'presentacion_primerpaso.html')
 
 @login_required
 def video_primerpaso(request):
-    return render(request,'video_primerpaso.html')
+    profile = request.user.profile
+    profile.progreso_valores = 100
+    profile.save()
+    return render(request, 'video_primerpaso.html')
 
 @login_required
 def formato_primerpaso(request):
-    return render(request,'formato_primerpaso.html')
+    profile = request.user.profile
+    profile.progreso_logros = 100
+    profile.save()
+    return render(request, 'formato_primerpaso.html')
 
 @login_required
 def primerpasos2(request):

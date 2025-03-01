@@ -16,7 +16,12 @@ class Profile(models.Model):
     otro_bachillerato = models.CharField(max_length=100, null=True, blank=True)  # Campo opcional si elige "otro"
     matricula = models.CharField(max_length=20)
     telefono = models.CharField(max_length=15)
-    progreso = models.IntegerField(default=0)
+    
+    # Progreso individual por sección Primer Paso
+    progreso_personalidad = models.IntegerField(default=0)
+    progreso_autoestima = models.IntegerField(default=0)
+    progreso_valores = models.IntegerField(default=0)
+    progreso_logros = models.IntegerField(default=0)
     
     def __str__(self):
         return f'{self.user.username} Profile'

@@ -49,67 +49,50 @@
           <h2>Autoconocimiento</h2>
           <a href="/imagen-primer-paso" class="progress-item-link">
             <div class="progress-item">
-              <img
-                src="{% static 'images/Personalidad.png'%}"
-                alt="Imagen ilustrativa"
-                class="progress-img"
-              />
-              <div class="progress-info">
-                <p>Elementos de la personalidad</p>
-                <div class="progress-bar">
-                  <div class="progress" style="width: {{ request.user.profile.progreso }}%"></div>
+                <img src="{% static 'images/Personalidad.png'%}" alt="Imagen ilustrativa" class="progress-img"/>
+                <div class="progress-info">
+                    <p>Elementos de la personalidad</p>
+                    <div class="progress-bar">
+                        <div class="progress" style="width: {{ request.user.profile.progreso_personalidad }}%"></div>
+                    </div>
+                    <span>{{ request.user.profile.progreso_personalidad }}% completado</span>
                 </div>
-                <span>{{ request.user.profile.progreso }}% completado</span>
-                <div class="bookmark"></div>
-              </div>
             </div>
           </a>
           <a href="/presentacion-primer-paso" class="progress-item-link">
             <div class="progress-item">
-              <img
-                src="{% static 'images/Autoestima.png'%}"
-                alt="Imagen ilustrativa"
-                class="progress-img"
-              />
-              <div class="progress-info">
-                <p>Autoestima y autoconcepto</p>
-                <div class="progress-bar">
-                  <div class="progress" style="width: 45%"></div>
+                <img src="{% static 'images/Autoestima.png'%}" alt="Imagen ilustrativa" class="progress-img"/>
+                <div class="progress-info">
+                    <p>Autoestima y autoconcepto</p>
+                    <div class="progress-bar">
+                        <div class="progress" style="width: {{ request.user.profile.progreso_autoestima }}%"></div>
+                    </div>
+                    <span>{{ request.user.profile.progreso_autoestima }}% completado</span>
                 </div>
-                <span>45% completado</span>
-              </div>
             </div>
           </a>
           <a href="/video-primer-paso" class="progress-item-link">
             <div class="progress-item">
-              <img
-                src="{% static 'images/Valores.png'%}"
-                alt="Imagen ilustrativa"
-                class="progress-img"
-              />
-              <div class="progress-info">
-                <p>Valores y autoestima</p>
-                <div class="progress-bar">
-                  <div class="progress" style="width: 22%"></div>
+                <img src="{% static 'images/Valores.png'%}" alt="Imagen ilustrativa" class="progress-img"/>
+                <div class="progress-info">
+                    <p>Valores y autoestima</p>
+                    <div class="progress-bar">
+                        <div class="progress" style="width: {{ request.user.profile.progreso_valores }}%"></div>
+                    </div>
+                    <span>{{ request.user.profile.progreso_valores }}% completado</span>
                 </div>
-                <span>22% completado</span>
-              </div>
             </div>
           </a>
           <a href="/formato-primer-paso" class="progress-item-link">
             <div class="progress-item">
-              <img
-                src="{% static 'images/Logro.png'%}"
-                alt="Imagen ilustrativa"
-                class="progress-img"
-              />
-              <div class="progress-info">
-                <p>El árbol de los logros</p>
-                <div class="progress-bar">
-                  <div class="progress" style="width: 63%"></div>
+                <img src="{% static 'images/Logro.png'%}" alt="Imagen ilustrativa" class="progress-img"/>
+                <div class="progress-info">
+                    <p>El árbol de los logros</p>
+                    <div class="progress-bar">
+                        <div class="progress" style="width: {{ request.user.profile.progreso_logros }}%"></div>
+                    </div>
+                    <span>{{ request.user.profile.progreso_logros }}% completado</span>
                 </div>
-                <span>63% completado</span>
-              </div>
             </div>
           </a>
         </div>
