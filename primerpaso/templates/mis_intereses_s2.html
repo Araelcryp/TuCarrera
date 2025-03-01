@@ -39,17 +39,15 @@
 
             <div class="sidebar">
                 <h2>Inteligencias múltiples</h2>
-
                 <a href="/infografia-primer-paso" class="progress-item-link">
                     <div class="progress-item">
                         <img src="{% static 'images/IMAGEN.png' %}" alt="Imagen ilustrativa" class="progress-img">
                         <div class="progress-info">
                             <p>Inteligencias múltiples</p>
                             <div class="progress-bar">
-                                <div class="progress" style="width: 85%;"></div>
+                                <div class="progress" style="width: {{ request.user.profile.progreso_inteligencias }}%"></div>
                             </div>
-                            <span>85% completado</span>
-                            <div class="bookmark"></div>
+                            <span>{{ request.user.profile.progreso_inteligencias }}% completado</span>
                         </div>
                     </div>
                 </a>
@@ -60,9 +58,9 @@
                         <div class="progress-info">
                             <p>Test de inteligencias múltiples</p>
                             <div class="progress-bar">
-                                <div class="progress" style="width: 45%;"></div>
+                                <div class="progress" style="width: {{ request.user.profile.progreso_testInteligencias }}%"></div>
                             </div>
-                            <span>45% completado</span>
+                            <span>{{ request.user.profile.progreso_testInteligencias }}% completado</span>
                         </div>
                     </div>
                 </a>

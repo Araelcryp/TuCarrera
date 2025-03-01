@@ -43,10 +43,16 @@ def primerpasos2(request):
 
 @login_required
 def infografia_primerpaso(request):
+    profile = request.user.profile
+    profile.progreso_inteligencias = 100
+    profile.save()
     return render(request,'infografia_primerpaso.html')
 
 @login_required
 def instrucciones_primerpaso(request):
+    profile = request.user.profile
+    profile.progreso_testInteligencias = 100
+    profile.save()
     try:
         resultado = TestResult.objects.get(user=request.user)
         completado = resultado.completado  # Obtener el estado de completado

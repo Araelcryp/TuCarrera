@@ -22,6 +22,8 @@ class Profile(models.Model):
     progreso_autoestima = models.IntegerField(default=0)
     progreso_valores = models.IntegerField(default=0)
     progreso_logros = models.IntegerField(default=0)
+    progreso_inteligencias = models.IntegerField(default=0)
+    progreso_testInteligencias = models.IntegerField(default=0)
     
     def __str__(self):
         return f'{self.user.username} Profile'
