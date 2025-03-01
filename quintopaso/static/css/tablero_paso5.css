@@ -95,6 +95,14 @@ header .menu-toggle {
     align-items: center;
 }
 
+.paragraph-of-instructions {
+    font-size: 18px;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 15px;
+    width: 800px;
+}
+
 /* Estilos para el tablero interactivo */
 .board {
     display: flex;
@@ -157,10 +165,6 @@ header .menu-toggle {
 .continue-button:hover {
     transition: transform 0.3s;
     transform: scale(1.05);
-}
-
-.instrucciones {
-    text-align: center;
 }
 
 /* Mobile Styles */

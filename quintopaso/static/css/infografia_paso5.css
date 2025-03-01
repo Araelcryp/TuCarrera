@@ -114,6 +114,14 @@ header .menu-toggle {
     margin-bottom: 20px;
 }
 
+.paragraph-of-instructions {
+    font-size: 18px;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 15px;
+    width: 800px;
+}
+
 .infografia-img {
     max-width: 100%;
     border-radius: 12px;
@@ -160,10 +168,6 @@ header .menu-toggle {
 .continue-button:hover {
     transition: transform 0.3s;
     transform: scale(1.05);
-}
-
-.instrucciones {
-    text-align: center;
 }
 
 /* Mobile Styles */

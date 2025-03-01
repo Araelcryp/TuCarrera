@@ -112,6 +112,14 @@ header .menu-toggle {
     width: 100%; /* Asegura que el texto ocupe todo el ancho disponible */
 }
 
+.paragraph-of-instructions {
+    font-size: 18px;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 15px;
+    width: 800px;
+}
+
 .displayed-image {
     width: 900px;
     height: auto;
@@ -163,10 +171,6 @@ header .menu-toggle {
 .continue-button:hover {
     transition: transform 0.3s;
     transform: scale(1.05);
-}
-
-.instrucciones {
-    text-align: center;
 }
 
 /* Mobile Styles */
