@@ -39,9 +39,15 @@
         </div>
     </div>
     <canvas id="confettiCanvas"></canvas>
+    <script>
+        document.getElementById("downloadCertificate").addEventListener("click", function() {
+            window.open("{% url 'generar-constancia-pdf' %}", "_blank");
+        });
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
     <script src="{% static 'js/final.js' %}"></script>
 </body>
+
 <script>
     const menuToggle = document.getElementById("menu-toggle");
     const menu = document.getElementById("menu");
