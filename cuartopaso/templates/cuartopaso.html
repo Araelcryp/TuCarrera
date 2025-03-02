@@ -49,10 +49,9 @@
                         <div class="progress-info">
                             <p>Directorio de universidades</p>
                             <div class="progress-bar">
-                                <div class="progress" style="width: 85%;"></div>
+                                <div class="progress" style="width: {{ request.user.profile.progreso_tablerocuartopaso}}%;"></div>
                             </div>
-                            <span>85% completado</span>
-                            <div class="bookmark"></div>
+                            <span>{{ request.user.profile.progreso_tablerocuartopaso}}% completado</span>
                         </div>
                     </div>
                 </a>
@@ -63,10 +62,9 @@
                         <div class="progress-info">
                             <p>Videos y recorridos virtuales</p>
                             <div class="progress-bar">
-                                <div class="progress" style="width: 85%;"></div>
+                                <div class="progress" style="width: {{ request.user.profile.progreso_videocuartopaso}}%;"></div>
                             </div>
-                            <span>85% completado</span>
-                            <div class="bookmark"></div>
+                            <span>{{ request.user.profile.progreso_videocuartopaso}}% completado</span>
                         </div>
                     </div>
                 </a>
@@ -77,10 +75,9 @@
                         <div class="progress-info">
                             <p>Ferias universitarias</p>
                             <div class="progress-bar">
-                                <div class="progress" style="width: 85%;"></div>
+                                <div class="progress" style="width: {{ request.user.profile.progreso_agendacuartopaso}}%;"></div>
                             </div>
-                            <span>85% completado</span>
-                            <div class="bookmark"></div>
+                            <span>{{ request.user.profile.progreso_agendacuartopaso}}% completado</span>
                         </div>
                     </div>
                 </a>
@@ -91,7 +88,7 @@
 
     <div class="navigation-buttons">
         <a href="/mi-entorno-s2" class="btn back-button">Regresar</a>
-        <a href="/quintopaso" class="btn continue-button">Continuar</a>
+        <a href="/quintopaso" id="continue-btn" class="btn continue-button disabled">Continuar</a>
     </div>
 
 </body>
@@ -120,6 +117,27 @@
         if (!isClickInsideMenu && !isClickOnToggle) {
             menu.classList.remove("active");
         }
+    });
+  </script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      // Obtener los valores de progreso desde Django
+      let progresoTablerocuartopaso = {{ request.user.profile.progreso_tablerocuartopaso }};
+      let progresoVideocuartopaso = {{ request.user.profile.progreso_videocuartopaso }};
+      let progresoAgendacuartopaso = {{ request.user.profile.progreso_agendacuartopaso }};
+      // Verificar si todos los progresos están al 100%
+      if (
+        progresoTablerocuartopaso === 100 &&
+        progresoVideocuartopaso === 100 &&
+        progresoAgendacuartopaso === 100 
+      ) {
+        document.getElementById("continue-btn").classList.remove("disabled");
+        document.getElementById("continue-btn").removeAttribute("style");
+      } else {
+        document.getElementById("continue-btn").style.pointerEvents = "none";
+        document.getElementById("continue-btn").style.opacity = "0.5";
+      }
     });
   </script>
 </html>

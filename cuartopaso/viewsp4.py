@@ -19,12 +19,21 @@ def cuartopaso(request):
 
 @login_required
 def tablero_cuartopaso(request):
+    profile = request.user.profile
+    profile.progreso_tablerocuartopaso = 100
+    profile.save()
     return render (request,'tablero_cuartopaso.html')
 
 @login_required
 def video_cuartopaso(request):
+    profile = request.user.profile
+    profile.progreso_videocuartopaso = 100
+    profile.save()
     return render (request,'video_cuartopaso.html')
 
 @login_required
 def agenda_cuartopaso(request):
+    profile = request.user.profile
+    profile.progreso_agendacuartopaso = 100
+    profile.save()
     return render (request,'agenda_cuartopaso.html')
