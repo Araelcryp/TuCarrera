@@ -29,5 +29,8 @@ class Profile(models.Model):
     progreso_presentacionsegundopaso = models.IntegerField(default=0)
     progreso_testsegundopaso = models.IntegerField(default=0)
     
+    # Progreso individual por sección Tercer Paso
+    
+    
     def __str__(self):
         return f'{self.user.username} Profile'

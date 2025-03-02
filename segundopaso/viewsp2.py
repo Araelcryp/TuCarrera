@@ -15,6 +15,14 @@ CATEGORY_DESCRIPTIONS = {
 
 @login_required
 def segundopaso(request):
+    profile = request.user.profile
+    
+    # Verificar si todos los progresos están al 100%
+    if (
+        profile.progreso_inteligencias < 100 or
+        profile.testInteligencias < 100 
+    ):
+        return redirect('/mis-intereses-s2')  # Redirige de nuevo si no ha completado todo
     return render (request,'segundopaso.html')
 
 @login_required
