@@ -29,7 +29,7 @@
             <!-- Perfil del Usuario -->
             <div class="profile-section">
                 <h1>{{ profile.nombres }} {{profile.apellido_paterno}}</h1>
-                <p>Tiempo total en la plataforma: 35 horas</p>
+                <p>Tiempo total en la plataforma: <span id="tiempo-plataforma">{{ tiempo_en_plataforma }}</span> horas</p>
                 <button onclick="document.getElementById('modal').style.display='block'" class="update-btn">Actualizar Datos</button>
             </div>
 
@@ -289,4 +289,19 @@
         .catch(error => console.error("Error al agregar meta:", error));
     });
 </script>
+
+<script>
+    function actualizarTiempoPlataforma() {
+        fetch("{% url 'obtener_tiempo_plataforma' %}")  // Nueva vista en Django
+        .then(response => response.json())
+        .then(data => {
+            document.getElementById("tiempo-plataforma").innerText = data.tiempo;
+        })
+        .catch(error => console.error("Error al obtener el tiempo:", error));
+    }
+    
+    // Actualizar cada 60 segundos
+    setInterval(actualizarTiempoPlataforma, 60000);
+</script>
+
 </html>

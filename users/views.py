@@ -27,6 +27,7 @@ from segundopaso.models import TestResult
 from django.http import JsonResponse
 import json
 from datetime import datetime
+from django.utils import timezone
 # Create your views here.
 
 def validate_password_strength(password):
@@ -219,9 +220,17 @@ def calcular_porcentaje(progresos):
     progreso_maximo = len(progresos) * 100  # Cada sección tiene un máximo de 100%
     return (total_progreso / progreso_maximo) * 100 if progreso_maximo > 0 else 0
 
+
+@login_required
+def obtener_tiempo_plataforma(request):
+    tiempo_en_plataforma = round((timezone.now() - request.user.date_joined).total_seconds() / 3600, 1)
+    return JsonResponse({"tiempo": tiempo_en_plataforma})
+
 @login_required
 def perfil(request):
     profile = request.user.profile
+    
+    tiempo_en_plataforma = round((timezone.now() - request.user.date_joined).total_seconds() / 3600, 1)  # Convertir a horas
     
     # Definir distintas categorías de progreso
     progresos_p1 = [
@@ -294,7 +303,7 @@ def perfil(request):
         'porcentaje_total_p5': porcentaje_total_p5,
         'porcentaje_total_p6': porcentaje_total_p6,
         'porcentaje_total_p7': porcentaje_total_p7,
-        
+        'tiempo_en_plataforma': tiempo_en_plataforma,
         
     }
     
