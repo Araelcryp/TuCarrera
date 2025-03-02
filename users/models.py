@@ -50,6 +50,14 @@ class Profile(models.Model):
     # Progreso individual por sección Sexto Paso
     progreso_tablerosextopaso = models.IntegerField(default=0)
     
+    # Progreso individual por sección Septimo Paso
+    progreso_fraseseptimopaso = models.IntegerField(default=0)
+    progreso_imagenseptimopaso = models.IntegerField(default=0)
+    progreso_imagen2septimopaso = models.IntegerField(default=0)
+    progreso_formatoseptimopaso = models.IntegerField(default=0)
+    
+    
+    
     
     def __str__(self):
         return f'{self.user.username} Profile'
