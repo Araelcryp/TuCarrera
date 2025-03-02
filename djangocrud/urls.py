@@ -47,7 +47,6 @@ urlpatterns = [
     path('homeuser/', views.homeuser, name='homeuser'),
     path('final/', views.final, name='final'),
     path('perfil/', views.perfil, name='perfil'),
-    path('generar-constancia-pdf/', views.generar_constancia_pdf, name='generar-constancia-pdf'),
 
     path('primerpaso/',viewsp1.primerpaso, name='primerpaso'),
     path('imagen-primer-paso/',viewsp1.imagen_primerpaso, name='imagen-primer-paso'),
@@ -67,7 +66,7 @@ urlpatterns = [
     path('presentacion-segundo-paso/',viewsp2.presentacion_segundopaso,name='presentacion-segundo-paso'),
     path('instrucciones-segundo-paso/',viewsp2.instrucciones_segundopaso, name='instrucciones-segundo-paso'),
     path('test-segundo-paso/',viewsp2.test_segundopaso, name='test-segundo-paso'),
-    path('resultados-segundo-paso/',viewsp2.resultados_segundo_paso, name='resultados-segundo-paso'),
+    path('resultados-segundo-paso/',viewsp2.resultados_segundopaso, name='resultados-segundo-paso/'),
     path('guardar_resultado/',viewsp2.save_results, name='guardar_resultado'),
     
 

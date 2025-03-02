@@ -14,16 +14,6 @@ from django.core.mail import send_mail
 from django.template.loader import render_to_string
 from django.utils.html import strip_tags
 
-from django.shortcuts import HttpResponse
-from reportlab.pdfgen import canvas
-from reportlab.lib.pagesizes import letter
-import os
-from django.conf import settings
-from django.http import HttpResponse
-from reportlab.lib.pagesizes import letter, landscape
-from reportlab.lib.utils import ImageReader
-from segundopaso.models import TestResult
-
 # Create your views here.
 
 def validate_password_strength(password):
@@ -113,7 +103,7 @@ def signup(request):
             send_mail(
                 'Confirmación de cuenta',
                 text_content,  # Contenido en texto plano
-                'sedeq.coord@gmail.com',  # Desde qué email enviar
+                'armanmart2017@gmail.com',  # Desde qué email enviar
                 [user.email],  # A qué email enviar
                 html_message=html_content,  # Contenido HTML del correo
                 fail_silently=False,
@@ -161,16 +151,6 @@ def signin(request):
             login(request, user)
             return redirect('homeuser')
         
-CATEGORY_DESCRIPTIONS = {
-    "rojo": "Ciencias sociales",
-    "morado": "Ciencias físicas y matemáticas",
-    "azul": "Ciencias físicas y matemáticas",
-    "verde": "Humanidades y artes",
-    "amarillo": "Ciencias biológicas, químicas y de la salud",
-    "gris": "Ciencias físicas y matemáticas",
-    "menta": "Artes y humanidades"
-}
-
 @login_required
 def final(request):
     return render(request, 'final.html')
@@ -178,49 +158,3 @@ def final(request):
 @login_required
 def perfil(request):
     return render(request, 'perfil.html')
-
-@login_required
-def generar_constancia_pdf(request):
-    usuario = request.user
-
-    # Obtener el nombre completo del usuario o usar username como fallback
-    perfil = Profile.objects.filter(user=usuario).first()
-    nombre_completo = f"{perfil.nombres} {perfil.apellido_paterno} {perfil.apellido_materno}" if perfil else usuario.get_full_name() or usuario.username
-
-    # Obtener el resultado del test más reciente
-    test_result = TestResult.objects.filter(user=usuario).order_by("-date_taken").first()
-    resultado = CATEGORY_DESCRIPTIONS.get(test_result.category, "Categoría desconocida") if test_result else "No disponible"
-
-    # Configurar el nombre del PDF
-    nombre_pdf = f"Constancia_{''.join(e for e in nombre_completo if e.isalnum() or e in (' ', '_')).replace(' ', '_')}.pdf"
-
-    # Configurar la respuesta HTTP para abrir el PDF en el navegador con el nombre correcto
-    response = HttpResponse(content_type="application/pdf")
-    response["Content-Disposition"] = f'inline; filename="{nombre_pdf}"'
-
-    # Crear el PDF
-    p = canvas.Canvas(response, pagesize=(960, 720))
-
-    # Cargar la imagen de fondo
-    imagen_path = os.path.join("users", "static", "images", "constancia.png")
-    p.drawImage(imagen_path, 0, 0, width=960, height=720)
-
-    # Ajustar posiciones del texto según la categoría
-    posiciones_x = {
-        "rojo": 400, "morado": 325, "azul": 325,
-        "verde": 380, "amarillo": 260, "gris": 325, "menta": 380
-    }
-    resultado_x = posiciones_x.get(test_result.category, 315)
-
-    # Configurar fuente y color del texto
-    p.setFont("Helvetica-Bold", 24)
-    p.setFillColorRGB(0.0, 0.2, 0.6)
-
-    # Dibujar el texto en la constancia
-    p.drawCentredString(1000 / 2, 375, f"A: {nombre_completo}")  # Nombre centrado
-    p.drawString(resultado_x, 190, resultado)  # Categoría alineada
-
-    # Guardar y devolver el PDF
-    p.showPage()
-    p.save()
-    return response
