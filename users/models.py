@@ -30,6 +30,7 @@ class Profile(models.Model):
     progreso_testsegundopaso = models.IntegerField(default=0)
     
     # Progreso individual por sección Tercer Paso
+    progreso_infografiatercerpaso = models.IntegerField(default=0)
     
     
     def __str__(self):

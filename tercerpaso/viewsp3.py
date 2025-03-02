@@ -17,10 +17,21 @@ def tercerpaso(request):
 
 @login_required
 def infografia_tercerpaso(request):
+    profile = request.user.profile
+    profile.progreso_infografiatercerpaso = 100
+    profile.save()
     return render (request,'infografia_tercerpaso.html')
 
 @login_required
 def mi_entorno_s2(request):
+    profile = request.user.profile
+    
+    # Verificar si todos los progresos están al 100%
+    if (
+        profile.progreso_infografiatercerpaso < 100
+    ):
+        return redirect('/tercerpaso')  # Redirige de nuevo si no ha completado todo
+    
     return render (request,'mi_entorno_s2.html')
 
 @login_required

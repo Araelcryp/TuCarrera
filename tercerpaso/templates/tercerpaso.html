@@ -47,10 +47,9 @@
                         <div class="progress-info">
                             <p>Competencias del siglo XXI</p>
                             <div class="progress-bar">
-                                <div class="progress" style="width: 85%;"></div>
+                                <div class="progress" style="width: {{ request.user.profile.progreso_infografiatercerpaso }}%;"></div>
                             </div>
-                            <span>85% completado</span>
-                            <div class="bookmark"></div>
+                            <span>{{ request.user.profile.progreso_infografiatercerpaso }}% completado</span>
                         </div>
                     </div>
                 </a>
@@ -61,7 +60,7 @@
 
     <div class="navigation-buttons">
         <a href="/segundopaso" class="btn back-button">Regresar</a>
-        <a href="/mi-entorno-s2" class="btn continue-button">Continuar</a>
+        <a href="/mi-entorno-s2" id="continue-btn" class="btn continue-button disabled">Continuar</a>
     </div>
     
 </body>
@@ -90,6 +89,24 @@
         if (!isClickInsideMenu && !isClickOnToggle) {
             menu.classList.remove("active");
         }
+    });
+  </script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      // Obtener los valores de progreso desde Django
+      let progresoInfografiatercerpaso = {{ request.user.profile.progreso_infografiatercerpaso}};
+  
+      // Verificar si todos los progresos están al 100%
+      if (
+        progresoInfografiatercerpaso === 100
+      ) {
+        document.getElementById("continue-btn").classList.remove("disabled");
+        document.getElementById("continue-btn").removeAttribute("style");
+      } else {
+        document.getElementById("continue-btn").style.pointerEvents = "none";
+        document.getElementById("continue-btn").style.opacity = "0.5";
+      }
     });
   </script>
 </html>
