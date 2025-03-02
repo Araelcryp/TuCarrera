@@ -28,7 +28,7 @@
         <div class="dashboard-container">
             <!-- Perfil del Usuario -->
             <div class="profile-section">
-                <h2>Nombre del Usuario</h2>
+                <h1>{{ profile.nombres }} {{profile.apellido_paterno}}</h1>
                 <p>Tiempo total en la plataforma: 35 horas</p>
                 <button onclick="document.getElementById('modal').style.display='block'" class="update-btn">Actualizar Datos</button>
             </div>
@@ -39,12 +39,32 @@
             <div id="progress" class="progress-section">
                 <h2>Progreso de los Contenidos</h2>
                 <div class="progress-bar-container">
-                    <label for="content-progress">Mis Intereses - Progreso Total: 100%</label>
-                    <div class="progress-bar" id="content-progress" style="width: 100%;"></div>
+                    <label for="content-progress">Mis Intereses - Progreso Total: {{ porcentaje_total_p1|floatformat:0 }}%</label>
+                    <div class="progress-bar" id="content-progress" style="width: {{ porcentaje_total_p1 }}%;"></div>
                 </div>
                 <div class="progress-bar-container">
-                    <label for="content-progress">Mis Talentos - Progreso Total: 70%</label>
-                    <div class="progress-bar" id="content-progress" style="width: 70%;"></div>
+                    <label for="content-progress">Mis Talentos - Progreso Total: {{ porcentaje_total_p2|floatformat:0 }}%</label>
+                    <div class="progress-bar" id="content-progress" style="width: {{ porcentaje_total_p2 }}%;"></div>
+                </div>
+                <div class="progress-bar-container">
+                    <label for="content-progress">Mi Entorno - Progreso Total: {{ porcentaje_total_p3|floatformat:0 }}%</label>
+                    <div class="progress-bar" id="content-progress" style="width: {{ porcentaje_total_p3 }}%;"></div>
+                </div>
+                <div class="progress-bar-container">
+                    <label for="content-progress">Mi Universidad - Progreso Total: {{ porcentaje_total_p4|floatformat:0 }}%</label>
+                    <div class="progress-bar" id="content-progress" style="width: {{ porcentaje_total_p4 }}%;"></div>
+                </div>
+                <div class="progress-bar-container">
+                    <label for="content-progress">Mis Apoyos - Progreso Total: {{ porcentaje_total_p5|floatformat:0 }}%</label>
+                    <div class="progress-bar" id="content-progress" style="width: {{ porcentaje_total_p5 }}%;"></div>
+                </div>
+                <div class="progress-bar-container">
+                    <label for="content-progress">Quiero Más - Progreso Total: {{ porcentaje_total_p6|floatformat:0 }}%</label>
+                    <div class="progress-bar" id="content-progress" style="width: {{ porcentaje_total_p6 }}%;"></div>
+                </div>
+                <div class="progress-bar-container">
+                    <label for="content-progress">Mi Plan de Carrera - Progreso Total: {{ porcentaje_total_p7|floatformat:0 }}%</label>
+                    <div class="progress-bar" id="content-progress" style="width: {{ porcentaje_total_p7 }}%;"></div>
                 </div>
             </div>
 

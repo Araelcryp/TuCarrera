@@ -182,9 +182,93 @@ def final(request):
         return redirect('/mi-plan-s2')
     return render(request, 'final.html')
 
+"""Calcula el porcentaje de progreso basado en una lista de valores."""
+def calcular_porcentaje(progresos):
+    progresos = [p or 0 for p in progresos]  # Evitar valores None
+    total_progreso = sum(progresos)
+    progreso_maximo = len(progresos) * 100  # Cada sección tiene un máximo de 100%
+    return (total_progreso / progreso_maximo) * 100 if progreso_maximo > 0 else 0
+
 @login_required
 def perfil(request):
-    return render(request, 'perfil.html')
+    profile = request.user.profile
+    
+    # Definir distintas categorías de progreso
+    progresos_p1 = [
+        profile.progreso_personalidad,
+        profile.progreso_autoestima,
+        profile.progreso_valores,
+        profile.progreso_logros,
+        profile.progreso_inteligencias,
+        profile.progreso_testInteligencias,
+    ]
+    
+    progresos_p2 = [
+        profile.progreso_presentacionsegundopaso,
+        profile.progreso_testsegundopaso,
+    ]
+    
+    progresos_p3 = [
+        profile.progreso_presentacionsegundopaso,
+        profile.progreso_testsegundopaso,
+    ]
+    
+    progresos_p3 = [
+        profile.progreso_infografiatercerpaso,
+        profile.progreso_tablerotercerpaso,
+        profile.progreso_videotercerpaso,
+        profile.progreso_videoconsejotercerpaso,
+        profile.progreso_presentaciontercerpaso,
+    ]
+    
+    progresos_p4 = [
+        profile.progreso_tablerocuartopaso,
+        profile.progreso_videocuartopaso,
+        profile.progreso_agendacuartopaso,
+    ]
+    
+    progresos_p5 = [
+        profile.progreso_imagenquintopaso,
+        profile.progreso_tableroquintopaso,
+        profile.progreso_infografiaquintopaso,
+    ]
+    
+    progresos_p6 = [
+        profile.progreso_tablerosextopaso,
+    ]
+    
+    progresos_p7 = [
+        profile.progreso_fraseseptimopaso,
+        profile.progreso_imagenseptimopaso,
+        profile.progreso_imagen2septimopaso,
+        profile.progreso_formatoseptimopaso,
+        profile.progreso_infografiaseptimopaso,
+        profile.progreso_formato2septimopaso,
+    ]
+    
+    # Calcular los porcentajes usando la función
+    porcentaje_total_p1 = calcular_porcentaje(progresos_p1)
+    porcentaje_total_p2 = calcular_porcentaje(progresos_p2)
+    porcentaje_total_p3 = calcular_porcentaje(progresos_p3)
+    porcentaje_total_p4 = calcular_porcentaje(progresos_p4)
+    porcentaje_total_p5 = calcular_porcentaje(progresos_p5)
+    porcentaje_total_p6 = calcular_porcentaje(progresos_p6)
+    porcentaje_total_p7 = calcular_porcentaje(progresos_p7)
+    
+    context = {
+        'profile': profile,
+        'porcentaje_total_p1': porcentaje_total_p1,
+        'porcentaje_total_p2': porcentaje_total_p2,
+        'porcentaje_total_p3': porcentaje_total_p3,
+        'porcentaje_total_p4': porcentaje_total_p4,
+        'porcentaje_total_p5': porcentaje_total_p5,
+        'porcentaje_total_p6': porcentaje_total_p6,
+        'porcentaje_total_p7': porcentaje_total_p7,
+        
+        
+    }
+    
+    return render(request, 'perfil.html', context,)
 
 @login_required
 def generar_constancia_pdf(request):
