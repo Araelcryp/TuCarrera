@@ -18,12 +18,21 @@ def quintopaso(request):
 
 @login_required
 def imagen_quintopaso(request):
+    profile = request.user.profile
+    profile.progreso_imagenquintopaso = 100
+    profile.save()
     return render (request,'imagen_quintopaso.html')
 
 @login_required
 def tablero_quintopaso(request):
+    profile = request.user.profile
+    profile.progreso_tableroquintopaso = 100
+    profile.save()
     return render (request,'tablero_quintopaso.html')
 
 @login_required
 def infografia_quintopaso(request):
+    profile = request.user.profile
+    profile.progreso_infografiaquintopaso = 100
+    profile.save()
     return render (request,'infografia_quintopaso.html')

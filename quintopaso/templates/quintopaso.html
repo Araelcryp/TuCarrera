@@ -46,10 +46,9 @@
                         <div class="progress-info">
                             <p>Tipos de becas</p>
                             <div class="progress-bar">
-                                <div class="progress" style="width: 85%;"></div>
+                                <div class="progress" style="width: {{ request.user.profile.progreso_imagenquintopaso}}%;"></div>
                             </div>
-                            <span>85% completado</span>
-                            <div class="bookmark"></div>
+                            <span>{{ request.user.profile.progreso_imagenquintopaso}}% completado</span>
                         </div>
                     </div>
                 </a>
@@ -60,10 +59,9 @@
                         <div class="progress-info">
                             <p>Becas vigentes</p>
                             <div class="progress-bar">
-                                <div class="progress" style="width: 85%;"></div>
+                                <div class="progress" style="width: {{ request.user.profile.progreso_tableroquintopaso}}%;"></div>
                             </div>
-                            <span>85% completado</span>
-                            <div class="bookmark"></div>
+                            <span>{{ request.user.profile.progreso_tableroquintopaso}}% completado</span>
                         </div>
                     </div>
                 </a>
@@ -74,10 +72,9 @@
                         <div class="progress-info">
                             <p>Recomendaciones para solicitar una beca</p>
                             <div class="progress-bar">
-                                <div class="progress" style="width: 85%;"></div>
+                                <div class="progress" style="width: {{ request.user.profile.progreso_infografiaquintopaso}}%;"></div>
                             </div>
-                            <span>85% completado</span>
-                            <div class="bookmark"></div>
+                            <span>{{ request.user.profile.progreso_infografiaquintopaso}}% completado</span>
                         </div>
                     </div>
                 </a>
@@ -88,7 +85,7 @@
 
     <div class="navigation-buttons">
         <a href="/cuartopaso" class="btn back-button">Regresar</a>
-        <a href="/sextopaso" class="btn continue-button">Continuar</a>
+        <a href="/sextopaso" id="continue-btn" class="btn continue-button disabled">Continuar</a>
     </div>
     
 </body>
@@ -117,6 +114,27 @@
         if (!isClickInsideMenu && !isClickOnToggle) {
             menu.classList.remove("active");
         }
+    });
+  </script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      // Obtener los valores de progreso desde Django
+      let progresoImagenquintopaso = {{ request.user.profile.progreso_imagenquintopaso }};
+      let progresoTableroquintopaso = {{ request.user.profile.progreso_tableroquintopaso }};
+      let progresoInfografiaquintopaso = {{ request.user.profile.progreso_infografiaquintopaso }};
+      // Verificar si todos los progresos están al 100%
+      if (
+        progresoImagenquintopaso === 100 &&
+        progresoTableroquintopaso === 100 &&
+        progresoInfografiaquintopaso === 100 
+      ) {
+        document.getElementById("continue-btn").classList.remove("disabled");
+        document.getElementById("continue-btn").removeAttribute("style");
+      } else {
+        document.getElementById("continue-btn").style.pointerEvents = "none";
+        document.getElementById("continue-btn").style.opacity = "0.5";
+      }
     });
   </script>
 </html>
