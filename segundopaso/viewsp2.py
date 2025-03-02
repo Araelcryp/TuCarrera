@@ -20,17 +20,16 @@ def segundopaso(request):
     # Verificar si todos los progresos están al 100%
     if (
         profile.progreso_inteligencias < 100 or
-        profile.testInteligencias < 100 
+        profile.progreso_testInteligencias < 100 
     ):
         return redirect('/mis-intereses-s2')  # Redirige de nuevo si no ha completado todo
     return render (request,'segundopaso.html')
 
 @login_required
-def frase_segundopaso(request):
-    return render (request,'frase_segundopaso.html')
-
-@login_required
 def presentacion_segundopaso(request):
+    profile = request.user.profile
+    profile.progreso_presentacionsegundopaso = 100
+    profile.save()
     return render (request,'presentacion_segundopaso.html')
 
 @login_required
@@ -42,6 +41,9 @@ def instrucciones_segundopaso(request):
 
 @login_required
 def test_segundopaso(request):
+    profile = request.user.profile
+    profile.progreso_testsegundopaso = 100
+    profile.save()
     return render (request,'test_segundopaso.html')
 
 @login_required
