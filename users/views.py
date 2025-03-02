@@ -172,6 +172,14 @@ CATEGORY_DESCRIPTIONS = {
 
 @login_required
 def final(request):
+    profile = request.user.profile
+    
+    # Verificar si todos los progresos están al 100%
+    if (
+        profile.progreso_infografiaseptimopaso < 100 or
+        profile.progreso_formato2septimopaso < 100 
+    ):
+        return redirect('/mi-plan-s2')
     return render(request, 'final.html')
 
 @login_required

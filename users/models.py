@@ -55,7 +55,9 @@ class Profile(models.Model):
     progreso_imagenseptimopaso = models.IntegerField(default=0)
     progreso_imagen2septimopaso = models.IntegerField(default=0)
     progreso_formatoseptimopaso = models.IntegerField(default=0)
-    
+    # Septimo Paso sección 2
+    progreso_infografiaseptimopaso = models.IntegerField(default=0)
+    progreso_formato2septimopaso = models.IntegerField(default=0)
     
     
     

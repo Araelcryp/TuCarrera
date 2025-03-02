@@ -46,10 +46,9 @@
                         <div class="progress-info">
                             <p>Agenda de postulación</p>
                             <div class="progress-bar">
-                                <div class="progress" style="width: 85%;"></div>
+                                <div class="progress" style="width: {{ request.user.profile.progreso_infografiaseptimopaso}}%;"></div>
                             </div>
-                            <span>85% completado</span>
-                            <div class="bookmark"></div>
+                            <span>{{ request.user.profile.progreso_infografiaseptimopaso}}% completado</span>
                         </div>
                     </div>
                 </a>
@@ -60,9 +59,9 @@
                         <div class="progress-info">
                             <p>¡Inscríbete!</p>
                             <div class="progress-bar">
-                                <div class="progress" style="width: 63%;"></div>
+                                <div class="progress" style="width: {{ request.user.profile.progreso_formato2septimopaso}}%;"></div>
                             </div>
-                            <span>63% completado</span>
+                            <span>{{ request.user.profile.progreso_formato2septimopaso}}% completado</span>
                         </div>
                     </div>
                 </a>
@@ -73,7 +72,7 @@
 
     <div class="navigation-buttons">
         <a href="/septimopaso" class="btn back-button">Regresar</a>
-        <a href="/final" class="btn continue-button">Continuar</a>
+        <a href="/final" id="continue-btn" class="btn continue-button disabled">Continuar</a>
     </div>
 
 </body>
@@ -102,6 +101,26 @@
         if (!isClickInsideMenu && !isClickOnToggle) {
             menu.classList.remove("active");
         }
+    });
+  </script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      // Obtener los valores de progreso desde Django
+      let progresoInfografiaseptimopaso = {{ request.user.profile.progreso_infografiaseptimopaso }};
+      let progresoFormato2septimopaso = {{ request.user.profile.progreso_formato2septimopaso }};
+
+      // Verificar si todos los progresos están al 100%
+      if (
+        progresoInfografiaseptimopaso === 100 &&
+        progresoFormato2septimopaso === 100 
+      ) {
+        document.getElementById("continue-btn").classList.remove("disabled");
+        document.getElementById("continue-btn").removeAttribute("style");
+      } else {
+        document.getElementById("continue-btn").style.pointerEvents = "none";
+        document.getElementById("continue-btn").style.opacity = "0.5";
+      }
     });
   </script>
 </html>

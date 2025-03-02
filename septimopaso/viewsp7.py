@@ -42,6 +42,9 @@ def mi_plan_s2(request):
 
 @login_required
 def infografia_septimopaso(request):
+    profile = request.user.profile
+    profile.progreso_infografiaseptimopaso = 100
+    profile.save()
     return render (request,'infografia_septimopaso.html')
 
 @login_required
@@ -60,5 +63,8 @@ def formato_septimopaso(request):
 
 @login_required
 def formato2_septimopaso(request):
+    profile = request.user.profile
+    profile.progreso_formato2septimopaso = 100
+    profile.save()
     return render (request,'formato2_septimopaso.html')
 
