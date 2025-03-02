@@ -19,6 +19,7 @@ defusedxml==0.7.1
 dj-database-url==2.2.0
 Django==5.0.2
 django-cors-headers==4.5.0
+django-environ==0.12.0p
 docopt==0.6.2
 executing==2.1.0
 fastjsonschema==2.20.0
