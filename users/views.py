@@ -24,6 +24,7 @@ from reportlab.lib.pagesizes import letter, landscape
 from reportlab.lib.utils import ImageReader
 from segundopaso.models import TestResult
 
+from django.http import JsonResponse
 # Create your views here.
 
 def validate_password_strength(password):
@@ -125,6 +126,33 @@ def signup(request):
             return render(request, 'signup.html', {
                 "error": 'El email ya existe.'
             })
+            
+@login_required
+def update_profile(request):
+    if request.method == "POST":
+        user = request.user
+        profile = user.profile
+
+        email = request.POST.get("email")
+        telefono = request.POST.get("telefono")
+        password = request.POST.get("password")
+
+        if email:
+            user.email = email
+            user.username = email  # Para mantener la coherencia con el login
+            user.save()
+
+        if telefono:
+            profile.telefono = telefono
+            profile.save()
+
+        if password:
+            user.set_password(password)
+            user.save()
+
+        return JsonResponse({"status": "success"})
+    
+    return JsonResponse({"status": "error", "message": "Método no permitido"}, status=400)
 
 @login_required
 def homeuser(request):

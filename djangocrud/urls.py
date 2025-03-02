@@ -38,10 +38,11 @@ urlpatterns = [
     path('areas_profesionales/',viewsh.areas_profesionales, name='areas_profesionales'),
     path('directorio_universidades/',viewsh.directorio_universidades, name='directorio_universidades'),
     path('becas_vigentes/',viewsh.becas_vigentes, name='becas_vigentes'),
-
+    
     path('signin/', views.signin, name='signin'),
     path('signup/', views.signup, name='signup'),
     path('logout/', views.signout, name='logout'),
+    path('update-profile/',views.update_profile, name='update_profile'),
     path('permission-denied/', views.permissiondenied, name='permission_denied'),
     path('homeadmin/', views.homeadmin, name='homeadmin'),
     path('homeuser/', views.homeuser, name='homeuser'),
