@@ -48,10 +48,9 @@
                         <div class="progress-info">
                             <p>Inventario de áreas profesionales y carreras</p>
                             <div class="progress-bar">
-                                <div class="progress" style="width: 85%;"></div>
+                                <div class="progress" style="width: {{ request.user.profile.progreso_tablerotercerpaso }}%;"></div>
                             </div>
-                            <span>85% completado</span>
-                            <div class="bookmark"></div>
+                            <span>{{ request.user.profile.progreso_tablerotercerpaso }}% completado</span>
                         </div>
                     </div>
                 </a>
@@ -62,9 +61,9 @@
                         <div class="progress-info">
                             <p>Actividades de las áreas profesionales</p>
                             <div class="progress-bar">
-                                <div class="progress" style="width: 45%;"></div>
+                                <div class="progress" style="width: {{ request.user.profile.progreso_videotercerpaso }}%;"></div>
                             </div>
-                            <span>45% completado</span>
+                            <span>{{ request.user.profile.progreso_videotercerpaso }}% completado</span>
                         </div>
                     </div>
                 </a>
@@ -75,10 +74,9 @@
                         <div class="progress-info">
                             <p>Lo que necesito conocer de la carrera</p>
                             <div class="progress-bar">
-                                <div class="progress" style="width: 85%;"></div>
+                                <div class="progress" style="width: {{ request.user.profile.progreso_videoconsejotercerpaso }}%;"></div>
                             </div>
-                            <span>85% completado</span>
-                            <div class="bookmark"></div>
+                            <span>{{ request.user.profile.progreso_videoconsejotercerpaso}}% completado</span>
                         </div>
                     </div>
                 </a>
@@ -89,10 +87,9 @@
                         <div class="progress-info">
                             <p>¡En Querétaro, así vivimos la universidad!</p>
                             <div class="progress-bar">
-                                <div class="progress" style="width: 85%;"></div>
+                                <div class="progress" style="width: {{ request.user.profile.progreso_presentaciontercerpaso}}%;"></div>
                             </div>
-                            <span>85% completado</span>
-                            <div class="bookmark"></div>
+                            <span>{{ request.user.profile.progreso_presentaciontercerpaso}}% completado</span>
                         </div>
                     </div>
                 </a>
@@ -103,7 +100,7 @@
 
     <div class="navigation-buttons">
         <a href="/tercerpaso" class="btn back-button">Regresar</a>
-        <a href="/cuartopaso" class="btn continue-button">Continuar</a>
+        <a href="/cuartopaso" id="continue-btn" class="btn continue-button disabled">Continuar</a>
     </div>
 
 </body>
@@ -134,4 +131,29 @@
         }
     });
   </script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      // Obtener los valores de progreso desde Django
+      let progresoTablerotecerpaso = {{ request.user.profile.progreso_tablerotercerpaso }};
+      let progresoVideotercerpaso = {{ request.user.profile.progreso_videotercerpaso }};
+      let progresoVideoconsejotercerpaso = {{ request.user.profile.progreso_videoconsejotercerpaso }};
+      let progresoPresentaciontercerpaso = {{ request.user.profile.progreso_presentaciontercerpaso }};
+
+      // Verificar si todos los progresos están al 100%
+      if (
+        progresoTablerotecerpaso === 100 &&
+        progresoVideotercerpaso === 100 &&
+        progresoVideoconsejotercerpaso === 100 &&
+        progresoPresentaciontercerpaso === 100 
+      ) {
+        document.getElementById("continue-btn").classList.remove("disabled");
+        document.getElementById("continue-btn").removeAttribute("style");
+      } else {
+        document.getElementById("continue-btn").style.pointerEvents = "none";
+        document.getElementById("continue-btn").style.opacity = "0.5";
+      }
+    });
+  </script>
+
 </html>

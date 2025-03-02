@@ -76,9 +76,7 @@ urlpatterns = [
     path('mi-entorno-s2/',viewsp3.mi_entorno_s2, name='mi-entorno-s2'),
     path('tablero-interactivo-tercer-paso/',viewsp3.tablero_tercerpaso, name='tablero-interactivo-tercer-paso'),
     path('video-tercer-paso/',viewsp3.video_tercerpaso, name='video-tercer-paso'),
-    path('mi-entorno-s3/',viewsp3.mi_entorno_s3, name='mi-entorno-s3'),
     path('video-consejo-tercer-paso/',viewsp3.video_consejo_tercerpaso, name='video-consejo-tercer-paso'),
-    path('mi-entorno-s4/',viewsp3.mi_entorno_s4, name='mi-entorno-s4'),
     path('presentacion-tercerpaso/', viewsp3.presentacion_tercerpaso, name='presentacion-interactiva-tercer-paso'),
 
     path('cuartopaso/',viewsp4.cuartopaso, name='cuartopaso'),

@@ -36,25 +36,30 @@ def mi_entorno_s2(request):
 
 @login_required
 def tablero_tercerpaso(request):
+    profile = request.user.profile
+    profile.progreso_tablerotercerpaso = 100
+    profile.save()
     return render (request,'tablero_tercerpaso.html')
 
 @login_required
 def video_tercerpaso(request):
+    profile = request.user.profile
+    profile.progreso_videotercerpaso = 100
+    profile.save()
     return render (request,'video_tercerpaso.html')
-
-@login_required
-def mi_entorno_s3(request):
-    return render (request,'mi_entorno_s3.html')
 
 
 @login_required
 def video_consejo_tercerpaso(request):
+    profile = request.user.profile
+    profile.progreso_videoconsejotercerpaso = 100
+    profile.save()
     return render (request,'video_consejo_tercerpaso.html')
 
-@login_required
-def mi_entorno_s4(request):
-    return render (request,'mi_entorno_s4.html')
 
 @login_required
 def presentacion_tercerpaso(request):
+    profile = request.user.profile
+    profile.progreso_presentaciontercerpaso = 100
+    profile.save()
     return render(request,'presentacion_tercerpaso.html')

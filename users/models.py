@@ -31,6 +31,11 @@ class Profile(models.Model):
     
     # Progreso individual por sección Tercer Paso
     progreso_infografiatercerpaso = models.IntegerField(default=0)
+    # Tercer Paso sección 2
+    progreso_tablerotercerpaso = models.IntegerField(default=0)
+    progreso_videotercerpaso = models.IntegerField(default=0)
+    progreso_videoconsejotercerpaso = models.IntegerField(default=0)
+    progreso_presentaciontercerpaso = models.IntegerField(default=0)
     
     
     def __str__(self):
