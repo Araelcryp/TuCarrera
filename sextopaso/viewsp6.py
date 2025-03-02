@@ -17,4 +17,7 @@ def sextopaso(request):
 
 @login_required
 def tablero_sextopaso(request):
+    profile = request.user.profile
+    profile.progreso_tablerosextopaso = 100
+    profile.save()
     return render (request,'tablero_sextopaso.html')

@@ -47,5 +47,9 @@ class Profile(models.Model):
     progreso_tableroquintopaso = models.IntegerField(default=0)
     progreso_infografiaquintopaso = models.IntegerField(default=0)
     
+    # Progreso individual por sección Sexto Paso
+    progreso_tablerosextopaso = models.IntegerField(default=0)
+    
+    
     def __str__(self):
         return f'{self.user.username} Profile'
