@@ -63,3 +63,12 @@ class Profile(models.Model):
     
     def __str__(self):
         return f'{self.user.username} Profile'
+
+class Meta(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)  # Relación con el usuario
+    descripcion = models.CharField(max_length=255)
+    fecha_objetivo = models.DateField()
+    completada = models.BooleanField(default=False)
+
+    def __str__(self):
+        return f"{self.descripcion} - {self.user.username}"

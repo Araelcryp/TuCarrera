@@ -71,21 +71,9 @@
             <!-- Metas del Usuario -->
             <div id="goals" class="goals-section">
                 <h2>Metas</h2>
-                <ul>
-                    <li class="goal completed">
-                        <span>Completar el curso antes del 30 de agosto</span>
-                        <span class="goal-date">Fecha: 30 de agosto</span>
-                    </li>
-                    <li class="goal pending">
-                        <span>Terminar el Test de Inteligencias multiples</span>
-                        <span class="goal-date">Fecha: 15 de noviembre</span>
-                    </li>
-                    <li class="goal pending">
-                        <span>Visualizar todos los contenidos del Paso 1 "Mis Intereses" al 100%</span>
-                        <span class="goal-date">Fecha: 1 de diciembre</span>
-                    </li>
+                <ul id="metas-list">
+                    <!-- Aquí se insertarán dinámicamente las metas -->
                 </ul>
-                <!-- Botón para abrir el modal de agregar metas -->
                 <button onclick="document.getElementById('modal-metas').style.display='block'" class="add-goal-btn">Agregar Nueva Meta</button>
             </div>
             
@@ -115,7 +103,7 @@
         </div>
     </div>
 
-    <!-- Modal -->
+    <!-- Modal de Perfil -->
     <div id="modal" class="modal">
         <div class="modal-content">
             <span onclick="document.getElementById('modal').style.display='none'" class="close-btn">&times;</span>
@@ -139,17 +127,17 @@
         <div class="modal-content">
             <span onclick="document.getElementById('modal-metas').style.display='none'" class="close-btn">&times;</span>
             <h2>Agregar Nueva Meta</h2>
-            <form>
+            <form id="form-metas">
                 <label for="meta">Descripción de la Meta:</label>
-                <input type="text" id="meta" name="meta" placeholder="Describe tu meta aquí">
-
+                <input type="text" id="meta" name="meta" placeholder="Describe tu meta aquí" required>
+    
                 <label for="fecha">Fecha Objetivo:</label>
-                <input type="date" id="fecha" name="fecha">
-
+                <input type="date" id="fecha" name="fecha" required>
+    
                 <button type="submit" class="save-btn">Guardar Meta</button>
             </form>
         </div>
-    </div> 
+    </div>
     <!-- Modal para agregar notas -->
     <div id="modal-notes" class="modal">
         <div class="modal-content">
@@ -246,5 +234,59 @@
         .catch(error => console.error("Error:", error));
     });
 </script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        cargarMetas();
+    });
     
+    function cargarMetas() {
+        fetch("{% url 'obtener_metas' %}")
+        .then(response => response.json())
+        .then(data => {
+            if (data.status === "success") {
+                const listaMetas = document.getElementById("metas-list");
+                listaMetas.innerHTML = "";  // Limpiar lista
+    
+                data.metas.forEach(meta => {
+                    const metaItem = document.createElement("li");
+                    metaItem.classList.add("goal", meta.completada ? "completed" : "pending");
+                    metaItem.innerHTML = `
+                        <span>${meta.descripcion}</span>
+                        <span class="goal-date">Fecha: ${meta.fecha}</span>
+                    `;
+                    listaMetas.appendChild(metaItem);
+                });
+            }
+        })
+        .catch(error => console.error("Error al cargar metas:", error));
+    }
+    
+    document.getElementById("form-metas").addEventListener("submit", function (event) {
+        event.preventDefault();
+    
+        let meta = document.getElementById("meta").value;
+        let fecha = document.getElementById("fecha").value;
+    
+        fetch("{% url 'agregar_meta' %}", {
+            method: "POST",
+            body: JSON.stringify({ meta, fecha }),
+            headers: {
+                "Content-Type": "application/json",
+                "X-CSRFToken": "{{ csrf_token }}"
+            }
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.status === "success") {
+                alert("Meta agregada correctamente");
+                document.getElementById("modal-metas").style.display = "none";
+                cargarMetas();
+            } else {
+                alert("Error: " + data.message);
+            }
+        })
+        .catch(error => console.error("Error al agregar meta:", error));
+    });
+</script>
 </html>

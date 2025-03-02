@@ -8,7 +8,7 @@ from django.contrib.auth.decorators import login_required, user_passes_test
 import re
 from django.core.exceptions import ValidationError
 
-from .models import Profile
+from .models import Profile, Meta
 
 from django.core.mail import send_mail
 from django.template.loader import render_to_string
@@ -25,6 +25,8 @@ from reportlab.lib.utils import ImageReader
 from segundopaso.models import TestResult
 
 from django.http import JsonResponse
+import json
+from datetime import datetime
 # Create your views here.
 
 def validate_password_strength(password):
@@ -343,3 +345,52 @@ def generar_constancia_pdf(request):
     p.showPage()
     p.save()
     return response
+
+@login_required
+def agregar_meta(request):
+    if request.method == "POST":
+        data = json.loads(request.body)
+        descripcion = data.get("meta")
+        fecha_objetivo_str = data.get("fecha")  # Esta es una cadena
+
+        if not descripcion or not fecha_objetivo_str:
+            return JsonResponse({"status": "error", "message": "Todos los campos son obligatorios"}, status=400)
+
+        try:
+            fecha_objetivo = datetime.strptime(fecha_objetivo_str, "%Y-%m-%d").date()  # 👈 Convertir string a date
+        except ValueError:
+            return JsonResponse({"status": "error", "message": "Formato de fecha inválido"}, status=400)
+
+        nueva_meta = Meta.objects.create(
+            user=request.user,
+            descripcion=descripcion,
+            fecha_objetivo=fecha_objetivo
+        )
+
+        return JsonResponse({
+            "status": "success",
+            "meta": {
+                "id": nueva_meta.id,
+                "descripcion": nueva_meta.descripcion,
+                "fecha": nueva_meta.fecha_objetivo.strftime("%d-%m-%Y"),  # Ahora sí es un date
+                "completada": nueva_meta.completada
+            }
+        })
+    
+    return JsonResponse({"status": "error", "message": "Método no permitido"}, status=400)
+
+
+@login_required
+def obtener_metas(request):
+    metas = Meta.objects.filter(user=request.user).order_by("fecha_objetivo")
+    metas_list = [
+        {
+            "id": meta.id,
+            "descripcion": meta.descripcion,
+            "fecha": meta.fecha_objetivo.strftime("%d-%m-%Y"),
+            "completada": meta.completada
+        }
+        for meta in metas
+    ]
+
+    return JsonResponse({"status": "success", "metas": metas_list})
