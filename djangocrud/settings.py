@@ -96,7 +96,7 @@ WSGI_APPLICATION = 'djangocrud.wsgi.application'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
 
-if env('USE_POSTGRES'):
+if env.bool('USE_POSTGRES'):
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.postgresql',
