@@ -101,7 +101,7 @@
 
     <div class="navigation-buttons">
       <a href="/homeuser" class="btn back-button">Regresar</a>
-      <a href="/mis-intereses-s2" class="btn continue-button">Continuar</a>
+      <a href="/mis-intereses-s2" id="continue-btn" class="btn continue-button disabled">Continuar</a>
     </div>
 
   </body>
@@ -132,4 +132,29 @@
         }
     });
   </script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      // Obtener los valores de progreso desde Django
+      let progresoPersonalidad = {{ request.user.profile.progreso_personalidad }};
+      let progresoAutoestima = {{ request.user.profile.progreso_autoestima }};
+      let progresoValores = {{ request.user.profile.progreso_valores }};
+      let progresoLogros = {{ request.user.profile.progreso_logros }};
+  
+      // Verificar si todos los progresos están al 100%
+      if (
+        progresoPersonalidad === 100 &&
+        progresoAutoestima === 100 &&
+        progresoValores === 100 &&
+        progresoLogros === 100
+      ) {
+        document.getElementById("continue-btn").classList.remove("disabled");
+        document.getElementById("continue-btn").removeAttribute("style");
+      } else {
+        document.getElementById("continue-btn").style.pointerEvents = "none";
+        document.getElementById("continue-btn").style.opacity = "0.5";
+      }
+    });
+  </script>
+  
 </html>

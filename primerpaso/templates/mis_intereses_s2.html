@@ -71,7 +71,7 @@
 
     <div class="navigation-buttons">
         <a href="/primerpaso" class="btn back-button">Regresar</a>
-        <a href="/segundopaso" class="btn continue-button">Continuar</a>
+        <a href="/segundopaso" id="continue-btn" class="btn continue-button disabled">Continuar</a>
     </div>
 
 
@@ -103,4 +103,25 @@
         }
     });
   </script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      // Obtener los valores de progreso desde Django
+      let progresoInteligencias = {{ request.user.profile.progreso_inteligencias }};
+      let progresotestInteligencias = {{ request.user.profile.progreso_testInteligencias }};
+  
+      // Verificar si todos los progresos están al 100%
+      if (
+        progresoInteligencias === 100 &&
+        progresotestInteligencias === 100 
+      ) {
+        document.getElementById("continue-btn").classList.remove("disabled");
+        document.getElementById("continue-btn").removeAttribute("style");
+      } else {
+        document.getElementById("continue-btn").style.pointerEvents = "none";
+        document.getElementById("continue-btn").style.opacity = "0.5";
+      }
+    });
+  </script>
+
 </html>

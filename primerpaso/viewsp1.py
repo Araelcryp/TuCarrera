@@ -39,7 +39,18 @@ def formato_primerpaso(request):
 
 @login_required
 def primerpasos2(request):
-    return render(request,'mis_intereses_s2.html')
+    profile = request.user.profile
+    
+    # Verificar si todos los progresos están al 100%
+    if (
+        profile.progreso_personalidad < 100 or
+        profile.progreso_autoestima < 100 or
+        profile.progreso_valores < 100 or
+        profile.progreso_logros < 100
+    ):
+        return redirect('/primerpaso')  # Redirige de nuevo si no ha completado todo
+    
+    return render(request, 'mis_intereses_s2.html')
 
 @login_required
 def infografia_primerpaso(request):
