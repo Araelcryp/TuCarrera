@@ -29,6 +29,7 @@ def validate_password_strength(password):
         raise ValidationError('La contraseña debe contener al menos un signo especial.')
 
 def validate_curp(curp):
+    
     curp = curp.upper()
     REGEX_CURP = r'^[A-ZÑ]{4}\d{6}[HM][A-Z]{5}\d[A-Z0-9]$'
     if len(curp) != 18:
