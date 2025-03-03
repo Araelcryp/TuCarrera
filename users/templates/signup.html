@@ -115,18 +115,25 @@
                     {{ form.fechaNacimiento.errors }}
                 </div>
                 <div>
-                    <label for="{{ form.curp.id_for_label }}">CURP:</label>
+                    <label for="{{ form.curp.id_for_label }}">CURP: <small class="curp-info">Si no la conoces, puedes
+                            obtenerla
+                            <a href="https://www.gob.mx/curp/" target="_blank">AQUÍ</a> </small></label>
                     {{ form.curp }}
                     {% if form.curp.errors %}
                     {% for error in form.curp.errors %}
                     <div style="color: #bb1b1b;">{{ error }}</div>
                     {% endfor %}
                     {% endif %}
+
                 </div>
                 <div>
                     <label for="{{ form.telefono.id_for_label }}">Teléfono de contacto:</label>
                     {{ form.telefono }}
-                    {{ form.telefono.errors }}
+                    {% if form.telefono.errors %}
+                    {% for error in form.telefono.errors %}
+                    <div style="color: #bb1b1b;">{{ error }}</div>
+                    {% endfor %}
+                    {% endif %}
                 </div>
                 <div>
                     <label for="{{ form.email.id_for_label }}">Correo electrónico:</label>

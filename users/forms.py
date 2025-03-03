@@ -61,3 +61,11 @@ class SignupForm(forms.Form):
         if not re.match(REGEX_CURP, curp):
             raise ValidationError('CURP inválida. Verifica nuevamente!')
         return curp
+    
+
+    def clean_telefono(self):
+        telefono = self.cleaned_data.get("telefono", "")
+        REGEX_TELEFONO = r'^\d{10}$'
+        if not re.match(REGEX_TELEFONO, telefono):
+            raise ValidationError('Teléfono inválido. Debe tener 10 dígitos!')
+        return telefono

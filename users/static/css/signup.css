@@ -1,155 +1,170 @@
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 /* Estilos globales */
 body {
-    font-family: 'Arial', sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f4f9;
-    color: #333;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    overflow-x: hidden; /* Oculta scrollbar horizontal */
-    overflow-y: scroll; /* Oculta scrollbar vertical */
+  font-family: "Arial", sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f9;
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  overflow-x: hidden; /* Oculta scrollbar horizontal */
+  overflow-y: scroll; /* Oculta scrollbar vertical */
 }
 
 header {
-    background-color: #242B57;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    padding: 40px 25px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    position: relative;
+  background-color: #242b57;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 40px 25px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
 }
 
 header .logo {
-    width: 350px;
+  width: 350px;
 }
 
 header nav {
-    margin-left: auto;
+  margin-left: auto;
 }
 
 header nav ul {
-    list-style: none;
-    display: flex;
-    margin: 0;
-    padding: 0;
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
 }
 
 header nav ul li {
-    margin-right: 50px;
+  margin-right: 50px;
 }
 
 header nav ul li:hover {
-    transition: transform 0.3s;
-    transform: scale(1.05);
+  transition: transform 0.3s;
+  transform: scale(1.05);
 }
 
 header nav ul li a {
-    text-decoration: none;
-    color: #ffffff;
-    font-size: 1rem;
+  text-decoration: none;
+  color: #ffffff;
+  font-size: 1rem;
 }
 
 .cancel-btn a button {
-    background-color: #ffffff;
-    color: #242B57;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 22px;
-    cursor: pointer;
-    font-weight: bold;
-    margin-right: 50px;
+  background-color: #ffffff;
+  color: #242b57;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 22px;
+  cursor: pointer;
+  font-weight: bold;
+  margin-right: 50px;
 }
 
 .cancel-btn a button:hover {
-    background-color: #f9f9f9;
-    transform: scale(1.05);
-    transition: transform 0.3s;
+  background-color: #f9f9f9;
+  transform: scale(1.05);
+  transition: transform 0.3s;
 }
 
 header .menu-toggle {
-    display: none;
-    font-size: 1.5rem;
-    color: #fff;
-    cursor: pointer;
+  display: none;
+  font-size: 1.5rem;
+  color: #fff;
+  cursor: pointer;
 }
 
 /* Estilos del contenedor de registro */
 main {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-grow: 1;
-    background-color: #eef2f7;
-    padding: 50px 0;
-    box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+  background-color: #eef2f7;
+  padding: 50px 0;
+  box-sizing: border-box;
 }
 
 .container-content {
-    background-color: #ffffff;
-    padding: 40px;
-    border-radius: 12px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    width: 500px;
-    text-align: center;
-    box-sizing: border-box;
+  background-color: #ffffff;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 500px;
+  text-align: center;
+  box-sizing: border-box;
 }
 
 .container-content h1 {
-    margin-bottom: 20px;
-    font-size: 24px;
+  margin-bottom: 20px;
+  font-size: 24px;
 }
 
 .container-content label {
-    display: block;
-    text-align: left;
-    margin: 10px 0 5px;
-    font-weight: bold;
+  display: block;
+  text-align: left;
+  margin: 10px 0 5px;
+  font-weight: bold;
+}
+.curp-info {
+  display: block;
+  margin-top: 0.2rem;
+  font-size: smaller;
+  color: #7f8586;
+}
+.curp-info a {
+  color: #5aacd4;
+  text-decoration: none;
+  font-weight: 650;
+}
+.curp-info a:hover {
+  color: #4d90b2;
+  cursor: pointer;
+  text-decoration: underline;
 }
 
 /* Estilos para la sección de requisitos de contraseña */
 .password-requirements {
-    background-color: #f9f9f9;
-    border: 1px solid #ddd;
-    padding: 1em;
-    border-radius: 8px;
-    margin-bottom: 1em;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.05);
+  background-color: #ffffff;
+  border-radius: 20px;
+  padding: 1em;
+  border-radius: 8px;
+  margin-bottom: 1em;
+  box-shadow: 8px 8px 18px #bdbdbd, -8px -8px 18px #ffffff;
 }
 
 .requirements-title {
-    font-weight: bold;
-    color: #333;
-    font-size: 16px;
-    margin-bottom: 0.5em;
+  font-weight: bold;
+  color: #333;
+  font-size: 16px;
+  margin-bottom: 0.5em;
 }
 
 .password-requirements ul {
-    list-style: none;
-    padding-left: 1em;
+  list-style: none;
+  padding-left: 1em;
 }
 
 .password-requirements li {
-    padding: 0.25em 0;
-    font-size: 14px;
-    color: #555;
-    display: flex;
-    align-items: center;
+  padding: 0.25em 0;
+  font-size: 14px;
+  color: #555;
+  display: flex;
+  align-items: center;
 }
 
 .password-requirements li::before {
-    content: '✓';
-    color: #4CAF50;
-    font-weight: bold;
-    margin-right: 0.5em;
+  content: "✓";
+  color: #4caf50;
+  font-weight: bold;
+  margin-right: 0.5em;
 }
-
 
 .container-content input[type="text"],
 .container-content input[type="date"],
@@ -158,151 +173,152 @@ main {
 .container-content input[type="password"],
 .container-content input[type="curp"],
 .container-content select {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 20px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
 }
 
 .container-content input[type="radio"] {
-    margin: 10px 5px;
+  margin: 10px 5px;
 }
 
 .register-btn {
-    background-color: #242B57; /* Azul oscuro */
-    color: #ffffff;
-    font-weight: bold;
-    border: none;
-    padding: 12px 20px;
-    border-radius: 25px;
-    cursor: pointer;
-    font-size: 16px;
-    width: 100%;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, background-color 0.3s ease;
+  background-color: #242b57; /* Azul oscuro */
+  color: #ffffff;
+  font-weight: bold;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 16px;
+  width: 100%;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
 .register-btn:hover {
-    background-color: #1e244e; /* Azul un poco más oscuro en hover */
-    transform: scale(1.05);
-    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+  background-color: #1e244e; /* Azul un poco más oscuro en hover */
+  transform: scale(1.05);
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
 }
 
 .register-btn:active {
-    background-color: #1a1f46; /* Azul aún más oscuro cuando se hace clic */
-    transform: scale(0.98);
-    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
+  background-color: #1a1f46; /* Azul aún más oscuro cuando se hace clic */
+  transform: scale(0.98);
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
 }
 
 /* Transiciones para mostrar/ocultar formularios adicionales */
 
 /* Contenedores ocultos al inicio */
-#form-si, #form-no {
-    opacity: 0;
-    height: 0;
-    overflow: hidden;
-    transition: opacity 0.5s ease, height 0.5s ease;
+#form-si,
+#form-no {
+  opacity: 0;
+  height: 0;
+  overflow: hidden;
+  transition: opacity 0.5s ease, height 0.5s ease;
 }
 
 /* Cuando los formularios están visibles */
-#form-si.active, #form-no.active {
-    opacity: 1;
-    height: auto;
-    transition: opacity 0.5s ease, height 0.5s ease;
+#form-si.active,
+#form-no.active {
+  opacity: 1;
+  height: auto;
+  transition: opacity 0.5s ease, height 0.5s ease;
 }
 
 /* Mobile Styles */
 @media (max-width: 768px) {
+  header nav {
+    display: flex; /* Siempre flex para la animación */
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: #242b57;
+    flex-direction: column;
+    text-align: center; /* Alinear los elementos a la izquierda */
+    padding-left: 20px;
+    z-index: 10;
+    max-height: 0; /* Ocultar inicialmente */
+    overflow: hidden; /* Ocultar el contenido fuera del contenedor */
+    opacity: 0;
+    transform: translateY(-20px); /* Mover el menú hacia arriba */
+    transition: max-height 0.5s ease, opacity 0.5s ease, transform 0.5s ease;
+  }
 
-    header nav {
-        display: flex; /* Siempre flex para la animación */
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        background-color: #242B57;
-        flex-direction: column;
-        text-align: center; /* Alinear los elementos a la izquierda */
-        padding-left: 20px;
-        z-index: 10;
-        max-height: 0; /* Ocultar inicialmente */
-        overflow: hidden; /* Ocultar el contenido fuera del contenedor */
-        opacity: 0;
-        transform: translateY(-20px); /* Mover el menú hacia arriba */
-        transition: max-height 0.5s ease, opacity 0.5s ease, transform 0.5s ease;
-    }
+  header nav.active {
+    max-height: 500px; /* Altura máxima del menú desplegado */
+    opacity: 1; /* Mostrar el menú */
+    transform: translateY(0); /* Volverlo a su posición */
+  }
 
-    header nav.active {
-        max-height: 500px; /* Altura máxima del menú desplegado */
-        opacity: 1; /* Mostrar el menú */
-        transform: translateY(0); /* Volverlo a su posición */
-    }
+  header .logo {
+    width: 300px;
+  }
 
-    header .logo {
-        width: 300px;
-    }
+  header nav ul {
+    flex-direction: column;
+    justify-content: center; /* Centrar ítems verticalmente */
+    align-items: center; /* Centrar ítems horizontalmente */
+  }
 
-    header nav ul {
-        flex-direction: column;
-        justify-content: center; /* Centrar ítems verticalmente */
-        align-items: center; /* Centrar ítems horizontalmente */
-    }
+  header nav ul li {
+    margin: 15px 0;
+    opacity: 0;
+    transform: translateX(-20px); /* Mover los ítems hacia la izquierda */
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
 
-    header nav ul li {
-        margin: 15px 0;
-        opacity: 0;
-        transform: translateX(-20px); /* Mover los ítems hacia la izquierda */
-        transition: opacity 0.5s ease, transform 0.5s ease;
-    }
+  header nav ul li:nth-child(1) {
+    transition-delay: 0.1s; /* Retraso individual */
+  }
 
-    header nav ul li:nth-child(1) {
-        transition-delay: 0.1s; /* Retraso individual */
-    }
+  header nav ul li:nth-child(2) {
+    transition-delay: 0.2s;
+  }
 
-    header nav ul li:nth-child(2) {
-        transition-delay: 0.2s;
-    }
+  header nav ul li:nth-child(3) {
+    transition-delay: 0.3s;
+  }
 
-    header nav ul li:nth-child(3) {
-        transition-delay: 0.3s;
-    }
+  header nav ul li:nth-child(4) {
+    transition-delay: 0.4s;
+  }
 
-    header nav ul li:nth-child(4) {
-        transition-delay: 0.4s;
-    }
+  header nav ul li:nth-child(5) {
+    transition-delay: 0.5s;
+  }
 
-    header nav ul li:nth-child(5) {
-        transition-delay: 0.5s;
-    }
+  header nav.active ul li {
+    opacity: 1;
+    transform: translateX(0);
+  }
 
-    header nav.active ul li {
-        opacity: 1;
-        transform: translateX(0);
-    }
+  header nav.active ul li:hover {
+    transform: scale(1.05);
+    transition: transform 0.3s;
+  }
 
-    header nav.active ul li:hover {
-        transform: scale(1.05);
-        transition: transform 0.3s;
-    }
+  header nav ul li a {
+    font-size: 1.2rem;
+    transition: color 0.3s ease-in-out;
+    text-align: center; /* Centra los títulos en el menú toggle */
+  }
 
-    header nav ul li a {
-        font-size: 1.2rem;
-        transition: color 0.3s ease-in-out;
-        text-align: center; /* Centra los títulos en el menú toggle */
-    }
+  .cancel-btn a button {
+    width: auto; /* Adaptar ancho al contenido */
+    margin: 0 auto; /* Centrar el botón */
+  }
 
-    .cancel-btn a button {
-        width: auto; /* Adaptar ancho al contenido */
-        margin: 0 auto; /* Centrar el botón */
-    }
+  header .menu-toggle {
+    display: block;
+  }
 
-    header .menu-toggle {
-        display: block;
-    }
-
-    nav.active {
-        display: flex;
-    }
+  nav.active {
+    display: flex;
+  }
 }
