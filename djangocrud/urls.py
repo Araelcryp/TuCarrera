@@ -25,6 +25,8 @@ from cuartopaso import viewsp4
 from quintopaso import viewsp5
 from sextopaso import viewsp6
 from septimopaso import viewsp7
+from django.conf import settings
+from django.conf.urls.static import static
 
 from django.contrib.auth import views as auth_views
 
@@ -125,3 +127,6 @@ urlpatterns = [
     ), name='password_reset_complete'),
     
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

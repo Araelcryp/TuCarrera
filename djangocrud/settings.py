@@ -60,6 +60,12 @@ INSTALLED_APPS = [
     'septimopaso',
 ]
 
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+os.makedirs(os.path.join(MEDIA_ROOT, "constancias"), exist_ok=True)
+os.makedirs(os.path.join(MEDIA_ROOT, "constancias", "Otras"), exist_ok=True)
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'corsheaders.middleware.CorsMiddleware',

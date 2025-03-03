@@ -137,6 +137,11 @@
                     {% endfor %}
                     {% endif %}
                 </div>
+                <div>
+                    <label for="{{ form.email_tutor.id_for_label }}">Correo del padre/tutor:</label>
+                    {{ form.email_tutor }}
+                    {{ form.email_tutor.errors }}
+                </div>
                 <div class="password-requirements">
                     <p>La contraseña debe contener al menos:</p>
                     <ul class="requirements-title">

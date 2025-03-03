@@ -1,5 +1,7 @@
+import os
 from django.db import models
 from django.contrib.auth.models import User
+from django.conf import settings
 from datetime import timedelta, timezone
 
 class Profile(models.Model):
@@ -17,6 +19,7 @@ class Profile(models.Model):
     otro_bachillerato = models.CharField(max_length=100, null=True, blank=True)  # Campo opcional si elige "otro"
     matricula = models.CharField(max_length=20)
     telefono = models.CharField(max_length=30)
+    email_tutor = models.EmailField(null=True, blank=True)
     
     # Progreso individual por sección Primer Paso
     progreso_personalidad = models.IntegerField(default=0)
@@ -75,3 +78,29 @@ class Meta(models.Model):
 
     def __str__(self):
         return f"{self.descripcion} - {self.user.username}"
+    
+def constancia_upload_path(instance, filename):
+    """
+    Función para definir la ruta de almacenamiento de la constancia
+    dependiendo del bachillerato del usuario.
+    """
+    if instance.user.profile.procedencia == 'si':  # Estudió en Querétaro
+        path = os.path.join("constancias", instance.user.profile.municipio or "Desconocido", instance.user.profile.bachillerato or "Sin_Bachillerato")
+    elif instance.user.profile.procedencia == 'no':  # Estudió fuera de Querétaro
+        path = os.path.join("constancias", instance.user.profile.estado or "Desconocido", instance.user.profile.institucion or "Sin_Institucion")
+    elif instance.user.profile.otro_bachillerato:  # Eligió "otro"
+        path = os.path.join("constancias", "Otras", instance.user.profile.otro_bachillerato)
+    else:
+        path = os.path.join("constancias", "Otras")
+    
+    return os.path.join(path, filename.replace(" ", "_"))
+
+class Constancia(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)  
+    bachillerato = models.CharField(max_length=100)  
+    archivo = models.FileField(upload_to=constancia_upload_path)  # Se usa la función para definir la ruta
+    fecha_creacion = models.DateTimeField(auto_now_add=True)
+    enviado = models.BooleanField(default=False)  
+
+    def __str__(self):
+        return f"Constancia de {self.user.username} - {self.bachillerato}"

@@ -13,6 +13,7 @@ class SignupForm(forms.Form):
     curp = forms.CharField(max_length=18, required=True)
     telefono = forms.CharField(max_length=30    , required=True)
     email = forms.EmailField(required=True)
+    email_tutor = forms.EmailField(required=True, label="Correo del padre/tutor")
     password1 = forms.CharField(
         widget=forms.PasswordInput, required=True
     )

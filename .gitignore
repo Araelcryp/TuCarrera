@@ -11,5 +11,6 @@ logs/
 *.sql
 pgdata/
 postgres_data/
+media/*
 
 

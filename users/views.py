@@ -24,6 +24,10 @@ from django.http import HttpResponse
 from reportlab.lib.pagesizes import letter, landscape
 from reportlab.lib.utils import ImageReader
 from segundopaso.models import TestResult
+from django.http import FileResponse, HttpResponse
+from .models import Profile, Constancia
+from django.core.mail import EmailMessage
+from django.core.files.storage import default_storage
 
 from django.http import JsonResponse
 import json
@@ -286,51 +290,103 @@ def perfil(request):
     
     return render(request, 'perfil.html', context,)
 
+
 @login_required
 def generar_constancia_pdf(request):
     usuario = request.user
+    perfil = getattr(usuario, 'profile', None)
 
-    # Obtener el nombre completo del usuario o usar username como fallback
-    perfil = Profile.objects.filter(user=usuario).first()
+    # Obtener el nombre del usuario
     nombre_completo = f"{perfil.nombres} {perfil.apellido_paterno} {perfil.apellido_materno}" if perfil else usuario.get_full_name() or usuario.username
 
-    # Obtener el resultado del test más reciente
+    # Definir la carpeta de almacenamiento
+    carpeta_bachillerato = (
+        os.path.join(perfil.municipio or "Desconocido", perfil.bachillerato or "Sin_Bachillerato")
+        if perfil and perfil.procedencia == 'si'
+        else os.path.join(perfil.estado or "Desconocido", perfil.institucion or "Sin_Institucion")
+        if perfil and perfil.procedencia == 'no'
+        else os.path.join("Otras", perfil.otro_bachillerato)
+        if perfil and perfil.otro_bachillerato
+        else "Otras"
+    ).replace(" ", "_")
+
+    ruta_bachillerato = os.path.join(settings.MEDIA_ROOT, "constancias", carpeta_bachillerato)
+    os.makedirs(ruta_bachillerato, exist_ok=True)
+
+    # Nombre del archivo PDF
+    nombre_pdf = f"Constancia_{''.join(e for e in nombre_completo if e.isalnum() or e in (' ', '_')).replace(' ', '_')}.pdf"
+    ruta_pdf = os.path.join(ruta_bachillerato, nombre_pdf)
+
+    # Crear el PDF
+    p = canvas.Canvas(ruta_pdf, pagesize=(960, 720))
+    imagen_path = os.path.join(settings.BASE_DIR, "users", "static", "images", "constancia.png")
+    p.drawImage(imagen_path, 0, 0, width=960, height=720)
+
+    # Obtener el resultado del test
     test_result = TestResult.objects.filter(user=usuario).order_by("-date_taken").first()
     resultado = CATEGORY_DESCRIPTIONS.get(test_result.category, "Categoría desconocida") if test_result else "No disponible"
 
-    # Configurar el nombre del PDF
-    nombre_pdf = f"Constancia_{''.join(e for e in nombre_completo if e.isalnum() or e in (' ', '_')).replace(' ', '_')}.pdf"
-
-    # Configurar la respuesta HTTP para abrir el PDF en el navegador con el nombre correcto
-    response = HttpResponse(content_type="application/pdf")
-    response["Content-Disposition"] = f'inline; filename="{nombre_pdf}"'
-
-    # Crear el PDF
-    p = canvas.Canvas(response, pagesize=(960, 720))
-
-    # Cargar la imagen de fondo
-    imagen_path = os.path.join("users", "static", "images", "constancia.png")
-    p.drawImage(imagen_path, 0, 0, width=960, height=720)
-
-    # Ajustar posiciones del texto según la categoría
-    posiciones_x = {
-        "rojo": 400, "morado": 325, "azul": 325,
-        "verde": 380, "amarillo": 260, "gris": 325, "menta": 380
-    }
+    # Ajustar posición del texto según el resultado
+    posiciones_x = {"rojo": 400, "morado": 325, "azul": 325, "verde": 380, "amarillo": 260, "gris": 325, "menta": 380}
     resultado_x = posiciones_x.get(test_result.category, 315)
 
-    # Configurar fuente y color del texto
+    # Dibujar textos en el PDF
     p.setFont("Helvetica-Bold", 24)
     p.setFillColorRGB(0.0, 0.2, 0.6)
-
-    # Dibujar el texto en la constancia
-    p.drawCentredString(1000 / 2, 375, f"A: {nombre_completo}")  # Nombre centrado
-    p.drawString(resultado_x, 190, resultado)  # Categoría alineada
-
-    # Guardar y devolver el PDF
+    p.drawCentredString(1000 / 2, 375, f"A: {nombre_completo}")
+    p.drawString(resultado_x, 190, resultado)
     p.showPage()
     p.save()
-    return response
+
+    # Guardar en la base de datos y verificar si ya se envió el correo
+    constancia, created = Constancia.objects.update_or_create(
+        user=usuario,
+        bachillerato=perfil.bachillerato if perfil else "Otras",
+        defaults={"archivo": f"constancias/{carpeta_bachillerato}/{nombre_pdf}"}
+    )
+
+    # Solo enviar el correo si la constancia aún no ha sido enviada
+    if not constancia.enviado:
+        enviar_constancia_por_correo(usuario, ruta_pdf)
+        constancia.enviado = True
+        constancia.save()
+
+    return FileResponse(open(ruta_pdf, 'rb'), content_type='application/pdf')
+
+def enviar_constancia_por_correo(usuario, ruta_pdf):
+    """ Envía la constancia al correo del usuario y del tutor si está registrado. """
+    perfil = getattr(usuario, 'profile', None)
+
+    # Obtener los correos de usuario y tutor
+    destinatarios = [usuario.email]
+    if perfil and perfil.email_tutor:
+        destinatarios.append(perfil.email_tutor)
+
+    # Si no hay correos, no se envía nada
+    if not destinatarios:
+        return
+
+    asunto = "Tu constancia ha sido generada"
+    mensaje = f"""
+    Estimado/a {usuario.get_full_name()},
+    
+    Nos complace informarle que su constancia ha sido generada y se adjunta a este correo en formato PDF.
+
+    Encontrará en el documento adjunto los detalles de su finalización del curso.
+
+    Le agradecemos su participación.
+
+    Atentamente,
+    El equipo de Contigo tu carrera universitaria.
+    """
+
+    email = EmailMessage(asunto, mensaje, settings.DEFAULT_FROM_EMAIL, destinatarios)
+
+    # Adjuntar el PDF
+    with default_storage.open(ruta_pdf, "rb") as pdf_file:
+        email.attach("Constancia.pdf", pdf_file.read(), "application/pdf")
+
+    email.send()
 
 @login_required
 def agregar_meta(request):
