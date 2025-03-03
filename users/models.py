@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from datetime import timedelta, timezone
 
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
@@ -59,7 +60,18 @@ class Profile(models.Model):
     progreso_infografiaseptimopaso = models.IntegerField(default=0)
     progreso_formato2septimopaso = models.IntegerField(default=0)
     
-    
+    def tiempo_total_en_plataforma(self):
+        tiempo_transcurrido = timedelta.total_seconds((timezone.now() - self.user.date_joined)) / 3600  # Convertir a horas
+        return round(tiempo_transcurrido, 1)  # Redondear a una decimal
     
     def __str__(self):
         return f'{self.user.username} Profile'
+
+class Meta(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)  # Relación con el usuario
+    descripcion = models.CharField(max_length=255)
+    fecha_objetivo = models.DateField()
+    completada = models.BooleanField(default=False)
+
+    def __str__(self):
+        return f"{self.descripcion} - {self.user.username}"

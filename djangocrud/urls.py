@@ -38,16 +38,20 @@ urlpatterns = [
     path('areas_profesionales/',viewsh.areas_profesionales, name='areas_profesionales'),
     path('directorio_universidades/',viewsh.directorio_universidades, name='directorio_universidades'),
     path('becas_vigentes/',viewsh.becas_vigentes, name='becas_vigentes'),
-
+    
     path('signin/', views.signin, name='signin'),
     path('signup/', views.signup, name='signup'),
     path('logout/', views.signout, name='logout'),
+    path('update-profile/',views.update_profile, name='update_profile'),
     path('permission-denied/', views.permissiondenied, name='permission_denied'),
     path('homeadmin/', views.homeadmin, name='homeadmin'),
     path('homeuser/', views.homeuser, name='homeuser'),
     path('final/', views.final, name='final'),
     path('perfil/', views.perfil, name='perfil'),
+    path('obtener-tiempo/', views.obtener_tiempo_plataforma, name='obtener_tiempo_plataforma'),
     path('generar-constancia-pdf/', views.generar_constancia_pdf, name='generar-constancia-pdf'),
+    path('agregar-meta/', views.agregar_meta, name='agregar_meta'),
+    path('obtener-metas/', views.obtener_metas, name='obtener_metas'),
 
     path('primerpaso/',viewsp1.primerpaso, name='primerpaso'),
     path('imagen-primer-paso/',viewsp1.imagen_primerpaso, name='imagen-primer-paso'),

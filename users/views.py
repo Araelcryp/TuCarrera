@@ -8,8 +8,8 @@ from django.contrib.auth.decorators import login_required, user_passes_test
 import re
 from django.core.exceptions import ValidationError
 
-from .models import Profile
 from .forms import SignupForm
+from .models import Profile, Meta
 
 from django.core.mail import send_mail
 from django.template.loader import render_to_string
@@ -25,6 +25,10 @@ from reportlab.lib.pagesizes import letter, landscape
 from reportlab.lib.utils import ImageReader
 from segundopaso.models import TestResult
 
+from django.http import JsonResponse
+import json
+from datetime import datetime
+from django.utils import timezone
 # Create your views here.
 
 # def validate_password_strength(password):
@@ -102,8 +106,33 @@ def signup(request):
         # Si hay errores, se re-renderiza el formulario con los datos válidos ya mantenidos
         return render(request, 'signup.html', {'form': form})
 
+            
+@login_required
+def update_profile(request):
+    if request.method == "POST":
+        user = request.user
+        profile = user.profile
 
+        email = request.POST.get("email")
+        telefono = request.POST.get("telefono")
+        password = request.POST.get("password")
 
+        if email:
+            user.email = email
+            user.username = email  # Para mantener la coherencia con el login
+            user.save()
+
+        if telefono:
+            profile.telefono = telefono
+            profile.save()
+
+        if password:
+            user.set_password(password)
+            user.save()
+
+        return JsonResponse({"status": "success"})
+    
+    return JsonResponse({"status": "error", "message": "Método no permitido"}, status=400)
 
 @login_required
 def homeuser(request):
@@ -161,9 +190,101 @@ def final(request):
         return redirect('/mi-plan-s2')
     return render(request, 'final.html')
 
+"""Calcula el porcentaje de progreso basado en una lista de valores."""
+def calcular_porcentaje(progresos):
+    progresos = [p or 0 for p in progresos]  # Evitar valores None
+    total_progreso = sum(progresos)
+    progreso_maximo = len(progresos) * 100  # Cada sección tiene un máximo de 100%
+    return (total_progreso / progreso_maximo) * 100 if progreso_maximo > 0 else 0
+
+
+@login_required
+def obtener_tiempo_plataforma(request):
+    tiempo_en_plataforma = round((timezone.now() - request.user.date_joined).total_seconds() / 3600, 1)
+    return JsonResponse({"tiempo": tiempo_en_plataforma})
+
 @login_required
 def perfil(request):
-    return render(request, 'perfil.html')
+    profile = request.user.profile
+    
+    tiempo_en_plataforma = round((timezone.now() - request.user.date_joined).total_seconds() / 3600, 1)  # Convertir a horas
+    
+    # Definir distintas categorías de progreso
+    progresos_p1 = [
+        profile.progreso_personalidad,
+        profile.progreso_autoestima,
+        profile.progreso_valores,
+        profile.progreso_logros,
+        profile.progreso_inteligencias,
+        profile.progreso_testInteligencias,
+    ]
+    
+    progresos_p2 = [
+        profile.progreso_presentacionsegundopaso,
+        profile.progreso_testsegundopaso,
+    ]
+    
+    progresos_p3 = [
+        profile.progreso_presentacionsegundopaso,
+        profile.progreso_testsegundopaso,
+    ]
+    
+    progresos_p3 = [
+        profile.progreso_infografiatercerpaso,
+        profile.progreso_tablerotercerpaso,
+        profile.progreso_videotercerpaso,
+        profile.progreso_videoconsejotercerpaso,
+        profile.progreso_presentaciontercerpaso,
+    ]
+    
+    progresos_p4 = [
+        profile.progreso_tablerocuartopaso,
+        profile.progreso_videocuartopaso,
+        profile.progreso_agendacuartopaso,
+    ]
+    
+    progresos_p5 = [
+        profile.progreso_imagenquintopaso,
+        profile.progreso_tableroquintopaso,
+        profile.progreso_infografiaquintopaso,
+    ]
+    
+    progresos_p6 = [
+        profile.progreso_tablerosextopaso,
+    ]
+    
+    progresos_p7 = [
+        profile.progreso_fraseseptimopaso,
+        profile.progreso_imagenseptimopaso,
+        profile.progreso_imagen2septimopaso,
+        profile.progreso_formatoseptimopaso,
+        profile.progreso_infografiaseptimopaso,
+        profile.progreso_formato2septimopaso,
+    ]
+    
+    # Calcular los porcentajes usando la función
+    porcentaje_total_p1 = calcular_porcentaje(progresos_p1)
+    porcentaje_total_p2 = calcular_porcentaje(progresos_p2)
+    porcentaje_total_p3 = calcular_porcentaje(progresos_p3)
+    porcentaje_total_p4 = calcular_porcentaje(progresos_p4)
+    porcentaje_total_p5 = calcular_porcentaje(progresos_p5)
+    porcentaje_total_p6 = calcular_porcentaje(progresos_p6)
+    porcentaje_total_p7 = calcular_porcentaje(progresos_p7)
+    
+    context = {
+        'profile': profile,
+        'porcentaje_total_p1': porcentaje_total_p1,
+        'porcentaje_total_p2': porcentaje_total_p2,
+        'porcentaje_total_p3': porcentaje_total_p3,
+        'porcentaje_total_p4': porcentaje_total_p4,
+        'porcentaje_total_p5': porcentaje_total_p5,
+        'porcentaje_total_p6': porcentaje_total_p6,
+        'porcentaje_total_p7': porcentaje_total_p7,
+        'tiempo_en_plataforma': tiempo_en_plataforma,
+        
+    }
+    
+    return render(request, 'perfil.html', context,)
 
 @login_required
 def generar_constancia_pdf(request):
@@ -210,3 +331,52 @@ def generar_constancia_pdf(request):
     p.showPage()
     p.save()
     return response
+
+@login_required
+def agregar_meta(request):
+    if request.method == "POST":
+        data = json.loads(request.body)
+        descripcion = data.get("meta")
+        fecha_objetivo_str = data.get("fecha")  # Esta es una cadena
+
+        if not descripcion or not fecha_objetivo_str:
+            return JsonResponse({"status": "error", "message": "Todos los campos son obligatorios"}, status=400)
+
+        try:
+            fecha_objetivo = datetime.strptime(fecha_objetivo_str, "%Y-%m-%d").date()  # 👈 Convertir string a date
+        except ValueError:
+            return JsonResponse({"status": "error", "message": "Formato de fecha inválido"}, status=400)
+
+        nueva_meta = Meta.objects.create(
+            user=request.user,
+            descripcion=descripcion,
+            fecha_objetivo=fecha_objetivo
+        )
+
+        return JsonResponse({
+            "status": "success",
+            "meta": {
+                "id": nueva_meta.id,
+                "descripcion": nueva_meta.descripcion,
+                "fecha": nueva_meta.fecha_objetivo.strftime("%d-%m-%Y"),  # Ahora sí es un date
+                "completada": nueva_meta.completada
+            }
+        })
+    
+    return JsonResponse({"status": "error", "message": "Método no permitido"}, status=400)
+
+
+@login_required
+def obtener_metas(request):
+    metas = Meta.objects.filter(user=request.user).order_by("fecha_objetivo")
+    metas_list = [
+        {
+            "id": meta.id,
+            "descripcion": meta.descripcion,
+            "fecha": meta.fecha_objetivo.strftime("%d-%m-%Y"),
+            "completada": meta.completada
+        }
+        for meta in metas
+    ]
+
+    return JsonResponse({"status": "success", "metas": metas_list})

@@ -28,8 +28,8 @@
         <div class="dashboard-container">
             <!-- Perfil del Usuario -->
             <div class="profile-section">
-                <h2>Nombre del Usuario</h2>
-                <p>Tiempo total en la plataforma: 35 horas</p>
+                <h1>{{ profile.nombres }} {{profile.apellido_paterno}}</h1>
+                <p>Tiempo total de la cuenta en la plataforma: <span id="tiempo-plataforma">{{ tiempo_en_plataforma }}</span> horas</p>
                 <button onclick="document.getElementById('modal').style.display='block'" class="update-btn">Actualizar Datos</button>
             </div>
 
@@ -39,33 +39,41 @@
             <div id="progress" class="progress-section">
                 <h2>Progreso de los Contenidos</h2>
                 <div class="progress-bar-container">
-                    <label for="content-progress">Mis Intereses - Progreso Total: 100%</label>
-                    <div class="progress-bar" id="content-progress" style="width: 100%;"></div>
+                    <label for="content-progress">Mis Intereses - Progreso Total: {{ porcentaje_total_p1|floatformat:0 }}%</label>
+                    <div class="progress-bar" id="content-progress" style="width: {{ porcentaje_total_p1 }}%;"></div>
                 </div>
                 <div class="progress-bar-container">
-                    <label for="content-progress">Mis Talentos - Progreso Total: 70%</label>
-                    <div class="progress-bar" id="content-progress" style="width: 70%;"></div>
+                    <label for="content-progress">Mis Talentos - Progreso Total: {{ porcentaje_total_p2|floatformat:0 }}%</label>
+                    <div class="progress-bar" id="content-progress" style="width: {{ porcentaje_total_p2 }}%;"></div>
+                </div>
+                <div class="progress-bar-container">
+                    <label for="content-progress">Mi Entorno - Progreso Total: {{ porcentaje_total_p3|floatformat:0 }}%</label>
+                    <div class="progress-bar" id="content-progress" style="width: {{ porcentaje_total_p3 }}%;"></div>
+                </div>
+                <div class="progress-bar-container">
+                    <label for="content-progress">Mi Universidad - Progreso Total: {{ porcentaje_total_p4|floatformat:0 }}%</label>
+                    <div class="progress-bar" id="content-progress" style="width: {{ porcentaje_total_p4 }}%;"></div>
+                </div>
+                <div class="progress-bar-container">
+                    <label for="content-progress">Mis Apoyos - Progreso Total: {{ porcentaje_total_p5|floatformat:0 }}%</label>
+                    <div class="progress-bar" id="content-progress" style="width: {{ porcentaje_total_p5 }}%;"></div>
+                </div>
+                <div class="progress-bar-container">
+                    <label for="content-progress">Quiero Más - Progreso Total: {{ porcentaje_total_p6|floatformat:0 }}%</label>
+                    <div class="progress-bar" id="content-progress" style="width: {{ porcentaje_total_p6 }}%;"></div>
+                </div>
+                <div class="progress-bar-container">
+                    <label for="content-progress">Mi Plan de Carrera - Progreso Total: {{ porcentaje_total_p7|floatformat:0 }}%</label>
+                    <div class="progress-bar" id="content-progress" style="width: {{ porcentaje_total_p7 }}%;"></div>
                 </div>
             </div>
 
             <!-- Metas del Usuario -->
             <div id="goals" class="goals-section">
                 <h2>Metas</h2>
-                <ul>
-                    <li class="goal completed">
-                        <span>Completar el curso antes del 30 de agosto</span>
-                        <span class="goal-date">Fecha: 30 de agosto</span>
-                    </li>
-                    <li class="goal pending">
-                        <span>Terminar el Test de Inteligencias multiples</span>
-                        <span class="goal-date">Fecha: 15 de noviembre</span>
-                    </li>
-                    <li class="goal pending">
-                        <span>Visualizar todos los contenidos del Paso 1 "Mis Intereses" al 100%</span>
-                        <span class="goal-date">Fecha: 1 de diciembre</span>
-                    </li>
+                <ul id="metas-list">
+                    <!-- Aquí se insertarán dinámicamente las metas -->
                 </ul>
-                <!-- Botón para abrir el modal de agregar metas -->
                 <button onclick="document.getElementById('modal-metas').style.display='block'" class="add-goal-btn">Agregar Nueva Meta</button>
             </div>
             
@@ -95,22 +103,21 @@
         </div>
     </div>
 
-    <!-- Modal -->
+    <!-- Modal de Perfil -->
     <div id="modal" class="modal">
         <div class="modal-content">
             <span onclick="document.getElementById('modal').style.display='none'" class="close-btn">&times;</span>
             <h2>Actualizar Datos</h2>
-            <form>
-                
+            <form id="update-profile-form">
                 <label for="email">Correo Electrónico:</label>
-                <input type="email" id="email" name="email" placeholder="Ingresa tu correo">
-                
+                <input type="email" id="email" name="email" value="{{ profile.user.email }}" placeholder="Ingresa tu correo">
+            
                 <label for="telefono">Teléfono:</label>
-                <input type="tel" id="telefono" name="telefono" placeholder="Ingresa tu teléfono">
-                
-                <label for="telefono">Contraseña:</label>
-                <input type="tel" id="telefono" name="telefono" placeholder="Ingresa tu nueva contraseña">
-                
+                <input type="tel" id="telefono" name="telefono" value="{{ profile.telefono }}" placeholder="Ingresa tu teléfono">
+            
+                <label for="password">Contraseña:</label>
+                <input type="password" id="password" name="password" placeholder="Ingresa tu nueva contraseña">
+            
                 <button type="submit" class="save-btn">Guardar Cambios</button>
             </form>
         </div>
@@ -120,17 +127,17 @@
         <div class="modal-content">
             <span onclick="document.getElementById('modal-metas').style.display='none'" class="close-btn">&times;</span>
             <h2>Agregar Nueva Meta</h2>
-            <form>
+            <form id="form-metas">
                 <label for="meta">Descripción de la Meta:</label>
-                <input type="text" id="meta" name="meta" placeholder="Describe tu meta aquí">
-
+                <input type="text" id="meta" name="meta" placeholder="Describe tu meta aquí" required>
+    
                 <label for="fecha">Fecha Objetivo:</label>
-                <input type="date" id="fecha" name="fecha">
-
+                <input type="date" id="fecha" name="fecha" required>
+    
                 <button type="submit" class="save-btn">Guardar Meta</button>
             </form>
         </div>
-    </div> 
+    </div>
     <!-- Modal para agregar notas -->
     <div id="modal-notes" class="modal">
         <div class="modal-content">
@@ -201,4 +208,100 @@
         }
     });
 </script>
+
+<script>
+    document.getElementById('update-profile-form').addEventListener('submit', function(event) {
+        event.preventDefault();  // Evitar recargar la página
+    
+        let formData = new FormData(this);
+    
+        fetch("{% url 'update_profile' %}", {
+            method: "POST",
+            body: formData,
+            headers: {
+                "X-CSRFToken": "{{ csrf_token }}"
+            }
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.status === "success") {
+                alert("Perfil actualizado exitosamente");
+                location.reload();  // Recargar para reflejar los cambios
+            } else {
+                alert("Error al actualizar: " + data.message);
+            }
+        })
+        .catch(error => console.error("Error:", error));
+    });
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        cargarMetas();
+    });
+    
+    function cargarMetas() {
+        fetch("{% url 'obtener_metas' %}")
+        .then(response => response.json())
+        .then(data => {
+            if (data.status === "success") {
+                const listaMetas = document.getElementById("metas-list");
+                listaMetas.innerHTML = "";  // Limpiar lista
+    
+                data.metas.forEach(meta => {
+                    const metaItem = document.createElement("li");
+                    metaItem.classList.add("goal", meta.completada ? "completed" : "pending");
+                    metaItem.innerHTML = `
+                        <span>${meta.descripcion}</span>
+                        <span class="goal-date">Fecha: ${meta.fecha}</span>
+                    `;
+                    listaMetas.appendChild(metaItem);
+                });
+            }
+        })
+        .catch(error => console.error("Error al cargar metas:", error));
+    }
+    
+    document.getElementById("form-metas").addEventListener("submit", function (event) {
+        event.preventDefault();
+    
+        let meta = document.getElementById("meta").value;
+        let fecha = document.getElementById("fecha").value;
+    
+        fetch("{% url 'agregar_meta' %}", {
+            method: "POST",
+            body: JSON.stringify({ meta, fecha }),
+            headers: {
+                "Content-Type": "application/json",
+                "X-CSRFToken": "{{ csrf_token }}"
+            }
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.status === "success") {
+                alert("Meta agregada correctamente");
+                document.getElementById("modal-metas").style.display = "none";
+                cargarMetas();
+            } else {
+                alert("Error: " + data.message);
+            }
+        })
+        .catch(error => console.error("Error al agregar meta:", error));
+    });
+</script>
+
+<script>
+    function actualizarTiempoPlataforma() {
+        fetch("{% url 'obtener_tiempo_plataforma' %}")  // Nueva vista en Django
+        .then(response => response.json())
+        .then(data => {
+            document.getElementById("tiempo-plataforma").innerText = data.tiempo;
+        })
+        .catch(error => console.error("Error al obtener el tiempo:", error));
+    }
+    
+    // Actualizar cada 60 minutos
+    setInterval(actualizarTiempoPlataforma, 3600000);
+</script>
+
 </html>
