@@ -1,34 +1,52 @@
+const cards = document.querySelectorAll(".card");
 const modal = document.getElementById("modal");
-const closeButton = document.querySelector(".close-button");
 const modalTitle = document.getElementById("modal-title");
 const modalVideo = document.getElementById("modal-video-src");
+const modalVideoContainer = document.querySelector(".modal-video-container");
+const closeButton = document.querySelector(".close-button");
 
-function openModal(event) {
-  let card = event.target.closest(".card");
-  if (!card) return;
+cards.forEach((card) => {
+  card.addEventListener("click", () => {
+    const videoUrl = card.getAttribute("data-video").trim();
+    modalTitle.textContent = card.getAttribute("data-university");
 
-  const university = card.getAttribute("data-university");
-  const VideoUrl = card.getAttribute("data-video");
-
-  modalTitle.textContent = university;
-  modalVideo.src = VideoUrl;
-
-  modal.style.display = "block";
-}
-
-function closeModal() {
-  modal.style.display = "none";
-  modalVideo.src = "";
-}
-
-document.querySelectorAll(".card").forEach((card) => {
-  card.addEventListener("click", openModal);
+    if (videoUrl.includes("VIDEO_ID")) {
+      // No hay video: ocultamos el contenedor del iframe y limpiamos el src
+      modalVideoContainer.style.display = "none";
+      modalVideo.src = "";
+      // Si no existe el mensaje, lo agregamos justo debajo del título
+      if (!document.getElementById("modal-message")) {
+        const msg = document.createElement("p");
+        msg.id = "modal-message";
+        msg.textContent = "Este video aún no está disponible.";
+        msg.style.textAlign = "center";
+        modalTitle.parentNode.insertBefore(msg, modalTitle.nextSibling);
+      }
+    } else {
+      // Existe video: mostramos el contenedor y cargamos la URL
+      modalVideoContainer.style.display = "block";
+      modalVideo.src = videoUrl;
+      // Si existiera el mensaje, lo removemos
+      const existingMsg = document.getElementById("modal-message");
+      if (existingMsg) {
+        existingMsg.remove();
+      }
+    }
+    // Mostramos el modal
+    modal.style.display = "block";
+  });
 });
 
-closeButton.addEventListener("click", closeModal);
+// Evento para cerrar el modal
+closeButton.addEventListener("click", () => {
+  modal.style.display = "none";
+  modalVideo.src = "";
+});
 
-window.addEventListener("click", function (event) {
-  if (event.target == modal) {
-    closeModal();
+// Cerrar el modal si se hace clic fuera de su contenido
+window.addEventListener("click", (event) => {
+  if (event.target === modal) {
+    modal.style.display = "none";
+    modalVideo.src = "";
   }
 });

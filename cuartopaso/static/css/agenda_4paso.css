@@ -1,275 +1,283 @@
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
-html, body {
-    width: 100%;
-    overflow-x: hidden; /* Hides horizontal overflow */
+html,
+body {
+  width: 100%;
+  overflow-x: hidden; /* Hides horizontal overflow */
 }
 
 body {
-    font-family: 'Arial', sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #4996C6;
-    color: #333;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
+  font-family: "Arial", sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #4996c6;
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
 header {
-    background-color: #242B57;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    padding: 40px 25px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    position: relative;
+  background-color: #242b57;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 40px 25px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
 }
 
 header .logo {
-    width: 350px;
+  width: 350px;
 }
 
 header nav {
-    margin-left: auto;
+  margin-left: auto;
 }
 
 header nav ul {
-    list-style: none;
-    display: flex;
-    margin: 0;
-    padding: 0;
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
 }
 
 header nav ul li {
-    margin-right: 50px;
+  margin-right: 50px;
 }
 
 header nav ul li:hover {
-    transition: transform 0.3s;
-    transform: scale(1.05);
+  transition: transform 0.3s;
+  transform: scale(1.05);
 }
 
 header nav ul li a {
-    text-decoration: none;
-    color: #ffffff;
-    font-size: 1rem;
+  text-decoration: none;
+  color: #ffffff;
+  font-size: 1rem;
 }
 
 .back-btn a button {
-    background: linear-gradient(to bottom, #59b2e0, #3c8fc1);
-    color: #ffffff;
-    font-weight: bold;
-    font-size: 16px;
-    border: 2px solid #ffffff;
-    border-radius: 22px;
-    padding: 10px 20px;
-    cursor: pointer;
-    box-shadow: 0px 4px 0px #2b6d9a;
-    text-align: center;
-    transition: all 0.2s ease-in-out;
-    width: 150px;
-    margin: 0 auto;
-    display: block;
+  background: linear-gradient(to bottom, #59b2e0, #3c8fc1);
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 16px;
+  border: 2px solid #ffffff;
+  border-radius: 22px;
+  padding: 10px 20px;
+  cursor: pointer;
+  box-shadow: 0px 4px 0px #2b6d9a;
+  text-align: center;
+  transition: all 0.2s ease-in-out;
+  width: 150px;
+  margin: 0 auto;
+  display: block;
 }
 
 .back-btn a button:hover {
-    transform: scale(1.05);
-    transition: transform 0.3s;
+  transform: scale(1.05);
+  transition: transform 0.3s;
 }
 
 header .menu-toggle {
-    display: none;
-    font-size: 1.5rem;
-    color: #fff;
-    cursor: pointer;
+  display: none;
+  font-size: 1.5rem;
+  color: #fff;
+  cursor: pointer;
 }
 
 .content {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .paragraph-of-instructions {
-    font-size: 18px;
-    text-align: center;
-    margin-top: 10px;
-    margin-bottom: 15px;
-    width: 800px;
+  font-size: 18px;
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 15px;
+  width: 800px;
 }
 
 .video-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: #ffffff;
-    padding: 80px;
-    padding-top: 30px;
-    border-radius: 12px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    margin-top: 50px;
-    margin-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #ffffff;
+  padding: 80px;
+  padding-top: 30px;
+  border-radius: 12px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-top: 50px;
+  margin-bottom: 30px;
 }
 
 .video-title {
-    font-size: 24px;
-    font-weight: bold;
-    margin-bottom: 20px;
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
 }
 
 .nav-button {
-    background: none;
-    border: none;
-    cursor: pointer;
-    outline: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  outline: none;
 }
 
 .nav-button img {
-    width: 50px;
-    height: 50px;
+  width: 50px;
+  height: 50px;
 }
 
 video {
-    width: 900px;
-    height: auto;
-    margin: 0 20px;
-    border-radius: 12px;
+  width: 900px;
+  height: auto;
+  margin: 0 20px;
+  border-radius: 12px;
 }
 
 .controls-container button:hover {
-    background-color: #021f40;
+  background-color: #021f40;
 }
 
 /* Botones de navegación */
 .navigation-buttons {
-    display: flex;
-    justify-content: center;
-    padding: 20px;
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+  width: 100%;
+  box-sizing: border-box; /* Incluye padding y border en el ancho total */
+  position: relative; /* Mantiene los botones dentro del flujo del documento */
+  bottom: 0;
 }
 
-.back-button, .continue-button {
-    cursor: pointer;
-    width: 180px;
-    padding: 10px 20px;
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 180px;
+  padding: 5px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  color: white;
+  background-color: #002d62;
+  border-radius: 25px;
+  border: 2px solid #d3d3d3;
+  text-decoration: none;
+  cursor: pointer;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s, background 0.3s;
+  text-align: center;
 }
 
 .back-button {
-    margin-right: 20px; /* Añadir espacio entre los botones */
+  margin-right: 40px; /* Espacio entre botones */
 }
 
-.back-button:hover {
-    transition: transform 0.3s;
-    transform: scale(1.05);
-}
-
-.continue-button {
-    color: #ffffff;
-}
-
-.continue-button:hover {
-    transition: transform 0.3s;
-    transform: scale(1.05);
+.btn:hover {
+  background-color: #0044a7;
+  transform: scale(1.05);
 }
 
 .instrucciones {
-    text-align: center;
+  text-align: center;
 }
 
 /* Mobile Styles */
 @media (max-width: 768px) {
+  header nav {
+    display: flex; /* Siempre flex para la animación */
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: #242b57;
+    flex-direction: column;
+    text-align: center; /* Alinear los elementos a la izquierda */
+    padding-left: 20px;
+    z-index: 10;
+    max-height: 0; /* Ocultar inicialmente */
+    overflow: hidden; /* Ocultar el contenido fuera del contenedor */
+    opacity: 0;
+    transform: translateY(-20px); /* Mover el menú hacia arriba */
+    transition: max-height 0.5s ease, opacity 0.5s ease, transform 0.5s ease;
+  }
 
-    header nav {
-        display: flex; /* Siempre flex para la animación */
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        background-color: #242B57;
-        flex-direction: column;
-        text-align: center; /* Alinear los elementos a la izquierda */
-        padding-left: 20px;
-        z-index: 10;
-        max-height: 0; /* Ocultar inicialmente */
-        overflow: hidden; /* Ocultar el contenido fuera del contenedor */
-        opacity: 0;
-        transform: translateY(-20px); /* Mover el menú hacia arriba */
-        transition: max-height 0.5s ease, opacity 0.5s ease, transform 0.5s ease;
-    }
+  header nav.active {
+    max-height: 500px; /* Altura máxima del menú desplegado */
+    opacity: 1; /* Mostrar el menú */
+    transform: translateY(0); /* Volverlo a su posición */
+  }
 
-    header nav.active {
-        max-height: 500px; /* Altura máxima del menú desplegado */
-        opacity: 1; /* Mostrar el menú */
-        transform: translateY(0); /* Volverlo a su posición */
-    }
+  header .logo {
+    width: 300px;
+  }
 
-    header .logo {
-        width: 300px;
-    }
+  header nav ul {
+    flex-direction: column;
+    justify-content: center; /* Centrar ítems verticalmente */
+    align-items: center; /* Centrar ítems horizontalmente */
+  }
 
-    header nav ul {
-        flex-direction: column;
-        justify-content: center; /* Centrar ítems verticalmente */
-        align-items: center; /* Centrar ítems horizontalmente */
-    }
+  header nav ul li {
+    margin: 15px 0;
+    opacity: 0;
+    transform: translateX(-20px); /* Mover los ítems hacia la izquierda */
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
 
-    header nav ul li {
-        margin: 15px 0;
-        opacity: 0;
-        transform: translateX(-20px); /* Mover los ítems hacia la izquierda */
-        transition: opacity 0.5s ease, transform 0.5s ease;
-    }
+  header nav ul li:nth-child(1) {
+    transition-delay: 0.1s; /* Retraso individual */
+  }
 
-    header nav ul li:nth-child(1) {
-        transition-delay: 0.1s; /* Retraso individual */
-    }
+  header nav ul li:nth-child(2) {
+    transition-delay: 0.2s;
+  }
 
-    header nav ul li:nth-child(2) {
-        transition-delay: 0.2s;
-    }
+  header nav ul li:nth-child(3) {
+    transition-delay: 0.3s;
+  }
 
-    header nav ul li:nth-child(3) {
-        transition-delay: 0.3s;
-    }
+  header nav ul li:nth-child(4) {
+    transition-delay: 0.4s;
+  }
 
-    header nav ul li:nth-child(4) {
-        transition-delay: 0.4s;
-    }
+  header nav ul li:nth-child(5) {
+    transition-delay: 0.5s;
+  }
 
-    header nav ul li:nth-child(5) {
-        transition-delay: 0.5s;
-    }
+  header nav.active ul li {
+    opacity: 1;
+    transform: translateX(0);
+  }
 
-    header nav.active ul li {
-        opacity: 1;
-        transform: translateX(0);
-    }
+  header nav.active ul li:hover {
+    transform: scale(1.05);
+    transition: transform 0.3s;
+  }
 
-    header nav.active ul li:hover {
-        transform: scale(1.05);
-        transition: transform 0.3s;
-    }
+  header nav ul li a {
+    font-size: 1.2rem;
+    transition: color 0.3s ease-in-out;
+    text-align: center; /* Centra los títulos en el menú toggle */
+  }
 
-    header nav ul li a {
-        font-size: 1.2rem;
-        transition: color 0.3s ease-in-out;
-        text-align: center; /* Centra los títulos en el menú toggle */
-    }
+  .cancel-btn a button {
+    width: auto; /* Adaptar ancho al contenido */
+    margin: 0 auto; /* Centrar el botón */
+  }
 
-    .cancel-btn a button {
-        width: auto; /* Adaptar ancho al contenido */
-        margin: 0 auto; /* Centrar el botón */
-    }
+  header .menu-toggle {
+    display: block;
+  }
 
-    header .menu-toggle {
-        display: block;
-    }
-
-    nav.active {
-        display: flex;
-    }
+  nav.active {
+    display: flex;
+  }
 }

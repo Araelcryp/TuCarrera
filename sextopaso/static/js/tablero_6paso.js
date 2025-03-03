@@ -1,67 +1,72 @@
-// Obtener elementos del DOM
+// Referencias a los elementos del DOM
 const modal = document.getElementById("modal");
 const modalTitle = document.getElementById("modal-title");
 const closeButton = document.querySelector(".close-button");
-const pdfIframe = document.getElementById("modal-pdf");
-let pdfDoc = null;
+const pdfIframe = document.getElementById("pdfIframe");
 
-// Load and render PDF with PDF.js library
-function loadPdf(url) {
-  const loadingTask = pdfjsLib.getDocument(url);
-  loadingTask.promise
-    .then(function (pdf) {
-      pdfDoc = pdf;
-      return pdf.getPage(1);
-    })
-    .then(function (page) {
-      const context = canvas.getContext("2d");
-      const viewport = page.getViewport({ scale: 1.5 });
-
-      canvas.height = viewport.height;
-      canvas.width = viewport.width;
-
-      page.render({ canvasContext: context, viewport: viewport });
-    });
+// Función para convertir enlaces de Google Drive a enlaces embebidos
+function getEmbeddedPdfUrl(url) {
+  if (url.includes("drive.google.com")) {
+    // Extrae el ID del archivo usando una expresión regular
+    const regex = /\/d\/([a-zA-Z0-9_-]+)/;
+    const match = url.match(regex);
+    if (match && match[1]) {
+      // Convierte la URL a formato preview para incrustarla en un iframe
+      return `https://drive.google.com/file/d/${match[1]}/preview`;
+    }
+  }
+  return url;
 }
 
-// Función para abrir la ventana modal con la información de la tarjeta clickeada
+// Función para abrir el modal con el PDF en un iframe
 function openModal(event) {
-  // Verificar si el elemento clickeado es una tarjeta o está dentro de una
   let card = event.target.closest(".card");
   if (!card) return;
 
-  // Extraer información de los atributos de datos
   const university = card.getAttribute("data-university");
-  const PDFUrl = card.getAttribute("data-pdf");
+  const pdfUrl = card.getAttribute("data-pdf").trim();
 
-  // Rellenar el contenido de la ventana modal
   modalTitle.textContent = university;
 
-  if (pdfDoc) {
-    loadPdf(pdfDoc, PDFUrl);
+  if (!pdfUrl || pdfUrl.includes("NO_PDF")) {
+    // Si no hay PDF, se oculta el iframe y se muestra un mensaje
+    pdfIframe.style.display = "none";
+    if (!document.getElementById("modal-message")) {
+      const msg = document.createElement("p");
+      msg.id = "modal-message";
+      msg.textContent = "Este PDF aún no está disponible.";
+      msg.style.textAlign = "center";
+      modalTitle.parentNode.insertBefore(msg, modalTitle.nextSibling);
+    }
+  } else {
+    // Si hay un PDF, se muestra el iframe y se remueve cualquier mensaje previo
+    pdfIframe.style.display = "block";
+    const existingMsg = document.getElementById("modal-message");
+    if (existingMsg) {
+      existingMsg.remove();
+    }
+    pdfIframe.src = getEmbeddedPdfUrl(pdfUrl);
   }
-
-  // Mostrar la ventana modal
   modal.style.display = "block";
 }
 
-// Función para cerrar la ventana modal
+// Función para cerrar el modal
 function closeModal() {
   modal.style.display = "none";
-  modalVideo.src = "";
+  pdfIframe.src = "";
 }
 
-// Event listener para abrir la ventana modal al hacer clic en una tarjeta
+// Asigna el evento de clic a cada tarjeta
 document.querySelectorAll(".card").forEach((card) => {
   card.addEventListener("click", openModal);
 });
 
-// Event listener para cerrar la ventana modal al hacer clic en el botón de cierre
+// Evento para cerrar el modal al hacer clic en el botón de cierre
 closeButton.addEventListener("click", closeModal);
 
-// Event listener para cerrar la ventana modal al hacer clic fuera del contenido modal
+// Cierra el modal si se hace clic fuera del contenido modal
 window.addEventListener("click", function (event) {
-  if (event.target == modal) {
+  if (event.target === modal) {
     closeModal();
   }
 });

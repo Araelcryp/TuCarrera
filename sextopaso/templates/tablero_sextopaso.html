@@ -11,7 +11,7 @@
 
 <body>
   <header>
-    <img src="{% static 'images/LOGOS.png'%}" alt="Logo" class="logo" />
+    <img src="{% static 'images/LOGOS.png' %}" alt="Logo" class="logo" />
     <nav id="menu">
       <ul>
         <li><a href="/homeuser">Inicio</a></li>
@@ -31,27 +31,27 @@
     <div class="main-content">
       <div class="card-deck">
         <div class="row">
+          <!-- Tarjeta con PDF válido -->
           <div class="card" data-university="Universidad Politécnica de Santa Rosa Jauregui"
-            data-pdf="https://drive.google.com/file/d/1o2OMPLiTt4u_tQM7sDD3BfjSQ4p73Mte/view?usp=drive_link">
+            data-pdf="https://drive.google.com/file/d/1o2OMPLiTt4u_tQM7sDD3BfjSQ4p73Mte/view?usp=sharing">
             <h3 class="card-title">Universidad Politécnica de Santa Rosa Jauregui</h3>
             <img src="{% static 'images/LogosUNIS/UPSRJ.png' %}" alt="Logo de la Universidad" class="card-img" />
             <p class="card-text">Santiago de Querétaro, Qro.</p>
           </div>
-
-          <div class="card" data-university="Universidad Aeronáutica en Querétaro"
-            data-pdf="https://drive.google.com/file/d/1o2OMPLiTt4u_tQM7sDD3BfjSQ4p73Mte/view?usp=drive_link">
+          <!-- Otra tarjeta con PDF válido -->
+          <div class="card" data-university="Universidad Aeronáutica en Querétaro" data-pdf="NO_PDF">
             <h3 class="card-title">Universidad Aeronáutica en Querétaro</h3>
             <img src="{% static 'images/LogosUNIS/UNAQ.png' %}" alt="Logo de la Universidad" class="card-img" />
             <p class="card-text">Santiago de Querétaro, Qro.</p>
           </div>
-
+          <!-- Tarjeta con PDF válido -->
           <div class="card" data-university="Universidad Tecnológica de San Juan del Río"
-            data-pdf="https://drive.google.com/file/d/1o2OMPLiTt4u_tQM7sDD3BfjSQ4p73Mte/view?usp=drive_link">
+            data-pdf="https://drive.google.com/file/d/1X2XP39QWHuV-49-pnT33f38eGHMurtKg/view?usp=drive_link">
             <h3 class="card-title">Universidad Tecnológica de San Juan del Río</h3>
             <img src="{% static 'images/LogosUNIS/UTSJR.png' %}" alt="Logo de la Universidad" class="card-img" />
             <p class="card-text">San Juan del Río, Qro.</p>
           </div>
-
+          <!-- Tarjeta con PDF válido -->
           <div class="card" data-university="Universidad Politécnica de Querétaro"
             data-pdf="https://drive.google.com/file/d/1_ygiSDRTsmZJ9Dn2_-151DcLZQFLYwja/view?usp=drive_link">
             <h3 class="card-title">Universidad Politécnica de Querétaro</h3>
@@ -61,29 +61,27 @@
         </div> <!-- End row -->
 
         <div class="row">
+          <!-- Tarjeta con PDF válido -->
           <div class="card" data-university="Universidad Tecnológica de Querétaro"
             data-pdf="https://drive.google.com/file/d/1EqeMjMnfaTL8_oycimj4XKRf6Rw9ume4/view?usp=drive_link">
             <h3 class="card-title">Universidad Tecnológica de Querétaro</h3>
             <img src="{% static 'images/LogosUNIS/UTEQ.png' %}" alt="Logo de la Universidad" class="card-img" />
             <p class="card-text">Santiago de Querétaro, Qro.</p>
           </div>
-
-          <div class="card" data-university="Universidad Autónoma de Querétaro"
-            data-pdf="https://drive.google.com/file/d/1o2OMPLiTt4u_tQM7sDD3BfjSQ4p73Mte/view?usp=drive_link">
+          <!-- Tarjeta con PDF válido -->
+          <div class="card" data-university="Universidad Autónoma de Querétaro" data-pdf="NO_PDF">
             <h3 class="card-title">Universidad Autónoma de Querétaro</h3>
             <img src="{% static 'images/LogosUNIS/UAQ.png' %}" alt="Logo de la Universidad" class="card-img" />
             <p class="card-text">Santiago de Querétaro, Qro.</p>
           </div>
-
-          <div class="card" data-university="Tecnológico Nacional de México campus Querétaro"
-            data-pdf="https://drive.google.com/file/d/1o2OMPLiTt4u_tQM7sDD3BfjSQ4p73Mte/view?usp=drive_link">
+          <!-- Tarjeta con PDF válido -->
+          <div class="card" data-university="Tecnológico Nacional de México campus Querétaro" data-pdf="NO_PDF">
             <h3 class="card-title">Tecnológico Nacional de México</h3>
             <img src="{% static 'images/LogosUNIS/TECNM.png' %}" alt="Logo de la Universidad" class="card-img" />
             <p class="card-text">Santiago de Querétaro, Qro.</p>
           </div>
-
-          <div class="card" data-university="Escuela Nacional de Estudios Superiores U.N.A.M"
-            data-pdf="https://drive.google.com/file/d/1o2OMPLiTt4u_tQM7sDD3BfjSQ4p73Mte/view?usp=drive_link">
+          <!-- Tarjeta sin PDF (se muestra mensaje) -->
+          <div class="card" data-university="Escuela Nacional de Estudios Superiores U.N.A.M" data-pdf="NO_PDF">
             <h3 class="card-title">Escuela Nacional de Estudios Superiores</h3>
             <img src="{% static 'images/LogosUNIS/ENES_Juriquilla.png' %}" alt="Logo de la Universidad"
               class="card-img" />
@@ -94,7 +92,7 @@
     </div> <!-- End main-content -->
   </div> <!-- End container -->
 
-  <!--MODAL -->
+  <!-- Modal para mostrar el PDF o mensaje en caso de ausencia -->
   <div id="modal" class="modal">
     <div class="modal-content">
       <span class="close-button">&times;</span>
@@ -102,52 +100,48 @@
         <div class="modal-info">
           <h2 id="modal-title">Título de la Universidad</h2>
           <div class="modal-pdf-container">
-            <canvas id="pdfCanvas"></canvas>
+            <iframe id="pdfIframe" style="width:100%; height:650px; border:none;"></iframe>
           </div>
         </div>
       </div>
     </div>
   </div>
 
+  <!-- Botones de navegación -->
   <div class="navigation-buttons">
-    <a href="/sextopaso">
-      <img<script src="{% static 'js/tablero_6paso.js' %}">
-        </script>
-        />
-    </a>
-    <a href="/septimopaso">
-      <img src="{% static 'images/Continuar.png'%}" alt="Boton-continuar" class="btn continue-button" />
-    </a>
+    <a href="/sextopaso" class="btn back-button">Regresar</a>
+    <a href="/septimopaso" id="continue-btn" class="btn continue-button">Continuar</a>
   </div>
-</body>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
-<script src="{% static 'js/tablero_6paso.js' %}"></script>
-<script>
-  const menuToggle = document.getElementById("menu-toggle");
-  const menu = document.getElementById("menu");
-  const navLinks = menu.querySelectorAll("ul li a");
 
-  // Abrir o cerrar el menú al hacer clic en el botón toggle
-  menuToggle.addEventListener("click", () => {
-    menu.classList.toggle("active");
-  });
+  <!-- Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
+  <script src="{% static 'js/tablero_6paso.js' %}"></script>
+  <script>
+    const menuToggle = document.getElementById("menu-toggle");
+    const menu = document.getElementById("menu");
+    const navLinks = menu.querySelectorAll("ul li a");
 
-  // Cerrar el menú cuando se hace clic en un enlace
-  navLinks.forEach((link) => {
-    link.addEventListener("click", () => {
-      menu.classList.remove("active");
+    // Abrir o cerrar el menú al hacer clic en el botón toggle
+    menuToggle.addEventListener("click", () => {
+      menu.classList.toggle("active");
     });
-  });
 
-  // Cerrar el menú al hacer clic fuera del header
-  document.addEventListener("click", (event) => {
-    const isClickInsideMenu = menu.contains(event.target);
-    const isClickOnToggle = menuToggle.contains(event.target);
+    // Cerrar el menú cuando se hace clic en un enlace
+    navLinks.forEach((link) => {
+      link.addEventListener("click", () => {
+        menu.classList.remove("active");
+      });
+    });
 
-    if (!isClickInsideMenu && !isClickOnToggle) {
-      menu.classList.remove("active");
-    }
-  });
-</script>
+    // Cerrar el menú al hacer clic fuera del header
+    document.addEventListener("click", (event) => {
+      const isClickInsideMenu = menu.contains(event.target);
+      const isClickOnToggle = menuToggle.contains(event.target);
+      if (!isClickInsideMenu && !isClickOnToggle) {
+        menu.classList.remove("active");
+      }
+    });
+  </script>
+</body>
 
 </html>

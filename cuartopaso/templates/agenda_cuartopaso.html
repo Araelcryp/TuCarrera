@@ -1,12 +1,14 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Agenda</title>
     <link rel="stylesheet" href="{% static 'css/agenda_4paso.css' %}">
 </head>
+
 <body>
     <header>
         <img src="{% static 'images/LOGOS.png'%}" alt="Logo" class="logo">
@@ -32,7 +34,8 @@
                 ¡Asiste a la universidad!
                 <br>
                 Consulta las fechas y sedes en las cuales se estarán llevando a cabo las ferias universitarias.
-                Toma en cuenta que asistir a estos eventos te permitirá tener un acercamiento a las universidades de tu interés, en el que podrás recibir información detallada y resolver dudas.                                        
+                Toma en cuenta que asistir a estos eventos te permitirá tener un acercamiento a las universidades de tu
+                interés, en el que podrás recibir información detallada y resolver dudas.
             </p>
             <h1>Próximamente</h1>
         </div>
@@ -42,39 +45,37 @@
     </div>
 
     <div class="navigation-buttons">
-        <a href="/video-cuarto-paso">
-            <img src="{% static 'images/Regresar.png'%}" alt="Boton-regresar" class="btn back-button">
-        </a>
-        <a href="/quintopaso">
-            <img src="{% static 'images/Continuar.png'%}" alt="Boton-continuar" class="btn continue-button">
-        </a>
+        <a href="/video-cuarto-paso" class="btn back-button">Regresar</a>
+        <a href="/quintopaso" id="continue-btn" class="btn continue-button">Continuar</a>
     </div>
+
 </body>
 <script>
     const menuToggle = document.getElementById("menu-toggle");
     const menu = document.getElementById("menu");
     const navLinks = menu.querySelectorAll("ul li a");
-    
+
     // Abrir o cerrar el menú al hacer clic en el botón toggle
     menuToggle.addEventListener("click", () => {
         menu.classList.toggle("active");
     });
-    
+
     // Cerrar el menú cuando se hace clic en un enlace
     navLinks.forEach(link => {
         link.addEventListener("click", () => {
             menu.classList.remove("active");
         });
     });
-    
+
     // Cerrar el menú al hacer clic fuera del header
     document.addEventListener("click", (event) => {
         const isClickInsideMenu = menu.contains(event.target);
         const isClickOnToggle = menuToggle.contains(event.target);
-    
+
         if (!isClickInsideMenu && !isClickOnToggle) {
             menu.classList.remove("active");
         }
     });
 </script>
+
 </html>
