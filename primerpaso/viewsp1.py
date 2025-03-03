@@ -71,13 +71,25 @@ def instrucciones_primerpaso(request):
 
 @login_required
 def test_primerpaso(request):
-    profile = request.user.profile
-    profile.progreso_testInteligencias = 100
-    profile.save()
     return render(request,'test_primerpaso.html')
 
 @login_required
 def resultados_primer_paso(request):
+    profile = request.user.profile
+    
+    # Verificar si todos los progresos están al 100%
+    if (
+        profile.progreso_personalidad < 100 or
+        profile.progreso_autoestima < 100 or
+        profile.progreso_valores < 100 or
+        profile.progreso_logros < 100 or
+        profile.progreso_inteligencias < 100
+    ):
+        return redirect('/mis-intereses-s2')
+    
+    profile.progreso_testInteligencias = 100
+    profile.save()
+    
     try:
         resultado = TestResult.objects.get(user=request.user)
 
