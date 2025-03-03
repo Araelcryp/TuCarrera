@@ -174,4 +174,3 @@ EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'sedeq.coord@gmail.com'
 EMAIL_HOST_PASSWORD = 'vpdz nsrw qadj hfys'
-DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
