@@ -41,9 +41,6 @@ def instrucciones_segundopaso(request):
 
 @login_required
 def test_segundopaso(request):
-    profile = request.user.profile
-    profile.progreso_testsegundopaso = 100
-    profile.save()
     return render (request,'test_segundopaso.html')
 
 @login_required
@@ -70,6 +67,9 @@ def save_results(request):
 
 @login_required
 def resultados_segundo_paso(request):
+    profile = request.user.profile
+    profile.progreso_testsegundopaso = 100
+    profile.save()
     best_result = TestResult.objects.filter(user=request.user).order_by('-score').first()
 
     context = {

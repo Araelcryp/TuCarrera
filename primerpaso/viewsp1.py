@@ -71,13 +71,13 @@ def instrucciones_primerpaso(request):
 
 @login_required
 def test_primerpaso(request):
-    profile = request.user.profile
-    profile.progreso_testInteligencias = 100
-    profile.save()
     return render(request,'test_primerpaso.html')
 
 @login_required
 def resultados_primer_paso(request):
+    profile = request.user.profile
+    profile.progreso_testInteligencias = 100
+    profile.save()
     try:
         resultado = TestResult.objects.get(user=request.user)
 
