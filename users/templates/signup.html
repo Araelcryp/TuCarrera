@@ -13,23 +13,22 @@
             const respuestaNo = document.getElementById("AnswerNo");
             const formSi = document.getElementById("form-si");
             const formNo = document.getElementById("form-no");
-    
+
             const estado = document.getElementById("estado");
             const institucion = document.getElementById("institucion");
             const municipio = document.getElementById("municipio");
             const bachillerato = document.getElementById("bachillerato");
             const matricula = document.getElementById("matricula");
 
-    
+
             const bachilleratoSelect = document.getElementById('bachillerato');
             const otroBachilleratoContainer = document.getElementById('otroBachilleratoContainer');
 
-    
+
             // Función para actualizar los campos según procedencia
             function updateForm() {
                 console.log("Actualizando el formulario...");
                 if (respuestaSi.checked) {
-                    console.log("Se seleccionó 'Sí'. Mostrando campos relacionados.");
                     formSi.classList.add('active');
                     formNo.classList.remove('active');
                     municipio.setAttribute('required', true);
@@ -38,7 +37,6 @@
                     estado.removeAttribute('required');
                     institucion.removeAttribute('required');
                 } else if (respuestaNo.checked) {
-                    console.log("Se seleccionó 'No'. Mostrando campos relacionados.");
                     formSi.classList.remove('active');
                     formNo.classList.add('active');
                     estado.setAttribute('required', true);
@@ -48,14 +46,14 @@
                     matricula.removeAttribute('required');
                 }
             }
-    
+
             // Inicializa el estado del formulario
             updateForm();
-    
+
             // Eventos para actualizar según selección de procedencia
             respuestaSi.addEventListener("change", updateForm);
             respuestaNo.addEventListener("change", updateForm);
-    
+
             // Mostrar o esconder el campo "otro bachillerato" según la selección
             bachilleratoSelect.addEventListener('change', function () {
                 if (bachilleratoSelect.value === 'otro') {
@@ -88,52 +86,83 @@
     <main>
         <div class="container-content">
             <h1>Formulario de registro</h1>
-            <div style="color: red; font-weight: bold;"> {{ error }} </div>
+            {% if form.non_field_errors %}
+            <div style="color: #bb1b1b; font-weight: bold;">
+                {{ form.non_field_errors }}
+            </div>
+            {% endif %}
             <form action="{% url 'signup' %}" method="POST">
                 {% csrf_token %}
 
-                <label for="apellidoPaterno">Apellido paterno:</label>
-                <input type="text" id="apellidoPaterno" name="apellidoPaterno" required>
-
-                <label for="apellidoMaterno">Apellido materno:</label>
-                <input type="text" id="apellidoMaterno" name="apellidoMaterno" required>
-
-                <label for="nombres">Nombre(s):</label>
-                <input type="text" id="nombres" name="nombres" required>
-
-                <label for="fechaNacimiento">Fecha de nacimiento:</label>
-                <input type="date" id="fechaNacimiento" name="fechaNacimiento" required>
-
-                <label for="curp">CURP:</label>
-                <input type="curp" id="curp" name="curp" required>
-
-                <!-- Nuevos campos: Correo Electrónico y Contraseña -->
-
-                <label for="telefono">Teléfono de contacto:</label>
-                <input type="tel" id="telefono" name="telefono" required>
-
-                <label for="email">Correo electrónico:</label>
-                <input type="email" id="email" name="email" required>
-                
+                <div>
+                    <label for="{{ form.apellidoPaterno.id_for_label }}">Apellido paterno:</label>
+                    {{ form.apellidoPaterno }}
+                    {{ form.apellidoPaterno.errors }}
+                </div>
+                <div>
+                    <label for="{{ form.apellidoMaterno.id_for_label }}">Apellido materno:</label>
+                    {{ form.apellidoMaterno }}
+                    {{ form.apellidoMaterno.errors }}
+                </div>
+                <div>
+                    <label for="{{ form.nombres.id_for_label }}">Nombre(s):</label>
+                    {{ form.nombres }}
+                    {{ form.nombres.errors }}
+                </div>
+                <div>
+                    <label for="{{ form.fechaNacimiento.id_for_label }}">Fecha de nacimiento:</label>
+                    {{ form.fechaNacimiento }}
+                    {{ form.fechaNacimiento.errors }}
+                </div>
+                <div>
+                    <label for="{{ form.curp.id_for_label }}">CURP:</label>
+                    {{ form.curp }}
+                    {% if form.curp.errors %}
+                    {% for error in form.curp.errors %}
+                    <div style="color: #bb1b1b;">{{ error }}</div>
+                    {% endfor %}
+                    {% endif %}
+                </div>
+                <div>
+                    <label for="{{ form.telefono.id_for_label }}">Teléfono de contacto:</label>
+                    {{ form.telefono }}
+                    {{ form.telefono.errors }}
+                </div>
+                <div>
+                    <label for="{{ form.email.id_for_label }}">Correo electrónico:</label>
+                    {{ form.email }}
+                    {% if form.email.errors %}
+                    {% for error in form.email.errors %}
+                    <div style="color: #bb1b1b;">{{ error }}</div>
+                    {% endfor %}
+                    {% endif %}
+                </div>
                 <div class="password-requirements">
-                    <p class="requirements-title">La contraseña debe contener al menos:</p>
-                    <ul>
+                    <p>La contraseña debe contener al menos:</p>
+                    <ul class="requirements-title">
                         <li>8 Caracteres</li>
                         <li>1 Mayúscula y 1 Minúscula (A-Z, a-z)</li>
                         <li>1 Número (0-9)</li>
                         <li>1 Carácter Especial (@$!%*?#)</li>
                     </ul>
+                    <label for="{{ form.password1.id_for_label }}">Contraseña:</label>
+                    {{ form.password1 }}
+                    {% if form.password1.errors %}
+                    {% for error in form.password1.errors %}
+                    <div style="color: #bb1b1b;">{{ error }}</div>
+                    {% endfor %}
+                    {% endif %}
                 </div>
-
-                <label for="password1">Contraseña:</label>
-                <input type="password" id="password1" name="password1" required>
-
-                <label for="password2">Confirmar contraseña:</label>
-                <input type="password" id="password2" name="password2" required>
-
+                <div>
+                    <label for="{{ form.password2.id_for_label }}">Confirmar contraseña:</label>
+                    {{ form.password2 }}
+                    {{ form.password2.errors }}
+                </div>
                 <label for="procedencia">¿Estudiaste la preparatoria en Querétaro?</label>
-                <label for="AnswerSi"><input type="radio" id="AnswerSi" name="procedencia" value="si" required>Sí</label>
-                <label for="AnswerNo"><input type="radio" id="AnswerNo" name="procedencia" value="no" required>No</label>
+                <label for="AnswerSi"><input type="radio" id="AnswerSi" name="procedencia" value="si"
+                        required>Sí</label>
+                <label for="AnswerNo"><input type="radio" id="AnswerNo" name="procedencia" value="no"
+                        required>No</label>
 
                 <!-- Formulario para cuando se selecciona "No" -->
                 <div id="form-no">
@@ -181,7 +210,7 @@
                 <!-- Formulario para cuando se selecciona "Sí" -->
                 <div id="form-si">
                     <label for="municipio">Municipio donde estudiaste:</label>
-                    <select id="municipio" name="municipio" onchange= " filtrarBachillerato()">
+                    <select id="municipio" name="municipio" onchange=" filtrarBachillerato()">
                         <option value="">Seleccione un municipio</option>
                         <option value="Amealco de Bonfil">Amealco de Bonfil</option>
                         <option value="Arroyo Seco">Arroyo Seco</option>
@@ -206,306 +235,610 @@
                     <label for="bachillerato">Bachillerato donde estudiaste:</label>
                     <select id="bachillerato" name="bachillerato">
                         <option value="">Seleccione un bachillerato</option>
-                        <option value="Academia Casa Hogar Sor Juana Inés De La Cruz A.C." data-municipio="Querétaro">Academia Casa Hogar Sor Juana Inés De La Cruz A.C.</option>
+                        <option value="Academia Casa Hogar Sor Juana Inés De La Cruz A.C." data-municipio="Querétaro">
+                            Academia Casa Hogar Sor Juana Inés De La Cruz A.C.</option>
                         <option value="Alma Muriel" data-municipio="Querétaro">Alma Muriel</option>
-                        <option value="Bachillerato Carl Rogers" data-municipio="Querétaro">Bachillerato Carl Rogers</option>
-                        <option value="Bachillerato Colegio México Nuevo Campus Querétaro" data-municipio="Querétaro">Bachillerato Colegio México Nuevo Campus Querétaro</option>
-                        <option value="Bachillerato de la Universidad de las Mujeres" data-municipio="Querétaro">Bachillerato de la Universidad de las Mujeres</option>
-                        <option value="Bachillerato de la Universidad del Valle de México Querétaro" data-municipio="Querétaro">Bachillerato de la Universidad del Valle de México Querétaro</option>
-                        <option value="Bachillerato Nuevo Continente Campus Querétaro" data-municipio="Querétaro">Bachillerato Nuevo Continente Campus Querétaro</option>
-                        <option value="Bachillerato Omi San Juan del Río" data-municipio="San Juan del Río">Bachillerato Omi San Juan del Río</option>
-                        <option value="Bachillerato Tecnológico de la Universidad Internacional de Querétaro" data-municipio="Querétaro">Bachillerato Tecnológico de la Universidad Internacional de Querétaro</option>
-                        <option value="Bachillerato Tecnológico del Instituto de Estudios Turísticos del Centro" data-municipio="Querétaro">Bachillerato Tecnológico del Instituto de Estudios Turísticos del Centro</option>
+                        <option value="Bachillerato Carl Rogers" data-municipio="Querétaro">Bachillerato Carl Rogers
+                        </option>
+                        <option value="Bachillerato Colegio México Nuevo Campus Querétaro" data-municipio="Querétaro">
+                            Bachillerato Colegio México Nuevo Campus Querétaro</option>
+                        <option value="Bachillerato de la Universidad de las Mujeres" data-municipio="Querétaro">
+                            Bachillerato de la Universidad de las Mujeres</option>
+                        <option value="Bachillerato de la Universidad del Valle de México Querétaro"
+                            data-municipio="Querétaro">Bachillerato de la Universidad del Valle de México Querétaro
+                        </option>
+                        <option value="Bachillerato Nuevo Continente Campus Querétaro" data-municipio="Querétaro">
+                            Bachillerato Nuevo Continente Campus Querétaro</option>
+                        <option value="Bachillerato Omi San Juan del Río" data-municipio="San Juan del Río">Bachillerato
+                            Omi San Juan del Río</option>
+                        <option value="Bachillerato Tecnológico de la Universidad Internacional de Querétaro"
+                            data-municipio="Querétaro">Bachillerato Tecnológico de la Universidad Internacional de
+                            Querétaro</option>
+                        <option value="Bachillerato Tecnológico del Instituto de Estudios Turísticos del Centro"
+                            data-municipio="Querétaro">Bachillerato Tecnológico del Instituto de Estudios Turísticos del
+                            Centro</option>
 
-                        <option value="Bachillerato Tecnológico del Instituto Juárez Lincoln" data-municipio="Querétaro">Bachillerato Tecnológico del Instituto Juárez Lincoln</option>
-                        <option value="Bachillerato Tecnológico del Instituto Uni de Querétaro" data-municipio="Querétaro">Bachillerato Tecnológico del Instituto Uni de Querétaro</option>
-                        <option value="Bachillerato Tecnológico Grupo Isima, Plantel Querétaro" data-municipio="Querétaro">Bachillerato Tecnológico Grupo Isima, Plantel Querétaro</option>
-                        <option value="Bachillerato Tecnológico Instituto Vasco Plantel Querétaro" data-municipio="Querétaro">Bachillerato Tecnológico Instituto Vasco Plantel Querétaro</option>
-                        <option value="Bachillerato UGM Querétaro" data-municipio="Querétaro">Bachillerato UGM Querétaro</option>
-                        <option value="Bachillerato UNEA Campus Querétaro" data-municipio="Querétaro">Bachillerato UNEA Campus Querétaro</option>
-                        <option value="Buckingham High School" data-municipio="Querétaro">Buckingham High School</option>
+                        <option value="Bachillerato Tecnológico del Instituto Juárez Lincoln"
+                            data-municipio="Querétaro">Bachillerato Tecnológico del Instituto Juárez Lincoln</option>
+                        <option value="Bachillerato Tecnológico del Instituto Uni de Querétaro"
+                            data-municipio="Querétaro">Bachillerato Tecnológico del Instituto Uni de Querétaro</option>
+                        <option value="Bachillerato Tecnológico Grupo Isima, Plantel Querétaro"
+                            data-municipio="Querétaro">Bachillerato Tecnológico Grupo Isima, Plantel Querétaro</option>
+                        <option value="Bachillerato Tecnológico Instituto Vasco Plantel Querétaro"
+                            data-municipio="Querétaro">Bachillerato Tecnológico Instituto Vasco Plantel Querétaro
+                        </option>
+                        <option value="Bachillerato UGM Querétaro" data-municipio="Querétaro">Bachillerato UGM Querétaro
+                        </option>
+                        <option value="Bachillerato UNEA Campus Querétaro" data-municipio="Querétaro">Bachillerato UNEA
+                            Campus Querétaro</option>
+                        <option value="Buckingham High School" data-municipio="Querétaro">Buckingham High School
+                        </option>
                         <option value="CAED CECATI 17" data-municipio="Querétaro">CAED CECATI 17</option>
                         <option value="CAED CECATI 175" data-municipio="Querétaro">CAED CECATI 175</option>
                         <option value="CAED Querétaro" data-municipio="Querétaro">CAED Querétaro</option>
 
-                        <option value="CAED San Juan del Río" data-municipio="San Juan del Río">CAED San Juan del Río</option>
-                        <option value="CEDART Ignacio Mariano de las Casas" data-municipio="Querétaro">CEDART Ignacio Mariano de las Casas</option>
+                        <option value="CAED San Juan del Río" data-municipio="San Juan del Río">CAED San Juan del Río
+                        </option>
+                        <option value="CEDART Ignacio Mariano de las Casas" data-municipio="Querétaro">CEDART Ignacio
+                            Mariano de las Casas</option>
                         <option value="CEDVA Preparatoria" data-municipio="Querétaro">CEDVA Preparatoria</option>
-                        <option value="Centro Cultural Fray Junípero Serra" data-municipio="Querétaro">Centro Cultural Fray Junípero Serra</option>
-                        <option value="Centro de Atención para Estudiantes con Discapacidad, CECATI 122" data-municipio="Querétaro">Centro de Atención para Estudiantes con Discapacidad, CECATI 122</option>
-                        <option value="Centro de Bachillerato Tecnológico Agropecuario No. 326, en El Cazadero, Querétaro" data-municipio="Querétaro">Centro de Bachillerato Tecnológico Agropecuario No. 326, en El Cazadero, Querétaro</option>
-                        <option value="Centro de Bachillerato Tecnológico Agropecuario Num. 115" data-municipio="Querétaro">Centro de Bachillerato Tecnológico Agropecuario Num. 115</option>
-                        <option value="Centro de Bachillerato Tecnológico Agropecuario Num. 256" data-municipio="Querétaro">Centro de Bachillerato Tecnológico Agropecuario Num. 256</option>
-                        <option value="Centro de Bachillerato Tecnológico Industrial y de Servicios Num. 118" data-municipio="Corregidora">Centro de Bachillerato Tecnológico Industrial y de Servicios Num. 118</option>
-                        <option value="Centro de Bachillerato Tecnológico Industrial y de Servicios Num. 145" data-municipio="Querétaro">Centro de Bachillerato Tecnológico Industrial y de Servicios Num. 145</option>
+                        <option value="Centro Cultural Fray Junípero Serra" data-municipio="Querétaro">Centro Cultural
+                            Fray Junípero Serra</option>
+                        <option value="Centro de Atención para Estudiantes con Discapacidad, CECATI 122"
+                            data-municipio="Querétaro">Centro de Atención para Estudiantes con Discapacidad, CECATI 122
+                        </option>
+                        <option
+                            value="Centro de Bachillerato Tecnológico Agropecuario No. 326, en El Cazadero, Querétaro"
+                            data-municipio="Querétaro">Centro de Bachillerato Tecnológico Agropecuario No. 326, en El
+                            Cazadero, Querétaro</option>
+                        <option value="Centro de Bachillerato Tecnológico Agropecuario Num. 115"
+                            data-municipio="Querétaro">Centro de Bachillerato Tecnológico Agropecuario Num. 115</option>
+                        <option value="Centro de Bachillerato Tecnológico Agropecuario Num. 256"
+                            data-municipio="Querétaro">Centro de Bachillerato Tecnológico Agropecuario Num. 256</option>
+                        <option value="Centro de Bachillerato Tecnológico Industrial y de Servicios Num. 118"
+                            data-municipio="Corregidora">Centro de Bachillerato Tecnológico Industrial y de Servicios
+                            Num. 118</option>
+                        <option value="Centro de Bachillerato Tecnológico Industrial y de Servicios Num. 145"
+                            data-municipio="Querétaro">Centro de Bachillerato Tecnológico Industrial y de Servicios Num.
+                            145</option>
 
-                        <option value="Centro de Educación y Formación Jamadi" data-municipio="Querétaro">Centro de Educación y Formación Jamadi</option>
-                        <option value="Centro de Estudios de Bachillerato John Von Newman" data-municipio="Querétaro">Centro de Estudios de Bachillerato John Von Newman</option>
-                        <option value="Centro de Estudios Medio Superiores y Superiores" data-municipio="Querétaro">Centro de Estudios Medio Superiores y Superiores</option>
-                        <option value="Centro de Estudios Tecnológicos en Aguas Continentales No. 23 en El Marqués, Qro." data-municipio="El Marqués">Centro de Estudios Tecnológicos en Aguas Continentales No. 23 en El Marqués, Qro.</option>
-                        <option value="Centro de Estudios Tecnológicos en Aguas Continentales No. 24 en Corregidora, Qro." data-municipio="Corregidora">Centro de Estudios Tecnológicos en Aguas Continentales No. 24 en Corregidora, Qro.</option>
-                        <option value="Centro de Estudios Tecnológicos Industrial y de Servicios Num. 105" data-municipio="Querétaro">Centro de Estudios Tecnológicos Industrial y de Servicios Num. 105</option>
-                        <option value="Centro de Estudios Tecnológicos Industrial y de Servicios Num. 142" data-municipio="Querétaro">Centro de Estudios Tecnológicos Industrial y de Servicios Num. 142</option>
-                        <option value="Centro de Estudios Tecnológicos Industrial y de Servicios Num. 16" data-municipio="Querétaro">Centro de Estudios Tecnológicos Industrial y de Servicios Num. 16</option>
-                        <option value="Centro de Estudios Universitarios en Querétaro" data-municipio="Querétaro">Centro de Estudios Universitarios en Querétaro</option>
-                        <option value="Centro de Formación de Recursos de Enfermería de Querétaro, A.C." data-municipio="Querétaro">Centro de Formación de Recursos de Enfermería de Querétaro, A.C.</option>
+                        <option value="Centro de Educación y Formación Jamadi" data-municipio="Querétaro">Centro de
+                            Educación y Formación Jamadi</option>
+                        <option value="Centro de Estudios de Bachillerato John Von Newman" data-municipio="Querétaro">
+                            Centro de Estudios de Bachillerato John Von Newman</option>
+                        <option value="Centro de Estudios Medio Superiores y Superiores" data-municipio="Querétaro">
+                            Centro de Estudios Medio Superiores y Superiores</option>
+                        <option
+                            value="Centro de Estudios Tecnológicos en Aguas Continentales No. 23 en El Marqués, Qro."
+                            data-municipio="El Marqués">Centro de Estudios Tecnológicos en Aguas Continentales No. 23 en
+                            El Marqués, Qro.</option>
+                        <option
+                            value="Centro de Estudios Tecnológicos en Aguas Continentales No. 24 en Corregidora, Qro."
+                            data-municipio="Corregidora">Centro de Estudios Tecnológicos en Aguas Continentales No. 24
+                            en Corregidora, Qro.</option>
+                        <option value="Centro de Estudios Tecnológicos Industrial y de Servicios Num. 105"
+                            data-municipio="Querétaro">Centro de Estudios Tecnológicos Industrial y de Servicios Num.
+                            105</option>
+                        <option value="Centro de Estudios Tecnológicos Industrial y de Servicios Num. 142"
+                            data-municipio="Querétaro">Centro de Estudios Tecnológicos Industrial y de Servicios Num.
+                            142</option>
+                        <option value="Centro de Estudios Tecnológicos Industrial y de Servicios Num. 16"
+                            data-municipio="Querétaro">Centro de Estudios Tecnológicos Industrial y de Servicios Num. 16
+                        </option>
+                        <option value="Centro de Estudios Universitarios en Querétaro" data-municipio="Querétaro">Centro
+                            de Estudios Universitarios en Querétaro</option>
+                        <option value="Centro de Formación de Recursos de Enfermería de Querétaro, A.C."
+                            data-municipio="Querétaro">Centro de Formación de Recursos de Enfermería de Querétaro, A.C.
+                        </option>
 
-                        <option value="Centro de Innovación Educativa México" data-municipio="Querétaro">Centro de Innovación Educativa México</option>
-                        <option value="Centro Interactivo de Educación y Alta Especialización CIEE" data-municipio="Querétaro">Centro Interactivo de Educación y Alta Especialización CIEE</option>
+                        <option value="Centro de Innovación Educativa México" data-municipio="Querétaro">Centro de
+                            Innovación Educativa México</option>
+                        <option value="Centro Interactivo de Educación y Alta Especialización CIEE"
+                            data-municipio="Querétaro">Centro Interactivo de Educación y Alta Especialización CIEE
+                        </option>
                         <option value="Centro Unión" data-municipio="Querétaro">Centro Unión</option>
-                        <option value="Centro Universitario de Educación Contemporánea" data-municipio="Querétaro">Centro Universitario de Educación Contemporánea</option>
-                        <option value="Centro Universitario Salvador Vázquez Altamirano, A.C." data-municipio="Querétaro">Centro Universitario Salvador Vázquez Altamirano, A.C.</option>
+                        <option value="Centro Universitario de Educación Contemporánea" data-municipio="Querétaro">
+                            Centro Universitario de Educación Contemporánea</option>
+                        <option value="Centro Universitario Salvador Vázquez Altamirano, A.C."
+                            data-municipio="Querétaro">Centro Universitario Salvador Vázquez Altamirano, A.C.</option>
                         <option value="Cinco de Mayo" data-municipio="Querétaro">Cinco de Mayo</option>
                         <option value="Clara Barton" data-municipio="Querétaro">Clara Barton</option>
-                        <option value="Clemencia Borja Taboada" data-municipio="Querétaro">Clemencia Borja Taboada</option>
-                        <option value="COBAQ Bachillerato Mixto" data-municipio="Querétaro">COBAQ Bachillerato Mixto</option>
-                        <option value="COBAQ Plantel Num. 28 San Ildefonso" data-municipio="Querétaro">COBAQ Plantel Num. 28 San Ildefonso</option>
+                        <option value="Clemencia Borja Taboada" data-municipio="Querétaro">Clemencia Borja Taboada
+                        </option>
+                        <option value="COBAQ Bachillerato Mixto" data-municipio="Querétaro">COBAQ Bachillerato Mixto
+                        </option>
+                        <option value="COBAQ Plantel Num. 28 San Ildefonso" data-municipio="Querétaro">COBAQ Plantel
+                            Num. 28 San Ildefonso</option>
 
-                        <option value="COBAQ Plantel Num. 1 Satélite" data-municipio="Querétaro">COBAQ Plantel Num. 1 Satélite</option>
-                        <option value="COBAQ Plantel Num. 10 San Juan del Río" data-municipio="San Juan del Río">COBAQ Plantel Num. 10 San Juan del Río</option>
-                        <option value="COBAQ Plantel Num. 11 Ezequiel Montes" data-municipio="Ezequiel Montes">COBAQ Plantel Num. 11 Ezequiel Montes</option>
-                        <option value="COBAQ Plantel Num. 12 Tequisquiapan" data-municipio="Tequisquiapan">COBAQ Plantel Num. 12 Tequisquiapan</option>
-                        <option value="COBAQ Plantel Num. 13 Epigmenio González" data-municipio="Querétaro">COBAQ Plantel Num. 13 Epigmenio González</option>
-                        <option value="COBAQ Plantel Num. 14 San Joaquín" data-municipio="San Joaquín">COBAQ Plantel Num. 14 San Joaquín</option>
-                        <option value="COBAQ Plantel Num. 15 Chichimequillas" data-municipio="Querétaro">COBAQ Plantel Num. 15 Chichimequillas</option>
-                        <option value="COBAQ Plantel Num. 16 El Colorado" data-municipio="Querétaro">COBAQ Plantel Num. 16 El Colorado</option>
-                        <option value="COBAQ Plantel Num. 17 'Constitución de 1917'" data-municipio="Querétaro">COBAQ Plantel Num. 17 'Constitución de 1917'</option>
-                        <option value="COBAQ Plantel Num. 18 Valle Dorado" data-municipio="Querétaro">COBAQ Plantel Num. 18 Valle Dorado</option>
+                        <option value="COBAQ Plantel Num. 1 Satélite" data-municipio="Querétaro">COBAQ Plantel Num. 1
+                            Satélite</option>
+                        <option value="COBAQ Plantel Num. 10 San Juan del Río" data-municipio="San Juan del Río">COBAQ
+                            Plantel Num. 10 San Juan del Río</option>
+                        <option value="COBAQ Plantel Num. 11 Ezequiel Montes" data-municipio="Ezequiel Montes">COBAQ
+                            Plantel Num. 11 Ezequiel Montes</option>
+                        <option value="COBAQ Plantel Num. 12 Tequisquiapan" data-municipio="Tequisquiapan">COBAQ Plantel
+                            Num. 12 Tequisquiapan</option>
+                        <option value="COBAQ Plantel Num. 13 Epigmenio González" data-municipio="Querétaro">COBAQ
+                            Plantel Num. 13 Epigmenio González</option>
+                        <option value="COBAQ Plantel Num. 14 San Joaquín" data-municipio="San Joaquín">COBAQ Plantel
+                            Num. 14 San Joaquín</option>
+                        <option value="COBAQ Plantel Num. 15 Chichimequillas" data-municipio="Querétaro">COBAQ Plantel
+                            Num. 15 Chichimequillas</option>
+                        <option value="COBAQ Plantel Num. 16 El Colorado" data-municipio="Querétaro">COBAQ Plantel Num.
+                            16 El Colorado</option>
+                        <option value="COBAQ Plantel Num. 17 'Constitución de 1917'" data-municipio="Querétaro">COBAQ
+                            Plantel Num. 17 'Constitución de 1917'</option>
+                        <option value="COBAQ Plantel Num. 18 Valle Dorado" data-municipio="Querétaro">COBAQ Plantel Num.
+                            18 Valle Dorado</option>
 
-                        <option value="COBAQ Plantel Num. 19 Bravo" data-municipio="Querétaro">COBAQ Plantel Num. 19 Bravo</option>
-                        <option value="COBAQ Plantel Num. 2 Amealco" data-municipio="Amealco de Bonfil">COBAQ Plantel Num. 2 Amealco</option>
-                        <option value="COBAQ Plantel Num. 20 Santiago Mexquititlán" data-municipio="Querétaro">COBAQ Plantel Num. 20 Santiago Mexquititlán</option>
-                        <option value="COBAQ Plantel Num. 21 Arcila" data-municipio="Querétaro">COBAQ Plantel Num. 21 Arcila</option>
-                        <option value="COBAQ Plantel Num. 22 Real de San Miguel" data-municipio="Querétaro">COBAQ Plantel Num. 22 Real de San Miguel</option>
-                        <option value="COBAQ Plantel Num. 23 Ahuacatlán de Guadalupe" data-municipio="Querétaro">COBAQ Plantel Num. 23 Ahuacatlán de Guadalupe</option>
-                        <option value="COBAQ Plantel Num. 24 Villa Progreso" data-municipio="Querétaro">COBAQ Plantel Num. 24 Villa Progreso</option>
-                        <option value="COBAQ Plantel Num. 25 La Lagunita" data-municipio="Querétaro">COBAQ Plantel Num. 25 La Lagunita</option>
-                        <option value="COBAQ Plantel Num. 26 Agua Zarca" data-municipio="Querétaro">COBAQ Plantel Num. 26 Agua Zarca</option>
-                        <option value="COBAQ Plantel Num. 27 Purísima de Arista" data-municipio="Querétaro">COBAQ Plantel Num. 27 Purísima de Arista</option>
-                        
-                        <option value="COBAQ Plantel Num. 29 Bernal" data-municipio="Querétaro">COBAQ Plantel Num. 29 Bernal</option>
-                        <option value="COBAQ Plantel Num. 3 Corregidora" data-municipio="Corregidora">COBAQ Plantel Num. 3 Corregidora</option>
-                        <option value="COBAQ Plantel Num. 30 La Valla" data-municipio="Querétaro">COBAQ Plantel Num. 30 La Valla</option>
-                        <option value="COBAQ Plantel Num. 31 La Griega" data-municipio="Querétaro">COBAQ Plantel Num. 31 La Griega</option>
-                        <option value="COBAQ Plantel Num. 32 San Antonio de la Cal" data-municipio="Querétaro">COBAQ Plantel Num. 32 San Antonio de la Cal</option>
-                        <option value="COBAQ Plantel Num. 33 El Palmar" data-municipio="Querétaro">COBAQ Plantel Num. 33 El Palmar</option>
-                        <option value="COBAQ Plantel Num. 34 Arroyo Seco" data-municipio="Arroyo Seco">COBAQ Plantel Num. 34 Arroyo Seco</option>
-                        <option value="COBAQ Plantel Num. 35 Vizarrón" data-municipio="Querétaro">COBAQ Plantel Num. 35 Vizarrón</option>
-                        <option value="COBAQ Plantel Num. 4 Jalpan" data-municipio="Jalpan de Serra">COBAQ Plantel Num. 4 Jalpan</option>
-                        <option value="COBAQ Plantel Num. 5 Cadereyta" data-municipio="Cadereyta de Montes">COBAQ Plantel Num. 5 Cadereyta</option>
+                        <option value="COBAQ Plantel Num. 19 Bravo" data-municipio="Querétaro">COBAQ Plantel Num. 19
+                            Bravo</option>
+                        <option value="COBAQ Plantel Num. 2 Amealco" data-municipio="Amealco de Bonfil">COBAQ Plantel
+                            Num. 2 Amealco</option>
+                        <option value="COBAQ Plantel Num. 20 Santiago Mexquititlán" data-municipio="Querétaro">COBAQ
+                            Plantel Num. 20 Santiago Mexquititlán</option>
+                        <option value="COBAQ Plantel Num. 21 Arcila" data-municipio="Querétaro">COBAQ Plantel Num. 21
+                            Arcila</option>
+                        <option value="COBAQ Plantel Num. 22 Real de San Miguel" data-municipio="Querétaro">COBAQ
+                            Plantel Num. 22 Real de San Miguel</option>
+                        <option value="COBAQ Plantel Num. 23 Ahuacatlán de Guadalupe" data-municipio="Querétaro">COBAQ
+                            Plantel Num. 23 Ahuacatlán de Guadalupe</option>
+                        <option value="COBAQ Plantel Num. 24 Villa Progreso" data-municipio="Querétaro">COBAQ Plantel
+                            Num. 24 Villa Progreso</option>
+                        <option value="COBAQ Plantel Num. 25 La Lagunita" data-municipio="Querétaro">COBAQ Plantel Num.
+                            25 La Lagunita</option>
+                        <option value="COBAQ Plantel Num. 26 Agua Zarca" data-municipio="Querétaro">COBAQ Plantel Num.
+                            26 Agua Zarca</option>
+                        <option value="COBAQ Plantel Num. 27 Purísima de Arista" data-municipio="Querétaro">COBAQ
+                            Plantel Num. 27 Purísima de Arista</option>
 
-                        <option value="COBAQ Plantel Num. 6 Tolimán" data-municipio="Tolimán">COBAQ Plantel Num. 6 Tolimán</option>
-                        <option value="COBAQ Plantel Num. 7 El Marqués" data-municipio="El Marqués">COBAQ Plantel Num. 7 El Marqués</option>
-                        <option value="COBAQ Plantel Num. 8 Azteca" data-municipio="Querétaro">COBAQ Plantel Num. 8 Azteca</option>
-                        <option value="COBAQ Plantel Num. 9 Santa Rosa Jáuregui" data-municipio="Querétaro">COBAQ Plantel Num. 9 Santa Rosa Jáuregui</option>
+                        <option value="COBAQ Plantel Num. 29 Bernal" data-municipio="Querétaro">COBAQ Plantel Num. 29
+                            Bernal</option>
+                        <option value="COBAQ Plantel Num. 3 Corregidora" data-municipio="Corregidora">COBAQ Plantel Num.
+                            3 Corregidora</option>
+                        <option value="COBAQ Plantel Num. 30 La Valla" data-municipio="Querétaro">COBAQ Plantel Num. 30
+                            La Valla</option>
+                        <option value="COBAQ Plantel Num. 31 La Griega" data-municipio="Querétaro">COBAQ Plantel Num. 31
+                            La Griega</option>
+                        <option value="COBAQ Plantel Num. 32 San Antonio de la Cal" data-municipio="Querétaro">COBAQ
+                            Plantel Num. 32 San Antonio de la Cal</option>
+                        <option value="COBAQ Plantel Num. 33 El Palmar" data-municipio="Querétaro">COBAQ Plantel Num. 33
+                            El Palmar</option>
+                        <option value="COBAQ Plantel Num. 34 Arroyo Seco" data-municipio="Arroyo Seco">COBAQ Plantel
+                            Num. 34 Arroyo Seco</option>
+                        <option value="COBAQ Plantel Num. 35 Vizarrón" data-municipio="Querétaro">COBAQ Plantel Num. 35
+                            Vizarrón</option>
+                        <option value="COBAQ Plantel Num. 4 Jalpan" data-municipio="Jalpan de Serra">COBAQ Plantel Num.
+                            4 Jalpan</option>
+                        <option value="COBAQ Plantel Num. 5 Cadereyta" data-municipio="Cadereyta de Montes">COBAQ
+                            Plantel Num. 5 Cadereyta</option>
+
+                        <option value="COBAQ Plantel Num. 6 Tolimán" data-municipio="Tolimán">COBAQ Plantel Num. 6
+                            Tolimán</option>
+                        <option value="COBAQ Plantel Num. 7 El Marqués" data-municipio="El Marqués">COBAQ Plantel Num. 7
+                            El Marqués</option>
+                        <option value="COBAQ Plantel Num. 8 Azteca" data-municipio="Querétaro">COBAQ Plantel Num. 8
+                            Azteca</option>
+                        <option value="COBAQ Plantel Num. 9 Santa Rosa Jáuregui" data-municipio="Querétaro">COBAQ
+                            Plantel Num. 9 Santa Rosa Jáuregui</option>
                         <option value="Colegio Álamos" data-municipio="Querétaro">Colegio Álamos</option>
-                        <option value="Colegio Austriaco Mexicano Preparatoria" data-municipio="Querétaro">Colegio Austriaco Mexicano Preparatoria</option>
-                        <option value="Colegio Bosques Preparatoria Campus Real" data-municipio="Querétaro">Colegio Bosques Preparatoria Campus Real</option>
+                        <option value="Colegio Austriaco Mexicano Preparatoria" data-municipio="Querétaro">Colegio
+                            Austriaco Mexicano Preparatoria</option>
+                        <option value="Colegio Bosques Preparatoria Campus Real" data-municipio="Querétaro">Colegio
+                            Bosques Preparatoria Campus Real</option>
                         <option value="Colegio Carol Baur" data-municipio="Querétaro">Colegio Carol Baur</option>
-                        <option value="Colegio Castellano Preparatoria" data-municipio="Querétaro">Colegio Castellano Preparatoria</option>
-                        <option value="Colegio Celta Internacional" data-municipio="Querétaro">Colegio Celta Internacional</option>
+                        <option value="Colegio Castellano Preparatoria" data-municipio="Querétaro">Colegio Castellano
+                            Preparatoria</option>
+                        <option value="Colegio Celta Internacional" data-municipio="Querétaro">Colegio Celta
+                            Internacional</option>
 
                         <option value="Colegio Cervantes" data-municipio="Querétaro">Colegio Cervantes</option>
-                        <option value="Colegio de Ciencias y Humanidades de Querétaro" data-municipio="Querétaro">Colegio de Ciencias y Humanidades de Querétaro</option>
-                        <option value="Colegio de Estudios Científicos y Tecnológicos del Estado de Querétaro Num. 10 Plantel La Esperanza" data-municipio="Querétaro">Colegio de Estudios Científicos y Tecnológicos del Estado de Querétaro Num. 10 Plantel La Esperanza</option>
-                        <option value="Colegio de Estudios Científicos y Tecnológicos del Estado de Querétaro Num. 11 Plantel La Tinaja" data-municipio="Querétaro">Colegio de Estudios Científicos y Tecnológicos del Estado de Querétaro Num. 11 Plantel La Tinaja</option>
-                        <option value="Colegio de Estudios Científicos y Tecnológicos del Estado de Querétaro Num. 12 Plantel Paso de Mata" data-municipio="Querétaro">Colegio de Estudios Científicos y Tecnológicos del Estado de Querétaro Num
-                        <option value="Colegio de Estudios Científicos y Tecnológicos del Estado de Querétaro Num. 6 Corregidora" data-municipio="Corregidora">Colegio de Estudios Científicos y Tecnológicos del Estado de Querétaro Num. 6 Corregidora</option>
-                        <option value="Colegio de Estudios Científicos y Tecnológicos del Estado de Querétaro Num. 7 Plantel San Juan del Río" data-municipio="San Juan del Río">Colegio de Estudios Científicos y Tecnológicos del Estado de Querétaro Num. 7 Plantel San Juan del Río</option>
-                        <option value="Colegio de Estudios Científicos y Tecnológicos del Estado de Querétaro Num. 8 Plantel Menchaca" data-municipio="Querétaro">Colegio de Estudios Científicos y Tecnológicos del Estado de Querétaro Num. 8 Plantel Menchaca</option>
-                        <option value="Colegio de Estudios Científicos y Tecnológicos del Estado de Querétaro Num. 82 Plantel Huimilpan" data-municipio="Huimilpan">Colegio de Estudios Científicos y Tecnológicos del Estado de Querétaro Num. 82 Plantel Huimilpan</option>
-                        <option value="Colegio de Estudios Científicos y Tecnológicos del Estado de Querétaro Num. 83 Plantel Pedro Escobedo" data-municipio="Pedro Escobedo">Colegio de Estudios Científicos y Tecnológicos del Estado de Querétaro Num. 83 Plantel Pedro Escobedo</option>
-                        <option value="Colegio de Estudios Científicos y Tecnológicos del Estado de Querétaro Num. 84 Plantel Pinal de Amoles" data-municipio="Pinal de Amoles">Colegio de Estudios Científicos y Tecnológicos del Estado de Querétaro Num. 84 Plantel Pinal de Amoles</option>
-                        <option value="Colegio de Estudios Científicos y Tecnológicos del Estado de Querétaro Num. 85 Plantel Peñamiller" data-municipio="Peñamiller">Colegio de Estudios Científicos y Tecnológicos del Estado de Querétaro Num. 85 Plantel Peñamiller</option>
-                        <option value="Colegio de Estudios Científicos y Tecnológicos del Estado de Querétaro Num. 9 Plantel Montenegro" data-municipio="Querétaro">Colegio de Estudios Científicos y Tecnológicos del Estado de Querétaro Num. 9 Plantel Montenegro</option>
-                        <option value="Colegio de Estudios Cientificos y Tecnológicos del Estado de Querétaro Plantel Querétaro" data-municipio="Querétaro">Colegio de Estudios Cientificos y Tecnológicos del Estado de Querétaro Plantel Querétaro</option>
-                        <option value="Colegio de Estudios Profesionales Lausanne" data-municipio="Querétaro">Colegio de Estudios Profesionales Lausanne</option>
-                        <option value="Colegio del Tepeyac, Querétaro" data-municipio="Querétaro">Colegio del Tepeyac, Querétaro</option>
-                        <option value="Colegio Diego Olvera Estrada" data-municipio="Querétaro">Colegio Diego Olvera Estrada</option>
-                        <option value="Colegio Educación y Patria" data-municipio="Querétaro">Colegio Educación y Patria</option>
+                        <option value="Colegio de Ciencias y Humanidades de Querétaro" data-municipio="Querétaro">
+                            Colegio de Ciencias y Humanidades de Querétaro</option>
+                        <option
+                            value="Colegio de Estudios Científicos y Tecnológicos del Estado de Querétaro Num. 10 Plantel La Esperanza"
+                            data-municipio="Querétaro">Colegio de Estudios Científicos y Tecnológicos del Estado de
+                            Querétaro Num. 10 Plantel La Esperanza</option>
+                        <option
+                            value="Colegio de Estudios Científicos y Tecnológicos del Estado de Querétaro Num. 11 Plantel La Tinaja"
+                            data-municipio="Querétaro">Colegio de Estudios Científicos y Tecnológicos del Estado de
+                            Querétaro Num. 11 Plantel La Tinaja</option>
+                        <option
+                            value="Colegio de Estudios Científicos y Tecnológicos del Estado de Querétaro Num. 12 Plantel Paso de Mata"
+                            data-municipio="Querétaro">Colegio de Estudios Científicos y Tecnológicos del Estado de
+                            Querétaro Num
+                        <option
+                            value="Colegio de Estudios Científicos y Tecnológicos del Estado de Querétaro Num. 6 Corregidora"
+                            data-municipio="Corregidora">Colegio de Estudios Científicos y Tecnológicos del Estado de
+                            Querétaro Num. 6 Corregidora</option>
+                        <option
+                            value="Colegio de Estudios Científicos y Tecnológicos del Estado de Querétaro Num. 7 Plantel San Juan del Río"
+                            data-municipio="San Juan del Río">Colegio de Estudios Científicos y Tecnológicos del Estado
+                            de Querétaro Num. 7 Plantel San Juan del Río</option>
+                        <option
+                            value="Colegio de Estudios Científicos y Tecnológicos del Estado de Querétaro Num. 8 Plantel Menchaca"
+                            data-municipio="Querétaro">Colegio de Estudios Científicos y Tecnológicos del Estado de
+                            Querétaro Num. 8 Plantel Menchaca</option>
+                        <option
+                            value="Colegio de Estudios Científicos y Tecnológicos del Estado de Querétaro Num. 82 Plantel Huimilpan"
+                            data-municipio="Huimilpan">Colegio de Estudios Científicos y Tecnológicos del Estado de
+                            Querétaro Num. 82 Plantel Huimilpan</option>
+                        <option
+                            value="Colegio de Estudios Científicos y Tecnológicos del Estado de Querétaro Num. 83 Plantel Pedro Escobedo"
+                            data-municipio="Pedro Escobedo">Colegio de Estudios Científicos y Tecnológicos del Estado de
+                            Querétaro Num. 83 Plantel Pedro Escobedo</option>
+                        <option
+                            value="Colegio de Estudios Científicos y Tecnológicos del Estado de Querétaro Num. 84 Plantel Pinal de Amoles"
+                            data-municipio="Pinal de Amoles">Colegio de Estudios Científicos y Tecnológicos del Estado
+                            de Querétaro Num. 84 Plantel Pinal de Amoles</option>
+                        <option
+                            value="Colegio de Estudios Científicos y Tecnológicos del Estado de Querétaro Num. 85 Plantel Peñamiller"
+                            data-municipio="Peñamiller">Colegio de Estudios Científicos y Tecnológicos del Estado de
+                            Querétaro Num. 85 Plantel Peñamiller</option>/body>
+                        <option
+                            value="Colegio de Estudios Científicos y Tecnológicos del Estado de Querétaro Num. 9 Plantel Montenegro"
+                            data-municipio="Querétaro">Colegio de Estudios Científicos y Tecnológicos del Estado de
+                            Querétaro Num. 9 Plantel Montenegro</option>
+                        <option
+                            value="Colegio de Estudios Cientificos y Tecnológicos del Estado de Querétaro Plantel Querétaro"
+                            data-municipio="Querétaro">Colegio de Estudios Cientificos y Tecnológicos del Estado de
+                            Querétaro Plantel Querétaro</option>
+                        <option value="Colegio de Estudios Profesionales Lausanne" data-municipio="Querétaro">Colegio de
+                            Estudios Profesionales Lausanne</option>
+                        <option value="Colegio del Tepeyac, Querétaro" data-/body></option>municipio="Querétaro">Colegio
+                        del Tepeyac,
+                        Querétaro</option>
+                        <option value="Colegio Diego Olvera Estrada" data-municipio="Querétaro">Colegio Diego Olvera
+                            Estrada</option>
+                        <option value="Colegio Educación y Patria" data-municipio="Querétaro">Colegio Educación y Patria
+                        </option>
                         <option value="Colegio Fontanar" data-municipio="Querétaro">Colegio Fontanar</option>
-                        <option value="Colegio Fray Luis de León" data-municipio="Querétaro">Colegio Fray Luis de León</option>
+                        <option value="Colegio Fray Luis de León" data-municipio="Querétaro">Colegio Fray Luis de León
+                        </option>
 
-                        <option value="Colegio General Regules" data-municipio="Querétaro">Colegio General Regules</option>
+                        <option value="Colegio General Regules" data-municipio="Querétaro">Colegio General Regules
+                        </option>/body>
                         <option value="Colegio Gran Bretaña" data-municipio="Querétaro">Colegio Gran Bretaña</option>
-                        <option value="Colegio Helen Parkhurst" data-municipio="Querétaro">Colegio Helen Parkhurst</option>
-                        <option value="Colegio Holandés de Querétaro" data-municipio="Querétaro">Colegio Holandés de Querétaro</option>
-                        <option value="Colegio Internacional de Estudios Virtuales" data-municipio="Querétaro">Colegio Internacional de Estudios Virtuales</option>
-                        <option value="Colegio Internacional de Querétaro" data-municipio="Querétaro">Colegio Internacional de Querétaro</option>
-                        <option value="Colegio La Salle San Juan del Río" data-municipio="San Juan del Río">Colegio La Salle San Juan del Río</option>
-                        <option value="Colegio Lafayette de Querétaro, A. C." data-municipio="Querétaro">Colegio Lafayette de Querétaro, A. C.</option>
+                        <option value="Colegio Helen Parkhurst" data-municipio="Querétaro">Colegio Helen Parkhurst
+                        </option>
+                        <option value="Colegio Holandés de Querétaro" data-municipio="Querétaro">Colegio Holandés de
+                            Querétaro</option>
+                        <option value="Colegio Internacional de Estudios Virtuales" data-municipio="Querétaro">Colegio
+                            Internacional de Estudios Virtuales</option>
+                        <option value="Colegio Internacional de Querétaro" data-municipio="Querétaro">Colegio
+                            Internacional de Querétaro</option>
+                        <option value="Colegio La Salle San Juan del Río" data-municipio="San Juan del Río">Colegio La
+                            Salle San Juan del Río</option>
+                        <option value="Colegio Lafayette de Querétaro, A. C." data-municipio="Querétaro">Colegio
+                            Lafayette de Querétaro, A. C.</option>
                         <option value="Colegio Marcelina" data-municipio="Querétaro">Colegio Marcelina</option>
-                        <option value="Colegio Masía de Querétaro" data-municipio="Querétaro">Colegio Masía de Querétaro</option>
+                        <option value="Colegio Masía de Querétaro" data-municipio="Querétaro">Colegio Masía de Querétaro
+                        </option>/body>
 
-                        <option value="Colegio Militarizado Nuevo México Campus Querétaro" data-municipio="Querétaro">Colegio Militarizado Nuevo México Campus Querétaro</option>
+                        <option value="Colegio Militarizado Nuevo México Campus Querétaro" data-municipio="Querétaro">
+                            Colegio Militarizado Nuevo México Campus Querétaro</option>
                         <option value="Colegio Montpellier" data-municipio="Querétaro">Colegio Montpellier</option>
-                        <option value="Colegio Motolínia de Sistema Educativo Valladolid" data-municipio="Querétaro">Colegio Motolínia de Sistema Educativo Valladolid</option>
-                        <option value="Colegio Nacional de Danza Contemporánea" data-municipio="Querétaro">Colegio Nacional de Danza Contemporánea</option>
-                        <option value="Colegio Nacional de Educación Profesional Técnica 'Amealco'" data-municipio="Amealco de Bonfil">Colegio Nacional de Educación Profesional Técnica 'Amealco'</option>
-                        <option value="Colegio Nacional de Educación Profesional Técnica Num. 41 'Querétaro'" data-municipio="Querétaro">Colegio Nacional de Educación Profesional Técnica Num. 41 'Querétaro'</option>
-                        <option value="Colegio Nacional de Educación Profesional Técnica Num. 42 'San Juan del Río'" data-municipio="San Juan del Río">Colegio Nacional de Educación Profesional Técnica Num. 42 'San Juan del Río'</option>
+                        <option value="Colegio Motolínia de Sistema Educativo Valladolid" data-municipio="Querétaro">
+                            Colegio Motolínia de Sistema Educativo Valladolid</option>
+                        <option value="Colegio Nacional de Danza Contemporánea" data-municipio="Querétaro">Colegio
+                            Nacional de Danza Contemporánea</option>
+                        <option value="Colegio Nacional de Educación Profesional Técnica 'Amealco'"
+                            data-municipio="Amealco de Bonfil">Colegio Nacional de Educación Profesional Técnica
+                            'Amealco'</option>
+                        <option value="Colegio Nacional de Educación Profesional Técnica Num. 41 'Querétaro'"
+                            data-municipio="Querétaro">Colegio Nacional de Educación Profesional Técnica Num. 41
+                            'Querétaro'</option>
+                        <option value="Colegio Nacional de Educación Profesional Técnica Num. 42 'San Juan del Río'"
+                            data-municipio="San Juan del Río">Colegio Nacional de Educación Profesional Técnica Num. 42
+                            'San Juan del Río'</option>
                         <option value="Colegio Nueva España" data-municipio="Querétaro">Colegio Nueva España</option>
-                        <option value="Colegio Real de Querenda Bachillerato" data-municipio="Querétaro">Colegio Real de Querenda Bachillerato</option>
-                        <option value="Colegio South Hill de Querétaro, S.C." data-municipio="Querétaro">Colegio South Hill de Querétaro, S.C.</option>
-                        <option value="Colegio Suizo de México" data-municipio="Querétaro">Colegio Suizo de México</option>
-                        <option value="Colegio Sunhills Valley" data-municipio="Querétaro">Colegio Sunhills Valley</option>
-                        <option value="Colegio Universitario de Humanidades (CUDH)" data-municipio="Querétaro">Colegio Universitario de Humanidades (CUDH)</option>
+                        <option value="Colegio Real de Querenda Bachillerato" data-municipio="Querétaro">Colegio Real de
+                            Querenda Bachillerato</option>
+                        <option value="Colegio South Hill de Querétaro, S.C." data-municipio="Querétaro">Colegio South
+                            Hill de Querétaro, S.C.</option>
+                        <option value="Colegio Suizo de México" data-municipio="Querétaro">Colegio Suizo de México
+                        </option>
+                        <option value="Colegio Sunhills Valley" data-municipio="Querétaro">Colegio Sunhills Valley
+                        </option>
+                        <option value="Colegio Universitario de Humanidades (CUDH)" data-municipio="Querétaro">Colegio
+                            Universitario de Humanidades (CUDH)</option>
                         <option value="Colegio Wexford" data-municipio="Querétaro">Colegio Wexford</option>
-                        <option value="Conjunto Educativo Social Comercial Administrativo, A.C." data-municipio="Querétaro">Conjunto Educativo Social Comercial Administrativo, A.C.</option>
-                        <option value="Coordinación de Preparatoria Abierta" data-municipio="Querétaro">Coordinación de Preparatoria Abierta</option>
+                        <option value="Conjunto Educativo Social Comercial Administrativo, A.C."
+                            data-municipio="Querétaro">Conjunto Educativo Social Comercial Administrativo, A.C.</option>
+                        <option value="Coordinación de Preparatoria Abierta" data-municipio="Querétaro">Coordinación de
+                            Preparatoria Abierta</option>
                         <option value="Corregidora" data-municipio="Querétaro">Corregidora</option>
-                        <option value="Educación Media Superior a Distancia Num. 11 Peña Colorada" data-municipio="Querétaro">Educación Media Superior a Distancia Num. 11 Peña Colorada</option>
-                        <option value="Educación Media Superior a Distancia Num. 12 Camargo" data-municipio="Querétaro">Educación Media Superior a Distancia Num. 12 Camargo</option>
-                        <option value="Educación Media Superior a Distancia Num. 13 San Pedro Escanela" data-municipio="Querétaro">Educación Media Superior a Distancia Num. 13 San Pedro Escanela</option>
+                        <option value="Educación Media Superior a Distancia Num. 11 Peña Colorada"
+                            data-municipio="Querétaro">Educación Media Superior a Distancia Num. 11 Peña Colorada
+                        </option>
+                        <option value="Educación Media Superior a Distancia Num. 12 Camargo" data-municipio="Querétaro">
+                            Educación Media Superior a Distancia Num. 12 Camargo</option>
+                        <option value="Educación Media Superior a Distancia Num. 13 San Pedro Escanela"
+                            data-municipio="Querétaro">Educación Media Superior a Distancia Num. 13 San Pedro Escanela
+                        </option>
 
-                        <option value="Educación Media Superior a Distancia Num. 14 Tres Lagunas" data-municipio="Querétaro">Educación Media Superior a Distancia Num. 14 Tres Lagunas</option>
-                        <option value="Educación Media Superior a Distancia Num. 18 Tilaco" data-municipio="Querétaro">Educación Media Superior a Distancia Num. 18 Tilaco</option>
-                        <option value="Educación Media Superior a Distancia Num. 19 San Miguel Palmas" data-municipio="Querétaro">Educación Media Superior a Distancia Num. 19 San Miguel Palmas</option>
-                        <option value="Educación Media Superior a Distancia Num. 3 Conca" data-municipio="Querétaro">Educación Media Superior a Distancia Num. 3 Conca</option>
-                        <option value="Educación Media Superior a Distancia Num. 31 Valle Verde" data-municipio="Querétaro">Educación Media Superior a Distancia Num. 31 Valle Verde</option>
-                        <option value="Educación Media Superior a Distancia Num. 32 Santa María Álamos" data-municipio="Querétaro">Educación Media Superior a Distancia Num. 32 Santa María Álamos</option>
-                        <option value="Educación Media Superior a Distancia Num. 33 Buenavista" data-municipio="Querétaro">Educación Media Superior a Distancia Num. 33 Buenavista</option>
-                        <option value="Educación Media Superior a Distancia Num. 34 Escolásticas" data-municipio="Querétaro">Educación Media Superior a Distancia Num. 34 Escolásticas</option>
-                        <option value="Educación Media Superior a Distancia Num. 6 El Coyote" data-municipio="Querétaro">Educación Media Superior a Distancia Num. 6 El Coyote</option>
-                        <option value="Educación Media Superior a Distancia Num. 7 Higuerillas" data-municipio="Querétaro">Educación Media Superior a Distancia Num. 7 Higuerillas</option>
+                        <option value="Educación Media Superior a Distancia Num. 14 Tres Lagunas"
+                            data-municipio="Querétaro">Educación Media Superior a Distancia Num. 14 Tres Lagunas
+                        </option>
+                        <option value="Educación Media Superior a Distancia Num. 18 Tilaco" data-municipio="Querétaro">
+                            Educación Media Superior a Distancia Num. 18 Tilaco</option>
+                        <option value="Educación Media Superior a Distancia Num. 19 San Miguel Palmas"
+                            data-municipio="Querétaro">Educación Media Superior a Distancia Num. 19 San Miguel Palmas
+                        </option>
+                        <option value="Educación Media Superior a Distancia Num. 3 Conca" data-municipio="Querétaro">
+                            Educación Media Superior a Distancia Num. 3 Conca</option>
+                        <option value="Educación Media Superior a Distancia Num. 31 Valle Verde"
+                            data-municipio="Querétaro">Educación Media Superior a Distancia Num. 31 Valle Verde</option>
+                        <option value="Educación Media Superior a Distancia Num. 32 Santa María Álamos"
+                            data-municipio="Querétaro">Educación Media Superior a Distancia Num. 32 Santa María Álamos
+                        </option>
+                        <option value="Educación Media Superior a Distancia Num. 33 Buenavista"
+                            data-municipio="Querétaro">Educación Media Superior a Distancia Num. 33 Buenavista</option>
+                        <option value="Educación Media Superior a Distancia Num. 34 Escolásticas"
+                            data-municipio="Querétaro">Educación Media Superior a Distancia Num. 34 Escolásticas
+                        </option>
+                        <option value="Educación Media Superior a Distancia Num. 6 El Coyote"
+                            data-municipio="Querétaro">Educación Media Superior a Distancia Num. 6 El Coyote</option>
+                        <option value="Educación Media Superior a Distancia Num. 7 Higuerillas"
+                            data-municipio="Querétaro">Educación Media Superior a Distancia Num. 7 Higuerillas</option>
 
-                        <option value="Educación Media Superior a Distancia Num. 8 Santa Águeda" data-municipio="Querétaro">Educación Media Superior a Distancia Num. 8 Santa Águeda</option>
-                        <option value="Educativa Metropolitana" data-municipio="Querétaro">Educativa Metropolitana</option>
-                        <option value="EMSAD Num. 20 Landa de Matamoros" data-municipio="Landa de Matamoros">EMSAD Num. 20 Landa de Matamoros</option>
-                        <option value="EMSAD Num. 22 Peña Blanca" data-municipio="Querétaro">EMSAD Num. 22 Peña Blanca</option>
-                        <option value="EMSAD Num. 23 Sombrerete" data-municipio="Querétaro">EMSAD Num. 23 Sombrerete</option>
-                        <option value="EMSAD Num. 24 Casa Blanca" data-municipio="Querétaro">EMSAD Num. 24 Casa Blanca</option>
-                        <option value="EMSAD Num. 25 El Rincón" data-municipio="Querétaro">EMSAD Num. 25 El Rincón</option>
-                        <option value="EMSAD Num. 26 Tancoyol" data-municipio="Querétaro">EMSAD Num. 26 Tancoyol</option>
-                        <option value="EMSAD Num. 27 Agua Fría" data-municipio="Querétaro">EMSAD Num. 27 Agua Fría</option>
-                        <option value="EMSAD Num. 28 Bellavista del Río" data-municipio="Querétaro">EMSAD Num. 28 Bellavista del Río</option>
+                        <option value="Educación Media Superior a Distancia Num. 8 Santa Águeda"
+                            data-municipio="Querétaro">Educación Media Superior a Distancia Num. 8 Santa Águeda</option>
+                        <option value="Educativa Metropolitana" data-municipio="Querétaro">Educativa Metropolitana
+                        </option>
+                        <option value="EMSAD Num. 20 Landa de Matamoros" data-municipio="Landa de Matamoros">EMSAD Num.
+                            20 Landa de Matamoros</option>
+                        <option value="EMSAD Num. 22 Peña Blanca" data-municipio="Querétaro">EMSAD Num. 22 Peña Blanca
+                        </option>
+                        <option value="EMSAD Num. 23 Sombrerete" data-municipio="Querétaro">EMSAD Num. 23 Sombrerete
+                        </option>
+                        <option value="EMSAD Num. 24 Casa Blanca" data-municipio="Querétaro">EMSAD Num. 24 Casa Blanca
+                        </option>
+                        <option value="EMSAD Num. 25 El Rincón" data-municipio="Querétaro">EMSAD Num. 25 El Rincón
+                        </option>
+                        <option value="EMSAD Num. 26 Tancoyol" data-municipio="Querétaro">EMSAD Num. 26 Tancoyol
+                        </option>
+                        <option value="EMSAD Num. 27 Agua Fría" data-municipio="Querétaro">EMSAD Num. 27 Agua Fría
+                        </option>
+                        <option value="EMSAD Num. 28 Bellavista del Río" data-municipio="Querétaro">EMSAD Num. 28
+                            Bellavista del Río</option>
 
-                        <option value="EMSAD Num. 30 San Miguel Tlaxcaltepec" data-municipio="Querétaro">EMSAD Num. 30 San Miguel Tlaxcaltepec</option>
-                        <option value="Escuela de Asistentes Educativos Chiquitines, A. C." data-municipio="Querétaro">Escuela de Asistentes Educativos Chiquitines, A. C.</option>
-                        <option value="Escuela de Bachilleres de la UAQ, Modalidad Mixta y no Escolarizada" data-municipio="Querétaro">Escuela de Bachilleres de la UAQ, Modalidad Mixta y no Escolarizada</option>
-                        <option value="Escuela de Bachilleres de la UAQ, Plantel Amazcala" data-municipio="Querétaro">Escuela de Bachilleres de la UAQ, Plantel Amazcala</option>
-                        <option value="Escuela de Bachilleres de la UAQ, Plantel Amealco" data-municipio="Amealco de Bonfil">Escuela de Bachilleres de la UAQ, Plantel Amealco</option>
-                        <option value="Escuela de Bachilleres de la UAQ, Plantel Bicentenario" data-municipio="Querétaro">Escuela de Bachilleres de la UAQ, Plantel Bicentenario</option>
-                        <option value="Escuela de Bachilleres de la UAQ, Plantel Colón" data-municipio="Colón">Escuela de Bachilleres de la UAQ, Plantel Colón</option>
-                        <option value="Escuela de Bachilleres de la UAQ, Plantel Conca" data-municipio="Querétaro">Escuela de Bachilleres de la UAQ, Plantel Conca</option>
-                        <option value="Escuela de Bachilleres de la UAQ, Plantel Corregidora" data-municipio="Corregidora">Escuela de Bachilleres de la UAQ, Plantel Corregidora</option>
-                        <option value="Escuela de Bachilleres de la UAQ, Plantel Huimilpan" data-municipio="Huimilpan">Escuela de Bachilleres de la UAQ, Plantel Huimilpan</option>
+                        <option value="EMSAD Num. 30 San Miguel Tlaxcaltepec" data-municipio="Querétaro">EMSAD Num. 30
+                            San Miguel Tlaxcaltepec</option>
+                        <option value="Escuela de Asistentes Educativos Chiquitines, A. C." data-municipio="Querétaro">
+                            Escuela de Asistentes Educativos Chiquitines, A. C.</option>
+                        <option value="Escuela de Bachilleres de la UAQ, Modalidad Mixta y no Escolarizada"
+                            data-municipio="Querétaro">Escuela de Bachilleres de la UAQ, Modalidad Mixta y no
+                            Escolarizada</option>
+                        <option value="Escuela de Bachilleres de la UAQ, Plantel Amazcala" data-municipio="Querétaro">
+                            Escuela de Bachilleres de la UAQ, Plantel Amazcala</option>
+                        <option value="Escuela de Bachilleres de la UAQ, Plantel Amealco"
+                            data-municipio="Amealco de Bonfil">Escuela de Bachilleres de la UAQ, Plantel Amealco
+                        </option>
+                        <option value="Escuela de Bachilleres de la UAQ, Plantel Bicentenario"
+                            data-municipio="Querétaro">Escuela de Bachilleres de la UAQ, Plantel Bicentenario</option>
+                        <option value="Escuela de Bachilleres de la UAQ, Plantel Colón" data-municipio="Colón">Escuela
+                            de Bachilleres de la UAQ, Plantel Colón</option>
+                        <option value="Escuela de Bachilleres de la UAQ, Plantel Conca" data-municipio="Querétaro">
+                            Escuela de Bachilleres de la UAQ, Plantel Conca</option>
+                        <option value="Escuela de Bachilleres de la UAQ, Plantel Corregidora"
+                            data-municipio="Corregidora">Escuela de Bachilleres de la UAQ, Plantel Corregidora</option>
+                        <option value="Escuela de Bachilleres de la UAQ, Plantel Huimilpan" data-municipio="Huimilpan">
+                            Escuela de Bachilleres de la UAQ, Plantel Huimilpan</option>
 
-                        <option value="Escuela de Bachilleres de la UAQ, Plantel Jalpan" data-municipio="Jalpan de Serra">Escuela de Bachilleres de la UAQ, Plantel Jalpan</option>
-                        <option value="Escuela de Bachilleres de la UAQ, Plantel Landa de Matamoros" data-municipio="Landa de Matamoros">Escuela de Bachilleres de la UAQ, Plantel Landa de Matamoros</option>
-                        <option value="Escuela de Bachilleres de la UAQ, Plantel Norte" data-municipio="Querétaro">Escuela de Bachilleres de la UAQ, Plantel Norte</option>
-                        <option value="Escuela de Bachilleres de la UAQ, Plantel Pedro Escobedo" data-municipio="Pedro Escobedo">Escuela de Bachilleres de la UAQ, Plantel Pedro Escobedo</option>
-                        <option value="Escuela de Bachilleres de la UAQ, Plantel Pinal de Amoles" data-municipio="Pinal de Amoles">Escuela de Bachilleres de la UAQ, Plantel Pinal de Amoles</option>
-                        <option value="Escuela de Bachilleres de la UAQ, Plantel San Juan del Río" data-municipio="San Juan del Río">Escuela de Bachilleres de la UAQ, Plantel San Juan del Río</option>
-                        <option value="Escuela de Bachilleres de la UAQ, Plantel Sur" data-municipio="Querétaro">Escuela de Bachilleres de la UAQ, Plantel Sur</option>
-                        <option value="Escuela Preparatoria del Instituto Plancarte" data-municipio="Querétaro">Escuela Preparatoria del Instituto Plancarte</option>
-                        <option value="Escuela Preparatoria Leonardo de Vinci" data-municipio="Querétaro">Escuela Preparatoria Leonardo de Vinci</option>
-                        <option value="High School John Dewey" data-municipio="Querétaro">High School John Dewey</option>
+                        <option value="Escuela de Bachilleres de la UAQ, Plantel Jalpan"
+                            data-municipio="Jalpan de Serra">Escuela de Bachilleres de la UAQ, Plantel Jalpan</option>
+                        <option value="Escuela de Bachilleres de la UAQ, Plantel Landa de Matamoros"
+                            data-municipio="Landa de Matamoros">Escuela de Bachilleres de la UAQ, Plantel Landa de
+                            Matamoros</option>
+                        <option value="Escuela de Bachilleres de la UAQ, Plantel Norte" data-municipio="Querétaro">
+                            Escuela de Bachilleres de la UAQ, Plantel Norte</option>
+                        <option value="Escuela de Bachilleres de la UAQ, Plantel Pedro Escobedo"
+                            data-municipio="Pedro Escobedo">Escuela de Bachilleres de la UAQ, Plantel Pedro Escobedo
+                        </option>
+                        <option value="Escuela de Bachilleres de la UAQ, Plantel Pinal de Amoles"
+                            data-municipio="Pinal de Amoles">Escuela de Bachilleres de la UAQ, Plantel Pinal de Amoles
+                        </option>
+                        <option value="Escuela de Bachilleres de la UAQ, Plantel San Juan del Río"
+                            data-municipio="San Juan del Río">Escuela de Bachilleres de la UAQ, Plantel San Juan del Río
+                        </option>
+                        <option value="Escuela de Bachilleres de la UAQ, Plantel Sur" data-municipio="Querétaro">Escuela
+                            de Bachilleres de la UAQ, Plantel Sur</option>
+                        <option value="Escuela Preparatoria del Instituto Plancarte" data-municipio="Querétaro">Escuela
+                            Preparatoria del Instituto Plancarte</option>
+                        <option value="Escuela Preparatoria Leonardo de Vinci" data-municipio="Querétaro">Escuela
+                            Preparatoria Leonardo de Vinci</option>
+                        <option value="High School John Dewey" data-municipio="Querétaro">High School John Dewey
+                        </option>
 
-                        <option value="Instituto Bilingüe Victoria, A. C." data-municipio="Querétaro">Instituto Bilingüe Victoria, A. C.</option>
+                        <option value="Instituto Bilingüe Victoria, A. C." data-municipio="Querétaro">Instituto Bilingüe
+                            Victoria, A. C.</option>
                         <option value="Instituto Cambridge" data-municipio="Querétaro">Instituto Cambridge</option>
                         <option value="Instituto Champagnat" data-municipio="Querétaro">Instituto Champagnat</option>
-                        <option value="Instituto Comercial Imec" data-municipio="Querétaro">Instituto Comercial Imec</option>
-                        <option value="Instituto de Estudios Sociales y Administrativos de Querétaro" data-municipio="Querétaro">Instituto de Estudios Sociales y Administrativos de Querétaro</option>
-                        <option value="Instituto de la Juventud José Martí" data-municipio="Querétaro">Instituto de la Juventud José Martí</option>
-                        <option value="Instituto de Liderazgo Idel" data-municipio="Querétaro">Instituto de Liderazgo Idel</option>
+                        <option value="Instituto Comercial Imec" data-municipio="Querétaro">Instituto Comercial Imec
+                        </option>
+                        <option value="Instituto de Estudios Sociales y Administrativos de Querétaro"
+                            data-municipio="Querétaro">Instituto de Estudios Sociales y Administrativos de Querétaro
+                        </option>
+                        <option value="Instituto de la Juventud José Martí" data-municipio="Querétaro">Instituto de la
+                            Juventud José Martí</option>
+                        <option value="Instituto de Liderazgo Idel" data-municipio="Querétaro">Instituto de Liderazgo
+                            Idel</option>
                         <option value="Instituto Ex Novo" data-municipio="Querétaro">Instituto Ex Novo</option>
-                        <option value="Instituto La Paz de Querétaro, A.C." data-municipio="Querétaro">Instituto La Paz de Querétaro, A.C.</option>
-                        <option value="Instituto Marciano Tinajero y Estrada" data-municipio="Querétaro">Instituto Marciano Tinajero y Estrada</option>
+                        <option value="Instituto La Paz de Querétaro, A.C." data-municipio="Querétaro">Instituto La Paz
+                            de Querétaro, A.C.</option>
+                        <option value="Instituto Marciano Tinajero y Estrada" data-municipio="Querétaro">Instituto
+                            Marciano Tinajero y Estrada</option>
 
-                        <option value="Instituto Oriente Querétaro" data-municipio="Querétaro">Instituto Oriente Querétaro</option>
-                        <option value="Instituto Paulo Freire Preparatoria" data-municipio="Querétaro">Instituto Paulo Freire Preparatoria</option>
-                        <option value="Instituto Plancarte San Juan del Río" data-municipio="San Juan del Río">Instituto Plancarte San Juan del Río</option>
-                        <option value="Instituto Preuniversitario del Centro de México Campus Querétaro" data-municipio="Querétaro">Instituto Preuniversitario del Centro de México Campus Querétaro</option>
-                        <option value="Instituto Preuniversitario del Centro de México Campus San Juan del Río" data-municipio="San Juan del Río">Instituto Preuniversitario del Centro de México Campus San Juan del Río</option>
-                        <option value="Instituto Profesional de Informática y Computación" data-municipio="Querétaro">Instituto Profesional de Informática y Computación</option>
+                        <option value="Instituto Oriente Querétaro" data-municipio="Querétaro">Instituto Oriente
+                            Querétaro</option>
+                        <option value="Instituto Paulo Freire Preparatoria" data-municipio="Querétaro">Instituto Paulo
+                            Freire Preparatoria</option>
+                        <option value="Instituto Plancarte San Juan del Río" data-municipio="San Juan del Río">Instituto
+                            Plancarte San Juan del Río</option>
+                        <option value="Instituto Preuniversitario del Centro/body> de México Campus Querétaro"
+                            data-municipio="Querétaro">Instituto Preuniversitario del Centro de México Campus Querétaro
+                        </option>
+                        <option value="Instituto Preuniversitario del Centro de México Campus San Juan del Río"
+                            data-municipio="San Juan del Río">Instituto Preuniversitario del Centro de México Campus San
+                            Juan del Río</option>
+                        <option value="Instituto Profesional de Informática y Computación" data-municipio="Querétaro">
+                            Instituto Profesional de Informática y Computación</option>
                         <option value="Instituto Querétano" data-municipio="Querétaro">Instituto Querétano</option>
-                        <option value="Instituto Querétano de Herramentales" data-municipio="Querétaro">Instituto Querétano de Herramentales</option>
+                        <option value="Instituto Querétano de Herramentales" data-municipio="Querétaro">Instituto
+                            Querétano de Herramentales</option>
                         <option value="Instituto Rembrandt" data-municipio="Querétaro">Instituto Rembrandt</option>
-                        <option value="Instituto Renacimiento Preparatoria" data-municipio="Querétaro">Instituto Renacimiento Preparatoria</option>
+                        <option value="Instituto Renacimiento Preparatoria" data-municipio="Querétaro">Instituto
+                            Renacimiento Preparatoria</option>
 
-                        <option value="Instituto Santiago (Preparatoria)" data-municipio="Querétaro">Instituto Santiago (Preparatoria)</option>
-                        <option value="Instituto Social Comercial en Contaduría Administrativa" data-municipio="Querétaro">Instituto Social Comercial en Contaduría Administrativa</option>
-                        <option value="Instituto Social Comercial en Contaduría Administrativa A.C." data-municipio="Querétaro">Instituto Social Comercial en Contaduría Administrativa A.C.</option>
-                        <option value="Instituto Social Educativo Comercial Administrativo" data-municipio="Querétaro">Instituto Social Educativo Comercial Administrativo</option>
+                        <option value="Instituto Santiago (Preparatoria)" data-municipio="Querétaro">Instituto Santiago
+                            (Preparatoria)</option>
+                        <option value="Instituto Social Comercial en Contaduría Administrativa"
+                            data-municipio="Querétaro">Instituto Social Comercial en Contaduría Administrativa</option>
+                        <option value="Instituto Social Comercial en Contaduría Administrativa A.C."
+                            data-municipio="Querétaro">Instituto Social Comercial en Contaduría Administrativa A.C.
+                        </option>
+                        <option value="Instituto Social Educativo Comercial Administrativo" data-municipio="Querétaro">
+                            Instituto Social Educativo Comercial Administrativo</option>
                         <option value="Instituto Sovany" data-municipio="Querétaro">Instituto Sovany</option>
-                        <option value="Instituto Tecnológico Anglo Mexicano" data-municipio="Querétaro">Instituto Tecnológico Anglo Mexicano</option>
-                        <option value="Instituto Thomas Jefferson" data-municipio="Querétaro">Instituto Thomas Jefferson</option>
-                        <option value="Instituto Universitario de Desarrollo Humano e Innovación Profesional" data-municipio="Querétaro">Instituto Universitario de Desarrollo Humano e Innovación Profesional</option>
-                        <option value="ITESM Campus Querétaro" data-municipio="Querétaro">ITESM Campus Querétaro</option>
+                        <option value="Instituto Tecnológico Anglo Mexicano" data-municipio="Querétaro">Instituto
+                            Tecnológico Anglo Mexicano</option>
+                        <option value="Instituto Thomas Jefferson" data-municipio="Querétaro">Instituto Thomas Jefferson
+                        </option>
+                        <option value="Instituto Universitario de Desarrollo Humano e Innovación Profesional"
+                            data-municipio="Querétaro">Instituto Universitario de Desarrollo Humano e Innovación
+                            Profesional</option>
+                        <option value="ITESM Campus Querétaro" data-municipio="Querétaro">ITESM Campus Querétaro
+                        </option>
                         <option value="John F. Kennedy" data-municipio="Querétaro">John F. Kennedy</option>
 
                         <option value="Liceo de Querétaro" data-municipio="Querétaro">Liceo de Querétaro</option>
-                        <option value="Lic. José Guadalupe Ramírez Álvarez" data-municipio="Querétaro">Lic. José Guadalupe Ramírez Álvarez</option>
+                        <option value="Lic. José Guadalupe Ramírez Álvarez" data-municipio="Querétaro">Lic. José
+                            Guadalupe Ramírez Álvarez</option>
                         <option value="Liceo Corregidora" data-municipio="Corregidora">Liceo Corregidora</option>
-                        <option value="Liceo Patrick Henry Preparatoria" data-municipio="Querétaro">Liceo Patrick Henry Preparatoria</option>
-                        <option value="Lycée Français International Jules Verne Sección Preparatoria" data-municipio="Querétaro">Lycée Français International Jules Verne Sección Preparatoria</option>
-                        <option value="MH Institución Educativa" data-municipio="Querétaro">MH Institución Educativa</option>
+                        <option value="Liceo Patrick Henry Preparatoria" data-municipio="Querétaro">Liceo Patrick Henry
+                            Preparatoria</option>
+                        <option value="Lycée Français International Jules Verne Sección Preparatoria"
+                            data-municipio="Querétaro">Lycée Français International Jules Verne Sección Preparatoria
+                        </option>
+                        <option value="MH Institución Educativa" data-municipio="Querétaro">MH Institución Educativa
+                        </option>
                         <option value="New Port High School" data-municipio="Querétaro">New Port High School</option>
-                        <option value="Plantel Conalep Aeronáutico" data-municipio="Querétaro">Plantel Conalep Aeronáutico</option>
-                        <option value="Plantel Conalep Automotriz José Vasconcelos" data-municipio="Querétaro">Plantel Conalep Automotriz José Vasconcelos</option>
-                        <option value="Prepa Anáhuac Querétaro" data-municipio="Querétaro">Prepa Anáhuac Querétaro</option>
+                        <option value="Plantel Conalep Aeronáutico" data-municipio="Querétaro">Plantel Conalep
+                            Aeronáutico</option>
+                        <option value="Plantel Conalep Automotriz José Vasconcelos" data-municipio="Querétaro">Plantel
+                            Conalep Automotriz José Vasconcelos</option>
+                        <option value="Prepa Anáhuac Querétaro" data-municipio="Querétaro">Prepa Anáhuac Querétaro
+                        </option>
 
-                        <option value="Prepa Balmoral Escocés" data-municipio="Querétaro">Prepa Balmoral Escocés</option>
+                        <option value="Prepa Balmoral Escocés" data-municipio="Querétaro">Prepa Balmoral Escocés
+                        </option>
                         <option value="Prepa Cav" data-municipio="Querétaro">Prepa Cav</option>
                         <option value="Prepa Ceickor" data-municipio="Querétaro">Prepa Ceickor</option>
                         <option value="Prepa Idai" data-municipio="Querétaro">Prepa Idai</option>
                         <option value="Prepa Plenus" data-municipio="Querétaro">Prepa Plenus</option>
-                        <option value="Preparatoria Centro Escolar Cadereyta" data-municipio="Cadereyta de Montes">Preparatoria Centro Escolar Cadereyta</option>
-                        <option value="Preparatoria Cervantes" data-municipio="Querétaro">Preparatoria Cervantes</option>
+                        <option value="Preparatoria Centro Escolar Cadereyta" data-municipio="Cadereyta de Montes">
+                            Preparatoria Centro Escolar Cadereyta</option>
+                        <option value="Preparatoria Cervantes" data-municipio="Querétaro">Preparatoria Cervantes
+                        </option>
                         <option value="Preparatoria Cesba" data-municipio="Querétaro">Preparatoria Cesba</option>
                         <option value="Preparatoria Conín" data-municipio="Querétaro">Preparatoria Conín</option>
-                        <option value="Preparatoria Cuauhtémoc Querétaro" data-municipio="Querétaro">Preparatoria Cuauhtémoc Querétaro</option>
+                        <option value="Preparatoria Cuauhtémoc Querétaro" data-municipio="Querétaro">Preparatoria
+                            Cuauhtémoc Querétaro</option>
 
-                        <option value="Preparatoria de Negocios" data-municipio="Querétaro">Preparatoria de Negocios</option>
-                        <option value="Preparatoria del Instituto Asunción de Querétaro" data-municipio="Querétaro">Preparatoria del Instituto Asunción de Querétaro</option>
-                        <option value="Preparatoria Emprende Innova" data-municipio="Querétaro">Preparatoria Emprende Innova</option>
-                        <option value="Preparatoria Intercultural San Patricio" data-municipio="Querétaro">Preparatoria Intercultural San Patricio</option>
+                        <option value="Preparatoria de Negocios" data-municipio="Querétaro">Preparatoria de Negocios
+                        </option>
+                        <option value="Preparatoria del Instituto Asunción de Querétaro" data-municipio="Querétaro">
+                            Preparatoria del Instituto Asunción de Querétaro</option>
+                        <option value="Preparatoria Emprende Innova" data-municipio="Querétaro">Preparatoria Emprende
+                            Innova</option>
+                        <option value="Preparatoria Intercultural San Patricio" data-municipio="Querétaro">Preparatoria
+                            Intercultural San Patricio</option>
                         <option value="Preparatoria Iteca" data-municipio="Querétaro">Preparatoria Iteca</option>
                         <option value="Preparatoria La Cima" data-municipio="Querétaro">Preparatoria La Cima</option>
-                        <option value="Preparatoria Nuevo Horizonte" data-municipio="Querétaro">Preparatoria Nuevo Horizonte</option>
-                        <option value="Preparatoria Summerhill" data-municipio="Querétaro">Preparatoria Summerhill</option>
-                        <option value="Preparatoria Universidad Marista de Querétaro, Campus San Juan del Río" data-municipio="San Juan del Río">Preparatoria Universidad Marista de Querétaro, Campus San Juan del Río</option>
-                        <option value="Preparatorias Universidad Marista de Querétaro" data-municipio="Querétaro">Preparatorias Universidad Marista de Querétaro</option>
+                        <option value="Preparatoria Nuevo Horizonte" data-municipio="Querétaro">Preparatoria Nuevo
+                            Horizonte</option>
+                        <option value="Preparatoria Summerhill" data-municipio="Querétaro">Preparatoria Summerhill
+                        </option>
+                        <option value="Preparatoria Universidad Marista de Querétaro, Campus San Juan del Río"
+                            data-municipio="San Juan del Río">Preparatoria Universidad Marista de Querétaro, Campus San
+                            Juan del Río</option>
+                        <option value="Preparatorias Universidad Marista de Querétaro" data-municipio="Querétaro">
+                            Preparatorias Universidad Marista de Querétaro</option>
 
                         <option value="Santiago Galás" data-municipio="Querétaro">Santiago Galás</option>
-                        <option value="Telebachillerato Comunitario Agua Fría" data-municipio="Querétaro">Telebachillerato Comunitario Agua Fría</option>
-                        <option value="Telebachillerato Comunitario El Aguacate" data-municipio="Querétaro">Telebachillerato Comunitario El Aguacate</option>
-                        <option value="Telebachillerato Comunitario El Lobo" data-municipio="Querétaro">Telebachillerato Comunitario El Lobo</option>
-                        <option value="Telebachillerato Comunitario El Platano" data-municipio="Querétaro">Telebachillerato Comunitario El Platano</option>
-                        <option value="Telebachillerato Comunitario La Carbonera" data-municipio="Querétaro">Telebachillerato Comunitario La Carbonera</option>
-                        <option value="Telebachillerato Comunitario La Florida" data-municipio="Querétaro">Telebachillerato Comunitario La Florida</option>
-                        <option value="Telebachillerato Comunitario La Fuente" data-municipio="Querétaro">Telebachillerato Comunitario La Fuente</option>
-                        <option value="Telebachillerato Comunitario La Monja" data-municipio="Querétaro">Telebachillerato Comunitario La Monja</option>
-                        <option value="Telebachillerato Comunitario La Plazuela" data-municipio="Querétaro">Telebachillerato Comunitario La Plazuela</option>
+                        <option value="Telebachillerato Comunitario Agua Fría" data-municipio="Querétaro">
+                            Telebachillerato Comunitario Agua Fría</option>
+                        <option value="Telebachillerato Comunitario El Aguacate" data-municipio="Querétaro">
+                            Telebachillerato Comunitario El Aguacate</option>
+                        <option value="Telebachillerato Comunitario El Lobo" data-municipio="Querétaro">Telebachillerato
+                            Comunitario El Lobo</option>
+                        <option value="Telebachillerato Comunitario El Platano" data-municipio="Querétaro">
+                            Telebachillerato Comunitario El Platano</option>
+                        <option value="Telebachillerato Comunitario La Carbonera" data-municipio="Querétaro">
+                            Telebachillerato Comunitario La Carbonera</option>
+                        <option value="Telebachillerato Comunitario La Florida" data-municipio="Querétaro">
+                            Telebachillerato Comunitario La Florida</option>
+                        <option value="Telebachillerato Comunitario La Fuente" data-municipio="Querétaro">
+                            Telebachillerato Comunitario La Fuente</option>
+                        <option value="Telebachillerato Comunitario La Monja" data-municipio="Querétaro">
+                            Telebachillerato Comunitario La Monja</option>
+                        <option value="Telebachillerato Comunitario La Plazuela" data-municipio="Querétaro">
+                            Telebachillerato Comunitario La Plazuela</option>
 
-                        <option value="Telebachillerato Comunitario La Solana" data-municipio="Querétaro">Telebachillerato Comunitario La Solana</option>
-                        <option value="Telebachillerato Comunitario La Versolilla" data-municipio="Querétaro">Telebachillerato Comunitario La Versolilla</option>
-                        <option value="Telebachillerato Comunitario Laguna de Servín" data-municipio="Querétaro">Telebachillerato Comunitario Laguna de Servín</option>
-                        <option value="Telebachillerato Comunitario Laguna de Vaquerías" data-municipio="Querétaro">Telebachillerato Comunitario Laguna de Vaquerías</option>
-                        <option value="Telebachillerato Comunitario Los Juárez" data-municipio="Querétaro">Telebachillerato Comunitario Los Juárez</option>
-                        <option value="Telebachillerato Comunitario Maconí" data-municipio="Querétaro">Telebachillerato Comunitario Maconí</option>
-                        <option value="Telebachillerato Comunitario Mesa de Ramírez" data-municipio="Querétaro">Telebachillerato Comunitario Mesa de Ramírez</option>
-                        <option value="Telebachillerato Comunitario Neblinas" data-municipio="Querétaro">Telebachillerato Comunitario Neblinas</option>
-                        <option value="Telebachillerato Comunitario Paniagua" data-municipio="Querétaro">Telebachillerato Comunitario Paniagua</option>
-                        <option value="Telebachillerato Comunitario Pathe" data-municipio="Querétaro">Telebachillerato Comunitario Pathe</option>
+                        <option value="Telebachillerato Comunitario La Solana" data-municipio="Querétaro">
+                            Telebachillerato Comunitario La Solana</option>
+                        <option value="Telebachillerato Comunitario La Versolilla" data-municipio="Querétaro">
+                            Telebachillerato Comunitario La Versolilla</option>
+                        <option value="Telebachillerato Comunitario Laguna de Servín" data-municipio="Querétaro">
+                            Telebachillerato Comunitario Laguna de Servín</option>
+                        <option value="Telebachillerato Comunitario Laguna de Vaquerías" data-municipio="Querétaro">
+                            Telebachillerato Comunitario Laguna de Vaquerías</option>
+                        <option value="Telebachillerato Comunitario Los Juárez" data-municipio="Querétaro">
+                            Telebachillerato Comunitario Los Juárez</option>
+                        <option value="Telebachillerato Comunitario Maconí" data-municipio="Querétaro">Telebachillerato
+                            Comunitario Maconí</option>
+                        <option value="Telebachillerato Comunitario Mesa de Ramírez" data-municipio="Querétaro">
+                            Telebachillerato Comunitario Mesa de Ramírez</option>
+                        <option value="Telebachillerato Comunitario Neblinas" data-municipio="Querétaro">
+                            Telebachillerato Comunitario Neblinas</option>
+                        <option value="Telebachillerato Comunitario Paniagua" data-municipio="Querétaro">
+                            Telebachillerato Comunitario Paniagua</option>
+                        <option value="Telebachillerato Comunitario Pathe" data-municipio="Querétaro">Telebachillerato
+                            Comunitario Pathe</option>
 
-                        <option value="Telebachillerato Comunitario Puerto de la Luz" data-municipio="Querétaro">Telebachillerato Comunitario Puerto de la Luz</option>
-                        <option value="Telebachillerato Comunitario Quiotillos" data-municipio="Querétaro">Telebachillerato Comunitario Quiotillos</option>
-                        <option value="Telebachillerato Comunitario Rancho Nuevo" data-municipio="Querétaro">Telebachillerato Comunitario Rancho Nuevo</option>
-                        <option value="Telebachillerato Comunitario San Ignacio" data-municipio="Querétaro">Telebachillerato Comunitario San Ignacio</option>
-                        <option value="Telebachillerato Comunitario San Pedro Viejo" data-municipio="Querétaro">Telebachillerato Comunitario San Pedro Viejo</option>
-                        <option value="Telebachillerato Comunitario Santa Inés" data-municipio="Querétaro">Telebachillerato Comunitario Santa Inés</option>
-                        <option value="Telebachillerato Comunitario Santa Lucía" data-municipio="Querétaro">Telebachillerato Comunitario Santa Lucía</option>
-                        <option value="Telebachillerato Comunitario Santa María de los Cocos" data-municipio="Querétaro">Telebachillerato Comunitario Santa María de los Cocos</option>
-                        <option value="Telebachillerato Comunitario Sauz de Guadalupe" data-municipio="Querétaro">Telebachillerato Comunitario Sauz de Guadalupe</option>
-                        <option value="Telebachillerato Comunitario Yerbabuena" data-municipio="Querétaro">Telebachillerato Comunitario Yerbabuena</option>
+                        <option value="Telebachillerato Comunitario Puerto de la Luz" data-municipio="Querétaro">
+                            Telebachillerato Comunitario Puerto de la Luz</option>
+                        <option value="Telebachillerato Comunitario Quiotillos" data-municipio="Querétaro">
+                            Telebachillerato Comunitario Quiotillos</option>
+                        <option value="Telebachillerato Comunitario Rancho Nuevo" data-municipio="Querétaro">
+                            Telebachillerato Comunitario Rancho Nuevo</option>
+                        <option value="Telebachillerato Comunitario San Ignacio" data-municipio="Querétaro">
+                            Telebachillerato Comunitario San Ignacio</option>
+                        <option value="Telebachillerato Comunitario San Pedro Viejo" data-municipio="Querétaro">
+                            Telebachillerato Comunitario San Pedro Viejo</option>
+                        <option value="Telebachillerato Comunitario Santa Inés" data-municipio="Querétaro">
+                            Telebachillerato Comunitario Santa Inés</option>
+                        <option value="Telebachillerato Comunitario Santa Lucía" data-municipio="Querétaro">
+                            Telebachillerato Comunitario Santa Lucía</option>
+                        <option value="Telebachillerato Comunitario Santa María de los Cocos"
+                            data-municipio="Querétaro">Telebachillerato Comunitario Santa María de los Cocos</option>
+                        <option value="Telebachillerato Comunitario Sauz de Guadalupe" data-municipio="Querétaro">
+                            Telebachillerato Comunitario Sauz de Guadalupe</option>
+                        <option value="Telebachillerato Comunitario Yerbabuena" data-municipio="Querétaro">
+                            Telebachillerato Comunitario Yerbabuena</option>
 
-                        <option value="Universidad Alfred Nobel Bachillerato" data-municipio="Querétaro">Universidad Alfred Nobel Bachillerato</option>
-                        <option value="Universidad Mondragón México" data-municipio="Querétaro">Universidad Mondragón México</option>
-                        <option value="Universidad Tec Milenio" data-municipio="Querétaro">Universidad Tec Milenio</option>
-                        <option value="Universidad Tecnologica de Mexico Bachillerato, Campus Queretaro" data-municipio="Querétaro">Universidad Tecnologica de Mexico Bachillerato, Campus Queretaro</option>
-                        <option value="Vanguardia Educativa de Mexico" data-municipio="Querétaro">Vanguardia Educativa de Mexico</option>
+                        <option value="Universidad Alfred Nobel Bachillerato" data-municipio="Querétaro">Universidad
+                            Alfred Nobel Bachillerato</option>
+                        <option value="Universidad Mondragón México" data-municipio="Querétaro">Universidad Mondragón
+                            México</option>
+                        <option value="Universidad Tec Milenio" data-municipio="Querétaro">Universidad Tec Milenio
+                        </option>
+                        <option value="Universidad Tecnologica de Mexico Bachillerato, Campus Queretaro"
+                            data-municipio="Querétaro">Universidad Tecnologica de Mexico Bachillerato, Campus Queretaro
+                        </option>
+                        <option value="Vanguardia Educativa de Mexico" data-municipio="Querétaro">Vanguardia Educativa
+                            de Mexico</option>
                         <option value="Otro">Otro</option>
                     </select>
 
@@ -513,91 +846,91 @@
                         <label for="otro">Especifique otro bachillerato:</label>
                         <input type="text" id="otro" name="otro" placeholder="Escriba el nombre" />
                     </div>
-                    
+
                     <label for="matricula">Matrícula:</label>
                     <input type="text" id="matricula" name="matricula">
-                </div>                                                              
-                
-                    <input class="register-btn" type="submit" value="Registrar">
+                </div>
+
+                <input class="register-btn" type="submit" value="Registrar">
             </form>
         </div>
     </main>
-</body>
+    <script>
+        const menuToggle = document.getElementById("menu-toggle");
+        const menu = document.getElementById("menu");
+        const navLinks = menu.querySelectorAll("ul li a");
 
-<script>
-    const menuToggle = document.getElementById("menu-toggle");
-    const menu = document.getElementById("menu");
-    const navLinks = menu.querySelectorAll("ul li a");
-    
-    // Abrir o cerrar el menú al hacer clic en el botón toggle
-    menuToggle.addEventListener("click", () => {
-        menu.classList.toggle("active");
-    });
-    
-    // Cerrar el menú cuando se hace clic en un enlace
-    navLinks.forEach(link => {
-        link.addEventListener("click", () => {
-            menu.classList.remove("active");
+        // Abrir o cerrar el menú al hacer clic en el botón toggle
+        menuToggle.addEventListener("click", () => {
+            menu.classList.toggle("active");
         });
-    });
-    
-    // Cerrar el menú al hacer clic fuera del header
-    document.addEventListener("click", (event) => {
-        const isClickInsideMenu = menu.contains(event.target);
-        const isClickOnToggle = menuToggle.contains(event.target);
-    
-        if (!isClickInsideMenu && !isClickOnToggle) {
-            menu.classList.remove("active");
-        }
-    });
-</script>
 
-<script> // Filtardo de opciones de bachillerato
-    const selectElement = document.getElementById('bachillerato');
-    const otroBachilleratoDiv = document.getElementById('otro-bachillerato');
+        // Cerrar el menú cuando se hace clic en un enlace
+        navLinks.forEach(link => {
+            link.addEventListener("click", () => {
+                menu.classList.remove("active");
+            });
+        });
 
-    // Mostrar u ocultar el cuadro de texto cuando se selecciona "Otro"
-    selectElement.addEventListener('change', function () {
-        if (this.value === 'Otro') {
-            otroBachilleratoDiv.style.display = 'block';
-        } else {
-            otroBachilleratoDiv.style.display = 'none';
-        }
-    });
+        // Cerrar el menú al hacer clic fuera del header
+        document.addEventListener("click", (event) => {
+            const isClickInsideMenu = menu.contains(event.target);
+            const isClickOnToggle = menuToggle.contains(event.target);
 
-    // Agregar evento de teclado para filtrar opciones
-    selectElement.addEventListener('keydown', function (event) {
-        const filter = event.key.toLowerCase();
-        const options = Array.from(selectElement.options);
+            if (!isClickInsideMenu && !isClickOnToggle) {
+                menu.classList.remove("active");
+            }
+        });
+    </script>
 
-        // Si el usuario presiona una tecla que no es funcional
-        if (event.key.length === 1) {
-            for (let i = 1; i < options.length; i++) { // Comienza en 1 para omitir "Seleccione un bachillerato"
-                const option = options[i];
-                if (option.text.toLowerCase().startsWith(filter)) {
-                    selectElement.selectedIndex = i; // Selecciona la primera coincidencia
-                    break;
+    <script> // Filtardo de opciones de bachillerato
+        const selectElement = document.getElementById('bachillerato');
+        const otroBachilleratoDiv = document.getElementById('otro-bachillerato');
+
+        // Mostrar u ocultar el cuadro de texto cuando se selecciona "Otro"
+        selectElement.addEventListener('change', function () {
+            if (this.value === 'Otro') {
+                otroBachilleratoDiv.style.display = 'block';
+            } else {
+                otroBachilleratoDiv.style.display = 'none';
+            }
+        });
+
+        // Agregar evento de teclado para filtrar opciones
+        selectElement.addEventListener('keydown', function (event) {
+            const filter = event.key.toLowerCase();
+            const options = Array.from(selectElement.options);
+
+            // Si el usuario presiona una tecla que no es funcional
+            if (event.key.length === 1) {
+                for (let i = 1; i < options.length; i++) { // Comienza en 1 para omitir "Seleccione un bachillerato"
+                    const option = options[i];
+                    if (option.text.toLowerCase().startsWith(filter)) {
+                        selectElement.selectedIndex = i; // Selecciona la primera coincidencia
+                        break;
+                    }
+                }
+            }
+        });
+
+    </script>
+
+    <script>
+        function filtrarBachillerato() {
+            var municipio = document.getElementById('municipio').value;
+            var selecionBachillerato = document.getElementById('bachillerato');
+            var options = selecionBachillerato.getElementsByTagName('option');
+
+            for (var i = 0; i < options.length; i++) {
+                var option = options[i];
+                if (option.getAttribute('data-municipio') === municipio || option.value === "") {
+                    option.style.display = 'block';
+                } else {
+                    option.style.display = 'none';
                 }
             }
         }
-    });
+    </script>
+</body>
 
-</script>
-
-<script>
-    function filtrarBachillerato(){
-        var municipio = document.getElementById('municipio').value;
-        var selecionBachillerato = document.getElementById('bachillerato');
-        var options = selecionBachillerato.getElementsByTagName('option');
-
-        for (var i= 0 ; i < options.length; i++){
-            var option = options[i];
-            if (option.getAttribute('data-municipio')=== municipio || option.value === ""){
-                option.style.display = 'block';
-            } else {
-                option.style.display = 'none';
-            }
-        }
-    }
-</script>
 </html>

@@ -16,7 +16,7 @@ class Profile(models.Model):
     bachillerato = models.CharField(max_length=100, null=True, blank=True)  # Incluir opción de "otro"
     otro_bachillerato = models.CharField(max_length=100, null=True, blank=True)  # Campo opcional si elige "otro"
     matricula = models.CharField(max_length=20)
-    telefono = models.CharField(max_length=15)
+    telefono = models.CharField(max_length=30)
     
     # Progreso individual por sección Primer Paso
     progreso_personalidad = models.IntegerField(default=0)
