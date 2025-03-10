@@ -85,7 +85,8 @@ def signup(request):
                     bachillerato=request.POST.get('bachillerato', None),
                     otro_bachillerato=request.POST.get('otro_bachillerato', None),
                     matricula=request.POST.get('matricula', None),
-                    telefono=form.cleaned_data['telefono']
+                    telefono=form.cleaned_data['telefono'],
+                    email_tutor=form.cleaned_data['email_tutor']
                 )
                 profile.save()
 
