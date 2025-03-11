@@ -28,6 +28,7 @@ from django.http import FileResponse, HttpResponse
 from .models import Profile, Constancia
 from django.core.mail import EmailMessage
 from django.core.files.storage import default_storage
+from django.contrib.staticfiles import finders
 
 from django.http import JsonResponse
 import json
@@ -338,7 +339,11 @@ def generar_constancia_pdf(request):
 
     # Crear el PDF
     p = canvas.Canvas(ruta_pdf, pagesize=(960, 720))
-    imagen_path = os.path.join(settings.BASE_DIR, "users", "static", "images", "constancia.png")
+    imagen_path = finders.find("images/constancia.png")
+    if not imagen_path:
+        
+        return HttpResponse("No se encontró la imagen de la constancia", status=404)
+    
     p.drawImage(imagen_path, 0, 0, width=960, height=720)
 
     # Obtener el resultado del test
