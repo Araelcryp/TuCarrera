@@ -141,11 +141,29 @@ def update_profile(request):
 
 @login_required
 def homeuser(request):
-    profile = request.user.profile  # Asumiendo que el perfil está relacionado con el usuario
+    profile = request.user.profile  
+
+    # Si el usuario no ha ingresado el correo de su tutor, lo redirige a la vista correspondiente
+    if not profile.email_tutor:
+        return redirect('completar_tutor_email')  
+
     context = {
         'profile': profile
     }
     return render(request, 'homeuser.html', context)
+
+@login_required
+def completar_tutor_email(request):
+    profile = request.user.profile
+
+    if request.method == "POST":
+        email_tutor = request.POST.get("email_tutor")
+        if email_tutor:
+            profile.email_tutor = email_tutor
+            profile.save()
+            return redirect('homeuser')  # Una vez completado, regresa a la página principal
+
+    return render(request, 'completar_tutor_email.html', {'profile': profile})
 
 @user_passes_test(lambda u: u.is_superuser, login_url='/permission-denied/')
 def homeadmin(request):

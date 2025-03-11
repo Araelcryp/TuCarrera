@@ -54,6 +54,7 @@ urlpatterns = [
     path('generar-constancia-pdf/', views.generar_constancia_pdf, name='generar-constancia-pdf'),
     path('agregar-meta/', views.agregar_meta, name='agregar_meta'),
     path('obtener-metas/', views.obtener_metas, name='obtener_metas'),
+    path('completar-tutor-email/', views.completar_tutor_email, name='completar_tutor_email'),
 
     path('primerpaso/',viewsp1.primerpaso, name='primerpaso'),
     path('imagen-primer-paso/',viewsp1.imagen_primerpaso, name='imagen-primer-paso'),
