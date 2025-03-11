@@ -99,7 +99,7 @@ def signup(request):
                     'Confirmación de cuenta',
                     text_content,
                     'sedeq.coord@gmail.com',
-                    [user.email],
+                    [user.username],
                     html_message=html_content,
                     fail_silently=False,
                 )
@@ -359,7 +359,7 @@ def enviar_constancia_por_correo(usuario, ruta_pdf):
     perfil = getattr(usuario, 'profile', None)
 
     # Obtener los correos de usuario y tutor
-    destinatarios = [usuario.email]
+    destinatarios = [usuario.username]
     if perfil and perfil.email_tutor:
         destinatarios.append(perfil.email_tutor)
 
