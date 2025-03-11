@@ -173,4 +173,4 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'sedeq.coord@gmail.com'
-EMAIL_HOST_PASSWORD = 'vpdz nsrw qadj hfys'
+EMAIL_HOST_PASSWORD = 'nyvd logp vina aebq'
