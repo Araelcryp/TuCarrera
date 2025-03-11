@@ -369,7 +369,7 @@ def enviar_constancia_por_correo(usuario, ruta_pdf):
 
     asunto = "Tu constancia ha sido generada"
     mensaje = f"""
-    Estimado/a {usuario.get_full_name()},
+    Estimado/a {perfil.nombres},
     
     Nos complace informarle que su constancia ha sido generada y se adjunta a este correo en formato PDF.
 
