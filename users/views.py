@@ -34,6 +34,7 @@ from django.http import JsonResponse
 import json
 from datetime import datetime
 from django.utils import timezone
+
 # Create your views here.
 
 # def validate_password_strength(password):
@@ -55,64 +56,67 @@ from django.utils import timezone
 #         raise ValidationError('CURP inválida. Debe tener 18 caracteres.')
 #     if not re.match(REGEX_CURP, curp):
 #         raise ValidationError('CURP inválida. Verifica que tenga el formato correcto.')
-    
+
 
 def signup(request):
-    if request.method == 'GET':
+    if request.method == "GET":
         form = SignupForm()
-        return render(request, 'signup.html',{'form': form})
+        return render(request, "signup.html", {"form": form})
     else:
         form = SignupForm(request.POST)
         if form.is_valid():
             try:
                 user = User.objects.create_user(
-                    username=form.cleaned_data['email'],
-                    password=form.cleaned_data['password1']
+                    username=form.cleaned_data["email"],
+                    password=form.cleaned_data["password1"],
                 )
                 user.save()
 
                 # Crear perfil de usuario
                 profile = Profile(
                     user=user,
-                    apellido_paterno=form.cleaned_data['apellidoPaterno'],
-                    apellido_materno=form.cleaned_data['apellidoMaterno'],
-                    nombres=form.cleaned_data['nombres'],
-                    fecha_nacimiento=form.cleaned_data['fechaNacimiento'],
-                    curp=form.cleaned_data['curp'],
-                    procedencia=request.POST['procedencia'],
-                    estado=request.POST.get('estado', None),
-                    institucion=request.POST.get('institucion', None),
-                    municipio=request.POST.get('municipio', None),
-                    bachillerato=request.POST.get('bachillerato', None),
-                    otro_bachillerato=request.POST.get('otro_bachillerato', None),
-                    matricula=request.POST.get('matricula', None),
-                    telefono=form.cleaned_data['telefono'],
-                    email_tutor=form.cleaned_data['email_tutor']
+                    apellido_paterno=form.cleaned_data["apellidoPaterno"],
+                    apellido_materno=form.cleaned_data["apellidoMaterno"],
+                    nombres=form.cleaned_data["nombres"],
+                    fecha_nacimiento=form.cleaned_data["fechaNacimiento"],
+                    curp=form.cleaned_data["curp"],
+                    procedencia=request.POST["procedencia"],
+                    estado=request.POST.get("estado", None),
+                    institucion=request.POST.get("institucion", None),
+                    municipio=request.POST.get("municipio", None),
+                    bachillerato=request.POST.get("bachillerato", None),
+                    otro_bachillerato=request.POST.get("otro_bachillerato", None),
+                    matricula=request.POST.get("matricula", None),
+                    telefono=form.cleaned_data["telefono"],
+                    email_tutor=form.cleaned_data["email_tutor"],
                 )
                 profile.save()
 
-                 # Enviar correo de confirmación
-                html_content = render_to_string('confirmation_email.html', {
-                    'nombre': profile.nombres,
-                })
+                # Enviar correo de confirmación
+                html_content = render_to_string(
+                    "confirmation_email.html",
+                    {
+                        "nombre": profile.nombres,
+                    },
+                )
                 text_content = strip_tags(html_content)
                 send_mail(
-                    'Confirmación de cuenta',
+                    "Confirmación de cuenta",
                     text_content,
-                    'sedeq.coord@gmail.com',
+                    "sedeq.coord@gmail.com",
                     [user.username],
                     html_message=html_content,
                     fail_silently=False,
                 )
 
                 login(request, user)
-                return redirect('homeuser')
+                return redirect("homeuser")
             except IntegrityError:
-                form.add_error('email', 'El email ya existe.')
+                form.add_error("email", "El email ya existe.")
         # Si hay errores, se re-renderiza el formulario con los datos válidos ya mantenidos
-        return render(request, 'signup.html', {'form': form})
+        return render(request, "signup.html", {"form": form})
 
-            
+
 @login_required
 def update_profile(request):
     if request.method == "POST":
@@ -137,21 +141,23 @@ def update_profile(request):
             user.save()
 
         return JsonResponse({"status": "success"})
-    
-    return JsonResponse({"status": "error", "message": "Método no permitido"}, status=400)
+
+    return JsonResponse(
+        {"status": "error", "message": "Método no permitido"}, status=400
+    )
+
 
 @login_required
 def homeuser(request):
-    profile = request.user.profile  
+    profile = request.user.profile
 
     # Si el usuario no ha ingresado el correo de su tutor, lo redirige a la vista correspondiente
     if not profile.email_tutor:
-        return redirect('completar_tutor_email')  
+        return redirect("completar_tutor_email")
 
-    context = {
-        'profile': profile
-    }
-    return render(request, 'homeuser.html', context)
+    context = {"profile": profile}
+    return render(request, "homeuser.html", context)
+
 
 @login_required
 def completar_tutor_email(request):
@@ -162,36 +168,43 @@ def completar_tutor_email(request):
         if email_tutor:
             profile.email_tutor = email_tutor
             profile.save()
-            return redirect('homeuser')  # Una vez completado, regresa a la página principal
+            return redirect(
+                "homeuser"
+            )  # Una vez completado, regresa a la página principal
 
-    return render(request, 'completar_tutor_email.html', {'profile': profile})
+    return render(request, "completar_tutor_email.html", {"profile": profile})
 
-@user_passes_test(lambda u: u.is_superuser, login_url='/permission-denied/')
+
+@user_passes_test(lambda u: u.is_superuser, login_url="/permission-denied/")
 def homeadmin(request):
-    return render(request, 'homeadmin.html')
+    return render(request, "homeadmin.html")
+
 
 def permissiondenied(request):
-    return render(request, 'permissiondenied.html')
+    return render(request, "permissiondenied.html")
+
 
 def signout(request):
     logout(request)
-    return redirect('home')
+    return redirect("home")
+
 
 def signin(request):
-    if request.method == 'GET':
-        return render(request,'signin.html')
+    if request.method == "GET":
+        return render(request, "signin.html")
     else:
         user = authenticate(
-            request, username=request.POST['email'], password=request.POST
-            ['password'])
+            request, username=request.POST["email"], password=request.POST["password"]
+        )
         if user is None:
-            return render(request,'signin.html',{
-                'error': 'Email o Contraseña Incorrectos'
-            })
+            return render(
+                request, "signin.html", {"error": "Email o Contraseña Incorrectos"}
+            )
         else:
             login(request, user)
-            return redirect('homeuser')
-        
+            return redirect("homeuser")
+
+
 CATEGORY_DESCRIPTIONS = {
     "rojo": "Ciencias sociales",
     "morado": "Ciencias físicas y matemáticas",
@@ -199,22 +212,26 @@ CATEGORY_DESCRIPTIONS = {
     "verde": "Humanidades y artes",
     "amarillo": "Ciencias biológicas, químicas y de la salud",
     "gris": "Ciencias físicas y matemáticas",
-    "menta": "Artes y humanidades"
+    "menta": "Artes y humanidades",
 }
+
 
 @login_required
 def final(request):
     profile = request.user.profile
-    
+
     # Verificar si todos los progresos están al 100%
     if (
-        profile.progreso_infografiaseptimopaso < 100 or
-        profile.progreso_formato2septimopaso < 100 
+        profile.progreso_infografiaseptimopaso < 100
+        or profile.progreso_formato2septimopaso < 100
     ):
-        return redirect('/mi-plan-s2')
-    return render(request, 'final.html')
+        return redirect("/mi-plan-s2")
+    return render(request, "final.html")
+
 
 """Calcula el porcentaje de progreso basado en una lista de valores."""
+
+
 def calcular_porcentaje(progresos):
     progresos = [p or 0 for p in progresos]  # Evitar valores None
     total_progreso = sum(progresos)
@@ -224,15 +241,20 @@ def calcular_porcentaje(progresos):
 
 @login_required
 def obtener_tiempo_plataforma(request):
-    tiempo_en_plataforma = round((timezone.now() - request.user.date_joined).total_seconds() / 3600, 1)
+    tiempo_en_plataforma = round(
+        (timezone.now() - request.user.date_joined).total_seconds() / 3600, 1
+    )
     return JsonResponse({"tiempo": tiempo_en_plataforma})
+
 
 @login_required
 def perfil(request):
     profile = request.user.profile
-    
-    tiempo_en_plataforma = round((timezone.now() - request.user.date_joined).total_seconds() / 3600, 1)  # Convertir a horas
-    
+
+    tiempo_en_plataforma = round(
+        (timezone.now() - request.user.date_joined).total_seconds() / 3600, 1
+    )  # Convertir a horas
+
     # Definir distintas categorías de progreso
     progresos_p1 = [
         profile.progreso_personalidad,
@@ -242,17 +264,17 @@ def perfil(request):
         profile.progreso_inteligencias,
         profile.progreso_testInteligencias,
     ]
-    
+
     progresos_p2 = [
         profile.progreso_presentacionsegundopaso,
         profile.progreso_testsegundopaso,
     ]
-    
+
     progresos_p3 = [
         profile.progreso_presentacionsegundopaso,
         profile.progreso_testsegundopaso,
     ]
-    
+
     progresos_p3 = [
         profile.progreso_infografiatercerpaso,
         profile.progreso_tablerotercerpaso,
@@ -260,23 +282,23 @@ def perfil(request):
         profile.progreso_videoconsejotercerpaso,
         profile.progreso_presentaciontercerpaso,
     ]
-    
+
     progresos_p4 = [
         profile.progreso_tablerocuartopaso,
         profile.progreso_videocuartopaso,
         profile.progreso_agendacuartopaso,
     ]
-    
+
     progresos_p5 = [
         profile.progreso_imagenquintopaso,
         profile.progreso_tableroquintopaso,
         profile.progreso_infografiaquintopaso,
     ]
-    
+
     progresos_p6 = [
         profile.progreso_tablerosextopaso,
     ]
-    
+
     progresos_p7 = [
         profile.progreso_fraseseptimopaso,
         profile.progreso_imagenseptimopaso,
@@ -285,7 +307,7 @@ def perfil(request):
         profile.progreso_infografiaseptimopaso,
         profile.progreso_formato2septimopaso,
     ]
-    
+
     # Calcular los porcentajes usando la función
     porcentaje_total_p1 = calcular_porcentaje(progresos_p1)
     porcentaje_total_p2 = calcular_porcentaje(progresos_p2)
@@ -294,43 +316,60 @@ def perfil(request):
     porcentaje_total_p5 = calcular_porcentaje(progresos_p5)
     porcentaje_total_p6 = calcular_porcentaje(progresos_p6)
     porcentaje_total_p7 = calcular_porcentaje(progresos_p7)
-    
+
     context = {
-        'profile': profile,
-        'porcentaje_total_p1': porcentaje_total_p1,
-        'porcentaje_total_p2': porcentaje_total_p2,
-        'porcentaje_total_p3': porcentaje_total_p3,
-        'porcentaje_total_p4': porcentaje_total_p4,
-        'porcentaje_total_p5': porcentaje_total_p5,
-        'porcentaje_total_p6': porcentaje_total_p6,
-        'porcentaje_total_p7': porcentaje_total_p7,
-        'tiempo_en_plataforma': tiempo_en_plataforma,
-        
+        "profile": profile,
+        "porcentaje_total_p1": porcentaje_total_p1,
+        "porcentaje_total_p2": porcentaje_total_p2,
+        "porcentaje_total_p3": porcentaje_total_p3,
+        "porcentaje_total_p4": porcentaje_total_p4,
+        "porcentaje_total_p5": porcentaje_total_p5,
+        "porcentaje_total_p6": porcentaje_total_p6,
+        "porcentaje_total_p7": porcentaje_total_p7,
+        "tiempo_en_plataforma": tiempo_en_plataforma,
     }
-    
-    return render(request, 'perfil.html', context,)
+
+    return render(
+        request,
+        "perfil.html",
+        context,
+    )
 
 
 @login_required
 def generar_constancia_pdf(request):
     usuario = request.user
-    perfil = getattr(usuario, 'profile', None)
+    perfil = getattr(usuario, "profile", None)
 
     # Obtener el nombre del usuario
-    nombre_completo = f"{perfil.nombres} {perfil.apellido_paterno} {perfil.apellido_materno}" if perfil else usuario.get_full_name() or usuario.username
+    nombre_completo = (
+        f"{perfil.nombres} {perfil.apellido_paterno} {perfil.apellido_materno}"
+        if perfil
+        else usuario.get_full_name() or usuario.username
+    )
 
     # Definir la carpeta de almacenamiento
     carpeta_bachillerato = (
-        os.path.join(perfil.municipio or "Desconocido", perfil.bachillerato or "Sin_Bachillerato")
-        if perfil and perfil.procedencia == 'si'
-        else os.path.join(perfil.estado or "Desconocido", perfil.institucion or "Sin_Institucion")
-        if perfil and perfil.procedencia == 'no'
-        else os.path.join("Otras", perfil.otro_bachillerato)
-        if perfil and perfil.otro_bachillerato
-        else "Otras"
+        os.path.join(
+            perfil.municipio or "Desconocido", perfil.bachillerato or "Sin_Bachillerato"
+        )
+        if perfil and perfil.procedencia == "si"
+        else (
+            os.path.join(
+                perfil.estado or "Desconocido", perfil.institucion or "Sin_Institucion"
+            )
+            if perfil and perfil.procedencia == "no"
+            else (
+                os.path.join("Otras", perfil.otro_bachillerato)
+                if perfil and perfil.otro_bachillerato
+                else "Otras"
+            )
+        )
     ).replace(" ", "_")
 
-    ruta_bachillerato = os.path.join(settings.MEDIA_ROOT, "constancias", carpeta_bachillerato)
+    ruta_bachillerato = os.path.join(
+        settings.MEDIA_ROOT, "constancias", carpeta_bachillerato
+    )
     os.makedirs(ruta_bachillerato, exist_ok=True)
 
     # Nombre del archivo PDF
@@ -339,19 +378,33 @@ def generar_constancia_pdf(request):
 
     # Crear el PDF
     p = canvas.Canvas(ruta_pdf, pagesize=(960, 720))
-    imagen_path = finders.find("images/constancia.png")
-    if not imagen_path:
-        
-        return HttpResponse("No se encontró la imagen de la constancia", status=404)
-    
-    p.drawImage(imagen_path, 0, 0, width=960, height=720)
+    # imagen_path = finders.find("images/constancia.png")
+    # if not imagen_path:
+    #
+    #     return HttpResponse("No se encontró la imagen de la constancia", status=404)
+
+    p.drawImage("./users/static/images/Constancia.png", 0, 0, width=960, height=720)
 
     # Obtener el resultado del test
-    test_result = TestResult.objects.filter(user=usuario).order_by("-date_taken").first()
-    resultado = CATEGORY_DESCRIPTIONS.get(test_result.category, "Categoría desconocida") if test_result else "No disponible"
+    test_result = (
+        TestResult.objects.filter(user=usuario).order_by("-date_taken").first()
+    )
+    resultado = (
+        CATEGORY_DESCRIPTIONS.get(test_result.category, "Categoría desconocida")
+        if test_result
+        else "No disponible"
+    )
 
     # Ajustar posición del texto según el resultado
-    posiciones_x = {"rojo": 400, "morado": 325, "azul": 325, "verde": 380, "amarillo": 260, "gris": 325, "menta": 380}
+    posiciones_x = {
+        "rojo": 400,
+        "morado": 325,
+        "azul": 325,
+        "verde": 380,
+        "amarillo": 260,
+        "gris": 325,
+        "menta": 380,
+    }
     resultado_x = posiciones_x.get(test_result.category, 315)
 
     # Dibujar textos en el PDF
@@ -366,7 +419,7 @@ def generar_constancia_pdf(request):
     constancia, created = Constancia.objects.update_or_create(
         user=usuario,
         bachillerato=perfil.bachillerato if perfil else "Otras",
-        defaults={"archivo": f"constancias/{carpeta_bachillerato}/{nombre_pdf}"}
+        defaults={"archivo": f"constancias/{carpeta_bachillerato}/{nombre_pdf}"},
     )
 
     # Solo enviar el correo si la constancia aún no ha sido enviada
@@ -375,11 +428,12 @@ def generar_constancia_pdf(request):
         constancia.enviado = True
         constancia.save()
 
-    return FileResponse(open(ruta_pdf, 'rb'), content_type='application/pdf')
+    return FileResponse(open(ruta_pdf, "rb"), content_type="application/pdf")
+
 
 def enviar_constancia_por_correo(usuario, ruta_pdf):
-    """ Envía la constancia al correo del usuario y del tutor si está registrado. """
-    perfil = getattr(usuario, 'profile', None)
+    """Envía la constancia al correo del usuario y del tutor si está registrado."""
+    perfil = getattr(usuario, "profile", None)
 
     # Obtener los correos de usuario y tutor
     destinatarios = [usuario.username]
@@ -412,6 +466,7 @@ def enviar_constancia_por_correo(usuario, ruta_pdf):
 
     email.send()
 
+
 @login_required
 def agregar_meta(request):
     if request.method == "POST":
@@ -420,30 +475,41 @@ def agregar_meta(request):
         fecha_objetivo_str = data.get("fecha")  # Esta es una cadena
 
         if not descripcion or not fecha_objetivo_str:
-            return JsonResponse({"status": "error", "message": "Todos los campos son obligatorios"}, status=400)
+            return JsonResponse(
+                {"status": "error", "message": "Todos los campos son obligatorios"},
+                status=400,
+            )
 
         try:
-            fecha_objetivo = datetime.strptime(fecha_objetivo_str, "%Y-%m-%d").date()  # 👈 Convertir string a date
+            fecha_objetivo = datetime.strptime(
+                fecha_objetivo_str, "%Y-%m-%d"
+            ).date()  # 👈 Convertir string a date
         except ValueError:
-            return JsonResponse({"status": "error", "message": "Formato de fecha inválido"}, status=400)
+            return JsonResponse(
+                {"status": "error", "message": "Formato de fecha inválido"}, status=400
+            )
 
         nueva_meta = Meta.objects.create(
-            user=request.user,
-            descripcion=descripcion,
-            fecha_objetivo=fecha_objetivo
+            user=request.user, descripcion=descripcion, fecha_objetivo=fecha_objetivo
         )
 
-        return JsonResponse({
-            "status": "success",
-            "meta": {
-                "id": nueva_meta.id,
-                "descripcion": nueva_meta.descripcion,
-                "fecha": nueva_meta.fecha_objetivo.strftime("%d-%m-%Y"),  # Ahora sí es un date
-                "completada": nueva_meta.completada
+        return JsonResponse(
+            {
+                "status": "success",
+                "meta": {
+                    "id": nueva_meta.id,
+                    "descripcion": nueva_meta.descripcion,
+                    "fecha": nueva_meta.fecha_objetivo.strftime(
+                        "%d-%m-%Y"
+                    ),  # Ahora sí es un date
+                    "completada": nueva_meta.completada,
+                },
             }
-        })
-    
-    return JsonResponse({"status": "error", "message": "Método no permitido"}, status=400)
+        )
+
+    return JsonResponse(
+        {"status": "error", "message": "Método no permitido"}, status=400
+    )
 
 
 @login_required
@@ -454,9 +520,10 @@ def obtener_metas(request):
             "id": meta.id,
             "descripcion": meta.descripcion,
             "fecha": meta.fecha_objetivo.strftime("%d-%m-%Y"),
-            "completada": meta.completada
+            "completada": meta.completada,
         }
         for meta in metas
     ]
 
     return JsonResponse({"status": "success", "metas": metas_list})
+
