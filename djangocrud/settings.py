@@ -42,8 +42,7 @@ ALLOWED_HOSTS = [
     'tucarrera.jekuari.mx',
     '165.140.156.195',
     'site16886-6pfy9d.scloudsite101.com',
-    'tucarreraqro.duckdns.org',
-    'https://tucarreraqro.duckdns.org/'
+    'tucarreraqro.duckdns.org'
 ]
 
 # Application definition
