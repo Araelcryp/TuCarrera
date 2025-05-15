@@ -7,7 +7,7 @@ services:
       dockerfile: dockerfile
     container_name: tucarrera
     ports:
-      - 9574:8000
+      - 3401:8000
     restart: always
     volumes:
       - sqlite-container:/app/db
