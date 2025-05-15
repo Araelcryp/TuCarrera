@@ -28,15 +28,15 @@ environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
 SECRET_KEY = 'django-insecure-qt@fc2b$5cb^_zh(d-^oicdrp$$4%lx$a$3(cg+jx-pq-i_mvf'
 
 CORS_ALLOWED_ORIGINS = [
-    "https://tucarrera.jekuari.mx", "https://site70912-gq8xbs.scloudsite101.com"
+    "https://tucarrera.jekuari.mx", "https://site16886-6pfy9d.scloudsite101.com"
 ]
 
-CSRF_TRUSTED_ORIGINS = ['https://tucarrera.jekuari.mx', 'https://site70912-gq8xbs.scloudsite101.com','https://https://tucarreraqro.duckdns.org']
+CSRF_TRUSTED_ORIGINS = ['https://tucarrera.jekuari.mx', 'https://site16886-6pfy9d.scloudsite101.com']
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'tucarrera.jekuari.mx', 'https://tucarrera.jekuari.mx','https://site70912-gq8xbs.scloudsite101.com', 'https://site70912-gq8xbs.scloudsite101.com:3401' 'site70912-gq8xbs.scloudsite101.com', 'site70912-gq8xbs.scloudsite101.com:3401','tucarreraqro.duckdns.org', 'tucarreraqro.duckdns.org:3401']
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'tucarrera.jekuari.mx', 'https://tucarrera.jekuari.mx', '165.140.156.195', 'http://site16886-6pfy9d.scloudsite101.com', 'https://site16886-6pfy9d.scloudsite101.com:3401' 'site16886-6pfy9d.scloudsite101.com', 'site16886-6pfy9d.scloudsite101.com:3401',]
 
 
 # Application definition
