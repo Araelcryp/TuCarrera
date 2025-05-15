@@ -20,9 +20,9 @@ jobs:
     - name: Deploy to VPS with Docker Compose
       uses: alex-ac/github-action-ssh-docker-compose@master
       with:
-        ssh_host: ${{ secrets.VPS_HOST }}
+        ssh_host: ${{ secrets.SSH_HOST }}
         ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
-        ssh_user: ${{ secrets.VPS_USERNAME }}
+        ssh_user: ${{ secrets.SSH_USER }}
         ssh_port: ${{ secrets.VPS_PORT || 22 }}
         docker_compose_prefix: tucarrera
         docker_compose_filename: docker-compose.yml
