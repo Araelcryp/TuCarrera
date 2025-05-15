@@ -1,29 +1,28 @@
-name: Docker CI/CD
+name: Deploy TuCarrera App (Docker Compose)
 
 on:
   push:
-    branches: [ "main" ] # Cambia "main" por tu rama principal si es diferente
+    branches: [ main ]
 
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v3
+    - name: Checkout code
+      uses: actions/checkout@v4
 
-    - name: Build the Docker image
-      run: docker build -t tucarrera-app-image .
+    - name: Setup SSH
+      uses: webfactory/ssh-agent@v0.7.0
+      with:
+        ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
 
-    - name: Log in to Docker Hub (opcional)
-      # Si quieres subir la imagen a Docker Hub, configura las credenciales como secretos
-      # uses: docker/login-action@v2
-      # with:
-      #   username: ${{ secrets.DOCKERHUB_USERNAME }}
-      #   password: ${{ secrets.DOCKERHUB_TOKEN }}
-
-    - name: Push the Docker image to Docker Hub (opcional)
-      # Si iniciaste sesión en Docker Hub, puedes subir la imagen
-      # run: docker push ${{ secrets.DOCKERHUB_USERNAME }}/tucarrera-app-image:latest
-
-    - name: Deployment to VPS (Próximo paso)
-      run: echo "Simulando despliegue a VPS en el siguiente paso..."
+    - name: Deploy to VPS with Docker Compose
+      uses: alex-ac/github-action-ssh-docker-compose@master
+      with:
+        ssh_host: ${{ secrets.VPS_HOST }}
+        ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
+        ssh_user: ${{ secrets.VPS_USERNAME }}
+        ssh_port: ${{ secrets.VPS_PORT || 22 }}
+        docker_compose_prefix: tucarrera
+        docker_compose_filename: docker-compose.yml
