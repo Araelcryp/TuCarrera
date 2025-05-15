@@ -11,7 +11,7 @@ services:
     volumes:
       - sqlite-container:/app/db
       - constancias:/app/media/constancias
-    # command: sh -c "python manage.py migrate && python manage.py runserver 0.0.0.0:8000" # Elimina o comenta esta línea
+    ## command: sh -c "python manage.py migrate && python manage.py runserver 0.0.0.0:8000" # Elimina o comenta esta línea
 
 volumes:
   sqlite-container:
