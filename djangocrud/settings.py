@@ -36,7 +36,7 @@ CSRF_TRUSTED_ORIGINS = ['https://tucarrera.jekuari.mx', 'https://site16886-6pfy9
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'tucarrera.jekuari.mx', 'https://tucarrera.jekuari.mx', '165.140.156.195', '165.140.156.195:3401', 'http://site16886-6pfy9d.scloudsite101.com', 'https://site16886-6pfy9d.scloudsite101.com:3401' 'site16886-6pfy9d.scloudsite101.com', 'site16886-6pfy9d.scloudsite101.com:3401',]
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'tucarrera.jekuari.mx', 'https://tucarrera.jekuari.mx', '165.140.156.195', '165.140.156.195:3401', 'http://site16886-6pfy9d.scloudsite101.com', 'https://site16886-6pfy9d.scloudsite101.com:3401' 'site16886-6pfy9d.scloudsite101.com', 'site16886-6pfy9d.scloudsite101.com:3401', 'https://tucarreraqro.duckdns.org' 'tucarreraqro.duckdns.org']
 
 
 # Application definition
