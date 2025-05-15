@@ -7,12 +7,12 @@ services:
       dockerfile: dockerfile
     container_name: tucarrera
     ports:
-      - 3401:8000
+      - "3401:8000"
     restart: always
     volumes:
       - sqlite-container:/app/db
       - constancias:/app/media/constancias
-    command: sh -c "python manage.py migrate && python manage.py runserver 0.0.0.0:8000"
+    # command: sh -c "python manage.py migrate && python manage.py runserver 0.0.0.0:8000" # Elimina o comenta esta línea
 
 volumes:
   sqlite-container:
