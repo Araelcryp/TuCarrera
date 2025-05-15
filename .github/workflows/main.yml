@@ -23,6 +23,6 @@ jobs:
         ssh_host: ${{ secrets.SSH_HOST }}
         ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
         ssh_user: ${{ secrets.SSH_USER }}
-        ssh_port: ${{ secrets.VPS_PORT || 22 }}
+        ssh_port: ${{ secrets.SSH_PORT || 22 }}
         docker_compose_prefix: tucarrera
         docker_compose_filename: docker-compose.yml
