@@ -31,12 +31,12 @@ CORS_ALLOWED_ORIGINS = [
     "https://tucarrera.jekuari.mx", "https://site70912-gq8xbs.scloudsite101.com"
 ]
 
-CSRF_TRUSTED_ORIGINS = ['https://tucarrera.jekuari.mx', 'https://site70912-gq8xbs.scloudsite101.com']
+CSRF_TRUSTED_ORIGINS = ['https://tucarrera.jekuari.mx', 'https://site70912-gq8xbs.scloudsite101.com','https://https://tucarreraqro.duckdns.org']
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'tucarrera.jekuari.mx', 'https://tucarrera.jekuari.mx','https://site70912-gq8xbs.scloudsite101.com', 'https://site70912-gq8xbs.scloudsite101.com:3401' 'site70912-gq8xbs.scloudsite101.com', 'site70912-gq8xbs.scloudsite101.com:3401',]
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'tucarrera.jekuari.mx', 'https://tucarrera.jekuari.mx','https://site70912-gq8xbs.scloudsite101.com', 'https://site70912-gq8xbs.scloudsite101.com:3401' 'site70912-gq8xbs.scloudsite101.com', 'site70912-gq8xbs.scloudsite101.com:3401','tucarreraqro.duckdns.org', 'tucarreraqro.duckdns.org:3401']
 
 
 # Application definition

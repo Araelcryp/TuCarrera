@@ -5,7 +5,6 @@ services:
     build:
       context: ./
       dockerfile: dockerfile
-    container_name: tucarrera
     ports:
       - "3401:8000"
     restart: always
