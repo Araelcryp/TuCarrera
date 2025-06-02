@@ -35,6 +35,10 @@ import json
 from datetime import datetime
 from django.utils import timezone
 
+import csv
+from django.http import StreamingHttpResponse
+
+
 # Create your views here.
 
 # def validate_password_strength(password):
@@ -526,4 +530,74 @@ def obtener_metas(request):
     ]
 
     return JsonResponse({"status": "success", "metas": metas_list})
+
+
+
+
+# CSV Export
+def es_admin(user):
+    return user.is_active and user.is_superuser
+
+class EchoBuffer:
+    def write(self, value):
+        return value
+
+@user_passes_test(es_admin)
+def export_signups_csv(request):
+    """
+    Genera un CSV con todos los registros de Signup.
+    Solo se accede si el usuario es superuser.
+    """
+    pseudo_buffer = EchoBuffer()
+    writer = csv.writer(pseudo_buffer)
+
+    # 1) Fila de encabezados (ajusta los nombres a los de tu modelo)
+    headers = [
+        'username',           
+        'apellido_paterno',
+        'apellido_materno',
+        'nombres',
+        'fecha_nacimiento',
+        'curp',
+        'procedencia',
+        'estado',
+        'institucion',
+        'municipio',
+        'bachillerato',
+        'otro_bachillerato',
+        'matricula',
+        'telefono',
+        'email_tutor',
+    ]
+
+    def row_generator():
+        # Escribimos primero la fila de encabezados
+        yield writer.writerow(headers)
+        # Recorremos todos los Signup (usa .iterator() para no cargar todo en memoria)
+        for p in Profile.objects.select_related('user').iterator():
+            yield writer.writerow([
+                p.user.username,
+                p.apellido_paterno,
+                p.apellido_materno,
+                p.nombres,
+                p.fecha_nacimiento,
+                p.curp,
+                p.procedencia,
+                p.estado or '',
+                p.institucion or '',
+                p.municipio or '',
+                p.bachillerato or '',
+                p.otro_bachillerato or '',
+                p.matricula,
+                p.telefono,
+                p.email_tutor or '',
+            ])
+
+    response = StreamingHttpResponse(
+        row_generator(),
+        content_type='text/csv'
+    )
+    # Fuerza la descarga del archivo
+    response['Content-Disposition'] = 'attachment; filename="signups.csv"'
+    return response
 

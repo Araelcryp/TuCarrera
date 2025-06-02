@@ -43,6 +43,7 @@ urlpatterns = [
     
     path('signin/', views.signin, name='signin'),
     path('signup/', views.signup, name='signup'),
+    path('admin/export-signups/', views.export_signups_csv, name='export_signups_csv'),
     path('logout/', views.signout, name='logout'),
     path('update-profile/',views.update_profile, name='update_profile'),
     path('permission-denied/', views.permissiondenied, name='permission_denied'),
