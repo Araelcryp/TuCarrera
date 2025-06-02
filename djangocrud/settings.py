@@ -31,7 +31,7 @@ CORS_ALLOWED_ORIGINS = [
     "https://tucarrera.jekuari.mx", "https://site16886-6pfy9d.scloudsite101.com"
 ]
 
-CSRF_TRUSTED_ORIGINS = ['https://tucarrera.jekuari.mx', 'https://site16886-6pfy9d.scloudsite101.com']
+CSRF_TRUSTED_ORIGINS = ['https://tucarrera.jekuari.mx', 'https://site16886-6pfy9d.scloudsite101.com','https://tucarreraqro.duckdns.org']
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
